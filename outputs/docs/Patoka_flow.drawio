@@ -1,0 +1,213 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Patoka-Flows" id="PatokaFlowsDiagram">
+    <mxGraphModel dx="1619" dy="1899" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="src_wcsb" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Western Canada (WCSB)" vertex="1">
+          <mxGeometry height="40" width="160" x="40" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="src_bakken" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Bakken (ND)" vertex="1">
+          <mxGeometry height="40" width="120" x="240" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="src_cushing" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Cushing, OK Hub" vertex="1">
+          <mxGeometry height="40" width="140" x="400" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="src_illinois" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Illinois Basin (local)" vertex="1">
+          <mxGeometry height="40" width="140" x="580" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="src_rockies" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Rockies / DJ Basin" vertex="1">
+          <mxGeometry height="40" width="140" x="760" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="src_michigan" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Michigan / Antrim" vertex="1">
+          <mxGeometry height="40" width="140" x="940" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="in_keystone" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Keystone (TC)" vertex="1">
+          <mxGeometry height="40" width="110" x="20" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="in_mustang_ext" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Mustang Extension" vertex="1">
+          <mxGeometry height="40" width="130" x="140" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="in_dapl" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="DAPL / ETCOP" vertex="1">
+          <mxGeometry height="40" width="120" x="280" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="in_basin_east" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Basin (Cushing-Patoka)" vertex="1">
+          <mxGeometry height="40" width="160" x="410" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="in_local" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Illinois local gathering" vertex="1">
+          <mxGeometry height="40" width="150" x="580" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="in_pony_east" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Pony Express (eastern leg)" vertex="1">
+          <mxGeometry height="40" width="170" x="740" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="in_marathon_mich" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Marathon Michigan line" vertex="1">
+          <mxGeometry height="40" width="160" x="920" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="patoka" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontStyle=1;fontSize=14;" value="PATOKA, IL&#xa;(Tank Farms / Pipeline Junction)" vertex="1">
+          <mxGeometry height="70" width="280" x="470" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="out_capline" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Capline (reversed, → St. James)" vertex="1">
+          <mxGeometry height="40" width="200" x="20" y="490" as="geometry" />
+        </mxCell>
+        <mxCell id="out_woodriver" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="WoodPat / WR-Patoka line" vertex="1">
+          <mxGeometry height="40" width="170" x="240" y="490" as="geometry" />
+        </mxCell>
+        <mxCell id="out_marathon_robinson" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Marathon to Robinson, IL" vertex="1">
+          <mxGeometry height="40" width="170" x="430" y="490" as="geometry" />
+        </mxCell>
+        <mxCell id="out_ozark_rev" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Mid-Valley / Ozark" vertex="1">
+          <mxGeometry height="40" width="150" x="620" y="490" as="geometry" />
+        </mxCell>
+        <mxCell id="out_marathon_catlettsburg" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Mid-Valley to Catlettsburg, KY" vertex="1">
+          <mxGeometry height="40" width="190" x="790" y="490" as="geometry" />
+        </mxCell>
+        <mxCell id="out_centurion_east" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Centurion / Salem feeder" vertex="1">
+          <mxGeometry height="40" width="170" x="1000" y="490" as="geometry" />
+        </mxCell>
+        <mxCell id="dest_stjames" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="St. James, LA Hub" vertex="1">
+          <mxGeometry height="50" width="170" x="20" y="620" as="geometry" />
+        </mxCell>
+        <mxCell id="dest_woodriver_ref" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="Wood River Refinery (P66/CVR)" vertex="1">
+          <mxGeometry height="50" width="200" x="210" y="620" as="geometry" />
+        </mxCell>
+        <mxCell id="dest_robinson" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="Marathon Robinson, IL" vertex="1">
+          <mxGeometry height="50" width="170" x="430" y="620" as="geometry" />
+        </mxCell>
+        <mxCell id="dest_memphis" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="Valero Memphis" vertex="1">
+          <mxGeometry height="50" width="150" x="620" y="620" as="geometry" />
+        </mxCell>
+        <mxCell id="dest_catlettsburg" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="Marathon Catlettsburg, KY" vertex="1">
+          <mxGeometry height="50" width="190" x="790" y="620" as="geometry" />
+        </mxCell>
+        <mxCell id="dest_salem" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="Salem, IL terminal" vertex="1">
+          <mxGeometry height="50" width="170" x="1000" y="620" as="geometry" />
+        </mxCell>
+        <mxCell id="e_wcsb_key" edge="1" parent="1" source="src_wcsb" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.3;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="in_keystone">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_wcsb_mus" edge="1" parent="1" source="src_wcsb" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.7;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="in_mustang_ext">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_bak_dapl" edge="1" parent="1" source="src_bakken" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="in_dapl">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_cush_basin" edge="1" parent="1" source="src_cushing" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="in_basin_east">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_il_local" edge="1" parent="1" source="src_illinois" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="in_local">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_rock_pony" edge="1" parent="1" source="src_rockies" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="in_pony_east">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_mich_mar" edge="1" parent="1" source="src_michigan" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="in_marathon_mich">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_key_p" edge="1" parent="1" source="in_keystone" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.05;entryY=0;entryDx=0;entryDy=0;" target="patoka">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="75" y="310" />
+              <mxPoint x="484" y="310" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_mus_p" edge="1" parent="1" source="in_mustang_ext" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.2;entryY=0;entryDx=0;entryDy=0;" target="patoka">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="205" y="290" />
+              <mxPoint x="526" y="290" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_dapl_p" edge="1" parent="1" source="in_dapl" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.35;entryY=0;entryDx=0;entryDy=0;" target="patoka">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_bas_p" edge="1" parent="1" source="in_basin_east" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="patoka">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="490" y="260" />
+              <mxPoint x="610" y="260" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_loc_p" edge="1" parent="1" source="in_local" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.65;entryY=0;entryDx=0;entryDy=0;" target="patoka">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_pon_p" edge="1" parent="1" source="in_pony_east" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.8;entryY=0;entryDx=0;entryDy=0;" target="patoka">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_mar_p" edge="1" parent="1" source="in_marathon_mich" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.95;entryY=0;entryDx=0;entryDy=0;" target="patoka">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1000" y="290" />
+              <mxPoint x="736" y="290" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_p_cap" edge="1" parent="1" source="patoka" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.05;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="out_capline">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="484" y="420" />
+              <mxPoint x="120" y="420" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_p_wp" edge="1" parent="1" source="patoka" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.2;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="out_woodriver">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_p_rob" edge="1" parent="1" source="patoka" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.4;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="out_marathon_robinson">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="582" y="460" />
+              <mxPoint x="515" y="460" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_p_oz" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="out_ozark_rev">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="610" y="460" />
+              <mxPoint x="695" y="460" />
+            </Array>
+            <mxPoint x="610" y="410" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_p_cat" edge="1" parent="1" source="patoka" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.611;exitY=0.979;exitDx=0;exitDy=0;exitPerimeter=0;" target="out_marathon_catlettsburg">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="641" y="450" />
+              <mxPoint x="885" y="450" />
+            </Array>
+            <mxPoint x="640" y="450" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_p_cent" edge="1" parent="1" source="patoka" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.95;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="out_centurion_east">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="736" y="420" />
+              <mxPoint x="1085" y="420" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_cap_stj" edge="1" parent="1" source="out_capline" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="dest_stjames">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_wp_wr" edge="1" parent="1" source="out_woodriver" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="dest_woodriver_ref">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_rob_rob" edge="1" parent="1" source="out_marathon_robinson" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="dest_robinson">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_oz_mem" edge="1" parent="1" source="out_ozark_rev" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="dest_memphis">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_cat_cat" edge="1" parent="1" source="out_marathon_catlettsburg" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="dest_catlettsburg">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_cent_sal" edge="1" parent="1" source="out_centurion_east" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="dest_salem">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

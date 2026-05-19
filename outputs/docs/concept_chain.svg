@@ -1,0 +1,229 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1320 1090" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0,1 L9,5 L0,9 z" fill="#333"/>
+    </marker>
+    <marker id="arr-light" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,1 L9,5 L0,9 z" fill="#999"/>
+    </marker>
+  </defs>
+  <style>
+    .ttl       { font-size: 19px; font-weight: 700; fill: #111; }
+    .sub       { font-size: 12px; fill: #666; }
+    .stage     { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; }
+    .stage-d   { font-size: 11px; font-style: italic; }
+    .box-name  { font-family: ui-monospace, "SF Mono", Consolas, Menlo, monospace; font-size: 13px; font-weight: 600; fill: #111; }
+    .box-note  { font-size: 11px; fill: #555; }
+    .arr-lbl   { font-size: 11px; fill: #555; font-style: italic; }
+    .ex-h      { font-size: 12px; font-weight: 700; fill: #5a1d80; letter-spacing: 0.5px; }
+    .ex-text   { font-family: ui-monospace, "SF Mono", Consolas, Menlo, monospace; font-size: 11.5px; fill: #222; }
+    .ex-val    { font-family: ui-monospace, "SF Mono", Consolas, Menlo, monospace; font-size: 11.5px; fill: #1d4ea3; font-weight: 600; }
+    .ex-meta   { font-size: 10.5px; fill: #777; font-style: italic; }
+  </style>
+
+  <text x="660" y="34" class="ttl" text-anchor="middle">From a real refinery to a number on a screen</text>
+  <text x="660" y="52" class="sub" text-anchor="middle">how assets become nodes become variables become bound values, with one worked example</text>
+
+  <!-- ========================================== -->
+  <!-- LEFT: the conceptual funnel                  -->
+  <!-- ========================================== -->
+
+  <!-- WHAT EXISTS band -->
+  <rect x="30" y="80" width="700" height="220" rx="10" ry="10" fill="#fff5e6" stroke="#d99e3a" stroke-width="1.2"/>
+  <text x="50" y="104" class="stage" fill="#a06200">WHAT EXISTS</text>
+  <text x="50" y="120" class="stage-d" fill="#7a4a00">real things in the world — permanent identity</text>
+
+  <!-- locations -->
+  <rect x="170" y="140" width="180" height="56" rx="6" ry="6" fill="#fff" stroke="#d99e3a" stroke-width="1.5"/>
+  <text x="260" y="166" class="box-name" text-anchor="middle">locations</text>
+  <text x="260" y="184" class="box-note" text-anchor="middle">geography</text>
+
+  <!-- assets -->
+  <rect x="430" y="140" width="180" height="56" rx="6" ry="6" fill="#fff" stroke="#d99e3a" stroke-width="2"/>
+  <text x="520" y="166" class="box-name" text-anchor="middle">assets</text>
+  <text x="520" y="184" class="box-note" text-anchor="middle">identity + attrs</text>
+
+  <path d="M 350 168 L 430 168" fill="none" stroke="#333" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="390" y="161" class="arr-lbl" text-anchor="middle">where</text>
+
+  <text x="390" y="240" class="box-note" text-anchor="middle" font-style="italic" fill="#7a4a00">214 assets — refineries, basins, pipelines, terminals, hubs ...</text>
+  <text x="390" y="260" class="box-note" text-anchor="middle" font-style="italic" fill="#7a4a00">189 physical + 25 abstract aggregates</text>
+  <text x="390" y="285" class="box-note" text-anchor="middle" fill="#a06200">↓  the asset is "what" — it does not yet say in which graph or under what lens</text>
+
+  <!-- A TOPOLOGY band -->
+  <rect x="30" y="320" width="700" height="280" rx="10" ry="10" fill="#e6f0ff" stroke="#3a78d9" stroke-width="1.2"/>
+  <text x="50" y="344" class="stage" fill="#1d4ea3">A TOPOLOGY</text>
+  <text x="50" y="360" class="stage-d" fill="#143a7a">how things connect — adds graph + node_type</text>
+
+  <!-- graphs -->
+  <rect x="80" y="380" width="120" height="44" rx="5" ry="5" fill="#fff" stroke="#3a78d9" stroke-width="1.2"/>
+  <text x="140" y="406" class="box-name" text-anchor="middle">graphs</text>
+
+  <!-- node_types -->
+  <rect x="80" y="440" width="120" height="44" rx="5" ry="5" fill="#fff" stroke="#3a78d9" stroke-width="1.2"/>
+  <text x="140" y="466" class="box-name" text-anchor="middle">node_types</text>
+
+  <!-- nodes -->
+  <rect x="270" y="400" width="180" height="76" rx="6" ry="6" fill="#fff" stroke="#3a78d9" stroke-width="2.2"/>
+  <text x="360" y="425" class="box-name" text-anchor="middle">nodes</text>
+  <text x="360" y="442" class="box-note" text-anchor="middle">= asset placed</text>
+  <text x="360" y="458" class="box-note" text-anchor="middle">in a graph,</text>
+  <text x="360" y="471" class="box-note" text-anchor="middle">with a type</text>
+
+  <!-- variables -->
+  <rect x="510" y="400" width="200" height="76" rx="6" ry="6" fill="#fff" stroke="#3a78d9" stroke-width="2.2"/>
+  <text x="610" y="425" class="box-name" text-anchor="middle">variables</text>
+  <text x="610" y="442" class="box-note" text-anchor="middle">quantities on the node:</text>
+  <text x="610" y="458" class="box-note" text-anchor="middle">production, inventory,</text>
+  <text x="610" y="471" class="box-note" text-anchor="middle">outflow → other_node, ...</text>
+
+  <!-- assets → nodes (cross-band) -->
+  <path d="M 520 196 L 360 400" fill="none" stroke="#888" stroke-width="1.3" stroke-dasharray="4 3" marker-end="url(#arr-light)"/>
+  <text x="490" y="290" class="arr-lbl" font-style="italic" transform="rotate(-50 490 290)">asset_id</text>
+
+  <!-- graphs → nodes -->
+  <path d="M 200 402 L 270 425" fill="none" stroke="#333" stroke-width="1.3" marker-end="url(#arr)"/>
+  <text x="220" y="395" class="arr-lbl">graph_id</text>
+  <!-- node_types → nodes -->
+  <path d="M 200 460 L 270 460" fill="none" stroke="#333" stroke-width="1.3" marker-end="url(#arr)"/>
+  <text x="208" y="453" class="arr-lbl">type</text>
+
+  <!-- nodes → variables (carries) -->
+  <path d="M 450 438 L 510 438" fill="none" stroke="#333" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="480" y="430" class="arr-lbl" text-anchor="middle">carries</text>
+
+  <!-- variables → nodes (relational / edge) -->
+  <path d="M 540 476 C 480 530, 380 530, 360 476" fill="none" stroke="#333" stroke-width="1.2" stroke-dasharray="3 2" marker-end="url(#arr)"/>
+  <text x="450" y="555" class="arr-lbl" text-anchor="middle">related_node_id  (relational variable = directed edge)</text>
+
+  <text x="380" y="588" class="box-note" text-anchor="middle" fill="#143a7a">↓  the topology says "what is connected to what" but not "when" or "what number"</text>
+
+  <!-- A LENS band -->
+  <rect x="30" y="620" width="700" height="320" rx="10" ry="10" fill="#f4e8ff" stroke="#7c3aa6" stroke-width="1.2"/>
+  <text x="50" y="644" class="stage" fill="#5a1d80">A LENS</text>
+  <text x="50" y="660" class="stage-d" fill="#3d0e5a">a temporal + observational view — adds time and bindings</text>
+
+  <!-- scenarios -->
+  <rect x="80" y="700" width="160" height="76" rx="6" ry="6" fill="#fff" stroke="#7c3aa6" stroke-width="2.2"/>
+  <text x="160" y="725" class="box-name" text-anchor="middle">scenarios</text>
+  <text x="160" y="743" class="box-note" text-anchor="middle">graph_id +</text>
+  <text x="160" y="758" class="box-note" text-anchor="middle">date range +</text>
+  <text x="160" y="772" class="box-note" text-anchor="middle">frequency</text>
+
+  <!-- timeseries -->
+  <rect x="80" y="830" width="160" height="60" rx="6" ry="6" fill="#fff" stroke="#3aa653" stroke-width="1.5"/>
+  <text x="160" y="854" class="box-name" text-anchor="middle">timeseries</text>
+  <text x="160" y="872" class="box-note" text-anchor="middle">+ timeseries_data</text>
+
+  <!-- variable_assignments -->
+  <rect x="320" y="730" width="380" height="120" rx="6" ry="6" fill="#fff" stroke="#7c3aa6" stroke-width="2.2"/>
+  <text x="510" y="756" class="box-name" text-anchor="middle">variable_assignments</text>
+  <text x="510" y="776" class="box-note" text-anchor="middle">per-scenario binding for each variable</text>
+  <text x="510" y="794" class="box-note" text-anchor="middle">kind: timeseries  |  formula  |  zero</text>
+  <text x="510" y="816" class="box-note" text-anchor="middle" font-style="italic">(formula_inputs[] makes hierarchy fall out of variables —</text>
+  <text x="510" y="832" class="box-note" text-anchor="middle" font-style="italic">no separate parent/child table)</text>
+
+  <!-- variables (L2) → variable_assignments -->
+  <path d="M 610 476 C 610 600, 510 700, 500 730" fill="none" stroke="#888" stroke-width="1.3" stroke-dasharray="4 3" marker-end="url(#arr-light)"/>
+  <text x="640" y="600" class="arr-lbl" font-style="italic">variable_id</text>
+
+  <!-- scenarios → variable_assignments -->
+  <path d="M 240 760 L 320 760" fill="none" stroke="#333" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="280" y="753" class="arr-lbl" text-anchor="middle">scenario_id</text>
+
+  <!-- timeseries → variable_assignments -->
+  <path d="M 240 850 L 320 815" fill="none" stroke="#333" stroke-width="1.3" marker-end="url(#arr)"/>
+  <text x="285" y="845" class="arr-lbl">when TS-bound</text>
+
+  <text x="380" y="908" class="box-note" text-anchor="middle" fill="#3d0e5a">re-scope the same graph → same nodes &amp; variables now bind to a different number</text>
+
+  <!-- ========================================== -->
+  <!-- RIGHT: the worked example                   -->
+  <!-- ========================================== -->
+  <rect x="760" y="80" width="540" height="860" rx="10" ry="10" fill="#fafafa" stroke="#bbb" stroke-width="1"/>
+  <text x="780" y="106" class="ex-h">WORKED EXAMPLE</text>
+  <text x="780" y="124" class="ex-meta">how a single fact flows from reality to a value</text>
+
+  <rect x="780" y="140" width="500" height="44" rx="6" ry="6" fill="#fffae0" stroke="#d99e3a" stroke-width="1.2"/>
+  <text x="1030" y="158" class="ex-text" text-anchor="middle" font-style="italic">"The Permian basin produced 6.4 mb/d in March 2024."</text>
+  <text x="1030" y="174" class="ex-meta" text-anchor="middle">— a real-world fact</text>
+
+  <!-- arrows down the example -->
+  <text x="800" y="218" class="ex-h" fill="#a06200">1.  locations</text>
+  <text x="800" y="236" class="ex-text">centroid: <tspan class="ex-val">(31.7°N, -102.0°W)</tspan></text>
+  <text x="800" y="252" class="ex-text">label:    <tspan class="ex-val">Permian Basin</tspan></text>
+
+  <line x1="800" y1="266" x2="1280" y2="266" stroke="#ddd" stroke-width="1"/>
+
+  <text x="800" y="288" class="ex-h" fill="#a06200">2.  assets</text>
+  <text x="800" y="306" class="ex-text">asset_id: <tspan class="ex-val">"permian"</tspan></text>
+  <text x="800" y="322" class="ex-text">kind:     <tspan class="ex-val">abstract</tspan>  (basin aggregate)</text>
+  <text x="800" y="338" class="ex-text">attrs:    <tspan class="ex-val">{ resolution_hierarchy: { children: [permian_tx, permian_nm] } }</tspan></text>
+
+  <line x1="800" y1="352" x2="1280" y2="352" stroke="#ddd" stroke-width="1"/>
+
+  <text x="800" y="374" class="ex-h" fill="#1d4ea3">3.  graphs  +  node_types  →  nodes</text>
+  <text x="800" y="392" class="ex-text">graph_id:  <tspan class="ex-val">"us_crude_starter"</tspan></text>
+  <text x="800" y="408" class="ex-text">node_id:   <tspan class="ex-val">"permian"</tspan>  (asset_id repeated as node_id)</text>
+  <text x="800" y="424" class="ex-text">node_type: <tspan class="ex-val">"basin_aggregate"</tspan></text>
+
+  <line x1="800" y1="438" x2="1280" y2="438" stroke="#ddd" stroke-width="1"/>
+
+  <text x="800" y="460" class="ex-h" fill="#1d4ea3">4.  variables</text>
+  <text x="800" y="478" class="ex-text">variable_id:   <tspan class="ex-val">"permian.production.crude"</tspan></text>
+  <text x="800" y="494" class="ex-text">variable_type: <tspan class="ex-val">production</tspan></text>
+  <text x="800" y="510" class="ex-text">commodity:     <tspan class="ex-val">crude</tspan></text>
+  <text x="800" y="526" class="ex-meta">(the slot exists, but does not yet hold a value)</text>
+
+  <line x1="800" y1="540" x2="1280" y2="540" stroke="#ddd" stroke-width="1"/>
+
+  <text x="800" y="562" class="ex-h" fill="#5a1d80">5.  scenarios</text>
+  <text x="800" y="580" class="ex-text">scenario_id: <tspan class="ex-val">"starter_us_crude_2015_2025"</tspan></text>
+  <text x="800" y="596" class="ex-text">range:       <tspan class="ex-val">2015-01 → 2025-12,  monthly</tspan></text>
+
+  <line x1="800" y1="610" x2="1280" y2="610" stroke="#ddd" stroke-width="1"/>
+
+  <text x="800" y="632" class="ex-h" fill="#5a1d80">6.  variable_assignments</text>
+  <text x="800" y="650" class="ex-text">scenario_id  + variable_id + effective_from</text>
+  <text x="800" y="666" class="ex-text">kind: <tspan class="ex-val">timeseries</tspan></text>
+  <text x="800" y="682" class="ex-text">timeseries_id: <tspan class="ex-val">"eia.steo.COPRPM_permian"</tspan></text>
+
+  <line x1="800" y1="696" x2="1280" y2="696" stroke="#ddd" stroke-width="1"/>
+
+  <text x="800" y="718" class="ex-h" fill="#1f6b32">7.  timeseries_data</text>
+  <text x="800" y="736" class="ex-text">period_start = <tspan class="ex-val">2024-03-01</tspan>     value = <tspan class="ex-val">6.40</tspan>  (mb/d)</text>
+
+  <!-- final box -->
+  <rect x="780" y="770" width="500" height="62" rx="6" ry="6" fill="#e6ffe6" stroke="#3aa653" stroke-width="1.5"/>
+  <text x="1030" y="794" class="ex-text" text-anchor="middle" font-weight="700">permian.production.crude  @ 2024-03  =  6.40</text>
+  <text x="1030" y="812" class="ex-meta" text-anchor="middle">resolved by walking: assignment → timeseries → timeseries_data</text>
+
+  <!-- the kicker -->
+  <rect x="780" y="848" width="500" height="80" rx="6" ry="6" fill="#fff" stroke="#7c3aa6" stroke-width="1.2" stroke-dasharray="4 3"/>
+  <text x="800" y="868" class="ex-h" fill="#5a1d80">RESCOPE</text>
+  <text x="800" y="886" class="ex-text">Add a second scenario where <tspan class="ex-val">permian_tx</tspan>  +  <tspan class="ex-val">permian_nm</tspan></text>
+  <text x="800" y="902" class="ex-text">are TS-bound; <tspan class="ex-val">permian</tspan> flips to <tspan class="ex-val">formula = sum_over_children</tspan>.</text>
+  <text x="800" y="920" class="ex-text">Same nodes, same variables — different rows in variable_assignments.</text>
+
+  <!-- ===================================================== -->
+  <!-- LEGEND                                                   -->
+  <!-- ===================================================== -->
+  <rect x="30" y="990" width="1260" height="80" rx="10" ry="10" fill="#fafafa" stroke="#bbb" stroke-width="1"/>
+  <text x="50" y="1010" font-size="11" font-weight="700" letter-spacing="1.2" fill="#444">LEGEND</text>
+
+  <rect x="50"  y="1023" width="14" height="14" fill="#fff5e6" stroke="#d99e3a"/>
+  <text x="70" y="1035" font-size="10.5" fill="#444">What exists (real-world identity)</text>
+  <rect x="290" y="1023" width="14" height="14" fill="#e6f0ff" stroke="#3a78d9"/>
+  <text x="310" y="1035" font-size="10.5" fill="#444">A topology (graph + variables, persistent)</text>
+  <rect x="600" y="1023" width="14" height="14" fill="#f4e8ff" stroke="#7c3aa6"/>
+  <text x="620" y="1035" font-size="10.5" fill="#444">A lens (per-scenario binding)</text>
+  <rect x="900" y="1023" width="14" height="14" fill="#e6ffe6" stroke="#3aa653"/>
+  <text x="920" y="1035" font-size="10.5" fill="#444">Resolved value (from time series)</text>
+
+  <line x1="50" y1="1056" x2="92" y2="1056" stroke="#333" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="100" y="1060" font-size="10.5" fill="#444">Within-stage relation</text>
+  <line x1="270" y1="1056" x2="312" y2="1056" stroke="#888" stroke-width="1.3" stroke-dasharray="4 3" marker-end="url(#arr-light)"/>
+  <text x="320" y="1060" font-size="10.5" fill="#444">Cross-stage reference (asset_id, variable_id, timeseries_id)</text>
+  <text x="700" y="1060" font-size="10.5" fill="#444" font-style="italic">Right side: worked Permian-production example traced through the chain.</text>
+
+</svg>

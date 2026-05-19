@@ -1,0 +1,114 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Page-1" id="U61XK9WwKNstxw_4i_5P">
+    <mxGraphModel dx="878" dy="994" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="n-graph" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF2CC;verticalAlign=top;spacingTop=6;align=center;" value="&lt;b&gt;Graph&lt;/b&gt;&lt;hr&gt;&lt;div&gt;graph_id (PK)&lt;/div&gt;&lt;div&gt;name&lt;/div&gt;&lt;div&gt;&lt;i&gt;one per topology view&lt;/i&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="120" width="200" x="120" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="n-asset" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#CCFFFF;verticalAlign=top;spacingTop=6;align=center;" value="&lt;b&gt;Asset&lt;/b&gt;&lt;hr&gt;&lt;div&gt;asset_id (PK)&lt;/div&gt;&lt;div&gt;kind (physical|abstract)&lt;/div&gt;&lt;div&gt;name, location_id (FK)&lt;/div&gt;" vertex="1">
+          <mxGeometry height="120" width="200" x="400" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="n-node" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF2CC;verticalAlign=top;spacingTop=6;align=center;" value="&lt;b&gt;Node&lt;/b&gt;&lt;hr&gt;&lt;div&gt;node_id (PK)&lt;/div&gt;&lt;div&gt;graph_id (FK)&lt;/div&gt;&lt;div&gt;asset_id (FK)&lt;/div&gt;&lt;div&gt;&lt;i&gt;UNIQUE (graph_id, asset_id)&lt;/i&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="120" width="200" x="120" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="n-var" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#CCFFCC;verticalAlign=top;spacingTop=6;align=center;" value="&lt;b&gt;Variable&lt;/b&gt;&lt;hr&gt;&lt;div&gt;variable_id (PK)&lt;/div&gt;&lt;div&gt;node_id (FK)&lt;/div&gt;&lt;div&gt;related_node_id (FK, nullable)&lt;/div&gt;&lt;div&gt;variable_type, commodity&lt;/div&gt;&lt;div&gt;&lt;i&gt;related_node_id set iff in/outflow&lt;/i&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="120" width="200" x="400" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="n-scenario" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#CCFFFF;verticalAlign=top;spacingTop=6;align=center;" value="&lt;b&gt;Scenario&lt;/b&gt;&lt;hr&gt;&lt;div&gt;scenario_id (PK)&lt;/div&gt;&lt;div&gt;graph_id (FK)&lt;/div&gt;&lt;div&gt;time_range, frequency&lt;/div&gt;" vertex="1">
+          <mxGeometry height="160" width="200" x="120" y="560" as="geometry" />
+        </mxCell>
+        <mxCell id="n-bind" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#CCFFFF;verticalAlign=top;spacingTop=6;align=center;" value="&lt;b&gt;Variable assignment&lt;/b&gt;&lt;hr&gt;&lt;div&gt;PK (scenario_id, variable_id, effective_from)&lt;/div&gt;&lt;div&gt;timeseries_id | formula | formula_inputs[]&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;i&gt;CHECK num_nonnulls(ts, formula)=1&lt;/i&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="160" width="240" x="400" y="560" as="geometry" />
+        </mxCell>
+        <mxCell id="n-trig" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;dashed=1;dashPattern=2 3;fontStyle=2;verticalAlign=top;spacingTop=6;align=center;" value="&lt;b&gt;Same-graph triggers&lt;/b&gt;&lt;hr&gt;&lt;div&gt;variables_check_same_graph&lt;/div&gt;&lt;div&gt;variable_assignments_check_graph&lt;/div&gt;&lt;div&gt;assignment.scenario.graph = variable.node.graph&lt;/div&gt;" vertex="1">
+          <mxGeometry height="120" width="200" x="680" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="e-graph-node" edge="1" parent="1" source="n-graph" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=ERmany;startArrow=ERone;exitX=0.25;exitY=1;entryX=0.25;entryY=0;exitDx=0;exitDy=0;" target="n-node">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-graph-node-l" connectable="0" parent="e-graph-node" style="edgeLabel;html=1;resizable=0;points=[];" value="1 → N" vertex="1">
+          <mxGeometry relative="1" x="-0.2" as="geometry">
+            <mxPoint x="-10" y="-2" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e-asset-node" edge="1" parent="1" source="n-asset" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=ERmany;startArrow=ERone;exitX=0.5;exitY=1;entryX=0.75;entryY=0;" target="n-node">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-asset-node-l" connectable="0" parent="e-asset-node" style="edgeLabel;html=1;resizable=0;points=[];" value="1 → N" vertex="1">
+          <mxGeometry relative="1" x="0.2" as="geometry">
+            <mxPoint x="-4" y="-30" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e-node-var" edge="1" parent="1" source="n-node" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=ERmany;startArrow=ERone;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="n-var">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-node-var-l" connectable="0" parent="e-node-var" style="edgeLabel;html=1;resizable=0;points=[];" value="1 → N" vertex="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-20" y="-20" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e-var-relnode" edge="1" parent="1" source="n-var" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;dashed=1;endArrow=ERmany;startArrow=ERzeroToOne;exitX=0.21;exitY=1.005;entryX=0.25;entryY=1;entryDx=0;entryDy=0;exitDx=0;exitDy=0;exitPerimeter=0;" target="n-node">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="440" y="441" />
+              <mxPoint x="440" y="480" />
+              <mxPoint x="170" y="480" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e-var-relnode-l" connectable="0" parent="e-var-relnode" style="edgeLabel;html=1;resizable=0;points=[];" value="related_node_id (in/outflow edge)" vertex="1">
+          <mxGeometry relative="1" x="0.3" as="geometry">
+            <mxPoint x="-33" y="-20" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e-graph-scen" edge="1" parent="1" source="n-graph" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=ERmany;startArrow=ERone;exitX=0;exitY=0.5;entryX=0;entryY=0.5;" target="n-scenario">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="120" y="160" />
+              <mxPoint x="70" y="160" />
+              <mxPoint x="70" y="640" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e-graph-scen-l" connectable="0" parent="e-graph-scen" style="edgeLabel;html=1;resizable=0;points=[];" value="1 → N" vertex="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-20" y="90" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e-scen-bind" edge="1" parent="1" source="n-scenario" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=ERmany;startArrow=ERone;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" target="n-bind">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-scen-bind-l" connectable="0" parent="e-scen-bind" style="edgeLabel;html=1;resizable=0;points=[];" value="1 → N" vertex="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-20" y="15" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e-var-bind" edge="1" parent="1" source="n-var" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=ERmany;startArrow=ERone;exitX=0.602;exitY=1.032;entryX=0.5;entryY=0;exitDx=0;exitDy=0;exitPerimeter=0;" target="n-bind">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-var-bind-l" connectable="0" parent="e-var-bind" style="edgeLabel;html=1;resizable=0;points=[];" value="1 → N per effective_from" vertex="1">
+          <mxGeometry relative="1" y="6" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e-trig1" edge="1" parent="1" source="n-trig" style="endArrow=none;dashed=1;dashPattern=2 3;html=1;rounded=0;opacity=50;exitX=0;exitY=0.5;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="n-var">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e-trig2" edge="1" parent="1" source="n-trig" style="endArrow=none;dashed=1;dashPattern=2 3;html=1;rounded=0;opacity=50;exitX=0.5;exitY=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="n-bind">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="780" y="640" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="tt_XO6DlBrI0ljKFsI49-2" parent="1" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;Oil Logistics Network Data Model&amp;nbsp;&lt;/h1&gt;" vertex="1">
+          <mxGeometry height="120" width="570" x="240" y="40" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
