@@ -133,23 +133,23 @@ These are my (Pedro's) preferences that you should respect throughout:
 
 ### 4.1 Thesis documents
 
-**Main document:** `thesis/Master_Thesis_Pedro_Porfirio_v5_graph_framework.docx`
+**Main document:** `outputs/docs/Master_Thesis_Pedro_Porfirio_v45.docx` (+ matching `.pdf`).
 
-The v5 draft of the graph-only thesis, 17,295 words, seven chapters:
+The v45 draft, with Chapters 1–7 fully written and the LP/case-study/conclusion chapters following:
 
-- **Chapters 1–4:** fully drafted in prose. The core methodological content.
-  - Chapter 1: Introduction, problem statement, research question, scope
-  - Chapter 2: Literature review, refocused toward representational gaps
-  - Chapter 3: The asset-centric graph schema (nodes, edges, mass balance, formula-implies-edge)
-  - Chapter 4: Scenario assembly and consistency invariants (the core contribution — promoted from Annex B.7–B.12 into main body)
-- **Chapters 5–7:** structured skeletons with `[To be completed]` markers. Need empirical work (Chapter 5: validation experiments; Chapter 6: US crude-oil case study; Chapter 7: discussion and future work).
+- **Chapter 1:** Introduction, problem statement, research question, scope.
+- **Chapter 2:** Literature review (petroleum supply-chain optimisation, graph data models for commodity logistics, energy-statistics conventions, the research gap).
+- **Chapter 3:** Domain background — the U.S. crude-oil network (physical layer, PADD structure, production geography, transport network, refining/consumption, what the framework must accommodate).
+- **Chapter 4:** Design principles — six axioms and six corollaries (asset-centric representation; stable topology via zero-flow edges; universal mass balance with balancing item; formula-implies-relation; persistent asset graph and scenario state; physical vs observational aggregation layer; geography metadata vs resolution hierarchy; observed/derived invariant; latent allocation at junctions; bidirectional flows as separate directed edges; LOCF carry-forward; node status as a rendering projection).
+- **Chapter 5:** Schema and graph construction (two-layer model, starter asset graph, physical/abstract/boundary nodes, variables, partition tree, scenarios and authoritative declarations, end-to-end pipeline).
+- **Chapter 6:** The resolver (output table, run flow, dispatch loop, fixed-point loop, bugs encountered and fixed, latent vs unresolved, layered view structure, persistence + audit trail, LOCF).
+- **Chapter 7:** Consistency guarantees (schema-level single attribution; partition closure; mass balance at every node; observed-vs-closure-derived B; cross-scenario consistency; operational consistency of the resolver; what the claims do not cover; axiom-to-enforcement mapping).
+- Chapters 8–10 cover the LP downstream consumer, the Permian-TX dispatch case study, and conclusion + future work.
 
-**Annexes** (separate documents):
+**Annexes** (separate documents in `outputs/docs/`):
 
-- `thesis/Annex_A_GNN_Primer_v2.docx` — GNN mechanics primer. Unchanged.
-- `thesis/Annex_B_Graph_Representations_v2.docx` — graph representation, zero-flow edges, mass balance, plus sections B.7–B.13 on scenario assembly, observational layer, geography metadata, resolution hierarchy, observed/derived invariant, coverage contracts, junction nodes. This material has since been promoted into Chapter 4 of v5; Annex B remains as the detailed technical reference.
-
-**Historical version worth keeping:** `thesis/Master_Thesis_Pedro_Porfirio_v16.docx` — the last version before the scope change. Useful reference; do not edit.
+- `Annex_A_GNN_Primer_v2.docx` (+ `.pdf`) — GNN mechanics primer. Reference material for the forecasting-future-work direction.
+- `Annex_B_Graph_Representations_v3.docx` — detailed technical reference on graph representation, zero-flow edges, and mass balance. Section content has been promoted into Chapter 4–7 of the main thesis; Annex B remains the long-form reference.
 
 ### 4.2 Asset graph
 
@@ -340,83 +340,89 @@ For small edits, directly use `str_replace` on the XML. Anchor replacements to u
 
 ---
 
-## 9. Files in this directory (post-fifteenth-pass layout)
+## 9. Files in this directory (Stage 2 layout)
 
 ```
-Thesis/
-├── clean/                              ← active project
-│   ├── claude/                         ← project memory (you are here)
-│   │   ├── CLAUDE.md                       (this file — read first)
-│   │   ├── HANDOVER.md                     (resume-here doc; pass-by-pass history)
-│   │   ├── PROJECT_STATE.md                (current numbers, refreshed after major changes)
-│   │   ├── NEXT_STEPS.md                   (immediate action items)
-│   │   ├── DESIGN_PRINCIPLES.md            (standalone copy of Section 2 for easy reference)
-│   │   ├── DATA_MODEL_PREMISES.md          (the 30 design premises, full prose)
-│   │   ├── RESOLVER_WALKTHROUGH.txt        (guided reading of resolve_scenario.py)
-│   │   └── OFFLINE_NOTES.txt / .pdf        (offline working notes)
-│   │
-│   ├── code/                           ← all active Python + notebooks (flat)
-│   │   ├── paths.py                        ← single source of truth for filesystem locations
-│   │   ├── network_graph.py                ← NetworkGraph engine (read + future write API)
-│   │   ├── resolve_scenario.py             ← the resolver (auto-refreshes analytic views)
-│   │   ├── refresh_views.py                ← --structural / --analytic mat-view refresh
-│   │   ├── regenerate_htmls.py             ← orchestrator (--force / --list)
-│   │   ├── render_utils.py                 ← metadata beacons + audit recording
-│   │   ├── pdf_utils.py                    ← shared reportlab helpers
-│   │   ├── make_partition_map.py           ← NetworkGraph-only renderer
-│   │   ├── make_node_neighbors_map.py      ← NetworkGraph-only renderer
-│   │   ├── make_balance_resolver_ui.py     ← resolver-driven renderer (+ render_utils)
-│   │   ├── make_hierarchy_resolver_ui.py   ← resolver-driven renderer
-│   │   ├── make_map_resolver_ui.py         ← resolver-driven renderer
-│   │   ├── make_balance_ui.py              ← template provider (HTML/JS templates)
-│   │   ├── make_hierarchy_explorer.py      ← template provider
-│   │   ├── make_map.py                     ← template provider
-│   │   ├── pdf_design_principles.py        ← writes to clean/outputs/docs/
-│   │   ├── pdf_resolver_walkthrough.py     ←      "
-│   │   ├── pdf_graph_construction.py       ←      "
-│   │   ├── audit_partition_gaps.py         ← partition closure audit
-│   │   ├── audit_ts_binding_uniqueness.py  ← 1-TS-1-variable audit
-│   │   ├── verify_balance_cells.py         ← cell-by-cell verification
-│   │   ├── add_*.py, apply_*.py,           ← migration scripts (one-time data writes)
-│   │   │   split_*.py, repoint_*.py,
-│   │   │   twelfth_pass_cleanup.py,
-│   │   │   thirteenth_pass_views.py
-│   │   ├── load_asset_graph.ipynb          ← initial DB load
-│   │   ├── load_eia.ipynb                  ← EIA TS load into oil_network.timeseries
-│   │   ├── assign_eia.ipynb / assign_formulas.ipynb
-│   │   ├── initialize_oil_network*.ipynb   ← orchestration notebooks
-│   │   └── data/refcap25.xlsx              ← reference data
-│   │
-│   ├── config/
-│   │   └── asset_graph.json                ← the seed file (loaded once by load_asset_graph.ipynb)
-│   │
-│   └── outputs/
-│       ├── html/                           ← 5 canonical HTMLs, each with metadata beacon
-│       │   ├── oil_network_partition_map.html
-│       │   ├── oil_network_node_neighbors.html
-│       │   ├── oil_network_balance_resolver.html
-│       │   ├── oil_network_hierarchy_resolver.html
-│       │   └── oil_network_map_resolver.html
-│       └── docs/                           ← thesis docs, annexes, PDFs, diagrams
-│           ├── Master_Thesis_Pedro_Porfirio_v16.docx        (last pre-graph version)
-│           ├── Master_Thesis_Pedro_Porfirio_v5_graph_framework.docx
-│           ├── Asset_Centric_Temporal_Graphs_*v1.7.docx     (latest)
-│           ├── Annex_A_GNN_Primer_v2.docx / .pdf
-│           ├── Annex_A_Implementation_v1.2.docx
-│           ├── Annex_B_Graph_Representations_v3.docx
-│           ├── Design_Principles.pdf
-│           ├── Resolver_Walkthrough.pdf
-│           ├── Graph_Construction.pdf
-│           ├── Crude flow.svg / drawio + Cushing / Midland / Patoka / StJames flows
-│           ├── data_model.png / .svg / schema_map.svg
-│           └── References/
+Stage2/                                 ← repository root (this directory)
+├── CLAUDE.md                           ← root entry point for Claude Code
+├── README.md
+├── setup.ipynb                         ← fresh-machine bootstrap
+├── requirements.txt
+├── .env.example                        ← template (copy to .env and fill in)
+├── .gitignore
 │
-└── old/                                ← history, do not modify; nothing active reads here
-    ├── thesis_drafts/                      (Master_Thesis_v4..v15, Asset_Centric_v1.0..v1.6, older annexes)
-    ├── htmls/                              (superseded inline-SQL HTMLs)
-    ├── scripts/                            (retired pre-engine scripts, load_eia.DEPRECATED.ipynb)
-    ├── asset_graph_backups/                (every asset_graph.backup_pre_* + csv.old)
-    └── misc/                               (dump-eia, design notes superseded by CLAUDE.md)
+├── claude/                             ← project memory (you are here)
+│   ├── CLAUDE.md                           (this file — read first)
+│   ├── HANDOVER.md                         (resume-here doc; pass-by-pass history)
+│   ├── PROJECT_STATE.md                    (current numbers, refreshed after major changes)
+│   ├── NEXT_STEPS.md                       (immediate action items)
+│   ├── NOTEBOOKS.md                        (orchestrator chain documentation)
+│   ├── DESIGN_PRINCIPLES.md                (standalone copy of Section 2 for easy reference)
+│   ├── DATA_MODEL_PREMISES.md              (the 30 design premises, full prose)
+│   ├── SCENARIO_CONSTRUCTION.md            (five-stage scenario construction reference)
+│   ├── RESOLVER_WALKTHROUGH.txt            (guided reading of resolve_scenario.py)
+│   ├── time_log.md                         (working-session log)
+│   └── OFFLINE_NOTES.txt / .pdf            (offline working notes)
+│
+├── code/                               ← all active Python + notebooks (flat)
+│   ├── paths.py                            ← single source of truth for filesystem locations
+│   ├── network_graph.py                    ← NetworkGraph engine (read + future write API)
+│   ├── resolve_scenario.py                 ← the resolver (auto-refreshes analytic views)
+│   ├── recursive_resolver.py               ← fixed-point alternative resolver
+│   ├── compare_resolvers.py                ← diff resolve_scenario vs recursive_resolver
+│   ├── verify_state.py                     ← one-shot sanity check after a rebuild
+│   ├── refresh_views.py                    ← --structural / --analytic mat-view refresh
+│   ├── regenerate_htmls.py                 ← orchestrator (--force / --list)
+│   ├── render_utils.py                     ← metadata beacons + audit recording
+│   ├── pdf_utils.py                        ← shared reportlab helpers
+│   ├── make_partition_map.py               ← renderer
+│   ├── make_node_neighbors_map.py          ← renderer
+│   ├── make_balance_resolver_ui.py         ← renderer
+│   ├── make_hierarchy_resolver_ui.py       ← renderer
+│   ├── make_map_resolver_ui.py             ← renderer
+│   ├── make_balance_ui.py                  ← template provider (HTML/JS templates)
+│   ├── make_hierarchy_explorer.py          ← template provider
+│   ├── make_map.py                         ← template provider
+│   ├── pdf_design_principles.py            ← writes to outputs/docs/
+│   ├── pdf_resolver_walkthrough.py         ←      "
+│   ├── pdf_scenario_construction.py        ←      "
+│   ├── pdf_graph_construction.py           ←      "
+│   ├── audit_capacity_violations.py        ← capacity audit
+│   ├── audit_resolution_anomalies.py       ← LOCF / negative-derived audit
+│   ├── create_*.py / populate_*.py / init_resolver_tables.py  ← DDL + seed helpers
+│   ├── build_fig_3_1.py                    ← thesis Figure 3.1 renderer
+│   ├── migrations/                         ← 23 one-shot scripts (numbered passes, add_*, repoint_*, split_*, wire_*, refactor_*, promote_*, patch_*)
+│   ├── load_asset_graph.ipynb              ← initial DB load
+│   ├── load_eia.ipynb                      ← EIA TS load into oil_network.timeseries_data
+│   ├── assign_eia.ipynb                    ← TS-bound variable assignments
+│   ├── assign_formulas.ipynb               ← formula-bound variable assignments
+│   ├── build_oil_network.ipynb             ← schema DDL
+│   ├── initialize_oil_*.ipynb              ← orchestrator notebooks (master + 4 stages)
+│   ├── resolver.md                         ← resolver design notes
+│   └── data/refcap25.xlsx                  ← reference data
+│
+├── config/
+│   └── asset_graph.json                    ← the seed file (loaded once by load_asset_graph.ipynb)
+│
+└── outputs/
+    ├── html/                               ← 5 canonical HTMLs, each with metadata beacon
+    │   ├── oil_network_partition_map.html
+    │   ├── oil_network_node_neighbors.html
+    │   ├── oil_network_balance_resolver.html
+    │   ├── oil_network_hierarchy_resolver.html
+    │   └── oil_network_map_resolver.html
+    └── docs/                               ← thesis docs, annexes, PDFs, diagrams
+        ├── Master_Thesis_Pedro_Porfirio_v45.docx / .pdf  (current)
+        ├── Annex_A_GNN_Primer_v2.docx / .pdf
+        ├── Annex_B_Graph_Representations_v3.docx
+        ├── Design_Principles.pdf
+        ├── Scenario_Construction.pdf
+        ├── Resolver_Walkthrough_v2.pdf
+        ├── Graph_Construction.pdf
+        ├── Crude flow.svg / drawio + Cushing / Midland / Patoka / StJames flow diagrams
+        ├── data_model.png / .svg / schema_map.svg / fig_3_1_physical_supply_chain.png
+        ├── figures/                            (thesis figures rendered by build_fig_3_1.py et al.)
+        └── References/                         (cited papers in PDF)
 ```
 
 **Path-resolution contract:** any script that writes a file imports from `paths.py`. Renderers write to `HTML_DIR`; PDF generators write to `DOCS_DIR`; `load_asset_graph` reads `ASSET_GRAPH_JSON` from `CONFIG_DIR`. No script computes filesystem paths by hand; relocating the project is a one-line edit to `paths.py`.

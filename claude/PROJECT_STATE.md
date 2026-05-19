@@ -5,12 +5,12 @@ substantive changes. For the pass-by-pass narrative history, see
 [HANDOVER.md](HANDOVER.md). For commitments and design rules, see
 [CLAUDE.md](CLAUDE.md).
 
-**Last refreshed:** 2026-05-18 (stage 1 complete — code frozen for thesis defence preparation; thesis v37, schema + resolver + 12 mat views stable; 38-step orchestrator reproducible end-to-end).
+**Stage:** Stage 2 baseline (fresh repository, continuing from the stage 1 deliverable set). Schema, resolver, mat views and thesis v45 all carry over; new work happens on top.
+**Last refreshed:** 2026-05-19 (Stage 2 repo initialised; schema state from the last stage-1 rebuild — 251 nodes / 1,870 variables / 291,564 resolved rows / 12 mat views — verified clean from this repo by `code/verify_state.py`).
 **Last clean rebuild verified:** 2026-05-18 — full `DROP SCHEMA → orchestrator` cycle reproduces the state below; 38 orchestrator steps.
-**Git remote:** `git@github.com:pgporfirio/oil_network_clean.git` (private). Fresh-machine bootstrap = clone + run `setup.ipynb`.
-**Stage 1 marker:** git tag `stage_1_complete` pinned to commit at 2026-05-18. Restore-here point. DB snapshot at `Oil Network Project/snapshots/oil_network_stage_1_complete.dump` (pg_dump custom format).
-**Latest thesis draft:** `outputs/docs/Master_Thesis_Pedro_Porfirio_v37.{docx,pdf}` (~42.8k words, 1.23 MB PDF, 128 pages). Sequence v17 → v37 all preserved on disk. Pedro's annotated review copy at `outputs/docs/Master_Thesis_Pedro_Porfirio_v22_annotated.pdf`.
-**Standalone references:** `Design_Principles.pdf` (axioms / corollaries / resolution-rule canon), `Scenario_Construction.pdf` (five-stage scenario construction with axiom/corollary tags + figure), `Resolver_Walkthrough.pdf`, `Graph_Construction.pdf` — all in `outputs/docs/`.
+**Git remote:** none yet (fresh start). Add one when ready: `git remote add origin <url> && git push -u origin main`.
+**Latest thesis draft:** [outputs/docs/Master_Thesis_Pedro_Porfirio_v45.docx](../outputs/docs/Master_Thesis_Pedro_Porfirio_v45.docx) + matching `.pdf` (Chapters 5-7 numerics refreshed to current state in the v44 → v45 step). Historical drafts (v16-v44) are not carried into this repo by design; they live in the old `oil_network_clean` repo if needed.
+**Standalone references:** `Design_Principles.pdf` (axioms / corollaries / resolution-rule canon), `Scenario_Construction.pdf` (five-stage scenario construction with axiom/corollary tags + figure), `Resolver_Walkthrough_v2.pdf`, `Graph_Construction.pdf` — all in `outputs/docs/`.
 
 ---
 
@@ -31,7 +31,7 @@ substantive changes. For the pass-by-pass narrative history, see
 | Pipeline + production capacity backfill | ✓ done (current + historical 2015-2025) |
 | U.S. crude-grade registry (commodities + hierarchy + ancestor view) | ✓ done (19 grades, 18 edges) |
 | Migration-script subdirectory (`code/migrations/`) | ✓ done (23 one-shot scripts isolated from active surface) |
-| Thesis prose (v37, ~42.8k words) | ✓ stage 1 complete — code frozen; prose edits continue |
+| Thesis prose (v45) | ✓ Chapters 1-7 + Annexes drafted; Chapters 5-7 numerics refreshed to current state |
 | Section 4 axioms / corollaries aligned with DESIGN_PRINCIPLES.md | ✓ done (6 axioms + 6 corollaries incl. D-bis LOCF and E node-status-as-view) |
 | Section 4.3 mass-balance scope clarified to physical nodes only | ✓ done (v26) |
 | Section 4.8 dual role of formula_inputs explicit (constraint set vs operand set) | ✓ done (v23) |
