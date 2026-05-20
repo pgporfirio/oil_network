@@ -27,6 +27,7 @@ new primitive, just a tactical fill-in.
 from __future__ import annotations
 
 import argparse
+import ast
 import re
 from collections import defaultdict
 from dataclasses import dataclass
@@ -84,7 +85,83 @@ CREATE INDEX IF NOT EXISTS ix_srv_run
     ON oil_network.scenario_resolved_values(run_id);
 """
 
-RE_TERM = re.compile(r'([+\-])?\s*([a-z][a-z0-9_]*)')
+RE_TERM = re.compile(r'([+\-])?\s*([a-z][a-z0-9_]*)')  # retained for back-compat (unused after AST switch)
+
+
+# ---------------------------------------------------------------------------
+# Safe arithmetic AST (formula language for KIND_ARITHMETIC)
+# ---------------------------------------------------------------------------
+# Supported: numeric literals, named variable references, +, -, *, /, unary +/-.
+# Anything else (function calls, attribute access, subscripts, etc.) is rejected
+# at parse time so the formula is unambiguously safe to evaluate.
+#
+# Example formulas now legal: '0.3 * x + 0.7 * y', '-0.5 * x', 'x', 'x - y - z',
+# '(x + y) * 0.62'. Division by zero short-circuits to 0.0 — pragmatic for
+# share-style formulas (share of zero is zero, not an error).
+
+_ALLOWED_BINOPS = (ast.Add, ast.Sub, ast.Mult, ast.Div)
+_ALLOWED_UNARYOPS = (ast.USub, ast.UAdd)
+
+
+def _parse_arithmetic(formula: str) -> Optional[ast.AST]:
+    """Parse formula into an expression AST; return None on syntax error or
+    on encountering a disallowed node type."""
+    try:
+        tree = ast.parse(formula.strip(), mode='eval').body
+    except (SyntaxError, ValueError):
+        return None
+    for node in ast.walk(tree):
+        if isinstance(node, (ast.Expression, ast.Name, ast.Constant)):
+            continue
+        if isinstance(node, ast.BinOp) and isinstance(node.op, _ALLOWED_BINOPS):
+            continue
+        if isinstance(node, ast.UnaryOp) and isinstance(node.op, _ALLOWED_UNARYOPS):
+            continue
+        if isinstance(node, (ast.Add, ast.Sub, ast.Mult, ast.Div,
+                             ast.USub, ast.UAdd, ast.Load)):
+            continue  # operator/context leaves
+        return None
+    # Constant must be numeric (no strings, no booleans-as-numbers)
+    for node in ast.walk(tree):
+        if isinstance(node, ast.Constant) and not isinstance(node.value, (int, float)):
+            return None
+        if isinstance(node, ast.Constant) and isinstance(node.value, bool):
+            return None
+    return tree
+
+
+def _arithmetic_names(tree: ast.AST) -> set[str]:
+    return {n.id for n in ast.walk(tree) if isinstance(n, ast.Name)}
+
+
+def _eval_ast(node, get_var: Callable[[str], Optional[float]]) -> tuple[Optional[float], list[str]]:
+    """Evaluate an arithmetic AST. Returns (value, missing_names).
+    value is None iff any referenced name resolved to None."""
+    missing: list[str] = []
+
+    def _e(n):
+        if isinstance(n, ast.Constant):
+            return float(n.value)
+        if isinstance(n, ast.Name):
+            v = get_var(n.id)
+            if v is None:
+                missing.append(n.id)
+                return None
+            return v
+        if isinstance(n, ast.UnaryOp):
+            x = _e(n.operand)
+            if x is None: return None
+            return -x if isinstance(n.op, ast.USub) else x
+        if isinstance(n, ast.BinOp):
+            l = _e(n.left); r = _e(n.right)
+            if l is None or r is None: return None
+            if isinstance(n.op, ast.Add):  return l + r
+            if isinstance(n.op, ast.Sub):  return l - r
+            if isinstance(n.op, ast.Mult): return l * r
+            if isinstance(n.op, ast.Div):  return 0.0 if r == 0 else l / r
+        return None  # should not reach (parser rejects disallowed)
+
+    return _e(node), missing
 
 
 # ---------------------------------------------------------------------------
@@ -162,15 +239,16 @@ def classify(a: dict, by_id: dict) -> str:
         return KIND_LATENT
     if formula == "sum":
         return KIND_SUM
-    # Arithmetic: parseable signed combination where every token is a known
-    # variable AND is listed in formula_inputs. A bare variable_id is the
-    # single-term case (formerly the 'alias' kind).
+    # Arithmetic: AST parses + every Name is in formula_inputs and known to
+    # by_id. Numeric literals (e.g. '0.3 * x') don't need to appear in
+    # formula_inputs.
     if formula:
-        input_set = set(a["formula_inputs"] or [])
-        terms = list(RE_TERM.finditer(formula))
-        if terms and all(m.group(2) in input_set and m.group(2) in by_id
-                         for m in terms):
-            return KIND_ARITHMETIC
+        tree = _parse_arithmetic(formula)
+        if tree is not None:
+            input_set = set(a["formula_inputs"] or [])
+            names = _arithmetic_names(tree)
+            if names <= input_set and all(n in by_id for n in names):
+                return KIND_ARITHMETIC
     return KIND_UNKNOWN
 
 
@@ -270,21 +348,22 @@ def eval_arithmetic(a: dict, dates: list[_date],
                     ) -> dict[_date, Cell]:
     formula = a["formula"]
     off = _input_offset_map(a)
-    terms = [(-1 if m.group(1) == "-" else 1, m.group(2))
-             for m in RE_TERM.finditer(formula)]
+    tree = _parse_arithmetic(formula)
     out: dict[_date, Cell] = {}
+    if tree is None:
+        # Defensive: classify() should have routed this to KIND_UNKNOWN. If we
+        # somehow land here, mark unresolved at every date.
+        for d in dates:
+            cell = (None, "unresolved", formula[:80], None)
+            out[d] = cell
+            if put: put(d, cell)
+        return out
     for d in dates:
-        total = 0.0
-        missing: list[str] = []
-        for sign, ref in terms:
-            lookup_d = shift_months(d, off.get(ref, 0)) if off.get(ref, 0) else d
-            v = get(ref, lookup_d)
-            if v is None:
-                missing.append(ref)
-            else:
-                total += sign * v
-        if not missing:
-            cell = (total, "derived", formula[:80], None)
+        def get_var(name, _d=d):
+            return get(name, shift_months(_d, off.get(name, 0)) if off.get(name, 0) else _d)
+        value, missing = _eval_ast(tree, get_var)
+        if value is not None and not missing:
+            cell = (value, "derived", formula[:80], None)
         else:
             missing_str = ",".join(missing[:3])
             if len(missing) > 3:
