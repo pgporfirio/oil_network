@@ -290,11 +290,13 @@ def main():
         # stable (typically 3-5 passes for this graph's depth).
 
         for it in range(10):
-            # Any crude variable with explicit formula_inputs (regardless of formula)
-            # implies a parent-child rollup relationship — those inputs are the
-            # partition children. Mirror the rollup for each grade as a `sum`.
-            # Captures both true sum aggregates AND TS-bound aggregates whose
-            # children are declared for consistency-audit purposes.
+            # Crude variables whose formula is 'sum' OR NULL/empty (TS-bound
+            # aggregates whose children are declared for consistency-audit) are
+            # legitimate parent-child rollups; their formula_inputs ARE the
+            # partition children that should be aggregated for grades too.
+            # Crude variables with arithmetic formulas (e.g. residuals computed
+            # as 'A - B - C') are NOT aggregators — their formula_inputs lists
+            # the operands of a subtraction, not children to sum. Skip those.
             cur.execute(f"""
                 SELECT v.variable_id, v.variable_type, v.node_id, v.related_node_id, va.formula_inputs
                 FROM oil_network.variables v
@@ -303,6 +305,7 @@ def main():
                   AND v.commodity = 'crude'
                   AND va.formula_inputs IS NOT NULL
                   AND array_length(va.formula_inputs, 1) > 0
+                  AND (va.formula = 'sum' OR va.formula IS NULL OR va.formula = '')
             """, (SCENARIO,))
             crude_sums = cur.fetchall()
             cur.execute("SELECT variable_id FROM oil_network.variables WHERE commodity != 'crude'")
