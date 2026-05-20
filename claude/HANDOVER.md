@@ -2,7 +2,44 @@
 
 ---
 
-## Resume here (2026-05-20 evening — routes audit, crude_starter_with_grades scenario, topology fixes)
+## Resume here (2026-05-20 night — resolver: lagged refs + scalar arithmetic; balance-hierarchy HTML)
+
+**Where to pick up:** `Stage2/`, `main`, clean tree, up-to-date with `origin/main`. DB unchanged structurally — both scenarios resolve to identical headline numbers as before (no regression). Resolver now supports inventory-style recursion and scalar formulas, which are the two foundations for the per-grade decomposition work.
+
+**What landed this session:**
+
+- **`formula_input_offsets INT[]`** (commit `1df18f9`). New column on `variable_assignments`, parallel to `formula_inputs`, holds per-input month offsets. NULL/missing = all-zero (same-date, fully backward-compatible). The resolver's `eval_sum` / `eval_arithmetic` honour offsets via a `shift_months` helper, `get()` returns `0.0` for any date before the scenario's first date (the natural seed for cumulative variables — the "t=0 bootstrap problem" from the old `stage_2_grades` attempt disappears cleanly under this convention), and an incremental `put()` callback registers each date's value as it's computed so self-references at offset `<0` find the previously-computed value. `v_effective_assignments` view extended to expose the new column.
+
+- **Scalar arithmetic + `*` + `/` via AST whitelist** (commit `8ab83fe`). Replaced the regex-based `+/-` term parser with a Python AST evaluator restricted to a safety whitelist: `Constant` (numeric), `Name`, `BinOp(Add/Sub/Mult/Div)`, `UnaryOp(USub/UAdd)`. No function calls, no attribute access, no power, no comparisons. Same safety profile as before, just with multiplicative scalars added. Legal formulas now include `0.3 * x`, `0.7 * x + 0.3 * y`, `-0.5 * x + y`, `x / y` (div-by-zero short-circuits to `0.0` — pragmatic for share-style formulas where share-of-zero is zero, not an error). Existing `+/-` formulas classify identically (same AST shape) so no regression.
+
+- **Test suite + validation.** `code/_test_lagged_refs.py` — 9 unit tests covering `shift_months`, lagged self-references (`x(t) = x(t-1)` → zeros, `x(t) = x(t-1) + y(t)` → arithmetic progression), `sum` with offset, scalar multiplication / mixed / division / division-by-zero / unary minus, and the `classify` whitelist. All pass. Regression: starter scenario resolves to identical dispatch counts (90 / 542 / 774 / 5 / 446 / 15 / 0 = 1,872 = 0 unresolved) and identical 291,876 rows. DB integration: temporary scalar override `production__crude__padd1_other = 0.5 * production__crude__padd1_view` produced exactly half the parent value at every date (ratio = 0.5000 confirmed); reverted after test.
+
+- **`serve_balance_hierarchy.py`** (this commit). Live HTTP server on port 8766 (pattern matches `serve_node_routes.py`). Endpoints: `/init` (scenarios, nodes, dates, commodity hierarchy), `/data?scenario=X&node=Y&date=Z` (per-variable-type per-commodity values aggregated over `related_node` edges where applicable). The HTML at `/` shows, per selected node × date × scenario, six tiles (P / C / S / B / F_in / F_out). Each tile renders the commodity_hierarchy as an expandable tree: top row is `crude` (the root), children are the grades; today only `crude` rows carry values because the propagator hasn't run yet, but the moment per-grade variables get added they'll auto-populate under the same tree with no HTML change. Smoke-tested against both scenarios at `cushing_hub` and `permian_tx`: production / consumption / inventory / balancing_item / inflow / outflow all render with correct values and `source` annotations.
+
+**What still needs the propagator:**
+
+- A `propagate_commodity.py`-style migration that, given a grade and a producer set, walks the reachable subgraph and instantiates per-grade variables on every reachable node. Binds: producers' `P_g = share_g(basin) * P_crude(basin)` (where `share_g` is itself a new variable, bindable to a constant or TS — per Pedro's intent); flow variables `latent()`; storage inventory `S_g(t) = S_g(t-1) + ΣF_in_g(t) - ΣF_out_g(t)` with `offsets = [-1, 0, 0]`; refinery yields per slate fraction; and the closure `var_crude(node) = sum_g var_g(node)` so the crude-level numbers stay consistent with the per-grade decomposition.
+
+**Open items inherited (still relevant):**
+
+- Topology cleanups from the routes audit that weren't blocking (Cushing sub-terminal orphan nodes — by design per the scenario's authoritative_levels; East Coast refineries lack CBR paths; Spearhead encoded with Patoka origin instead of Flanagan).
+
+**To pick up next time:**
+
+1. `cd Stage2 && git pull && python -X utf8 code/verify_state.py` (251 / 1,872 / 583,752 across 2 scenarios).
+2. To open the new HTML: `..\..\.venv\Scripts\python.exe code\serve_balance_hierarchy.py`, then http://127.0.0.1:8766/. Pick scenario + node + date; verify trees look right.
+3. Build `code/migrations/propagate_commodity.py`. First target: `wti_midland` from `permian_tx` + `permian_nm` as the simplest test case. The closure + scalar-share + lagged-inventory machinery is all in place; this is now pure migration plumbing.
+
+**Quick git context:**
+
+| Repo | Branch | Latest | Status |
+|---|---|---|---|
+| `Stage2/` → `pgporfirio/oil_network` | `main` | (commit landing now) | local, pushing |
+| `Thesis/clean/` → `pgporfirio/oil_network_clean` | `main` | `93dc34f` | historical archive |
+
+---
+
+## (previous) Resume here (2026-05-20 evening — routes audit, crude_starter_with_grades scenario, topology fixes)
 
 **Where to pick up:** `Stage2/`, `main`, clean tree, up-to-date with `origin/main`. DB now carries **2 scenarios** (starter + new clone) with the topology fixes applied. Headline: 251 assets, **1,872 variables** (was 1,870), **5,899 routes** in `v_node_routes` (was 9,333 — spurious bidirectional loops removed), 583,752 resolved values total across both scenarios, 0 unresolved.
 
