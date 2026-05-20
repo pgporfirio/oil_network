@@ -24,11 +24,13 @@
 - **Balance-hierarchy HTML regenerated** (`outputs/html/oil_network_balance_hierarchy.html`, 3.4 MB). The Composition panel below the time-series chart now shows the per-grade breakdown rooted at `crude` (refined-product subtrees are hidden — those are a separate workstream). Click any producer P cell → see crude + wti_midland + wtl + permian_condensate (etc.) with values, click downstream nodes → see only crude (because v1 doesn't propagate per-grade flow variables down the network).
 - **Commodities table now carries 87 entries** (refined products + crude grades) instead of the 23 we had earlier in the session. The new entries are Pedro's separate additions (refined products: gasoline, jet_a, ethane, bunker_c, etc.). The hierarchy root is now `oil`, with `primary_oil → crude → grade-set` as the relevant subtree for what we're doing. Composition panel is hardcoded to start at `crude` so it stays focused.
 
-**What's still v1 vs full propagator:**
+**What's still v1.1 vs full propagator:**
 
-- v1 propagates per-grade variables **only at producer nodes** (production with `<share> * P_crude` formula). Downstream nodes still have crude-only values.
-- A full propagator would walk `v_node_routes` from each producer and instantiate per-grade `inflow`, `outflow`, `consumption` (at refineries), `inventory` (at storage with `S_g(t) = S_g(t-1) + ΣF_in_g(t) - ΣF_out_g(t)` using the lagged self-ref machinery that's now in place). The flow allocation across multi-branch outflows needs an LP / proportional-mix rule — that's the next workstream.
-- The Composition panel will naturally show downstream grade values the moment those variables get populated, no HTML rebuild needed beyond regenerating.
+- v1.1 propagates per-grade variables at **producer nodes** (production + per-edge outflow with proportional allocation) AND mirror-promotes the inflow on the immediate downstream node. So for Bakken-MT (single grade, single outflow): outflow to gathering shows `bakken_light = 55.51`; the gathering inflow shows it too via mirror.
+- For multi-outflow basins where the per-edge **crude** outflow is itself latent (e.g. Permian-NM has 2 outflow edges, both latent because we don't have per-edge TS data): the per-grade outflow stays latent too. The proportional formula correctly propagates NULL — we only get per-grade values where we have per-edge crude data.
+- Still not propagated (full propagator): per-grade variables on intermediate nodes (gathering's own outflows, pipelines, terminals, hubs, refineries). The first-hop mirror only fills the first downstream node; beyond that you'd need to instantiate explicit per-grade variables at each intermediate node and decide on an allocation rule.
+- Refinery slate (`C_g(refinery) = slate_g * C_crude(refinery)`) — same shape as the producer-share formula, easy to add when slate data lands.
+- Inventory dynamics at storage (`S_g(t) = S_g(t-1) + ΣF_in_g(t) - ΣF_out_g(t)` via the `formula_input_offsets = [-1, 0, 0]` machinery) — needs per-grade inflow/outflow at storage hubs first.
 
 **To pick up next time:**
 
