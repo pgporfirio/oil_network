@@ -2,7 +2,38 @@
 
 ---
 
-## Resume here (2026-05-20 — Stage 2 reboot: fresh repo, grade registry expanded)
+## Resume here (2026-05-20 late — v_node_routes mat view + two explorer HTMLs)
+
+**Where to pick up:** `Stage2/`, `main`, clean. DB state unchanged (251 / 1,870 / 291,564). New mat view `oil_network.v_node_routes` (9,333 simple paths, ~5.7 hops avg, depth-12 limit) plus two new HTML explorers and a tiny local server.
+
+**What landed this session (continuing from the morning's grade-registry commit):**
+
+- **`oil_network.v_node_routes`** (mat view, created by `code/create_v_node_routes.py`). All simple directed paths between physical nodes in the flow graph, up to 12 hops. One row per (origin, destination, path). Indexed on origin / destination / path-GIN, with unique index for `REFRESH CONCURRENTLY`. Recursive CTE, ~30 lines. Added to `refresh_views.py` STRUCTURAL_VIEWS as L3c. Query patterns: `WHERE origin = 'x'` (downstream from), `WHERE destination = 'x'` (upstream to), `WHERE 'x' = ANY(path)` (through).
+- **`outputs/html/oil_network_commodities.html`** (renderer `code/make_commodities_hierarchy.py`). Two-panel tree explorer for the commodities + commodity_hierarchy tables. Click a grade to see API / sulfur / region / basin metadata. 23 commodities · 22 edges · 1 root.
+- **`outputs/html/oil_network_node_routes.html`** (renderer `code/make_node_routes.py`). EAGER variant — embeds all 9,333 rows of `v_node_routes` (~1.8 MB HTML). Two trees per selected node (upstream + downstream), built as tries client-side so common path-prefixes are shared. Filter input + dropdown.
+- **`code/serve_node_routes.py`** (LIVE variant). Tiny `http.server`-based local server (port 8765). Endpoints: `GET /nodes`, `GET /routes?o=X` (downstream), `GET /routes?d=X` (upstream), `GET /routes?through=X`. The HTML it serves at `/` calls `/routes` on each dropdown change — no routes embedded, each click hits Postgres via `v_node_routes`. Use to compare UX vs eager (and as a starting point for any future web frontend).
+
+**Design feedback captured this session (saved as memories):**
+
+- `feedback-handover-frequency` — update `claude/HANDOVER.md` after every substantive session, not just milestones.
+- `feedback-short-reusable-code` — keep code short, reusable, minimum hard-coding. Lean on the existing data structure (which is flexible enough); don't restate what the schema or existing views already give you. Pedro pushed back on an 80-line view DDL that ended up at ~30 lines.
+
+**To pick up next time:**
+
+1. `cd Stage2 && git pull && verify_state.py` (headline: 251 / 1,870 / 291,564 unchanged).
+2. Eager HTML: open `outputs/html/oil_network_node_routes.html` in a browser. Live HTML: `..\..\.venv\Scripts\python.exe code\serve_node_routes.py`, then http://127.0.0.1:8765/.
+3. Open questions inherited from the previous Resume here — t=0 seed, share-formula choice, per-grade inventory dynamics, date-major vs value-fixed-point resolver — still all unresolved. The grade-registry expansion (morning commit `7b7076a`) and routes view (this session) give the foundation for the next steps; no resolver-side work has started.
+
+**Quick git context:**
+
+| Repo | Branch | Latest | Status |
+|---|---|---|---|
+| `Stage2/` → `pgporfirio/oil_network` | `main` | (commit landing now) | local, pushing |
+| `Thesis/clean/` → `pgporfirio/oil_network_clean` | `main` | `93dc34f` | historical archive |
+
+---
+
+## (previous) Resume here (2026-05-20 — Stage 2 reboot: fresh repo, grade registry expanded)
 
 **Where to pick up:** working directory is **`C:\Users\PedroPorfirio\OneDrive - Jabuticaba\Oil Network Project\Stage2\`** — a fresh git repository (`git@github.com:pgporfirio/oil_network.git`, branch `main`, working tree clean, up-to-date with `origin/main`). The previous `oil_network_clean` repo at `Thesis/clean/` is now historical archive; new work happens in `Stage2/`. DB is the same shared Postgres instance (`localhost:5432/eia_crude/oil_network`) so `verify_state.py` from either location produces identical numbers — **251 assets, 1,870 variables, 291,564 resolved rows, 0 unresolved, 0 TS-binding collisions, 0 capacity violations**.
 

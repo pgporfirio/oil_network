@@ -43,6 +43,7 @@ STRUCTURAL_VIEWS = [
     "v_flow_edges",           # L2c
     "v_partition_tree",       # L3a (depends on L2b)
     "v_node_status",          # L3b
+    "v_node_routes",          # L3c (depends on L2c — recursive all-simple-paths)
 ]
 
 ANALYTIC_VIEWS = [

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>oil_network — commodities hierarchy</title>
+<style>
+  :root {
+    --bg: #fafafa;
+    --card: #ffffff;
+    --border: #e5e5e5;
+    --muted: #888;
+    --text: #222;
+    --accent: #1f77b4;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+         background: var(--bg); color: var(--text); }
+  header { background: #fff; border-bottom: 1px solid var(--border); padding: 14px 24px; }
+  header h1 { margin: 0; font-size: 18px; font-weight: 600; }
+  header .meta { color: var(--muted); font-size: 12px; margin-top: 2px; }
+  .container { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; padding: 16px 24px; max-width: 1400px; margin: 0 auto; }
+  @media (max-width: 900px) { .container { grid-template-columns: 1fr; } }
+
+  .panel { background: var(--card); border: 1px solid var(--border); border-radius: 6px; padding: 16px; }
+  .panel h2 { margin: 0 0 12px 0; font-size: 14px; font-weight: 600; color: var(--muted);
+              text-transform: uppercase; letter-spacing: 0.04em; }
+
+  ul.tree, ul.tree ul { list-style: none; padding-left: 0; margin: 0; }
+  ul.tree ul { padding-left: 18px; border-left: 1px dashed var(--border); margin-left: 6px; }
+  ul.tree li { padding: 2px 0; }
+  .twisty { display: inline-block; width: 14px; cursor: pointer; user-select: none; color: var(--muted); font-size: 10px; }
+  .twisty.leaf { color: transparent; cursor: default; }
+  .node-label { cursor: pointer; padding: 2px 6px; border-radius: 3px; display: inline-block; font-family: "SF Mono", Consolas, Monaco, monospace; font-size: 13px; }
+  .node-label:hover { background: #f0f7ff; }
+  .node-label.selected { background: var(--accent); color: #fff; }
+  .sweetsour-chip { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 6px; vertical-align: middle; }
+
+  .detail { font-size: 13px; line-height: 1.45; }
+  .detail .commodity-id { font-family: "SF Mono", Consolas, Monaco, monospace; font-weight: 600; font-size: 16px; }
+  .detail .description { color: var(--text); margin: 8px 0 14px; }
+  .detail table { width: 100%; border-collapse: collapse; }
+  .detail td { padding: 4px 0; }
+  .detail td:first-child { color: var(--muted); width: 38%; }
+  .detail .placeholder { color: var(--muted); }
+  .detail .children-count { color: var(--muted); font-size: 12px; margin-top: 10px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>oil_network — commodities hierarchy</h1>
+  <div class="meta">23 commodities · 22 hierarchy edges · 1 root(s) · generated 2026-05-20 08:33 UTC</div>
+</header>
+<div class="container">
+  <div class="panel">
+    <h2>Tree</h2>
+    <ul class="tree" id="tree"></ul>
+  </div>
+  <div class="panel">
+    <h2>Details</h2>
+    <div class="detail" id="detail"><span class="placeholder">Click a commodity in the tree.</span></div>
+  </div>
+</div>
+
+<script id="data" type="application/json">[{"commodity": "crude", "description": "Crude oil (generic root)", "sweet_sour": null, "density_class": null, "api_min": null, "api_max": null, "sulfur_min": null, "sulfur_max": null, "region": null, "typical_basin": null, "children": [{"commodity": "ans", "description": "Alaska North Slope (ANS)", "sweet_sour": "medium_sour", "density_class": "medium", "api_min": 29.0, "api_max": 33.0, "sulfur_min": 0.8, "sulfur_max": 1.0, "region": "US", "typical_basin": "Alaska North Slope", "children": []}, {"commodity": "bakken_light", "description": "Bakken Light Sweet", "sweet_sour": "sweet", "density_class": "light", "api_min": 40.0, "api_max": 44.0, "sulfur_min": 0.1, "sulfur_max": 0.3, "region": "US", "typical_basin": "Bakken", "children": []}, {"commodity": "california_heavy", "description": "California heavy crude \u2014 San Joaquin basin family", "sweet_sour": "sour", "density_class": "heavy", "api_min": 13.0, "api_max": 25.0, "sulfur_min": 0.8, "sulfur_max": 1.5, "region": "US", "typical_basin": "California", "children": [{"commodity": "kern_heavy", "description": "Kern County heavy (CA)", "sweet_sour": "sour", "density_class": "heavy", "api_min": 12.0, "api_max": 16.0, "sulfur_min": 1.0, "sulfur_max": 1.5, "region": "US", "typical_basin": "California", "children": []}, {"commodity": "midway_sunset", "description": "Midway-Sunset heavy (CA)", "sweet_sour": "sour", "density_class": "heavy", "api_min": 12.0, "api_max": 14.0, "sulfur_min": 1.2, "sulfur_max": 1.6, "region": "US", "typical_basin": "California", "children": []}]}, {"commodity": "eagle_ford_condensate", "description": "Eagle Ford Condensate (very light)", "sweet_sour": "sweet", "density_class": "very_light", "api_min": 50.0, "api_max": 70.0, "sulfur_min": 0.05, "sulfur_max": 0.2, "region": "US", "typical_basin": "Eagle Ford", "children": []}, {"commodity": "eagle_ford_light", "description": "Eagle Ford Light Sweet", "sweet_sour": "sweet", "density_class": "light", "api_min": 38.0, "api_max": 50.0, "sulfur_min": 0.1, "sulfur_max": 0.3, "region": "US", "typical_basin": "Eagle Ford", "children": []}, {"commodity": "lls", "description": "Louisiana Light Sweet (LLS)", "sweet_sour": "sweet", "density_class": "light", "api_min": 35.0, "api_max": 40.0, "sulfur_min": 0.3, "sulfur_max": 0.5, "region": "US", "typical_basin": "Gulf Coast", "children": []}, {"commodity": "mars", "description": "Mars Blend (offshore Gulf of America)", "sweet_sour": "medium_sour", "density_class": "medium", "api_min": 28.0, "api_max": 32.0, "sulfur_min": 1.5, "sulfur_max": 2.0, "region": "US", "typical_basin": "Gulf of America", "children": []}, {"commodity": "niobrara_sweet", "description": "Niobrara Sweet \u2014 DJ basin Wyoming / Colorado", "sweet_sour": "sweet", "density_class": "light", "api_min": 35.0, "api_max": 42.0, "sulfur_min": 0.2, "sulfur_max": 0.4, "region": "US", "typical_basin": "Niobrara", "children": []}, {"commodity": "oklahoma_sweet", "description": "Oklahoma sweet \u2014 Anadarko / SCOOP / STACK", "sweet_sour": "sweet", "density_class": "light", "api_min": 36.0, "api_max": 42.0, "sulfur_min": 0.2, "sulfur_max": 0.5, "region": "US", "typical_basin": "Oklahoma", "children": []}, {"commodity": "permian_condensate", "description": "Permian lease condensate \u2014 very-light Permian wellhead stream", "sweet_sour": "sweet", "density_class": "very_light", "api_min": 50.0, "api_max": 70.0, "sulfur_min": 0.05, "sulfur_max": 0.15, "region": "US", "typical_basin": "Permian", "children": []}, {"commodity": "poseidon", "description": "Poseidon (offshore Gulf of America)", "sweet_sour": "medium_sour", "density_class": "medium", "api_min": 28.0, "api_max": 32.0, "sulfur_min": 1.5, "sulfur_max": 2.0, "region": "US", "typical_basin": "Gulf of America", "children": []}, {"commodity": "southern_green_canyon", "description": "Southern Green Canyon (offshore Gulf)", "sweet_sour": "medium_sour", "density_class": "medium", "api_min": 28.0, "api_max": 32.0, "sulfur_min": 1.6, "sulfur_max": 2.2, "region": "US", "typical_basin": "Gulf of America", "children": []}, {"commodity": "thunder_horse", "description": "Thunder Horse (offshore Gulf of America)", "sweet_sour": "medium_sour", "density_class": "medium", "api_min": 32.0, "api_max": 35.0, "sulfur_min": 0.8, "sulfur_max": 1.0, "region": "US", "typical_basin": "Gulf of America", "children": []}, {"commodity": "wti", "description": "West Texas Intermediate \u2014 generic WTI grade as quoted on NYMEX", "sweet_sour": "sweet", "density_class": "light", "api_min": 38.0, "api_max": 42.0, "sulfur_min": 0.2, "sulfur_max": 0.5, "region": "US", "typical_basin": "Permian", "children": [{"commodity": "wti_cushing", "description": "WTI Cushing \u2014 pipeline delivery at the storage hub", "sweet_sour": "sweet", "density_class": "light", "api_min": 38.0, "api_max": 42.0, "sulfur_min": 0.3, "sulfur_max": 0.5, "region": "US", "typical_basin": "Permian", "children": []}, {"commodity": "wti_houston", "description": "WTI Houston \u2014 Gulf-Coast export delivery (MEH)", "sweet_sour": "sweet", "density_class": "light", "api_min": 38.0, "api_max": 42.0, "sulfur_min": 0.3, "sulfur_max": 0.5, "region": "US", "typical_basin": "Permian", "children": []}, {"commodity": "wti_midland", "description": "WTI Midland \u2014 Permian wellhead delivery", "sweet_sour": "sweet", "density_class": "light", "api_min": 40.0, "api_max": 44.0, "sulfur_min": 0.2, "sulfur_max": 0.4, "region": "US", "typical_basin": "Permian", "children": []}]}, {"commodity": "wtl", "description": "West Texas Light (WTL) \u2014 light Permian / Delaware shale grade, distinct from WTI Midland; CME WTL contract", "sweet_sour": "sweet", "density_class": "very_light", "api_min": 44.0, "api_max": 50.0, "sulfur_min": 0.05, "sulfur_max": 0.25, "region": "US", "typical_basin": "Permian", "children": []}, {"commodity": "wyoming_asphaltic", "description": "Wyoming Asphaltic Sour \u2014 Salt Creek-type heavy sour WY production", "sweet_sour": "sour", "density_class": "heavy", "api_min": 18.0, "api_max": 26.0, "sulfur_min": 1.8, "sulfur_max": 3.0, "region": "US", "typical_basin": "Wyoming", "children": []}, {"commodity": "wyoming_sweet", "description": "Sweet Wyoming \u2014 Frontier / Niobrara WY production", "sweet_sour": "sweet", "density_class": "light", "api_min": 35.0, "api_max": 42.0, "sulfur_min": 0.2, "sulfur_max": 0.5, "region": "US", "typical_basin": "Wyoming", "children": []}]}]</script>
+<script>
+const DATA = JSON.parse(document.getElementById('data').textContent);
+const SWEET_SOUR_COLOR = {"sweet": "#2ca02c", "medium_sour": "#ff7f0e", "sour": "#d62728", "null": "#888888"};
+const DENSITY_LABEL = {"very_light": "Very light", "light": "Light", "medium": "Medium", "heavy": "Heavy", "null": "\u2014"};
+
+function fmtRange(lo, hi, suffix) {
+  if (lo == null && hi == null) return '<span class="placeholder">—</span>';
+  if (lo == null) return '≤ ' + hi + suffix;
+  if (hi == null) return '≥ ' + lo + suffix;
+  return lo + '–' + hi + suffix;
+}
+
+function renderTree(nodes, parentEl) {
+  for (const n of nodes) {
+    const li = document.createElement('li');
+    const hasChildren = n.children && n.children.length > 0;
+
+    const twisty = document.createElement('span');
+    twisty.className = 'twisty' + (hasChildren ? '' : ' leaf');
+    twisty.textContent = hasChildren ? '▾' : '·';
+
+    const chip = document.createElement('span');
+    chip.className = 'sweetsour-chip';
+    chip.style.background = SWEET_SOUR_COLOR[n.sweet_sour] || SWEET_SOUR_COLOR[null];
+
+    const label = document.createElement('span');
+    label.className = 'node-label';
+    label.dataset.commodity = n.commodity;
+    label.textContent = n.commodity;
+    if (hasChildren) {
+      label.textContent += ' (' + n.children.length + ')';
+    }
+    label.onclick = () => showDetail(n);
+
+    li.appendChild(twisty);
+    li.appendChild(chip);
+    li.appendChild(label);
+
+    if (hasChildren) {
+      const sublist = document.createElement('ul');
+      li.appendChild(sublist);
+      renderTree(n.children, sublist);
+      twisty.onclick = () => {
+        const open = sublist.style.display !== 'none';
+        sublist.style.display = open ? 'none' : '';
+        twisty.textContent = open ? '▸' : '▾';
+      };
+    }
+
+    parentEl.appendChild(li);
+  }
+}
+
+function showDetail(n) {
+  document.querySelectorAll('.node-label.selected').forEach(el => el.classList.remove('selected'));
+  document.querySelector(`.node-label[data-commodity="${n.commodity}"]`).classList.add('selected');
+
+  const d = document.getElementById('detail');
+  const rows = [
+    ['Description', n.description || '<span class="placeholder">—</span>'],
+    ['Sweet / sour', n.sweet_sour ? `<span class="sweetsour-chip" style="background:${SWEET_SOUR_COLOR[n.sweet_sour] || SWEET_SOUR_COLOR[null]}"></span>${n.sweet_sour}` : '<span class="placeholder">—</span>'],
+    ['Density class', DENSITY_LABEL[n.density_class] || '<span class="placeholder">—</span>'],
+    ['API gravity (°)', fmtRange(n.api_min, n.api_max, '')],
+    ['Sulfur (%)', fmtRange(n.sulfur_min, n.sulfur_max, '')],
+    ['Region', n.region || '<span class="placeholder">—</span>'],
+    ['Typical basin', n.typical_basin || '<span class="placeholder">—</span>'],
+  ];
+  const childRow = n.children && n.children.length > 0
+    ? `<div class="children-count">${n.children.length} child commodit${n.children.length === 1 ? 'y' : 'ies'}: ${n.children.map(c => c.commodity).join(', ')}</div>`
+    : '<div class="children-count">Leaf commodity (no children)</div>';
+
+  d.innerHTML = `
+    <div class="commodity-id">${n.commodity}</div>
+    <div class="description">${n.description}</div>
+    <table><tbody>${rows.map(([k, v]) => `<tr><td>${k}</td><td>${v}</td></tr>`).join('')}</tbody></table>
+    ${childRow}
+  `;
+}
+
+renderTree(DATA, document.getElementById('tree'));
+</script>
+</body>
+</html>
