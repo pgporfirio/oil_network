@@ -38,12 +38,16 @@ def fetch_composition(kept_dates: list[_date]) -> tuple[dict, list, list]:
     kept = {d.isoformat() for d in kept_dates}
     comp: dict = defaultdict(lambda: defaultdict(lambda: defaultdict(dict)))
     with psycopg2.connect(**DB) as conn, conn.cursor() as cur:
+        # Include ALL nodes (physical AND abstract aggregates), so clicking the
+        # 'bakken' aggregate, 'permian', a padd_view, etc. shows its commodity
+        # breakdown too. Today aggregates only have crude variables, so they'll
+        # show 'crude' populated and grades blank until per-grade aggregate
+        # rollups are added.
         cur.execute("""
             SELECT v.node_id, v.variable_type, v.commodity, srv.observation_date, SUM(srv.value)
             FROM oil_network.variables v
             JOIN oil_network.scenario_resolved_values srv ON srv.variable_id = v.variable_id
-            JOIN oil_network.assets a ON a.asset_id = v.node_id
-            WHERE srv.scenario_id = %s AND a.kind = 'physical'
+            WHERE srv.scenario_id = %s
               AND v.variable_type IN ('production','consumption','inventory','balancing_item','inflow','outflow')
             GROUP BY v.node_id, v.variable_type, v.commodity, srv.observation_date
         """, (SCENARIO,))
