@@ -2,7 +2,59 @@
 
 ---
 
-## Resume here (2026-05-20 night — propagator v1 + Composition panel showing real per-grade data)
+## Resume here (2026-05-20 late-night — propagator v2: per-grade flow mirrors crude flow across the whole reachable subgraph)
+
+**Where to pick up:** `Stage2/`, `main`, clean tree, up-to-date with `origin/main`. DB carries 8,402 variables (was 1,896 — +6,506 per-grade variables across 18 grades), 1,602,432 resolved rows across 2 scenarios (1,310,556 in `crude_starter_with_grades` + 291,876 in `starter`), 0 unresolved. Closure verified at every basin.
+
+**What landed this session — propagator v2:**
+
+Replaces the two earlier v1 files with a single `code/migrations/propagate_grades.py`. For each grade in `BASIN_GRADE_SHARES`, it walks `v_node_routes` from the grade's producers to compute the reachable subgraph, then instantiates per-grade variables paralleling the crude variable structure:
+
+- **At producers (basin):** `production_g = share * production_crude`; `outflow_g(basin → X) = (outflow_crude(basin → X) / production_crude(basin)) * production_g(basin)`; paired inflow latent (mirror-promoted).
+- **At reachable downstream nodes:** non-relational vars (P / C / S / B) created without explicit assignments — `node_type_default_formulas` handle them correctly (`0` for pass-through pipelines/gatherings/terminals; `latent()` for refinery C / storage S / balancing_item).
+- **At reachable downstream edges:** outflow and inflow grade variables created. The crude formula is substituted `__crude__` → `__{g}__`. Where crude was latent (the common case at multi-out hubs), grade is latent too — same data coverage as crude. Where crude was `outflow_upstream_to_me` (the mirror-via-formula pattern at single-edge inflows), grade inherits the same derivation.
+
+Per-grade variable counts (18 grades): bakken_light 729, wti_midland 545, wtl 542, permian_condensate 542, niobrara_sweet 443, wyoming_sweet 443, wyoming_asphaltic 443, oklahoma_sweet 365, lls 353, mars 353, poseidon 353, southern_green_canyon 353, thunder_horse 353, ans 197, eagle_ford_condensate 185, eagle_ford_light 185, kern_heavy 73, midway_sunset 73. **Total: 6,530.**
+
+**What this delivers:** Open `outputs/html/oil_network_balance_hierarchy.html`, click any cell on any reachable node — Composition panel under the chart shows the per-grade tree rooted at `crude`. At producers, every grade is populated. At first-hop downstream nodes, the grade values cascade via mirror. At multi-out intermediates (hubs, multi-branch gatherings), grades are latent — same status as crude on those branches.
+
+**Spot-checks at 2024-12-01:**
+
+| Node / variable | crude | grades |
+|---|---|---|
+| `bakken_mt` P | 55.51 | bakken_light 55.51 |
+| `bakken_mt` outflow → gathering | 55.51 | bakken_light 55.51 (derived) |
+| `bakken_mt_gathering` inflow ← bakken_mt | 55.51 | bakken_light 55.51 (mirror) |
+| `bakken_mt_gathering` outflow → refineries | latent | latent (matches crude) |
+| `permian_tx` P | 4313.11 | wti_midland 3019.18 / wtl 862.62 / cond 431.31 |
+| `permian_tx_gathering` outflow → 3 terminals | latent | latent (multi-out, no allocator) |
+
+Closure verified at every basin × every date: `max_abs_gap = 0.0000` for sum-of-grades vs crude.
+
+**v1 files deleted:** `code/migrations/propagate_grades_at_producers.py` and `code/migrations/_demo_permian_grade_shares.py` are gone; v2 supersedes them.
+
+**Next steps for full grade flow (from Pedro's design intent):**
+
+1. **Storage outflow proportional to previous-period stock mix:**
+   `outflow_g(storage, X)(t) = (S_g(t-1) / S_crude(t-1)) * outflow_crude(storage, X)(t)`.
+   Uses the `formula_input_offsets = [-1, -1, 0]` machinery now in place. Needs S_g(t) populated first via the inventory recursion `S_g(t) = S_g(t-1) + ΣF_in_g(t) - ΣF_out_g(t)` (same offset mechanism). This breaks the latency at storage hubs and lets grade values cascade beyond them.
+
+2. **Multi-out gathering / pipeline allocation:** for non-storage multi-out nodes (most gatherings, every hub), the per-edge outflow proportional rule needs the same total_inflow_g helper:
+   `outflow_g(n, X) = (outflow_crude(n, X) / sum_inflow_crude(n)) * sum_inflow_g(n)`.
+   Implementable via a `sum_inflow_g` helper variable per (node, grade) using the existing `sum` dispatch.
+
+3. **Refinery slate consumption:** `C_g(refinery) = slate_g(refinery) * C_crude(refinery)` once we have slate tables (Argus, ETA, Genscape, EIA RDR).
+
+**Quick git context:**
+
+| Repo | Branch | Latest | Status |
+|---|---|---|---|
+| `Stage2/` → `pgporfirio/oil_network` | `main` | (commit landing now) | local, pushing |
+| `Thesis/clean/` → `pgporfirio/oil_network_clean` | `main` | `93dc34f` | historical archive |
+
+---
+
+## (previous) Resume here (2026-05-20 night — propagator v1 + Composition panel showing real per-grade data)
 
 **Where to pick up:** `Stage2/`, `main`, clean tree, up-to-date with `origin/main`. DB has 1,896 variables (was 1,872 — +24 new grade-production variables across 13 US basins), 587,496 resolved rows across 2 scenarios, 0 unresolved. **Closure verified across every basin** (sum of per-grade values = crude value, max_abs_gap = 0.0000 on every basin × date combo). The balance-hierarchy HTML's Composition panel now actually shows grade values.
 
