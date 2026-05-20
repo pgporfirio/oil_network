@@ -109,6 +109,12 @@ def days_in_month(d: _date) -> int:
     return (_date(next_y, next_m, 1) - _date(d.year, d.month, 1)).days
 
 
+def shift_months(d: _date, months: int) -> _date:
+    """Shift a month-anchored date by N months. months<0 references the past."""
+    total = d.year * 12 + (d.month - 1) + months
+    return _date(total // 12, (total % 12) + 1, 1)
+
+
 def paired_variable_id(a: dict) -> Optional[str]:
     """Construct the variable_id of the opposite-direction edge for a relational
     variable. Used by Corollary D's mirror-promotion pass.
@@ -224,28 +230,46 @@ def eval_latent(a: dict, dates: list[_date]) -> dict[_date, Cell]:
     return {d: (None, "latent", "latent()", None) for d in dates}
 
 
+def _input_offset_map(a: dict) -> dict[str, int]:
+    """Build {input_var -> offset_months} from parallel arrays. Missing or
+    short offsets list is treated as all-zero (same-date)."""
+    inputs = a["formula_inputs"] or []
+    offsets = a.get("formula_input_offsets") or []
+    if len(offsets) != len(inputs):
+        return {i: 0 for i in inputs}
+    return dict(zip(inputs, offsets))
+
+
 def eval_sum(a: dict, dates: list[_date],
-             get: Callable[[str, _date], Optional[float]]) -> dict[_date, Cell]:
+             get: Callable[[str, _date], Optional[float]],
+             put: Optional[Callable[[_date, Cell], None]] = None
+             ) -> dict[_date, Cell]:
     inputs = a["formula_inputs"] or []
     n_inputs = len(inputs)
+    off = _input_offset_map(a)
     out: dict[_date, Cell] = {}
     for d in dates:
-        vals = [get(i, d) for i in inputs]
+        vals = [get(i, shift_months(d, off[i]) if off[i] else d) for i in inputs]
         present = [v for v in vals if v is not None]
         if not present:
             continue
         n_missing = n_inputs - len(present)
         if n_missing == 0:
-            out[d] = (sum(present), "derived", "sum", None)
+            cell = (sum(present), "derived", "sum", None)
         else:
             note = f"sum (partial: {n_missing}/{n_inputs} inputs NULL)"
-            out[d] = (sum(present), "partial", note, None)
+            cell = (sum(present), "partial", note, None)
+        out[d] = cell
+        if put: put(d, cell)
     return out
 
 
 def eval_arithmetic(a: dict, dates: list[_date],
-                    get: Callable[[str, _date], Optional[float]]) -> dict[_date, Cell]:
+                    get: Callable[[str, _date], Optional[float]],
+                    put: Optional[Callable[[_date, Cell], None]] = None
+                    ) -> dict[_date, Cell]:
     formula = a["formula"]
+    off = _input_offset_map(a)
     terms = [(-1 if m.group(1) == "-" else 1, m.group(2))
              for m in RE_TERM.finditer(formula)]
     out: dict[_date, Cell] = {}
@@ -253,19 +277,22 @@ def eval_arithmetic(a: dict, dates: list[_date],
         total = 0.0
         missing: list[str] = []
         for sign, ref in terms:
-            v = get(ref, d)
+            lookup_d = shift_months(d, off.get(ref, 0)) if off.get(ref, 0) else d
+            v = get(ref, lookup_d)
             if v is None:
                 missing.append(ref)
             else:
                 total += sign * v
         if not missing:
-            out[d] = (total, "derived", formula[:80], None)
+            cell = (total, "derived", formula[:80], None)
         else:
             missing_str = ",".join(missing[:3])
             if len(missing) > 3:
                 missing_str += f"+{len(missing) - 3}"
             note = f"{formula[:60]} (missing: {missing_str})"
-            out[d] = (None, "partial", note[:100], None)
+            cell = (None, "partial", note[:100], None)
+        out[d] = cell
+        if put: put(d, cell)
     return out
 
 
@@ -344,7 +371,7 @@ def load(cur, scenario_id: str):
     cur.execute("""
         SELECT variable_id, node_id, variable_type, commodity, related_node_id,
                timeseries_id, COALESCE(formula, '') AS formula,
-               formula_inputs
+               formula_inputs, formula_input_offsets
         FROM oil_network.v_effective_assignments
         WHERE scenario_id = %s
     """, (scenario_id,))
@@ -413,8 +440,14 @@ def resolve(scenario_id: str, dry_run: bool = False, verbose: bool = True,
 
         resolved: dict[str, dict[_date, Cell]] = defaultdict(dict)
         stats: dict[str, int] = defaultdict(int)
+        scenario_start = dates[0] if dates else None
 
         def get(vid: str, d: _date) -> Optional[float]:
+            # Pre-scenario lookups (offsets reach before the first date) seed
+            # with 0 — the natural initial condition for cumulative variables
+            # like inventory.
+            if scenario_start is not None and d < scenario_start:
+                return 0.0
             cell = resolved.get(vid, {}).get(d)
             return cell[0] if cell else None
 
@@ -425,6 +458,10 @@ def resolve(scenario_id: str, dry_run: bool = False, verbose: bool = True,
                 continue
             kind = classify(a, by_id)
             stats[kind] += 1
+            # `put` is the early-register callback: incremental write so that
+            # a variable's formula can reference its own past values
+            # (offset<0) during this very loop's iteration.
+            put = (lambda d, cell, _vid=vid: resolved[_vid].__setitem__(d, cell))
             if kind == KIND_OBSERVED:
                 resolved[vid] = eval_observed(a, dates, ts_data)
             elif kind == KIND_ZERO:
@@ -432,9 +469,9 @@ def resolve(scenario_id: str, dry_run: bool = False, verbose: bool = True,
             elif kind == KIND_LATENT:
                 resolved[vid] = eval_latent(a, dates)
             elif kind == KIND_SUM:
-                resolved[vid] = eval_sum(a, dates, get)
+                resolved[vid] = eval_sum(a, dates, get, put)
             elif kind == KIND_ARITHMETIC:
-                resolved[vid] = eval_arithmetic(a, dates, get)
+                resolved[vid] = eval_arithmetic(a, dates, get, put)
             else:
                 resolved[vid] = eval_unknown(a, dates)
 
