@@ -69,11 +69,12 @@ COMPOSITION_PATCH = r"""
 (function() {
   const COMP = JSON.parse(document.getElementById('composition-data').textContent);
   const _hier = COMP._hierarchy_edges;
-  const _commods = COMP._commodities;
-  // Build {parent:[children]} + identify roots
-  const H = {}; const isChild = new Set();
-  for (const [p, c] of _hier) { (H[p] || (H[p] = [])).push(c); isChild.add(c); }
-  const ROOTS = _commods.filter(c => !isChild.has(c));
+  // Build {parent:[children]} for the full hierarchy
+  const H = {};
+  for (const [p, c] of _hier) { (H[p] || (H[p] = [])).push(c); }
+  // Composition is shown rooted at 'crude' (refined-product subtrees are intentionally
+  // hidden here — that's a separate concern from per-grade balance).
+  const ROOTS = ['crude'];
 
   // Add a Composition panel below the chart
   const pane = document.querySelector('.chart-pane');

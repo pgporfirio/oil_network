@@ -2,7 +2,54 @@
 
 ---
 
-## Resume here (2026-05-20 night — resolver: lagged refs + scalar arithmetic; balance-hierarchy HTML)
+## Resume here (2026-05-20 night — propagator v1 + Composition panel showing real per-grade data)
+
+**Where to pick up:** `Stage2/`, `main`, clean tree, up-to-date with `origin/main`. DB has 1,896 variables (was 1,872 — +24 new grade-production variables across 13 US basins), 587,496 resolved rows across 2 scenarios, 0 unresolved. **Closure verified across every basin** (sum of per-grade values = crude value, max_abs_gap = 0.0000 on every basin × date combo). The balance-hierarchy HTML's Composition panel now actually shows grade values.
+
+**What landed this session:**
+
+- **Propagator v1** (`code/migrations/propagate_grades_at_producers.py`). Producer-level grade decomposition: for each (basin, grade, share) in a hardcoded `BASIN_GRADE_SHARES` table, creates `production__{grade}__{basin}` as a scalar `<share> * production__crude__{basin}`. 13 basins × 1-5 grades each = 24 share assignments. Shares per basin sum to 1.0 by construction so per-grade values reconcile to crude. Affects only `crude_starter_with_grades`; starter scenario stays single-commodity. Idempotent.
+  - Permian-TX: wti_midland 0.70 / wtl 0.20 / permian_condensate 0.10
+  - Permian-NM: wti_midland 0.80 / wtl 0.15 / permian_condensate 0.05
+  - Eagle-Ford-TX: eagle_ford_light 0.60 / eagle_ford_condensate 0.40
+  - Bakken-ND, Bakken-MT, Montana-other: bakken_light 1.00
+  - Gulf-of-America: mars 0.40 / thunder_horse 0.25 / poseidon 0.15 / southern_green_canyon 0.10 / lls 0.10
+  - Alaska-North-Slope: ans 1.00
+  - California-conventional: kern_heavy 0.60 / midway_sunset 0.40
+  - Oklahoma / Colorado: oklahoma_sweet / niobrara_sweet at 1.00
+  - Wyoming-conventional: wyoming_sweet 0.70 / wyoming_asphaltic 0.30
+  - Texas-other: wti_midland 1.00 (Permian-tail residual)
+  - Foreign / canadian_oil_sands skipped (no WCS grade in registry yet)
+- **Closure verified.** Sum-over-grades = crude at every (basin, date) — 13 basins × 156 dates = 2,028 closure checks, all pass with `max_abs_gap = 0.0000`.
+- **Balance-hierarchy HTML regenerated** (`outputs/html/oil_network_balance_hierarchy.html`, 3.4 MB). The Composition panel below the time-series chart now shows the per-grade breakdown rooted at `crude` (refined-product subtrees are hidden — those are a separate workstream). Click any producer P cell → see crude + wti_midland + wtl + permian_condensate (etc.) with values, click downstream nodes → see only crude (because v1 doesn't propagate per-grade flow variables down the network).
+- **Commodities table now carries 87 entries** (refined products + crude grades) instead of the 23 we had earlier in the session. The new entries are Pedro's separate additions (refined products: gasoline, jet_a, ethane, bunker_c, etc.). The hierarchy root is now `oil`, with `primary_oil → crude → grade-set` as the relevant subtree for what we're doing. Composition panel is hardcoded to start at `crude` so it stays focused.
+
+**What's still v1 vs full propagator:**
+
+- v1 propagates per-grade variables **only at producer nodes** (production with `<share> * P_crude` formula). Downstream nodes still have crude-only values.
+- A full propagator would walk `v_node_routes` from each producer and instantiate per-grade `inflow`, `outflow`, `consumption` (at refineries), `inventory` (at storage with `S_g(t) = S_g(t-1) + ΣF_in_g(t) - ΣF_out_g(t)` using the lagged self-ref machinery that's now in place). The flow allocation across multi-branch outflows needs an LP / proportional-mix rule — that's the next workstream.
+- The Composition panel will naturally show downstream grade values the moment those variables get populated, no HTML rebuild needed beyond regenerating.
+
+**To pick up next time:**
+
+1. `cd Stage2 && git pull && python -X utf8 code/verify_state.py` (251 assets, 1,896 variables, 587,496 resolved rows, 2 scenarios, 0 unresolved).
+2. Open `outputs/html/oil_network_balance_hierarchy.html`. Navigate to any basin in the partition tree (e.g. `permian_subsystem → permian → permian_tx`), click the **P** cell. The composition panel below the chart shows the crude breakdown with the three Permian grades.
+3. Decide what's next:
+   - **Downstream propagation** — instantiate per-grade flow variables across the reachable subgraph, declare them latent. Visible per-grade values then start showing up at gathering / pipeline / hub / refinery nodes (initially as `latent`, then filled by the LP allocator).
+   - **Inventory dynamics** — use the `formula_input_offsets = [-1, 0, 0]` machinery to express `S_g(t) = S_g(t-1) + ΣF_in_g(t) - ΣF_out_g(t)` at storage hubs.
+   - **Refinery slate** — bind `C_g(refinery) = slate_g(refinery) * C_crude(refinery)` for refineries with known yields.
+   - **Constant share variables → TS-bound shares** — replace the hardcoded constants in `propagate_grades_at_producers.py` with share variables that themselves are bound to Argus / Platts assay TS or to constant assignments per scenario.
+
+**Quick git context:**
+
+| Repo | Branch | Latest | Status |
+|---|---|---|---|
+| `Stage2/` → `pgporfirio/oil_network` | `main` | (commit landing now) | local, pushing |
+| `Thesis/clean/` → `pgporfirio/oil_network_clean` | `main` | `93dc34f` | historical archive |
+
+---
+
+## (previous) Resume here (2026-05-20 night — resolver: lagged refs + scalar arithmetic; balance-hierarchy HTML)
 
 **Where to pick up:** `Stage2/`, `main`, clean tree, up-to-date with `origin/main`. DB unchanged structurally — both scenarios resolve to identical headline numbers as before (no regression). Resolver now supports inventory-style recursion and scalar formulas, which are the two foundations for the per-grade decomposition work.
 
