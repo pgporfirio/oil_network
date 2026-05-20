@@ -2,6 +2,58 @@
 
 ---
 
+## Resume here (2026-05-20 — Stage 2 reboot: fresh repo, grade registry expanded)
+
+**Where to pick up:** working directory is **`C:\Users\PedroPorfirio\OneDrive - Jabuticaba\Oil Network Project\Stage2\`** — a fresh git repository (`git@github.com:pgporfirio/oil_network.git`, branch `main`, working tree clean, up-to-date with `origin/main`). The previous `oil_network_clean` repo at `Thesis/clean/` is now historical archive; new work happens in `Stage2/`. DB is the same shared Postgres instance (`localhost:5432/eia_crude/oil_network`) so `verify_state.py` from either location produces identical numbers — **251 assets, 1,870 variables, 291,564 resolved rows, 0 unresolved, 0 TS-binding collisions, 0 capacity violations**.
+
+**Commodities + hierarchy state (just bumped):** 23 commodities (was 19), 22 hierarchy edges (was 18). The new four (commit `7b7076a`):
+
+- `wyoming_sweet` — sweet Wyoming (Frontier / Niobrara WY); WY was previously borrowing `niobrara_sweet`, which is primarily Colorado DJ Basin
+- `wyoming_asphaltic` — heavy sour Wyoming (Salt Creek-type), 18–26 API, 1.8–3.0% sulfur
+- `wtl` — West Texas Light, the lighter Permian / Delaware shale grade distinct from WTI Midland; CME WTL contract trades it separately
+- `permian_condensate` — very-light Permian lease condensate, 50–70 API
+
+All four wired as direct children of `crude`. Variables / variable_assignments / resolver unchanged — every production variable still binds `commodity = crude` (single-commodity scope from stage 1). Grade-decomposition activation is the next workstream.
+
+**What this session attempted, and what landed.**
+
+This session covered the bridge from "stage 1 done, second-attempt stage 2 rolled back" (previous Resume entry below) to "stage 2 properly set up on a fresh repo".
+
+Three pieces of work in the old `oil_network_clean` repo at `Thesis/clean/` before the Stage 2 split:
+
+- `988b403` — added root `CLAUDE.md` as the entry-point for Claude Code (was missing; `claude/CLAUDE.md` existed but Claude Code auto-reads from the project root).
+- Audit pass on thesis v44 against the notebook chain — found Chapters 5–7 numerics were stale from an earlier `run_id` (~run_id 5–6 era), not the current `run_id 14`.
+- `93dc34f` — thesis v45 + matching PDF, refreshing 29 distinct edits across Chapters 5–7 to align with current DB state. Headlines: 240 → 251 assets, 1,830 → 1,870 variables, 409 → 433 directed flow edges, 80 → 90 authoritative TS bindings, 265 → 377 partition edges, 285,480 → 291,564 resolved pairs. Table 9 merged the old `alias` row into `arithmetic` (the code unified those kinds); Table 22 phi count 30 → 0 with the rollback explained in Annex D.2 prose; Table 26 grew from 12 → 23 migration passes. Throwaway edit scripts (`code/_edit_v44_to_v45.py`, `_edit_v45_secondpass.py`, `_edit_v45_table26.py`) committed as audit trail.
+
+Then Stage 2 set-up (committed at `Stage2/`, pushed to `origin/main`):
+
+- **`7825405` — Initial commit: Stage 2 baseline.** Fresh git repo (no shared history with `oil_network_clean`); mirror of `Thesis/clean/` excluding `__pycache__` and `.git`. 272 files. The shared Postgres DB means `verify_state.py` works identically from either repo.
+- **`be3d032` — Clean up.** Removed 4 throwaway scripts, all 42 files in `code/old/`, 56 historical thesis drafts (v5 / v16–v44 + PP variants + v22_annotated), `Asset_Centric_*` and `Annex_A_Implementation_v1.2` historical alternate-title drafts, 16 orphan figures and superseded PDFs (grep-verified zero references), and `RESTORE_STAGE_1.md`. Net: 272 → 153 tracked files, 104 → 52 MB. Memory docs refreshed: root `CLAUDE.md` rewritten to drop the stage_1_complete framing; `claude/CLAUDE.md` §4.1 rewritten to describe v45's actual chapter structure (not the ancient v5 7-chapter skeleton); §9 directory listing rewritten to Stage 2 layout; `claude/PROJECT_STATE.md` header refreshed (Stage 2 baseline framing).
+- **`7b7076a` — Grade registry expansion** (this session's substantive work). New migration `code/migrations/add_wyoming_and_permian_grades.py` adds the four grades above with full API / sulfur / region / basin metadata, idempotent ON CONFLICT. 19 → 23 commodities, 18 → 22 hierarchy edges.
+
+Also confirmed: `locations` table needs no update for the new grades. Commodities and locations are decoupled by design (no FK); `typical_basin` on commodities is free-text descriptive metadata. The basin nodes that would produce the new grades (`wyoming_conventional`, `permian_tx`, `permian_nm`) already have proper `locations` rows. Grade-to-place binding happens transitively through `variables` (commodity → variable → node → location).
+
+**Stage 1 carry-overs that still apply:** the design principles in `claude/CLAUDE.md` §2 are unchanged. The 38-step orchestrator is unchanged. The 23 stage-1 migrations are all preserved in `code/migrations/`. The thesis v45 and four reference PDFs are in `outputs/docs/`.
+
+**Open design questions carried forward from the previous Resume here:** the per-grade resolver-propagation work that was rolled back in the previous session still has the same open questions — t=0 seed assumption, share-formula choice (S at t-1 vs N-month MA vs Argus/Platts assay TS), per-grade inventory S\_g(t), date-major resolver vs value-fixed-point. **Nothing on these has been decided this session.** When the next session picks up grade decomposition, those four questions are the entry points.
+
+**To pick up next time:**
+
+1. `cd "C:\Users\PedroPorfirio\OneDrive - Jabuticaba\Oil Network Project\Stage2"`.
+2. `git pull` (this handover entry is part of the commit Pedro will make).
+3. `..\..\.venv\Scripts\python.exe code\verify_state.py` should print the headline (251 / 1,870 / 291,564 / 0).
+4. Decide which entry point for the grade-decomposition work: (a) port `bind_producer_grades.py` patterns from the old `stage_2_grades` branch into a new Stage 2 migration, picking up where the previous attempt left off; (b) start fresh with a date-major resolver redesign, accepting that step takes longer but unblocks lagged self-references cleanly; (c) finish coverage of any other grade-registry gaps before touching variables.
+
+**Quick git context:**
+
+| Repo | Branch | Latest commit | Status |
+|---|---|---|---|
+| `Stage2/` → `git@github.com:pgporfirio/oil_network.git` | `main` | `7b7076a` Add Wyoming + Permian-light grades | clean, up-to-date with origin/main |
+| `Thesis/clean/` → `git@github.com:pgporfirio/oil_network_clean.git` | `main` | `93dc34f` Thesis v45 | historical archive; tag `stage_1_complete` pinned |
+| `Stage1/` (no git) | — | — | clean-room test copy (proves location independence) |
+
+---
+
 ## Resume here (2026-05-18 evening — stage 2 attempt rolled back; airport-pickup state)
 
 **Where to pick up:** branch `main`, DB restored from `oil_network_stage_1_complete.dump` then rebuilt end-to-end by the master orchestrator. State is stage-1 clean — 251 assets, 1,870 variables, 975 assignments, 291,564 resolved rows, 19 commodities, 18 hierarchy edges, 0 unresolved. `verify_state.py` runs green.
