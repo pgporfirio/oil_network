@@ -2,7 +2,46 @@
 
 ---
 
-## Resume here (2026-05-20 late — v_node_routes mat view + two explorer HTMLs)
+## Resume here (2026-05-20 evening — routes audit, crude_starter_with_grades scenario, topology fixes)
+
+**Where to pick up:** `Stage2/`, `main`, clean tree, up-to-date with `origin/main`. DB now carries **2 scenarios** (starter + new clone) with the topology fixes applied. Headline: 251 assets, **1,872 variables** (was 1,870), **5,899 routes** in `v_node_routes` (was 9,333 — spurious bidirectional loops removed), 583,752 resolved values total across both scenarios, 0 unresolved.
+
+**What landed this session:**
+
+- **Map-based node-routes explorer** (commit `993c577`) — replaced the trie-tree variant of `oil_network_node_routes.html` with a Plotly natural-earth map matching `oil_network_node_neighbors.html` style. Click a node → upstream subgraph (orange) + downstream subgraph (green), everything else dimmed. Per-node up/down node-sets and edge-sets pre-computed from `v_node_routes` at generation time.
+- **Node-type grouping** (commit `01b6515`) — added a coarser "node type" option (Production / Gathering / Pipeline / Terminal / Refinery / Foreign sink) to the routes HTML "Group by" dropdown alongside the existing detailed-subtype / PADD / state options. Made it the default since it's more readable.
+- **Routes audit by agent** (no commit) — ran a research subagent over all routes ending at storage hubs, SPR sites and refineries, cross-checked against operator docs / RBN Energy / EIA / GEM wiki / S&P Platts. Found 4 blocking topology bugs (Seaway bidirectional, LOCAP direction wrong, DAPL routed to Cushing instead of Nederland via ETCO, BP Cherry Point identity confusion with P66 Ferndale) plus 3 missing real-world flows (Keystone Phase 1 → Patoka, TMX → Cherry Point, Express-Platte → HF Sinclair WY).
+- **`crude_starter_with_grades` scenario** (commit `257027b`) — cloned the starter scenario row + 975 variable_assignments under a new `scenario_id` via `code/migrations/clone_starter_to_with_grades.py`. Identical to the starter at clone time; this is the working scenario for the eventual per-grade decomposition layer (grade-specific assignments will override the inherited commodity=crude bindings).
+- **Topology fixes from the audit** (commit `b15ef2f`) — `code/migrations/fix_topology_per_audit.py` applies all 7 fixes at the asset-graph level (variables table), so both scenarios inherit them via CASCADE. Net: 1,870 → 1,872 variables; 9,333 → 5,899 routes; spurious Seaway/LOCAP/DAPL loops eliminated; new Keystone/TMX/Express-Platte deliveries wired up. Both scenarios re-resolved cleanly with 0 unresolved.
+
+**Conceptual clarification captured this session** (in conversation, no commit): the **asset-graph level** (`variables` table) declares which variables exist — including the relational pairs `outflow(A→B)` + `inflow(B←A)` whose presence IS the edge. The **scenario level** (`variable_assignments`) per scenario binds each variable to either a timeseries_id OR a formula (`'0'`, `'latent()'`, `'sum'`, arithmetic). Adding a topology edge in `variables` typically requires adding matching `latent()` assignments per scenario, otherwise the resolver leaves the new variables as `unresolved`.
+
+**Open items from the audit not yet acted on:**
+
+- **Cushing sub-terminal orphan nodes** (`cushing_enbridge`, `cushing_enterprise`, `cushing_plains`) — these are intentionally `collapsed_below: cushing_hub` per the starter scenario's authoritative levels, so the absence of edges is by design; only worth flagging if a future scenario wants per-operator Cushing breakdown.
+- **East Coast refineries** (Bayway, Trainer, Paulsboro, Delaware City) have only `padd1_imports_agg` as feeder — no crude-by-rail (CBR) path. Out of scope if CBR isn't being modelled, but worth a documentation note.
+- **Spearhead origin** is encoded as Patoka but actually starts at Flanagan IL. Document as Flanagan-aggregated-into-Patoka, or add a `flanagan_hub` node.
+
+**Open design questions inherited from earlier sessions** — still all unresolved:
+
+- t=0 seed assumption for per-grade decomposition; share formula choice (S at t-1 vs N-month MA vs Argus/Platts assay TS); per-grade inventory S\_g(t); date-major resolver vs value-fixed-point. Pedro now has a clean `crude_starter_with_grades` scenario to land grade-decomposition work into.
+
+**To pick up next time:**
+
+1. `cd Stage2 && git pull && verify_state.py` (headline: 251 / 1,872 / 583,752, 2 scenarios).
+2. Open `outputs/html/oil_network_node_routes.html` and click Cushing / Nederland / Patoka / St James / BP Cherry Point / HF Sinclair WY to visually confirm the topology fixes look right on the map.
+3. Decide what's the first grade-decomposition deliverable for `crude_starter_with_grades`: (a) bind per-grade production at one basin (e.g. Permian as a test case — `wti_midland` + `wtl` + `permian_condensate` shares); (b) full resolver rework for date-major / lagged self-references; (c) start by writing a `bind_producer_grades.py`-style migration similar to the rolled-back `stage_2_grades` branch on the old repo.
+
+**Quick git context:**
+
+| Repo | Branch | Latest | Status |
+|---|---|---|---|
+| `Stage2/` → `pgporfirio/oil_network` | `main` | `b15ef2f` Topology fixes from routes audit | clean, up-to-date with origin |
+| `Thesis/clean/` → `pgporfirio/oil_network_clean` | `main` | `93dc34f` | historical archive |
+
+---
+
+## (previous) Resume here (2026-05-20 late — v_node_routes mat view + two explorer HTMLs)
 
 **Where to pick up:** `Stage2/`, `main`, clean. DB state unchanged (251 / 1,870 / 291,564). New mat view `oil_network.v_node_routes` (9,333 simple paths, ~5.7 hops avg, depth-12 limit) plus two new HTML explorers and a tiny local server.
 
