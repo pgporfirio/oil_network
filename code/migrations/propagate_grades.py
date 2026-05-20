@@ -115,8 +115,11 @@ def main():
                     new_assigns.append((SCENARIO, out_g, EFFECTIVE_FROM, None,
                                         f"({out_crude} / {crude_prod_var}) * {prod_g}",
                                         [out_crude, crude_prod_var, prod_g], None))
+                    # Inflow on the downstream side references the outflow directly
+                    # (same mirror-via-formula pattern as crude). Resolves in topo
+                    # order without needing the late mirror-promotion pass.
                     new_assigns.append((SCENARIO, in_g, EFFECTIVE_FROM, None,
-                                        "latent()", [], None))
+                                        out_g, [out_g], None))
 
         # ----------------- Downstream structural expansion -----------------
         # For each grade, walk v_node_routes from its producers; for every
@@ -200,6 +203,80 @@ def main():
         n_assigns_written = cur.rowcount
 
         conn.commit()
+
+        # ----------------- Single-out pass-through sum-conservation -----------------
+        # For any pass-through node with exactly 1 outflow edge, conservation gives:
+        #   outflow_g(node, only_sink) = sum_of_inflow_g(node)
+        # Applies to pipeline/gathering/origin/import/export terminals.
+        # NOT storage (inventory dynamics, different rule) or refinery (sink).
+        # We instantiate both the variable and the assignment here so it works
+        # even for pass-through nodes at the v_node_routes depth boundary (where
+        # the (node, only_sink) edge wasn't in any path's edge list and so wasn't
+        # picked up by the v2 substitution pass above).
+
+        PASS_THROUGH = ('pipeline', 'gathering', 'origin_terminal',
+                        'import_terminal', 'export_terminal',
+                        'foreign_production_aggregate', 'foreign_export_destination')
+
+        cur.execute("""
+            SELECT v.node_id, MIN(v.related_node_id) AS only_target
+            FROM oil_network.variables v
+            JOIN oil_network.assets a ON a.asset_id = v.node_id
+            WHERE v.variable_type='outflow' AND v.commodity='crude'
+              AND a.node_subtype = ANY(%s)
+            GROUP BY v.node_id, a.node_subtype
+            HAVING COUNT(DISTINCT v.related_node_id) = 1
+        """, (list(PASS_THROUGH),))
+        single_out_nodes = {nid: target for nid, target in cur.fetchall()}
+
+        # Per-(grade, node) inflow var list from each grade's reachable edges
+        from collections import defaultdict as dd
+        inflow_vars_by_g_node: dict[tuple[str, str], list[str]] = dd(list)
+        for g, producers in grade_producers.items():
+            cur.execute("SELECT path FROM oil_network.v_node_routes WHERE origin = ANY(%s)",
+                        (producers,))
+            for (path,) in cur.fetchall():
+                for s, t in zip(path[:-1], path[1:]):
+                    inflow_vars_by_g_node[(g, t)].append(f"inflow__{g}__{t}__{s}")
+
+        sum_vars = []
+        sum_assigns = []
+        for nid, target in single_out_nodes.items():
+            if nid in BASIN_GRADE_SHARES:
+                continue
+            for g in grade_producers:
+                in_vars = sorted(set(inflow_vars_by_g_node.get((g, nid), [])))
+                if not in_vars:
+                    continue
+                out_g = f"outflow__{g}__{nid}__{target}"
+                # Pair the corresponding inflow on the target too (mirror promotion needs it)
+                in_g  = f"inflow__{g}__{target}__{nid}"
+                sum_vars.append((out_g, "outflow", g, nid, target, "{}"))
+                sum_vars.append((in_g,  "inflow",  g, target, nid, "{}"))
+                sum_assigns.append((SCENARIO, out_g, EFFECTIVE_FROM, None,
+                                    "sum", in_vars, None))
+                # Paired inflow on the downstream side references the outflow
+                # (same mirror-via-formula pattern; topo-resolvable).
+                sum_assigns.append((SCENARIO, in_g, EFFECTIVE_FROM, None,
+                                    out_g, [out_g], None))
+
+        # Dedup
+        seen_sv = {v[0]: v for v in sum_vars}
+        seen_sa = {(a[0], a[1], a[2]): a for a in sum_assigns}
+
+        print(f"[3.5a] sum-conservation: bulk-insert {len(seen_sv)} variables")
+        execute_values(cur,
+            "INSERT INTO oil_network.variables (variable_id, variable_type, commodity, node_id, related_node_id, attributes) "
+            "VALUES %s ON CONFLICT DO NOTHING",
+            list(seen_sv.values()), page_size=2000)
+
+        print(f"[3.5b] sum-conservation: bulk-insert {len(seen_sa)} assignments")
+        execute_values(cur,
+            "INSERT INTO oil_network.variable_assignments "
+            "(scenario_id, variable_id, effective_from, timeseries_id, formula, formula_inputs, formula_input_offsets) "
+            "VALUES %s ON CONFLICT (scenario_id, variable_id, effective_from) DO UPDATE "
+            "SET formula = EXCLUDED.formula, formula_inputs = EXCLUDED.formula_inputs, timeseries_id = NULL",
+            list(seen_sa.values()), page_size=2000)
 
         print(f"\n[3] result: {n_vars_inserted} new variables in DB, {n_assigns_written} assignment rows touched")
         cur.execute("SELECT COUNT(*) FROM oil_network.variables WHERE commodity != 'crude'")

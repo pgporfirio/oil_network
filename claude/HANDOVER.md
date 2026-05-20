@@ -2,7 +2,50 @@
 
 ---
 
-## Resume here (2026-05-20 late-night — propagator v2: per-grade flow mirrors crude flow across the whole reachable subgraph)
+## Resume here (2026-05-20 — `refineries` schema added with web-researched grade assignments; renderer + HTML map landed in Stage2)
+
+**Where to pick up:** Stage2, branch `main`. New schema `refineries` sits alongside `oil_network` in the same `eia_crude` database, untouched by the propagator work. All scripts now live under `Stage2/code/` and `Stage2/config/` (initial development happened in `Thesis/clean/`; moved into Stage2 in the same session).
+
+**What this session added:**
+
+- **`code/migrations/build_refineries_schema.py`** — creates `refineries` schema + `refineries.refinery_grade_assignments` table (PK `(refinery_id, commodity)`, FKs to `oil_network.assets` and `oil_network.commodities`, columns `is_primary`, `source`, `notes`). Also `refineries.v_refinery_grades` (the canonical join with `oil_network.assets` + `oil_network.commodities`) and `refineries.v_refinery_grade_audit` (advisory cross-check between assigned grades and the refinery's existing `preferred_slate` / `nci` / `has_coker`).
+- **`config/refinery_grades.json`** — the seed. Mirrors the `asset_graph.json` pattern: JSON is authoritative, the loader is the only writer. 115 physical refinery entries × ~4 grades each = **473 assignments**. 22 of the 23 grades exercised (only the generic `wti` itself unused — agents preferred delivery-point variants `wti_midland` / `wti_houston` / `wti_cushing`).
+- **`code/load_refinery_grades.py`** — validates FKs against the live DB, deletes-and-reinserts assignments for any refineries mentioned in the JSON (leaves unmentioned refineries alone), idempotent.
+- **`code/make_refinery_grade_map.py`** — Plotly scattergeo HTML map with click-to-side-panel UX. Filter chrome (PADD / slate / coker / free-text), marker size by capacity, fill by `preferred_slate`. Visual styling matches `oil_network_partition_map.html` (dark `#1a1f2c` header, monospace asset_id, side panel on the right). Reads from `refineries.v_refinery_grades`; output at `outputs/html/refinery_grade_map.html` (220 KB, self-contained).
+- **`config/refinery_grades_groupA.json` / `_groupB.json` / `_groupC.json`** — the raw output of the three parallel research agents that populated the seed. Kept as audit trail; not read by the loader.
+
+**How the JSON was populated.** Three parallel agents split the 115 refineries by capacity rank: Group A (top 39, the majors with rich existing attributes), Group B (mid 38, condensate splitters + Calumet/CVR/HF Sinclair specialty + small), Group C (tail 38, Marathon Midwest + PBF + West Coast / East Coast). Each agent worked from the existing `preferred_slate` / `nci` / `has_coker` configuration as a strong prior, applied region rules (R3B Gulf Coast ⇒ Mars/Poseidon/Thunder Horse reachable; R50 West Coast ⇒ ANS + California heavy only; R3A Permian ⇒ WTI Midland / Permian Condensate dominant; etc.), and used ~13–15 targeted web searches each (~40 total) for genuinely ambiguous cases (Citgo Lake Charles post-Venezuelan sanctions; Deer Park under Pemex; CPI Paulsboro shutdown; Par Hawaii's import-heavy slate). Source distribution: 80% `inferred_operator_region` / `inferred_plant_type` / `inferred_from_config`; 20% `industry_report`; 0 `company_disclosure`.
+
+**Audit results.** `refineries.v_refinery_grade_audit` flags **2 mismatches**, both honest: `ref_exxon_joliet` and `ref_pbf_toledo` carry `preferred_slate=medium_sour` in the existing config but the agents assigned only sweet grades + the generic `crude` placeholder, because their dominant feedstock is **Canadian WCS**, which is not in the 23-grade vocabulary. The notes in each entry document this. **The audit caught a vocabulary gap, not a research error.** Adding `wcs` (and possibly `maya`, `merey`) to `oil_network.commodities` would be the natural next step if foreign grades are ever needed.
+
+**Vocabulary limitations surfaced.** ~10 refineries got a `crude` placeholder row with notes flagging that their actual dominant feed is foreign heavy (WCS / Maya / Merey) and only the US-vocabulary subset was captured. Affected: `ref_bp_whiting`, `ref_p66_wood_river`, `ref_exxon_joliet`, `ref_pbf_toledo`, `ref_marathon_garyville`, `ref_marathon_catlettsburg`, `ref_pbf_delaware_city`, `ref_pdv_lemont`, `ref_chalmette_chalmette`, `ref_deer_deer_park`, `ref_par_kapolei`, etc. These are honest under the US-only vocabulary; restoring full slates requires extending the commodity registry.
+
+**Re-running on a fresh machine (from `Stage2/`):**
+
+```powershell
+..\..\.venv\Scripts\python.exe code\migrations\build_refineries_schema.py
+..\..\.venv\Scripts\python.exe code\load_refinery_grades.py
+..\..\.venv\Scripts\python.exe code\make_refinery_grade_map.py
+```
+
+All three are idempotent. Database does NOT need a clean rebuild — the `refineries` schema is additive over `oil_network` and shares no objects with the propagator work.
+
+**Quick query to see both schemas joined:**
+
+```sql
+SELECT refinery_id, capacity_bd, preferred_slate, commodity, sweet_sour, is_primary
+FROM refineries.v_refinery_grades
+WHERE refinery_id = 'ref_exxon_baytown'
+ORDER BY is_primary DESC, commodity;
+```
+
+**Housekeeping done this session:**
+- Stage2 is now the canonical home for HTML outputs (`paths.HTML_DIR` already resolves to `Stage2/outputs/html/` naturally).
+- Legacy `Thesis/clean/outputs/html/` cleaned up — all 6 superseded HTMLs moved to `Thesis/clean/outputs/html/old/`. That tree is now empty except for `old/`; safe to delete the legacy folder entirely whenever you want.
+
+---
+
+## Earlier — propagator v2: per-grade flow mirrors crude flow across the whole reachable subgraph (2026-05-20 late-night)
 
 **Where to pick up:** `Stage2/`, `main`, clean tree, up-to-date with `origin/main`. DB carries 8,402 variables (was 1,896 — +6,506 per-grade variables across 18 grades), 1,602,432 resolved rows across 2 scenarios (1,310,556 in `crude_starter_with_grades` + 291,876 in `starter`), 0 unresolved. Closure verified at every basin.
 
