@@ -143,7 +143,8 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   <div class="controls">
     <label>Group by:</label>
     <select id="group-by">
-      <option value="subtype" selected>node subtype</option>
+      <option value="type" selected>node type</option>
+      <option value="subtype">node subtype (detailed)</option>
       <option value="padd">PADD</option>
       <option value="state">state</option>
     </select>
@@ -165,14 +166,28 @@ const NODES = DATA.nodes, EDGES = DATA.edges, ROUTES = DATA.routes;
 const sel = document.getElementById("node-select");
 const groupSel = document.getElementById("group-by");
 
+// Coarse "node type" bucketing (collapses the detailed subtypes into ~6 groups)
+const NODE_TYPE_BUCKET = {
+  state_conventional: "Production", state_sub_basin: "Production",
+  state_residual: "Production", offshore_region: "Production",
+  foreign_production_aggregate: "Production",
+  gathering: "Gathering",
+  origin_terminal: "Terminal", storage_terminal: "Terminal",
+  spr_site: "Terminal", import_terminal: "Terminal", export_terminal: "Terminal",
+  pipeline: "Pipeline",
+  refinery: "Refinery",
+  foreign_export_destination: "Foreign sink",
+};
+
 function populate(groupBy) {
   const preserved = sel.value; sel.innerHTML = "";
   const blank = document.createElement("option"); blank.value = ""; blank.text = "(none)"; sel.add(blank);
   const buckets = {};
   for (const nid in NODES) {
     const n = NODES[nid];
-    let k = groupBy === "subtype" ? (SUBTYPE_LABEL[n.subtype] || n.subtype || "(unknown)")
-          : groupBy === "padd" ? (n.padd ? "PADD " + String(n.padd).replace(/\D/g,"") : "(no PADD)")
+    let k = groupBy === "type"    ? (NODE_TYPE_BUCKET[n.subtype] || "(other)")
+          : groupBy === "subtype" ? (SUBTYPE_LABEL[n.subtype] || n.subtype || "(unknown)")
+          : groupBy === "padd"    ? (n.padd ? "PADD " + String(n.padd).replace(/\D/g,"") : "(no PADD)")
           : (n.state || "(no state)");
     (buckets[k] || (buckets[k] = [])).push(nid);
   }
@@ -185,7 +200,7 @@ function populate(groupBy) {
   }
   if (preserved && NODES[preserved]) sel.value = preserved;
 }
-populate("subtype"); groupSel.onchange = e => populate(e.target.value);
+populate("type"); groupSel.onchange = e => populate(e.target.value);
 
 let selectedId = null;
 
