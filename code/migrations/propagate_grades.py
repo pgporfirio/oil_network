@@ -278,6 +278,72 @@ def main():
             "SET formula = EXCLUDED.formula, formula_inputs = EXCLUDED.formula_inputs, timeseries_id = NULL",
             list(seen_sa.values()), page_size=2000)
 
+        # ----------------- Aggregate rollup of grades up the partition tree -----------------
+        # For every crude variable whose assignment is a `sum` formula (the existing
+        # partition-tree rollup pattern at usa_view, padd_view, basin aggregates,
+        # observational_aggregate, etc.), mirror the rollup per grade. The grade
+        # parent aggregates only the children that actually carry the grade
+        # (excluding children outside the producer's reachable set, where the
+        # grade variable doesn't exist).
+        #
+        # Iterative: each pass creates the next level of aggregation. Runs until
+        # stable (typically 3-5 passes for this graph's depth).
+
+        for it in range(10):
+            # Any crude variable with explicit formula_inputs (regardless of formula)
+            # implies a parent-child rollup relationship — those inputs are the
+            # partition children. Mirror the rollup for each grade as a `sum`.
+            # Captures both true sum aggregates AND TS-bound aggregates whose
+            # children are declared for consistency-audit purposes.
+            cur.execute(f"""
+                SELECT v.variable_id, v.variable_type, v.node_id, v.related_node_id, va.formula_inputs
+                FROM oil_network.variables v
+                JOIN oil_network.variable_assignments va ON va.variable_id = v.variable_id
+                WHERE va.scenario_id = %s
+                  AND v.commodity = 'crude'
+                  AND va.formula_inputs IS NOT NULL
+                  AND array_length(va.formula_inputs, 1) > 0
+            """, (SCENARIO,))
+            crude_sums = cur.fetchall()
+            cur.execute("SELECT variable_id FROM oil_network.variables WHERE commodity != 'crude'")
+            existing_grade = {r[0] for r in cur.fetchall()}
+
+            agg_vars = []
+            agg_assigns = []
+            for crude_vid, vtype, nid, rel_nid, inputs in crude_sums:
+                for g in grade_producers:
+                    grade_vid = crude_vid.replace("__crude__", f"__{g}__")
+                    if grade_vid in existing_grade:
+                        continue
+                    sub_inputs = [i.replace("__crude__", f"__{g}__") for i in (inputs or [])]
+                    children_present = [i for i in sub_inputs if i in existing_grade]
+                    if not children_present:
+                        continue  # no grade-carrying children, can't aggregate yet
+                    agg_vars.append((grade_vid, vtype, g, nid, rel_nid, "{}"))
+                    agg_assigns.append((SCENARIO, grade_vid, EFFECTIVE_FROM, None,
+                                        "sum", children_present, None))
+
+            if not agg_vars:
+                print(f"[4] aggregate rollup: stable after {it} pass(es)")
+                break
+
+            seen_av = {v[0]: v for v in agg_vars}
+            seen_aa = {(a[0], a[1], a[2]): a for a in agg_assigns}
+            print(f"[4 pass {it+1}] creating {len(seen_av)} aggregate-rollup grade vars")
+            execute_values(cur,
+                "INSERT INTO oil_network.variables (variable_id, variable_type, commodity, node_id, related_node_id, attributes) "
+                "VALUES %s ON CONFLICT DO NOTHING",
+                list(seen_av.values()), page_size=2000)
+            # DO NOTHING (not DO UPDATE) so we don't overwrite existing per-grade
+            # bindings - producer shares, refinery slates, etc. should stay.
+            # The rollup only fills gaps where no assignment exists yet.
+            execute_values(cur,
+                "INSERT INTO oil_network.variable_assignments "
+                "(scenario_id, variable_id, effective_from, timeseries_id, formula, formula_inputs, formula_input_offsets) "
+                "VALUES %s ON CONFLICT (scenario_id, variable_id, effective_from) DO NOTHING",
+                list(seen_aa.values()), page_size=2000)
+            conn.commit()
+
         print(f"\n[3] result: {n_vars_inserted} new variables in DB, {n_assigns_written} assignment rows touched")
         cur.execute("SELECT COUNT(*) FROM oil_network.variables WHERE commodity != 'crude'")
         print(f"     total non-crude variables: {cur.fetchone()[0]:,}")
