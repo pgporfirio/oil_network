@@ -140,22 +140,26 @@ def fetch():
                 "m": float(mag) if mag is not None else None,
             }
 
-        # Per (grade, edge): does outflow_g(s, t) have any resolved non-null value
-        # at the selected date? Embed only the binary presence per (grade, date).
+        # Per grade: which edges (source>target) have the outflow variable declared
+        # at all (regardless of value). And per (grade, date): which of those
+        # resolved to a non-null value, plus the value itself.
         cur.execute("""
-            SELECT v.commodity, v.node_id, v.related_node_id, srv.observation_date
+            SELECT v.commodity, v.node_id, v.related_node_id, srv.observation_date, srv.value
             FROM oil_network.variables v
             JOIN oil_network.scenario_resolved_values srv ON srv.variable_id = v.variable_id
             JOIN oil_network.assets s ON s.asset_id = v.node_id AND s.kind = 'physical'
             JOIN oil_network.assets t ON t.asset_id = v.related_node_id AND t.kind = 'physical'
-            WHERE srv.scenario_id = %s AND v.variable_type = 'outflow' AND srv.value IS NOT NULL
+            WHERE srv.scenario_id = %s AND v.variable_type = 'outflow'
         """, (SCENARIO,))
-        # edges_active[grade][date_str] = list of "source>target" keys
-        edges_active: dict = defaultdict(lambda: defaultdict(set))
-        for grade, s, t, d in cur.fetchall():
-            edges_active[grade][d.isoformat()].add(f"{s}>{t}")
-        # Convert sets to lists for JSON
-        edges_active_out = {g: {d: sorted(s) for d, s in dd.items()}
+        edges_declared: dict = defaultdict(set)        # grade -> set of "s>t"
+        edges_active: dict = defaultdict(lambda: defaultdict(dict))  # grade -> date -> {s>t: value}
+        for grade, s, t, d, val in cur.fetchall():
+            key = f"{s}>{t}"
+            edges_declared[grade].add(key)
+            if val is not None:
+                edges_active[grade][d.isoformat()][key] = float(val)
+        edges_declared_out = {g: sorted(s) for g, s in edges_declared.items()}
+        edges_active_out = {g: {d: vals for d, vals in dd.items()}
                             for g, dd in edges_active.items()}
 
         # Convert presence to plain dicts
@@ -164,7 +168,9 @@ def fetch():
 
     return {
         "nodes": nodes, "edges": edges, "grades": grades, "dates": dates,
-        "presence": presence_out, "edges_active": edges_active_out,
+        "presence": presence_out,
+        "edges_declared": edges_declared_out,
+        "edges_active": edges_active_out,
     }
 
 
@@ -216,7 +222,11 @@ const DATA = __DATA__;
 const SUBTYPE_COLOR = __SUBTYPE_COLOR__;
 const SUBTYPE_LABEL = __SUBTYPE_LABEL__;
 const NODES = DATA.nodes, EDGES = DATA.edges, GRADES = DATA.grades, DATES = DATA.dates;
-const PRESENCE = DATA.presence, EDGES_ACTIVE = DATA.edges_active;
+const PRESENCE = DATA.presence;
+const EDGES_DECLARED = DATA.edges_declared;   // grade -> sorted array of "s>t"
+const EDGES_ACTIVE = DATA.edges_active;       // grade -> date -> {s>t: value}
+const EDGE_BY_KEY = {};
+for (const e of EDGES) EDGE_BY_KEY[`${e.source}>${e.target}`] = e;
 
 const gradeSel = document.getElementById("grade-select");
 for (const g of GRADES) {
@@ -239,7 +249,9 @@ function render() {
   const grade = gradeSel.value;
   const date = dateSel.value;
   const gradeNodes = PRESENCE[grade] || {};
-  const activeEdges = new Set((EDGES_ACTIVE[grade] || {})[date] || []);
+  const declaredEdges = new Set(EDGES_DECLARED[grade] || []);
+  const activeEdgeVals = (EDGES_ACTIVE[grade] || {})[date] || {};
+  const activeEdges = new Set(Object.keys(activeEdgeVals));
 
   // Per-node status: 'active' (non-null value at date), 'declared' (variable exists but null/latent), 'absent'
   const nodeStatus = {};
@@ -252,35 +264,74 @@ function render() {
   }
   document.getElementById("header-stats").innerHTML =
     `<b>${n_active}</b> nodes active &middot; <b>${n_declared}</b> declared-latent &middot; ` +
-    `<b>${activeEdges.size}</b> edges carrying grade`;
+    `<b>${activeEdges.size}</b> / ${declaredEdges.size} edges carrying grade`;
 
   const traces = [];
 
-  // Dim background edges (all of them)
-  const dimLat = [], dimLon = [];
+  // -- Three edge categories --
+  // 1) Absent edges (no per-grade variable on this edge): faint dim grey
+  // 2) Declared-latent edges (per-grade variable exists but null at this date): orange dashed
+  // 3) Active edges (per-grade variable has non-null value at this date): solid red,
+  //    width scaled by magnitude
+  const absentLat = [], absentLon = [];
+  const declaredLat = [], declaredLon = [];
   for (const e of EDGES) {
     const key = `${e.source}>${e.target}`;
-    if (activeEdges.has(key)) continue;
-    dimLat.push(e.s_lat, e.t_lat, null); dimLon.push(e.s_lon, e.t_lon, null);
+    if (activeEdges.has(key)) continue;       // handled below
+    if (declaredEdges.has(key)) {
+      declaredLat.push(e.s_lat, e.t_lat, null); declaredLon.push(e.s_lon, e.t_lon, null);
+    } else {
+      absentLat.push(e.s_lat, e.t_lat, null); absentLon.push(e.s_lon, e.t_lon, null);
+    }
   }
-  if (dimLat.length) traces.push({
-    type: "scattergeo", mode: "lines", lat: dimLat, lon: dimLon,
-    line: { width: 0.5, color: "rgba(60,60,60,0.10)" },
-    hoverinfo: "skip", showlegend: false,
+  if (absentLat.length) traces.push({
+    type: "scattergeo", mode: "lines", lat: absentLat, lon: absentLon,
+    line: { width: 0.4, color: "rgba(60,60,60,0.08)" },
+    hoverinfo: "skip", name: "absent (grade not on edge)",
+  });
+  if (declaredLat.length) traces.push({
+    type: "scattergeo", mode: "lines", lat: declaredLat, lon: declaredLon,
+    line: { width: 1.0, color: "rgba(255,140,0,0.55)", dash: "dash" },
+    hoverinfo: "skip", name: `declared-latent edges (${declaredLat.length / 3 | 0})`,
   });
 
-  // Active edges in red
+  // Active edges in red — split into thickness buckets so we can scale by magnitude
   if (activeEdges.size) {
-    const lat = [], lon = [];
-    for (const e of EDGES) {
-      const key = `${e.source}>${e.target}`;
-      if (!activeEdges.has(key)) continue;
-      lat.push(e.s_lat, e.t_lat, null); lon.push(e.s_lon, e.t_lon, null);
+    // Compute log-ish width per active edge
+    const buckets = { small: [], med: [], big: [] };
+    for (const key of activeEdges) {
+      const e = EDGE_BY_KEY[key]; if (!e) continue;
+      const v = activeEdgeVals[key] || 0;
+      const absv = Math.abs(v);
+      const target = absv < 50 ? "small" : absv < 500 ? "med" : "big";
+      buckets[target].push(e);
+    }
+    const widthMap = { small: 1.2, med: 2.2, big: 3.5 };
+    for (const b of ["small", "med", "big"]) {
+      if (!buckets[b].length) continue;
+      const lat = [], lon = [];
+      for (const e of buckets[b]) { lat.push(e.s_lat, e.t_lat, null); lon.push(e.s_lon, e.t_lon, null); }
+      traces.push({
+        type: "scattergeo", mode: "lines", lat, lon,
+        line: { width: widthMap[b], color: "#d62728" },
+        hoverinfo: "skip", showlegend: b === "small",
+        name: b === "small" ? `active edges (${activeEdges.size})` : undefined,
+      });
+    }
+    // Mid-point markers on active edges so hover shows the value + grade + nodes
+    const midLat = [], midLon = [], midHover = [];
+    for (const key of activeEdges) {
+      const e = EDGE_BY_KEY[key]; if (!e) continue;
+      const v = activeEdgeVals[key];
+      midLat.push((e.s_lat + e.t_lat) / 2);
+      midLon.push((e.s_lon + e.t_lon) / 2);
+      midHover.push(`<b>${e.source} &rarr; ${e.target}</b><br>${grade}: ${fmt(v)} kbd`);
     }
     traces.push({
-      type: "scattergeo", mode: "lines", lat, lon,
-      line: { width: 1.8, color: "#d62728" },
-      hoverinfo: "skip", name: `${grade} flow edges (${activeEdges.size})`,
+      type: "scattergeo", mode: "markers", lat: midLat, lon: midLon,
+      hovertext: midHover, hoverinfo: "text",
+      marker: { size: 11, color: "rgba(0,0,0,0)", opacity: 0.001 },
+      showlegend: false,
     });
   }
 
