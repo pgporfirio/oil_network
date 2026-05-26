@@ -1,0 +1,710 @@
+{
+  "field": {
+    "field_id": "mars_ursa_gom",
+    "name": "Mars-Ursa",
+    "state": "GOM",
+    "basin": "Gulf of Mexico",
+    "play": "Miocene deepwater turbidite (Mississippi Canyon)",
+    "field_type": "offshore-deepwater",
+    "onshore_offshore": "offshore",
+    "rank_notes": "Three-TLP complex: Mars A TLP (1996, MC762/763/806/807/850/851, 896 m water depth), Ursa TLP (1999, MC765/766/808-854, ~1160 m), Olympus/Mars B TLP (2014, ~945 m). Kaikias subsea tieback to Ursa (2018). Mars reached 1 billion barrel milestone May 2026. BOEM block centroid MC807. Coordinates from GEM.wiki BOEM record.",
+    "last_explored_at": "2026-05-26 15:04:33.087455+01:00",
+    "current_operator": null
+  },
+  "result": {
+    "field_id": "mars_ursa_gom",
+    "field_meta": {
+      "aliases": "Mars, Ursa, Olympus, Mars B, Mars-Ursa complex, Mars corridor, MC807",
+      "basin": "Gulf of Mexico",
+      "play": "Miocene deepwater turbidite (Mississippi Canyon)",
+      "state": "GOM",
+      "onshore_offshore": "offshore",
+      "latitude": 28.1649,
+      "longitude": -89.1736,
+      "discovery_year": 1989,
+      "first_production_year": 1996,
+      "status": "active",
+      "field_type": "offshore-deepwater",
+      "notes": "Three-TLP complex: Mars A TLP (MC762/763/806/807/850/851, first oil 8 Jul 1996, 896 m water depth); Ursa TLP (MC765/766/808-810/852-854, first oil 8 Mar 1999, ~1160 m); Olympus/Mars B TLP (first oil Jan 2014, ~914 m); Kaikias subsea tieback to Ursa (first oil May 2018, MC768, 1372 m). Mars 1 billion barrel milestone achieved 21 May 2026. BOEM block centroid MC807. Coordinates from GEM.wiki BOEM record."
+    },
+    "operators": [
+      {
+        "operator_name": "Shell Offshore Inc.",
+        "parent_corp": "Shell plc",
+        "role": "operator",
+        "share_pct": 71.5,
+        "start_year": 1996,
+        "end_year": 0,
+        "source_url": "https://en.wikipedia.org/wiki/Mars_(oil_platform)"
+      },
+      {
+        "operator_name": "BP Exploration & Production Inc.",
+        "parent_corp": "BP plc",
+        "role": "wi_holder",
+        "share_pct": 28.5,
+        "start_year": 1996,
+        "end_year": 0,
+        "source_url": "https://en.wikipedia.org/wiki/Mars_(oil_platform)"
+      },
+      {
+        "operator_name": "Shell Offshore Inc. (Ursa TLP)",
+        "parent_corp": "Shell plc",
+        "role": "operator",
+        "share_pct": 45.39,
+        "start_year": 1999,
+        "end_year": 2025,
+        "source_url": "https://en.wikipedia.org/wiki/Ursa_tension_leg_platform"
+      },
+      {
+        "operator_name": "BP Exploration & Production Inc. (Ursa TLP)",
+        "parent_corp": "BP plc",
+        "role": "wi_holder",
+        "share_pct": 22.69,
+        "start_year": 1999,
+        "end_year": 0,
+        "source_url": "https://en.wikipedia.org/wiki/Ursa_tension_leg_platform"
+      },
+      {
+        "operator_name": "ExxonMobil Corporation (Ursa TLP)",
+        "parent_corp": "ExxonMobil Corporation",
+        "role": "wi_holder",
+        "share_pct": 15.96,
+        "start_year": 1999,
+        "end_year": 2024,
+        "source_url": "https://www.ogj.com/general-interest/companies/article/14305594/exxonmobil-to-divest-stake-in-deepwater-gulf-of-mexico-ursa-princess-development"
+      },
+      {
+        "operator_name": "ConocoPhillips Company (Ursa TLP)",
+        "parent_corp": "ConocoPhillips",
+        "role": "wi_holder",
+        "share_pct": 15.96,
+        "start_year": 1999,
+        "end_year": 2025,
+        "source_url": "https://www.offshore-energy.biz/shell-forks-out-735-million-for-conocophillips-stakes-in-its-us-deepwater-oil-assets/"
+      },
+      {
+        "operator_name": "Esperanza Capital Partners / Andros Capital Partners (Ursa TLP)",
+        "parent_corp": "Esperanza Capital Partners",
+        "role": "wi_holder",
+        "share_pct": 15.96,
+        "start_year": 2024,
+        "end_year": 0,
+        "source_url": "https://www.ogj.com/general-interest/companies/article/14305594/exxonmobil-to-divest-stake-in-deepwater-gulf-of-mexico-ursa-princess-development"
+      },
+      {
+        "operator_name": "Shell Offshore Inc. (Ursa TLP \u2013 post-COP buyout)",
+        "parent_corp": "Shell plc",
+        "role": "operator",
+        "share_pct": 61.35,
+        "start_year": 2025,
+        "end_year": 0,
+        "source_url": "https://www.offshore-energy.biz/shell-forks-out-735-million-for-conocophillips-stakes-in-its-us-deepwater-oil-assets/"
+      }
+    ],
+    "grades": [
+      {
+        "grade_name": "Mars Blend",
+        "api_gravity": 31,
+        "sulphur_pct": 2,
+        "share_pct": 100,
+        "period_start": "1996-07-08",
+        "period_end": "",
+        "source_url": "https://www.ogj.com/home/article/17235372/technology-preliminary-assay-reveals-quality-of-mars-blend",
+        "notes": "Medium sour crude; preproduction well sample assay by Shell Oil Co. H2S 0.0011 g/100 ml, pour point \u221233\u00b0F, RVP 8.0 psia, TAN 0.45 mg KOH/g. Marketed as a component in LOOP Sour crude. Final sales quality may vary from sample."
+      }
+    ],
+    "production": [
+      {
+        "observation_date": "1996-07-08",
+        "metric": "oil_bpd",
+        "value": 30000,
+        "method": "estimated",
+        "confidence": "low",
+        "source_url": "https://www.offshore-technology.com/projects/mars/",
+        "notes": "Initial ramp-up rate at first oil, Mars A TLP only. Design capacity 220,000 bpd; wells took several months to ramp. Estimated figure; no public disclosure found for exact first-month rate."
+      },
+      {
+        "observation_date": "1997-01-01",
+        "metric": "oil_bpd",
+        "value": 100000,
+        "method": "estimated",
+        "confidence": "low",
+        "source_url": "https://www.offshore-technology.com/projects/mars/",
+        "notes": "Estimated ramp rate for Mars A TLP first full year of production. Design capacity 220,000 bpd; early wells coming online progressively. No operator-disclosed annual figure available for 1997."
+      },
+      {
+        "observation_date": "1999-03-08",
+        "metric": "oil_bpd",
+        "value": 150000,
+        "method": "estimated",
+        "confidence": "low",
+        "source_url": "https://en.wikipedia.org/wiki/Ursa_tension_leg_platform",
+        "notes": "Ursa TLP comes online March 1999, adding production to the complex. Combined Mars A + early Ursa estimated rate. No combined field-level disclosure found for this exact period."
+      },
+      {
+        "observation_date": "2001-01-01",
+        "metric": "oil_bpd",
+        "value": 200000,
+        "method": "estimated",
+        "confidence": "low",
+        "source_url": "https://www.gem.wiki/Mars-Ursa_(MC807)_-_Shell_Oil_and_Gas_Asset_(Federal_offshore,_United_States)",
+        "notes": "Estimated plateau rate for combined Mars A + Ursa TLPs approaching peak. Triangulated from cumulative production (1,504 MMbbl through 2019) and known peak ~230,000 bpd ca. 2004. No annual disclosure for 2001 found."
+      },
+      {
+        "observation_date": "2004-01-01",
+        "metric": "oil_bpd",
+        "value": 230000,
+        "method": "peak",
+        "confidence": "medium",
+        "source_url": "http://theoildrum.com/node/8366",
+        "notes": "Peak production ~7 million bbl/month \u2248 230,000 bpd per Oil Drum deepwater GoM analysis. Mars field represented ~5% of total GoM production at its peak. Both Mars A TLP and Ursa TLP fully online."
+      },
+      {
+        "observation_date": "2004-09-16",
+        "metric": "oil_bpd",
+        "value": 92000,
+        "method": "outage_event",
+        "confidence": "low",
+        "source_url": "https://www.ogj.com/pipelines-transportation/pipelines/article/17236294/hurricane-ivan-forces-vigorous-response-and-repairs",
+        "notes": "Hurricane Ivan partial curtailment (~60% impact on 230,000 bpd baseline = ~92,000 bpd residual). Pipeline infrastructure (Odyssey, Delta) disabled; some production may have continued on stored inventory. Impact pct is estimated."
+      },
+      {
+        "observation_date": "2004-11-15",
+        "metric": "oil_bpd",
+        "value": 230000,
+        "method": "restore",
+        "confidence": "low",
+        "source_url": "https://www.ogj.com/pipelines-transportation/pipelines/article/17236294/hurricane-ivan-forces-vigorous-response-and-repairs",
+        "notes": "Full pipeline infrastructure restored 15 Nov 2004 per OGJ; production returned to pre-Ivan baseline. Exact restore rate estimated equal to pre-Ivan peak."
+      },
+      {
+        "observation_date": "2005-08-29",
+        "metric": "oil_bpd",
+        "value": 0,
+        "method": "outage_event",
+        "confidence": "high",
+        "source_url": "https://www.offshore-mag.com/deepwater/article/16792738/mars-tlp-restart-imminent",
+        "notes": "Hurricane Katrina full shutdown of Mars TLP. Drilling rig toppled onto deck; export pipelines severed. Full outage confirmed; production = 0 bpd from 29 Aug 2005 until partial restart 22 May 2006."
+      },
+      {
+        "observation_date": "2006-05-22",
+        "metric": "oil_bpd",
+        "value": 80000,
+        "method": "restore",
+        "confidence": "low",
+        "source_url": "https://www.offshore-mag.com/deepwater/article/16792738/mars-tlp-restart-imminent",
+        "notes": "Partial production restart 22 May 2006; full pre-Katrina rates expected end of June 2006. Partial rate estimated at ~35% of pre-Katrina peak (~230,000 bpd), consistent with \"partial production\" language."
+      },
+      {
+        "observation_date": "2006-07-01",
+        "metric": "oil_bpd",
+        "value": 180000,
+        "method": "restore",
+        "confidence": "low",
+        "source_url": "https://www.offshore-mag.com/deepwater/article/16792738/mars-tlp-restart-imminent",
+        "notes": "Full pre-Katrina rate restored by end of June 2006 per Offshore Magazine. Rate estimated below the 2004 peak (230 kbpd) as some wells had naturally declined over the ~10-month shutdown period; 180,000 bpd is a conservative estimate."
+      },
+      {
+        "observation_date": "2010-01-01",
+        "metric": "oil_bpd",
+        "value": 130000,
+        "method": "estimated",
+        "confidence": "low",
+        "source_url": "https://www.gem.wiki/Mars-Ursa_(MC807)_-_Shell_Oil_and_Gas_Asset_(Federal_offshore,_United_States)",
+        "notes": "Estimated mid-decline rate; natural decline from post-Katrina 2006 restore towards 2013 pre-Olympus level (~60,000 bpd). Triangulated from Oil Drum reserve/production analysis and GEM.wiki cumulative data. Uncertainty \u00b130,000 bpd."
+      },
+      {
+        "observation_date": "2013-01-01",
+        "metric": "oil_bpd",
+        "value": 60000,
+        "method": "estimated",
+        "confidence": "medium",
+        "source_url": "https://www.nsenergybusiness.com/projects/mars-b-olympus/",
+        "notes": "NSEnergy states Mars field alone produced over 60,000 boe/d in 2013 before Olympus came online. This is the trough rate prior to the Mars B/Olympus TLP first oil in January 2014."
+      },
+      {
+        "observation_date": "2014-01-01",
+        "metric": "oil_bpd",
+        "value": 120000,
+        "method": "estimated",
+        "confidence": "low",
+        "source_url": "https://www.nsenergybusiness.com/projects/mars-b-olympus/",
+        "notes": "Olympus TLP (Mars B) first oil Jan 2014, adding ~100,000 boe/d capacity to the existing ~60,000 bpd from Mars A + Ursa. Initial combined rate estimated at ~120,000 bpd as Olympus ramps up through 2014."
+      },
+      {
+        "observation_date": "2015-01-01",
+        "metric": "oil_bpd",
+        "value": 150000,
+        "method": "estimated",
+        "confidence": "low",
+        "source_url": "https://www.gem.wiki/Mars-Ursa_(MC807)_-_Shell_Oil_and_Gas_Asset_(Federal_offshore,_United_States)",
+        "notes": "Estimated plateau rate after Olympus TLP ramp-up in 2014. Triangulated from cumulative production trajectory through 2019. No field-level annual disclosure found for 2015."
+      },
+      {
+        "observation_date": "2018-05-01",
+        "metric": "oil_bpd",
+        "value": 175000,
+        "method": "estimated",
+        "confidence": "low",
+        "source_url": "https://www.nsenergybusiness.com/news/shell-begins-production-at-kaikias-deepwater-oil-field-in-gulf-of-mexico/",
+        "notes": "Kaikias subsea tieback to Ursa TLP achieves first oil May 2018, adding up to 40,000 boe/d peak. Combined complex estimated ~175,000 bpd during Kaikias ramp-up period. Uncertainty \u00b125,000 bpd."
+      },
+      {
+        "observation_date": "2020-01-01",
+        "metric": "oil_bpd",
+        "value": 161836,
+        "method": "annual_baseline",
+        "confidence": "high",
+        "source_url": "https://www.gem.wiki/Mars-Ursa_(MC807)_-_Shell_Oil_and_Gas_Asset_(Federal_offshore,_United_States)",
+        "notes": "GEM.wiki BOEM-derived annual production 2020: 59.07 MMbbl \u00f7 365 = 161,836 bpd. Reflects Mars A, Ursa, Olympus, and Kaikias tieback. Note: 2020 includes significant hurricane and maintenance downtime in Aug and Oct (GoM-wide disruptions)."
+      },
+      {
+        "observation_date": "2021-01-01",
+        "metric": "oil_bpd",
+        "value": 165000,
+        "method": "estimated",
+        "confidence": "low",
+        "source_url": "https://www.gem.wiki/Mars-Ursa_(MC807)_-_Shell_Oil_and_Gas_Asset_(Federal_offshore,_United_States)",
+        "notes": "Estimated pre-Ida 2021 rate. GEM.wiki does not publish a separate 2021 annual total; figure interpolated between 2020 (161,836 bpd) and 2023 (182,575 bpd) allowing for Hurricane Ida full shut-in Aug\u2013Nov 2021. Uncertainty \u00b120,000 bpd."
+      },
+      {
+        "observation_date": "2021-08-29",
+        "metric": "oil_bpd",
+        "value": 0,
+        "method": "outage_event",
+        "confidence": "high",
+        "source_url": "https://www.prnewswire.com/news-releases/shell-restores-production-at-mars-and-ursa-in-the-gulf-of-mexico-301417321.html",
+        "notes": "Hurricane Ida landfall 29 Aug 2021; Shell evacuated and shut in all three TLPs (Mars, Ursa, Olympus). Full production halt confirmed. Olympus restarted 1 Oct; Mars and Ursa not restored until 5 Nov 2021."
+      },
+      {
+        "observation_date": "2021-11-05",
+        "metric": "oil_bpd",
+        "value": 165000,
+        "method": "restore",
+        "confidence": "medium",
+        "source_url": "https://www.prnewswire.com/news-releases/shell-restores-production-at-mars-and-ursa-in-the-gulf-of-mexico-301417321.html",
+        "notes": "Shell confirmed Mars and Ursa fully restored 5 Nov 2021, ahead of schedule. Rate set equal to pre-Ida 2021 baseline estimate; Shell stated 100% of GoM operated production back online."
+      },
+      {
+        "observation_date": "2022-04-28",
+        "metric": "oil_bpd",
+        "value": 45000,
+        "method": "outage_event",
+        "confidence": "low",
+        "source_url": "https://finance.yahoo.com/news/shell-completes-planned-maintenance-mars-232249553.html",
+        "notes": "2022 TAR start late April; staggered Mars and Ursa planned maintenance (~75% curtailment on ~180,000 bpd baseline = ~45,000 bpd residual). Platforms taken down sequentially, so some output maintained across the complex."
+      },
+      {
+        "observation_date": "2022-06-05",
+        "metric": "oil_bpd",
+        "value": 180000,
+        "method": "restore",
+        "confidence": "medium",
+        "source_url": "https://www.oedigital.com/news/497111-shell-completes-maintenance-at-gulf-of-mexico-ursa-platform",
+        "notes": "Ursa TAR completed 5 June 2022 (final platform to complete maintenance); full complex back online. Rate estimated at pre-TAR baseline of ~180,000 bpd."
+      },
+      {
+        "observation_date": "2023-01-01",
+        "metric": "oil_bpd",
+        "value": 182575,
+        "method": "annual_baseline",
+        "confidence": "high",
+        "source_url": "https://www.gem.wiki/Mars-Ursa_(MC807)_-_Shell_Oil_and_Gas_Asset_(Federal_offshore,_United_States)",
+        "notes": "GEM.wiki BOEM-derived annual production 2023: 66.64 MMbbl \u00f7 365 = 182,575 bpd. Most recent full-year figure available. Reflects Mars A, Ursa (post-ConocoPhillips/ExxonMobil ownerships), Olympus, and Kaikias tieback."
+      },
+      {
+        "observation_date": "2020-01-01",
+        "metric": "gas_mcfd",
+        "value": 79395,
+        "method": "annual_baseline",
+        "confidence": "high",
+        "source_url": "https://www.gem.wiki/Mars-Ursa_(MC807)_-_Shell_Oil_and_Gas_Asset_(Federal_offshore,_United_States)",
+        "notes": "GEM.wiki 2020 gas production: 2,135.27 million m\u00b3/year \u00f7 365 \u00d7 35.315 = ~206,400 MMcfd \u2014 correction: 2,135.27 Mm\u00b3/yr \u00f7 365 = 5.85 Mm\u00b3/day \u00d7 35.315 = 206.6 MMcfd = 206,600 Mcfd. Emitting as 206,600 Mcfd. Note: Mars A TLP design capacity 220 MMcfd."
+      },
+      {
+        "observation_date": "2023-01-01",
+        "metric": "gas_mcfd",
+        "value": 217300,
+        "method": "annual_baseline",
+        "confidence": "high",
+        "source_url": "https://www.gem.wiki/Mars-Ursa_(MC807)_-_Shell_Oil_and_Gas_Asset_(Federal_offshore,_United_States)",
+        "notes": "GEM.wiki 2023 gas production: 2,245.07 million m\u00b3/year \u00f7 365 days \u00d7 35.315 cf/m\u00b3 = ~217,300 Mcfd. Close to Mars A design nameplate of 220 MMcfd, reflecting healthy Olympus and Kaikias output."
+      },
+      {
+        "observation_date": "2020-01-01",
+        "metric": "gas_mcfd",
+        "value": 206567,
+        "method": "annual_baseline",
+        "confidence": "high",
+        "source_url": "https://www.gem.wiki/Mars-Ursa_(MC807)_-_Shell_Oil_and_Gas_Asset_(Federal_offshore,_United_States)",
+        "notes": "CORRECTED record. GEM.wiki 2020 gas: 2,135.27 Mm\u00b3/yr \u00f7 365 = 5.849 Mm\u00b3/day \u00d7 35.315 = 206,567 Mcfd. Prior entry at same date erroneously emitted 79,395 \u2014 this record supersedes it."
+      }
+    ],
+    "reserves": [
+      {
+        "as_of_date": "2019-12-31",
+        "category": "proved",
+        "commodity": "oil",
+        "volume": 473.2,
+        "unit": "mmbbl",
+        "source_url": "https://www.gem.wiki/Mars-Ursa_(MC807)_-_Shell_Oil_and_Gas_Asset_(Federal_offshore,_United_States)",
+        "notes": "Remaining proved oil reserves as of year-end 2019 per GEM.wiki BOEM-derived record. Cumulative production through 2019 was 1,504 MMbbl. Category interpreted as proved based on GEM.wiki description; independent USGS or SEC-filed 1P not separately available at field level."
+      },
+      {
+        "as_of_date": "2019-12-31",
+        "category": "proved",
+        "commodity": "gas",
+        "volume": 687.6,
+        "unit": "bcf",
+        "source_url": "https://www.gem.wiki/Mars-Ursa_(MC807)_-_Shell_Oil_and_Gas_Asset_(Federal_offshore,_United_States)",
+        "notes": "Remaining gas reserves 19,470.77 million m\u00b3 converted to bcf (\u00d70.0353147). GEM.wiki BOEM-derived record, year-end 2019."
+      },
+      {
+        "as_of_date": "1996-01-01",
+        "category": "proved",
+        "commodity": "oil",
+        "volume": 500,
+        "unit": "mmbbl",
+        "source_url": "https://www.oedigital.com/news/539476-shell-s-deepwater-mars-hits-one-billion-barrels-with-more-to-come-video",
+        "notes": "Original pre-production recoverable resource estimate ~500 MMboe for the Mars platform. Actual cumulative production reached 1,000 MMbbl by May 2026, confirming a doubling of the original estimate through new discoveries and waterflood technology."
+      },
+      {
+        "as_of_date": "2018-12-31",
+        "category": "OOIP",
+        "commodity": "oil",
+        "volume": 100,
+        "unit": "mmbbl",
+        "source_url": "https://www.nsenergybusiness.com/news/shell-begins-production-at-kaikias-deepwater-oil-field-in-gulf-of-mexico/",
+        "notes": "Kaikias sub-field recoverable resources estimate of >100 MMboe, tying back to Ursa TLP. Sanctioned 2017, first oil May 2018."
+      }
+    ],
+    "events": [
+      {
+        "event_type": "discovery",
+        "start_date": "1989-04-01",
+        "end_date": "",
+        "description": "Discovery well drilled on Mississippi Canyon Block 763 by the Discoverer Seven Seas drillship. Leases had been acquired by Shell in 1985 and 1988. Proved up a giant Miocene turbidite accumulation.",
+        "source_url": "https://en.wikipedia.org/wiki/Mars_(oil_platform)"
+      },
+      {
+        "event_type": "first_production",
+        "start_date": "1996-07-08",
+        "end_date": "",
+        "description": "Mars A TLP (MC762/763/806/807/850/851) achieves first oil. At 896 m water depth it was the deepest TLP in the world at the time. Design capacity 220,000 bpd oil and 220 MMcfd gas. Shell 71.5%, BP 28.5%.",
+        "source_url": "https://en.wikipedia.org/wiki/Mars_(oil_platform)"
+      },
+      {
+        "event_type": "expansion",
+        "start_date": "1999-03-08",
+        "end_date": "",
+        "description": "Ursa TLP (MC765/766/808-810/852-854) achieves first oil, four months ahead of schedule. Platform cost ~$1.45 billion; at ~1160 m water depth it held the Guinness record as world's tallest TLP. Ownership: Shell 45.39%, BP 22.69%, ExxonMobil 15.96%, ConocoPhillips 15.96%.",
+        "source_url": "https://en.wikipedia.org/wiki/Ursa_tension_leg_platform"
+      },
+      {
+        "event_type": "peak",
+        "start_date": "2004-01-01",
+        "end_date": "",
+        "description": "Mars-Ursa complex reaches peak combined production of approximately 230,000 bpd \u2014 close to the 220,000 bpd Mars A design nameplate. Peak period 2003\u20132005 before Hurricane Katrina damage. Field represented ~5% of total GoM daily production at the time.",
+        "source_url": "https://www.offshore-mag.com/deepwater/article/16792738/mars-tlp-restart-imminent"
+      },
+      {
+        "event_type": "shutdown",
+        "start_date": "2005-08-29",
+        "end_date": "2006-06-30",
+        "description": "Hurricane Katrina forces evacuation and causes severe damage to Mars TLP. The 1,000-tonne drilling rig toppled onto the deck; export pipelines severed when a drifting rig's anchor dragged across them in 2,700 ft of water. Partial production resumed 22 May 2006; full pre-Katrina rate restored by end of June 2006.",
+        "source_url": "https://www.offshore-mag.com/deepwater/article/16792738/mars-tlp-restart-imminent"
+      },
+      {
+        "event_type": "expansion",
+        "start_date": "2014-01-01",
+        "end_date": "",
+        "description": "Olympus TLP (Mars B) achieves first oil in January 2014. Located ~1 mile from original Mars A TLP, operating in ~914 m water depth with 24 well slots and capacity ~100,000 boe/d. Includes subsea tie-backs at West Boreas and South Deimos fields. Shell 71.5%, BP 28.5%. Field life extended to at least 2050.",
+        "source_url": "https://www.offshore-technology.com/projects/mars-b-olympus-project-gulf-of-mexico/"
+      },
+      {
+        "event_type": "expansion",
+        "start_date": "2018-05-01",
+        "end_date": "",
+        "description": "Kaikias subsea field (MC768, 1,372 m water depth) achieves first oil, tying back to Ursa TLP. Sanctioned Feb 2017 with ~30% cost reduction versus original concept. Three wells; peak capacity ~40,000 boe/d. Recoverable resources >100 MMboe. ~210 km from Louisiana coast.",
+        "source_url": "https://www.nsenergybusiness.com/news/shell-begins-production-at-kaikias-deepwater-oil-field-in-gulf-of-mexico/"
+      },
+      {
+        "event_type": "divestiture",
+        "start_date": "2024-02-20",
+        "end_date": "",
+        "description": "ExxonMobil divests its 15.96% working interest in Ursa and Princess assets to Esperanza Capital Partners / Andros Capital Partners JV. The divested interest was producing ~8,500 boe/d (82% oil). ConocoPhillips 15.96% stake in Ursa remains in place at this time.",
+        "source_url": "https://www.ogj.com/general-interest/companies/article/14305594/exxonmobil-to-divest-stake-in-deepwater-gulf-of-mexico-ursa-princess-development"
+      },
+      {
+        "event_type": "acquisition",
+        "start_date": "2025-01-01",
+        "end_date": "2025-06-30",
+        "description": "Shell signs $735 million deal to acquire ConocoPhillips' 15.96% working interest in Ursa and Europa assets (effective date 1 Jan 2025, expected close end Q2 2025). Shell's Ursa stake rises from 45.39% to maximum 61.35%. ConocoPhillips' divested interests produced ~8,000 boe/d in 2024.",
+        "source_url": "https://www.offshore-energy.biz/shell-forks-out-735-million-for-conocophillips-stakes-in-its-us-deepwater-oil-assets/"
+      },
+      {
+        "event_type": "expansion",
+        "start_date": "2026-05-21",
+        "end_date": "",
+        "description": "Mars platform reaches 1 billion barrels of cumulative crude-oil production \u2014 the first offshore US asset to achieve this milestone. Originally projected to recover ~500 MMbbl; new discoveries and waterflood/infill technology doubled that figure. Field expected to continue producing ~15 more years.",
+        "source_url": "https://www.oedigital.com/news/539476-shell-s-deepwater-mars-hits-one-billion-barrels-with-more-to-come-video"
+      }
+    ],
+    "outages": [
+      {
+        "start_date": "2004-09-16",
+        "end_date": "2004-11-15",
+        "outage_type": "hurricane",
+        "impact_pct": 60,
+        "description": "Hurricane Ivan (Category 3 landfall 16 Sep 2004) forced evacuation of Mars, Ursa, and surrounding GoM platforms. Shell's pipeline infrastructure (Odyssey, Delta system) returned to full service by 15 Nov 2004 after concerted repair effort.",
+        "source_url": "https://www.ogj.com/pipelines-transportation/pipelines/article/17236294/hurricane-ivan-forces-vigorous-response-and-repairs"
+      },
+      {
+        "start_date": "2005-08-29",
+        "end_date": "2006-05-22",
+        "outage_type": "hurricane",
+        "impact_pct": 100,
+        "description": "Hurricane Katrina: Mars TLP drilling rig (1,000 tonnes) toppled onto deck; export pipelines severed by drifting rig anchor in 2,700 ft of water. Full shutdown for ~9 months. Partial production resumed 22 May 2006; full rates restored end of June 2006.",
+        "source_url": "https://www.offshore-mag.com/deepwater/article/16792738/mars-tlp-restart-imminent"
+      },
+      {
+        "start_date": "2005-09-24",
+        "end_date": "2005-10-15",
+        "outage_type": "hurricane",
+        "impact_pct": 80,
+        "description": "Hurricane Rita (Category 5 peak, Cat 3 landfall 24 Sep 2005) swept through GoM within 30 days of Katrina, compounding production disruptions across the basin. Mars/Ursa already shut-in from Katrina; Rita further delayed pipeline and infrastructure repairs.",
+        "source_url": "https://www.offshore-mag.com/home/article/16762799/operators-begin-cleanup-repair-from-katrina-rita"
+      },
+      {
+        "start_date": "2018-04-18",
+        "end_date": "2018-06-15",
+        "outage_type": "TAR",
+        "impact_pct": 80,
+        "description": "Scheduled turnaround maintenance at Mars and Ursa TLPs commencing late April 2018. S&P Global Commodity Insights reported Shell confirmed planned work on both platforms. Approximate two-month window typical for combined GoM TLP TAR; exact end date estimated.",
+        "source_url": "https://www.spglobal.com/commodity-insights/en/market-insights/latest-news/oil/041818-shell-says-scheduled-work-its-us-gulf-of-mexico-mars-ursa-oil-platforms"
+      },
+      {
+        "start_date": "2021-08-29",
+        "end_date": "2021-11-05",
+        "outage_type": "hurricane",
+        "impact_pct": 100,
+        "description": "Hurricane Ida (Category 4, landfall 29 Aug 2021) forced full evacuation of Mars, Ursa, and Olympus TLPs. Olympus restarted 1 Oct 2021; Mars and Ursa fully restored 5 Nov 2021, ahead of Shell's initial schedule. Shell stated 100% of its GoM operated production back online at that point.",
+        "source_url": "https://www.prnewswire.com/news-releases/shell-restores-production-at-mars-and-ursa-in-the-gulf-of-mexico-301417321.html"
+      },
+      {
+        "start_date": "2022-04-28",
+        "end_date": "2022-06-05",
+        "outage_type": "TAR",
+        "impact_pct": 75,
+        "description": "Scheduled turnaround at Mars and Ursa TLPs: Mars maintenance completed ~24 May 2022; Ursa TAR completed 5 June 2022. Staggered completion typical of multi-platform TARs; production partially maintained across complex during individual platform outages.",
+        "source_url": "https://finance.yahoo.com/news/shell-completes-planned-maintenance-mars-232249553.html"
+      }
+    ],
+    "logistics": [
+      {
+        "asset_type": "pipeline",
+        "asset_name": "Mars Crude Oil Pipeline",
+        "operator": "Shell Midstream Partners LP",
+        "capacity_bpd": 600000,
+        "direction": "outbound",
+        "notes": "18\u201324 inch, 163-mile corridor pipeline originating ~130 miles offshore in Mississippi Canyon. Gathers output from Mars A, Olympus (Mars B), and Ursa pipelines plus Medusa and Amberjack tie-ins. Terminates at LOOP Clovelly salt-dome facility and Port Fourchon, Louisiana. Shell Midstream 71.5%, BP 28.5%. Pipeline has been operational since 1996 alongside Mars A TLP first oil.",
+        "source_url": "https://www.gem.wiki/Mars_Crude_Oil_Pipeline"
+      },
+      {
+        "asset_type": "pipeline",
+        "asset_name": "Ursa Oil Pipeline",
+        "operator": "Shell Offshore Inc.",
+        "capacity_bpd": 150000,
+        "direction": "outbound",
+        "notes": "Subsea gathering pipeline feeding Ursa TLP production into the Mars Crude Oil Pipeline corridor system. Shell acquired ConocoPhillips' 15.96% membership interest in Ursa Oil Pipeline Company as part of the $735 M deal (effective Jan 2025). Connects Mississippi Canyon blocks 765/766/808-810/852-854 to the Mars trunk line.",
+        "source_url": "https://www.offshore-energy.biz/shell-forks-out-735-million-for-conocophillips-stakes-in-its-us-deepwater-oil-assets/"
+      },
+      {
+        "asset_type": "terminal",
+        "asset_name": "LOOP Clovelly Hub",
+        "operator": "Louisiana Offshore Oil Port (LOOP LLC)",
+        "capacity_bpd": 1200000,
+        "direction": "outbound",
+        "notes": "Primary onshore delivery point for Mars Blend crude. Mars pipeline delivers into LOOP's Clovelly salt-dome storage caverns, Louisiana. LOCAP pipeline (55-mile common carrier) connects Clovelly onward to the St James, Louisiana crude trading hub. Mars Blend is a component of LOOP Sour index crude. Shell leases dedicated storage cavern capacity at Clovelly.",
+        "source_url": "https://marketrealist.com/2015/04/shell-midstreams-mars-corridor-pipeline-servicing-gulf/"
+      },
+      {
+        "asset_type": "pipeline",
+        "asset_name": "Odyssey Pipeline",
+        "operator": "Shell Midstream Partners LP",
+        "capacity_bpd": 220000,
+        "direction": "outbound",
+        "notes": "20-inch offshore crude pipeline serving eastern GoM fields into the Delta Pipeline system, enabling deliveries to Louisiana and Mississippi refineries. Shell Midstream owns 22% interest (rising to 71% after 2016 acquisition from Shell). Severely damaged by Hurricane Ivan (Sep 2004); Odyssey 20-inch system returned to service 30 Oct 2004. Serves as an alternate export route for Mars corridor crude.",
+        "source_url": "https://www.napipelines.com/shell-midstream-mars-odyssey-pipelines/"
+      },
+      {
+        "asset_type": "terminal",
+        "asset_name": "Port Fourchon Marine Terminal",
+        "operator": "Shell Pipeline Company LP",
+        "capacity_bpd": 250000,
+        "direction": "outbound",
+        "notes": "Coastal Louisiana terminal at the end of the Mars pipeline's 24-inch segment running ~55 miles from West Delta 143 to Port Fourchon. Serves as a secondary delivery point alongside LOOP Clovelly. Original Mars pipeline design had 250,000 boe/d initial capacity into Fourchon.",
+        "source_url": "https://www.offshore-technology.com/projects/mars/"
+      },
+      {
+        "asset_type": "terminal",
+        "asset_name": "West Delta 143 Platform",
+        "operator": "Shell Pipeline Company LP",
+        "capacity_bpd": 300000,
+        "direction": "outbound",
+        "notes": "Shallow-water hub platform in West Delta block 143, near the Louisiana coast. Acts as a pipeline junction where the Mars crude trunk-line transitions from the 18-inch deepwater section to the 24-inch nearshore section running to Port Fourchon and LOOP Clovelly. Damaged in Hurricanes Katrina and Rita (2005) alongside the deepwater platforms.",
+        "source_url": "https://www.offshore-technology.com/projects/mars/"
+      }
+    ],
+    "sources": [
+      {
+        "url": "https://en.wikipedia.org/wiki/Mars_(oil_platform)",
+        "title": "Mars (oil platform) - Wikipedia",
+        "publisher": "Wikipedia",
+        "document_type": "wikipedia",
+        "published_date": "",
+        "notes": "Discovery date (April 1989), first production (July 8 1996), blocks MC762/763/806/807/850/851, water depth 896 m, design capacity 220 kbpd oil / 220 MMcfd gas, Hurricane Katrina damage and May 2006 restart."
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/Ursa_tension_leg_platform",
+        "title": "Ursa tension leg platform - Wikipedia",
+        "publisher": "Wikipedia",
+        "document_type": "wikipedia",
+        "published_date": "",
+        "notes": "Ursa TLP: blocks MC765/766/808-854, discovery well 1991, construction finished 1998, first production 1999. Ownership: Shell 45.39%, BP 22.69%, ExxonMobil 15.96%, ConocoPhillips 15.96%. Cost ~$1.45 billion."
+      },
+      {
+        "url": "https://www.offshore-technology.com/projects/mars/",
+        "title": "Mars Oil and Gas Field Project, Gulf of Mexico",
+        "publisher": "Offshore Technology",
+        "document_type": "trade_press",
+        "published_date": "",
+        "notes": "TLP specifications, design capacity (220 kbpd oil, 220 MMcfd gas), Mars B/Olympus first oil Jan 2014, 500 MMboe original reserve estimate. Shell 71.5%, BP 28.5% for Mars/Olympus."
+      },
+      {
+        "url": "https://www.gem.wiki/Mars-Ursa_(MC807)_-_Shell_Oil_and_Gas_Asset_(Federal_offshore,_United_States)",
+        "title": "Mars-Ursa (MC807) \u2014 Shell Oil and Gas Asset",
+        "publisher": "Global Energy Monitor",
+        "document_type": "other",
+        "published_date": "",
+        "notes": "Key production data: cumulative 1,504 MMbbl through 2019; annual 2020 = 59.07 MMbbl; annual 2023 = 66.64 MMbbl; gas 2020 = 2,135.27 Mm\u00b3/yr; gas 2023 = 2,245.07 Mm\u00b3/yr; remaining reserves 2019 = 473.2 MMbbl oil, 19,470.77 Mm\u00b3 gas. Coordinates 28.1649\u00b0N 89.1736\u00b0W."
+      },
+      {
+        "url": "https://www.offshore-energy.biz/shell-forks-out-735-million-for-conocophillips-stakes-in-its-us-deepwater-oil-assets/",
+        "title": "Shell forks out $735 million for ConocoPhillips' stakes in US deepwater oil assets",
+        "publisher": "Offshore Energy",
+        "document_type": "news",
+        "published_date": "2025-01-01",
+        "notes": "Shell acquires ConocoPhillips 15.96% Ursa stake for $735M; effective 1 Jan 2025, close expected Q2 2025. Shell's Ursa WI increases from 45.39% to max 61.35%. Also includes 15.96% Ursa Oil Pipeline Company membership interest. Divested interest produced ~8,000 boe/d in 2024."
+      },
+      {
+        "url": "https://www.ogj.com/general-interest/companies/article/14305594/exxonmobil-to-divest-stake-in-deepwater-gulf-of-mexico-ursa-princess-development",
+        "title": "ExxonMobil to divest stake in deepwater Gulf of Mexico Ursa-Princess development",
+        "publisher": "Oil & Gas Journal",
+        "document_type": "news",
+        "published_date": "2024-02-20",
+        "notes": "ExxonMobil divests 15.96% WI in Ursa and Princess assets to Esperanza/Andros Capital Partners JV. ~8,500 boe/d (82% oil). Post-transaction partners: Shell (operator, 45.39%), BP (22.69%), ConocoPhillips (15.96%), Esperanza (15.96%)."
+      },
+      {
+        "url": "https://www.oedigital.com/news/539476-shell-s-deepwater-mars-hits-one-billion-barrels-with-more-to-come-video",
+        "title": "Shell's Deepwater Mars Hits One Billion Barrels, with More to Come",
+        "publisher": "Offshore Engineer / OE Digital",
+        "document_type": "news",
+        "published_date": "2026-05-21",
+        "notes": "Milestone date confirmed as 21 May 2026. Original recovery estimate ~500 MMbbl; field doubled that via new discoveries and waterflood. Platform expected to continue producing ~15 more years; ~150 workers on site year-round."
+      },
+      {
+        "url": "https://www.prnewswire.com/news-releases/shell-restores-production-at-mars-and-ursa-in-the-gulf-of-mexico-301417321.html",
+        "title": "Shell Restores Production at Mars and Ursa in the Gulf of Mexico",
+        "publisher": "Shell plc / PR Newswire",
+        "document_type": "press_release",
+        "published_date": "2021-11-05",
+        "notes": "Hurricane Ida restoration confirmed: Olympus restarted 1 Oct 2021; Mars and Ursa restored 5 Nov 2021. Shell stated 100% of GoM operated production back online ahead of initial schedule."
+      },
+      {
+        "url": "https://www.ogj.com/home/article/17235372/technology-preliminary-assay-reveals-quality-of-mars-blend",
+        "title": "Preliminary assay reveals quality of Mars blend",
+        "publisher": "Oil & Gas Journal",
+        "document_type": "trade_press",
+        "published_date": "1996-01-01",
+        "notes": "Pre-production well-sample assay by Shell Oil Co. Mars Blend: 31\u00b0 API, 2.0 wt% sulphur, H2S 0.0011 g/100 ml, pour point \u221233\u00b0F, RVP 8.0 psia, TAN 0.45 mg KOH/g. Shell noted final sales quality may differ."
+      },
+      {
+        "url": "https://www.nsenergybusiness.com/news/shell-begins-production-at-kaikias-deepwater-oil-field-in-gulf-of-mexico/",
+        "title": "Shell begins production at Kaikias deepwater oil field in Gulf of Mexico",
+        "publisher": "NS Energy Business",
+        "document_type": "news",
+        "published_date": "2018-05-01",
+        "notes": "Kaikias (MC768) first oil May 2018; subsea tieback to Ursa TLP; 1,372 m water depth; peak capacity ~40,000 boe/d; >100 MMboe recoverable; sanctioned Feb 2017 with ~30% cost reduction."
+      },
+      {
+        "url": "https://www.offshore-mag.com/deepwater/article/16792738/mars-tlp-restart-imminent",
+        "title": "Mars TLP restart imminent",
+        "publisher": "Offshore Magazine",
+        "document_type": "trade_press",
+        "published_date": "2006-05-01",
+        "notes": "Hurricane Katrina damage details: 1,000-tonne rig toppled onto deck; export pipelines severed by drifting rig anchor at 2,700 ft depth. Partial production May 2006; full rate restored end of June 2006. Mars ~5% of GoM daily production at peak."
+      },
+      {
+        "url": "https://www.nsenergybusiness.com/projects/mars-b-olympus/",
+        "title": "Shell's Mars B Deep Water Project in US Gulf of Mexico",
+        "publisher": "NS Energy Business",
+        "document_type": "trade_press",
+        "published_date": "2014-01-01",
+        "notes": "Olympus TLP: 914 m water depth, 100,000 boe/d capacity, 24 well slots, first oil Jan 2014. Mars field producing ~60,000 boe/d in 2013 before Olympus. Shell 71.5%, BP 28.5%."
+      },
+      {
+        "url": "https://www.ogj.com/pipelines-transportation/pipelines/article/17236294/hurricane-ivan-forces-vigorous-response-and-repairs",
+        "title": "Hurricane Ivan forces vigorous response and repairs",
+        "publisher": "Oil & Gas Journal",
+        "document_type": "trade_press",
+        "published_date": "2004-11-01",
+        "notes": "Hurricane Ivan Sep 2004: Mars, Ursa shut in; Shell pipeline infrastructure (Nakika, Delta, Odyssey) disabled. All crude flow capabilities restored by 15 Nov 2004."
+      },
+      {
+        "url": "https://www.gem.wiki/Mars_Crude_Oil_Pipeline",
+        "title": "Mars Crude Oil Pipeline",
+        "publisher": "Global Energy Monitor",
+        "document_type": "other",
+        "published_date": "",
+        "notes": "Pipeline specs: 18\u201324 inch, 163 miles, 600,000 bpd capacity, delivers to LOOP Clovelly and Port Fourchon. Shell Midstream 71.5%, BP 28.5%. Gathers from Mars A, Olympus, Medusa, Ursa, and Amberjack systems."
+      },
+      {
+        "url": "https://finance.yahoo.com/news/shell-completes-planned-maintenance-mars-232249553.html",
+        "title": "Shell completes planned maintenance at Mars platform in Gulf of Mexico",
+        "publisher": "Yahoo Finance / Shell plc",
+        "document_type": "press_release",
+        "published_date": "2022-05-24",
+        "notes": "Mars TAR completed ~24 May 2022; Ursa TAR expected completion early June 2022. Staggered turnaround late April\u2013early June 2022."
+      },
+      {
+        "url": "https://www.oedigital.com/news/497111-shell-completes-maintenance-at-gulf-of-mexico-ursa-platform",
+        "title": "Shell Completes Maintenance at Gulf of Mexico Ursa Platform",
+        "publisher": "OE Digital",
+        "document_type": "news",
+        "published_date": "2022-06-07",
+        "notes": "Ursa TAR completed 5 June 2022 (reported 7 June 2022). Final platform to complete 2022 maintenance cycle. Full complex back online."
+      },
+      {
+        "url": "https://www.napipelines.com/shell-midstream-mars-odyssey-pipelines/",
+        "title": "Shell Midstream Acquires Interests in Mars, Odyssey Pipelines",
+        "publisher": "North American Pipelines",
+        "document_type": "news",
+        "published_date": "2016-01-01",
+        "notes": "Shell Midstream acquired majority stakes in Mars (71.5%) and Odyssey (71%) pipelines. Odyssey capacity 220,000 bpd serving eastern GoM into Delta Pipeline system."
+      }
+    ],
+    "summary": "The Mars-Ursa complex (field ID: mars_ursa_gom) is comprehensively profiled as a three-TLP deepwater system (Mars A 1996, Ursa 1999, Olympus/Mars B 2014) plus the Kaikias subsea tieback (2018), all operated by Shell Offshore Inc. in Mississippi Canyon, Gulf of Mexico; the field produces Mars Blend (31\u00b0 API, 2.0 wt% sulphur), has exported cumulative production of >1 billion barrels by May 2026, and currently produces ~183,000 bpd via the 600,000 bpd Mars Crude Oil Pipeline to LOOP Clovelly. Key uncertainties remain in the production step-function for 1996\u20132013 (annual rates are triangulated estimates rather than BSEE OGOR field-level data, which were not queried directly), the exact 2018 TAR impact magnitude (S&P Global page returned HTTP 403), and associated gas production prior to 2020. Data gaps include: an independent USGS field-level resource assessment (none located), exact Ursa first-production date beyond \"March 1999\", field-level proved-reserve disclosures in Shell's annual 20-F filings (only aggregate GoM figures are published), and production figures for the 2007\u20132012 post-Katrina recovery and 2016\u20132017 inter-Olympus plateau \u2014 a future pass should query the BSEE OGOR production database directly at data.bsee.gov to fill these gaps."
+  },
+  "run_meta": {
+    "model": "claude-sonnet-4-6",
+    "started_at": "2026-05-26 15:23:06.933798",
+    "finished_at": "2026-05-26 15:34:26.092491",
+    "tool_calls": 112,
+    "tokens_in": 0,
+    "tokens_out": 0,
+    "cost_usd": 1.8528504,
+    "status": "success",
+    "error": null
+  }
+}

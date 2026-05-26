@@ -1,0 +1,3160 @@
+{
+  "kind": "per_grade_db_vs_benchmark_diff",
+  "tolerance_pct_outside_range": 3.0,
+  "summary_flags": {
+    "ok": 100,
+    "borderline": 24,
+    "out_of_range": 1,
+    "no_benchmark": 106
+  },
+  "n_rows": 231,
+  "comparison": [
+    {
+      "commodity": "ans",
+      "main_group": "motor_gasoline",
+      "n_refineries": 17,
+      "db_avg": 39.07,
+      "db_min": 26.8,
+      "db_max": 49.2,
+      "bench_range_min": 37.0,
+      "bench_range_max": 48.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "ok"
+    },
+    {
+      "commodity": "ans",
+      "main_group": "gas_diesel_oil",
+      "n_refineries": 17,
+      "db_avg": 29.08,
+      "db_min": 19.01,
+      "db_max": 33.0,
+      "bench_range_min": 19.0,
+      "bench_range_max": 26.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "out_of_range"
+    },
+    {
+      "commodity": "ans",
+      "main_group": "kerosene_type_jet_fuel",
+      "n_refineries": 17,
+      "db_avg": 13.21,
+      "db_min": 6.79,
+      "db_max": 31.04,
+      "bench_range_min": 10.0,
+      "bench_range_max": 20.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "ok"
+    },
+    {
+      "commodity": "ans",
+      "main_group": "fuel_oil",
+      "n_refineries": 17,
+      "db_avg": 5.9,
+      "db_min": 1.0,
+      "db_max": 10.61,
+      "bench_range_min": 1.5,
+      "bench_range_max": 13.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "ok"
+    },
+    {
+      "commodity": "ans",
+      "main_group": "secondary_oil",
+      "n_refineries": 17,
+      "db_avg": 5.08,
+      "db_min": 2.0,
+      "db_max": 8.0,
+      "bench_range_min": null,
+      "bench_range_max": null,
+      "bench_sources": [],
+      "flag": "no_benchmark"
+    },
+    {
+      "commodity": "ans",
+      "main_group": "lpg",
+      "n_refineries": 17,
+      "db_avg": 4.05,
+      "db_min": 2.0,
+      "db_max": 6.16,
+      "bench_range_min": 4.5,
+      "bench_range_max": 11.5,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "borderline"
+    },
+    {
+      "commodity": "ans",
+      "main_group": "petroleum_coke",
+      "n_refineries": 7,
+      "db_avg": 3.76,
+      "db_min": 1.98,
+      "db_max": 5.0,
+      "bench_range_min": 0.0,
+      "bench_range_max": 6.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "ok"
+    },
+    {
+      "commodity": "ans",
+      "main_group": "lubricants",
+      "n_refineries": 3,
+      "db_avg": 3.0,
+      "db_min": 1.0,
+      "db_max": 6.0,
+      "bench_range_min": null,
+      "bench_range_max": null,
+      "bench_sources": [],
+      "flag": "no_benchmark"
+    },
+    {
+      "commodity": "ans",
+      "main_group": "bitumen",
+      "n_refineries": 4,
+      "db_avg": 2.52,
+      "db_min": 1.96,
+      "db_max": 3.0,
+      "bench_range_min": null,
+      "bench_range_max": null,
+      "bench_sources": [],
+      "flag": "no_benchmark"
+    },
+    {
+      "commodity": "ans",
+      "main_group": "other_products",
+      "n_refineries": 6,
+      "db_avg": 1.53,
+      "db_min": 0.5,
+      "db_max": 2.2,
+      "bench_range_min": null,
+      "bench_range_max": null,
+      "bench_sources": [],
+      "flag": "no_benchmark"
+    },
+    {
+      "commodity": "ans",
+      "main_group": "jet_kerosene",
+      "n_refineries": 17,
+      "db_avg": 0.41,
+      "db_min": 0.21,
+      "db_max": 0.96,
+      "bench_range_min": null,
+      "bench_range_max": null,
+      "bench_sources": [],
+      "flag": "no_benchmark"
+    },
+    {
+      "commodity": "bakken_light",
+      "main_group": "motor_gasoline",
+      "n_refineries": 45,
+      "db_avg": 43.29,
+      "db_min": 28.0,
+      "db_max": 55.01,
+      "bench_range_min": 41.0,
+      "bench_range_max": 52.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "ok"
+    },
+    {
+      "commodity": "bakken_light",
+      "main_group": "gas_diesel_oil",
+      "n_refineries": 45,
+      "db_avg": 29.07,
+      "db_min": 22.0,
+      "db_max": 38.0,
+      "bench_range_min": 21.0,
+      "bench_range_max": 29.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "borderline"
+    },
+    {
+      "commodity": "bakken_light",
+      "main_group": "kerosene_type_jet_fuel",
+      "n_refineries": 45,
+      "db_avg": 9.72,
+      "db_min": 1.94,
+      "db_max": 31.04,
+      "bench_range_min": 5.0,
+      "bench_range_max": 14.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "ok"
+    },
+    {
+      "commodity": "bakken_light",
+      "main_group": "lubricants",
+      "n_refineries": 2,
+      "db_avg": 7.0,
+      "db_min": 2.0,
+      "db_max": 12.0,
+      "bench_range_min": null,
+      "bench_range_max": null,
+      "bench_sources": [],
+      "flag": "no_benchmark"
+    },
+    {
+      "commodity": "bakken_light",
+      "main_group": "secondary_oil",
+      "n_refineries": 45,
+      "db_avg": 5.77,
+      "db_min": 3.0,
+      "db_max": 8.0,
+      "bench_range_min": null,
+      "bench_range_max": null,
+      "bench_sources": [],
+      "flag": "no_benchmark"
+    },
+    {
+      "commodity": "bakken_light",
+      "main_group": "lpg",
+      "n_refineries": 45,
+      "db_avg": 5.29,
+      "db_min": 2.0,
+      "db_max": 7.64,
+      "bench_range_min": 5.0,
+      "bench_range_max": 12.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "ok"
+    },
+    {
+      "commodity": "bakken_light",
+      "main_group": "fuel_oil",
+      "n_refineries": 45,
+      "db_avg": 3.68,
+      "db_min": 0.5,
+      "db_max": 6.1,
+      "bench_range_min": 2.0,
+      "bench_range_max": 9.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "ok"
+    },
+    {
+      "commodity": "bakken_light",
+      "main_group": "petroleum_coke",
+      "n_refineries": 18,
+      "db_avg": 3.46,
+      "db_min": 0.99,
+      "db_max": 8.0,
+      "bench_range_min": 0.0,
+      "bench_range_max": 3.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "borderline"
+    },
+    {
+      "commodity": "bakken_light",
+      "main_group": "bitumen",
+      "n_refineries": 9,
+      "db_avg": 3.37,
+      "db_min": 1.96,
+      "db_max": 7.0,
+      "bench_range_min": null,
+      "bench_range_max": null,
+      "bench_sources": [],
+      "flag": "no_benchmark"
+    },
+    {
+      "commodity": "bakken_light",
+      "main_group": "other_products",
+      "n_refineries": 13,
+      "db_avg": 1.77,
+      "db_min": 0.5,
+      "db_max": 6.0,
+      "bench_range_min": null,
+      "bench_range_max": null,
+      "bench_sources": [],
+      "flag": "no_benchmark"
+    },
+    {
+      "commodity": "bakken_light",
+      "main_group": "jet_kerosene",
+      "n_refineries": 45,
+      "db_avg": 0.3,
+      "db_min": 0.06,
+      "db_max": 0.96,
+      "bench_range_min": null,
+      "bench_range_max": null,
+      "bench_sources": [],
+      "flag": "no_benchmark"
+    },
+    {
+      "commodity": "california_heavy",
+      "main_group": "bitumen",
+      "n_refineries": 3,
+      "db_avg": 40.65,
+      "db_min": 1.96,
+      "db_max": 60.0,
+      "bench_range_min": null,
+      "bench_range_max": null,
+      "bench_sources": [],
+      "flag": "no_benchmark"
+    },
+    {
+      "commodity": "california_heavy",
+      "main_group": "motor_gasoline",
+      "n_refineries": 15,
+      "db_avg": 31.87,
+      "db_min": 3.0,
+      "db_max": 47.02,
+      "bench_range_min": 26.0,
+      "bench_range_max": 48.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "ok"
+    },
+    {
+      "commodity": "california_heavy",
+      "main_group": "gas_diesel_oil",
+      "n_refineries": 15,
+      "db_avg": 25.4,
+      "db_min": 10.0,
+      "db_max": 33.0,
+      "bench_range_min": 18.0,
+      "bench_range_max": 29.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "ok"
+    },
+    {
+      "commodity": "california_heavy",
+      "main_group": "fuel_oil",
+      "n_refineries": 15,
+      "db_avg": 12.85,
+      "db_min": 1.0,
+      "db_max": 22.26,
+      "bench_range_min": 2.0,
+      "bench_range_max": 30.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "ok"
+    },
+    {
+      "commodity": "california_heavy",
+      "main_group": "kerosene_type_jet_fuel",
+      "n_refineries": 13,
+      "db_avg": 8.44,
+      "db_min": 5.7,
+      "db_max": 21.35,
+      "bench_range_min": 7.0,
+      "bench_range_max": 18.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "ok"
+    },
+    {
+      "commodity": "california_heavy",
+      "main_group": "secondary_oil",
+      "n_refineries": 15,
+      "db_avg": 6.83,
+      "db_min": 1.5,
+      "db_max": 17.0,
+      "bench_range_min": null,
+      "bench_range_max": null,
+      "bench_sources": [],
+      "flag": "no_benchmark"
+    },
+    {
+      "commodity": "california_heavy",
+      "main_group": "petroleum_coke",
+      "n_refineries": 6,
+      "db_avg": 5.28,
+      "db_min": 3.47,
+      "db_max": 8.25,
+      "bench_range_min": 1.0,
+      "bench_range_max": 13.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "ok"
+    },
+    {
+      "commodity": "california_heavy",
+      "main_group": "lpg",
+      "n_refineries": 13,
+      "db_avg": 5.1,
+      "db_min": 2.0,
+      "db_max": 7.7,
+      "bench_range_min": 3.5,
+      "bench_range_max": 10.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "ok"
+    },
+    {
+      "commodity": "california_heavy",
+      "main_group": "lubricants",
+      "n_refineries": 3,
+      "db_avg": 3.0,
+      "db_min": 1.0,
+      "db_max": 6.0,
+      "bench_range_min": null,
+      "bench_range_max": null,
+      "bench_sources": [],
+      "flag": "no_benchmark"
+    },
+    {
+      "commodity": "california_heavy",
+      "main_group": "other_products",
+      "n_refineries": 3,
+      "db_avg": 1.17,
+      "db_min": 0.5,
+      "db_max": 2.0,
+      "bench_range_min": null,
+      "bench_range_max": null,
+      "bench_sources": [],
+      "flag": "no_benchmark"
+    },
+    {
+      "commodity": "california_heavy",
+      "main_group": "jet_kerosene",
+      "n_refineries": 13,
+      "db_avg": 0.26,
+      "db_min": 0.18,
+      "db_max": 0.66,
+      "bench_range_min": null,
+      "bench_range_max": null,
+      "bench_sources": [],
+      "flag": "no_benchmark"
+    },
+    {
+      "commodity": "crude",
+      "main_group": "motor_gasoline",
+      "n_refineries": 56,
+      "db_avg": 40.42,
+      "db_min": 26.8,
+      "db_max": 60.0,
+      "bench_range_min": null,
+      "bench_range_max": null,
+      "bench_sources": [],
+      "flag": "no_benchmark"
+    },
+    {
+      "commodity": "crude",
+      "main_group": "gas_diesel_oil",
+      "n_refineries": 57,
+      "db_avg": 29.17,
+      "db_min": 15.0,
+      "db_max": 38.41,
+      "bench_range_min": null,
+      "bench_range_max": null,
+      "bench_sources": [],
+      "flag": "no_benchmark"
+    },
+    {
+      "commodity": "crude",
+      "main_group": "kerosene_type_jet_fuel",
+      "n_refineries": 56,
+      "db_avg": 9.88,
+      "db_min": 1.94,
+      "db_max": 31.04,
+      "bench_range_min": null,
+      "bench_range_max": null,
+      "bench_sources": [],
+      "flag": "no_benchmark"
+    },
+    {
+      "commodity": "crude",
+      "main_group": "bitumen",
+      "n_refineries": 10,
+      "db_avg": 7.63,
+      "db_min": 0.94,
+      "db_max": 50.0,
+      "bench_range_min": null,
+      "bench_range_max": null,
+      "bench_sources": [],
+      "flag": "no_benchmark"
+    },
+    {
+      "commodity": "crude",
+      "main_group": "fuel_oil",
+      "n_refineries": 56,
+      "db_avg": 6.41,
+      "db_min": 1.0,
+      "db_max": 30.0,
+      "bench_range_min": null,
+      "bench_range_max": null,
+      "bench_sources": [],
+      "flag": "no_benchmark"
+    },
+    {
+      "commodity": "crude",
+      "main_group": "secondary_oil",
+      "n_refineries": 57,
+      "db_avg": 5.91,
+      "db_min": 4.0,
+      "db_max": 8.0,
+      "bench_range_min": null,
+      "bench_range_max": null,
+      "bench_sources": [],
+      "flag": "no_benchmark"
+    },
+    {
+      "commodity": "crude",
+      "main_group": "lpg",
+      "n_refineries": 56,
+      "db_avg": 5.34,
+      "db_min": 2.0,
+      "db_max": 7.08,
+      "bench_range_min": null,
+      "bench_range_max": null,
+      "bench_sources": [],
+      "flag": "no_benchmark"
+    },
+    {
+      "commodity": "crude",
+      "main_group": "petroleum_coke",
+      "n_refineries": 21,
+      "db_avg": 4.96,
+      "db_min": 0.99,
+      "db_max": 10.0,
+      "bench_range_min": null,
+      "bench_range_max": null,
+      "bench_sources": [],
+      "flag": "no_benchmark"
+    },
+    {
+      "commodity": "crude",
+      "main_group": "lubricants",
+      "n_refineries": 3,
+      "db_avg": 1.67,
+      "db_min": 1.0,
+      "db_max": 2.0,
+      "bench_range_min": null,
+      "bench_range_max": null,
+      "bench_sources": [],
+      "flag": "no_benchmark"
+    },
+    {
+      "commodity": "crude",
+      "main_group": "other_products",
+      "n_refineries": 16,
+      "db_avg": 1.41,
+      "db_min": 0.5,
+      "db_max": 2.2,
+      "bench_range_min": null,
+      "bench_range_max": null,
+      "bench_sources": [],
+      "flag": "no_benchmark"
+    },
+    {
+      "commodity": "crude",
+      "main_group": "jet_kerosene",
+      "n_refineries": 56,
+      "db_avg": 0.31,
+      "db_min": 0.06,
+      "db_max": 0.96,
+      "bench_range_min": null,
+      "bench_range_max": null,
+      "bench_sources": [],
+      "flag": "no_benchmark"
+    },
+    {
+      "commodity": "eagle_ford_condensate",
+      "main_group": "motor_gasoline",
+      "n_refineries": 12,
+      "db_avg": 43.75,
+      "db_min": 25.0,
+      "db_max": 50.33,
+      "bench_range_min": 32.0,
+      "bench_range_max": 48.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "ok"
+    },
+    {
+      "commodity": "eagle_ford_condensate",
+      "main_group": "gas_diesel_oil",
+      "n_refineries": 12,
+      "db_avg": 20.37,
+      "db_min": 15.0,
+      "db_max": 32.0,
+      "bench_range_min": 12.0,
+      "bench_range_max": 22.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "ok"
+    },
+    {
+      "commodity": "eagle_ford_condensate",
+      "main_group": "secondary_oil",
+      "n_refineries": 12,
+      "db_avg": 15.14,
+      "db_min": 5.5,
+      "db_max": 40.0,
+      "bench_range_min": null,
+      "bench_range_max": null,
+      "bench_sources": [],
+      "flag": "no_benchmark"
+    },
+    {
+      "commodity": "eagle_ford_condensate",
+      "main_group": "kerosene_type_jet_fuel",
+      "n_refineries": 12,
+      "db_avg": 11.91,
+      "db_min": 5.82,
+      "db_max": 14.55,
+      "bench_range_min": 7.0,
+      "bench_range_max": 16.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "ok"
+    },
+    {
+      "commodity": "eagle_ford_condensate",
+      "main_group": "lpg",
+      "n_refineries": 12,
+      "db_avg": 6.66,
+      "db_min": 3.0,
+      "db_max": 8.98,
+      "bench_range_min": 7.0,
+      "bench_range_max": 14.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "borderline"
+    },
+    {
+      "commodity": "eagle_ford_condensate",
+      "main_group": "petroleum_coke",
+      "n_refineries": 3,
+      "db_avg": 2.48,
+      "db_min": 1.49,
+      "db_max": 2.97,
+      "bench_range_min": 0.0,
+      "bench_range_max": 1.5,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "borderline"
+    },
+    {
+      "commodity": "eagle_ford_condensate",
+      "main_group": "fuel_oil",
+      "n_refineries": 9,
+      "db_avg": 1.3,
+      "db_min": 1.0,
+      "db_max": 3.5,
+      "bench_range_min": 0.0,
+      "bench_range_max": 5.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "ok"
+    },
+    {
+      "commodity": "eagle_ford_condensate",
+      "main_group": "other_products",
+      "n_refineries": 3,
+      "db_avg": 0.83,
+      "db_min": 0.5,
+      "db_max": 1.0,
+      "bench_range_min": null,
+      "bench_range_max": null,
+      "bench_sources": [],
+      "flag": "no_benchmark"
+    },
+    {
+      "commodity": "eagle_ford_condensate",
+      "main_group": "jet_kerosene",
+      "n_refineries": 12,
+      "db_avg": 0.37,
+      "db_min": 0.18,
+      "db_max": 0.45,
+      "bench_range_min": null,
+      "bench_range_max": null,
+      "bench_sources": [],
+      "flag": "no_benchmark"
+    },
+    {
+      "commodity": "eagle_ford_light",
+      "main_group": "motor_gasoline",
+      "n_refineries": 26,
+      "db_avg": 41.6,
+      "db_min": 25.0,
+      "db_max": 50.03,
+      "bench_range_min": 43.0,
+      "bench_range_max": 54.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "borderline"
+    },
+    {
+      "commodity": "eagle_ford_light",
+      "main_group": "gas_diesel_oil",
+      "n_refineries": 26,
+      "db_avg": 26.68,
+      "db_min": 15.0,
+      "db_max": 32.02,
+      "bench_range_min": 18.0,
+      "bench_range_max": 26.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "borderline"
+    },
+    {
+      "commodity": "eagle_ford_light",
+      "main_group": "kerosene_type_jet_fuel",
+      "n_refineries": 26,
+      "db_avg": 11.35,
+      "db_min": 4.85,
+      "db_max": 31.04,
+      "bench_range_min": 6.0,
+      "bench_range_max": 14.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "ok"
+    },
+    {
+      "commodity": "eagle_ford_light",
+      "main_group": "secondary_oil",
+      "n_refineries": 26,
+      "db_avg": 8.7,
+      "db_min": 4.5,
+      "db_max": 40.0,
+      "bench_range_min": null,
+      "bench_range_max": null,
+      "bench_sources": [],
+      "flag": "no_benchmark"
+    },
+    {
+      "commodity": "eagle_ford_light",
+      "main_group": "lpg",
+      "n_refineries": 26,
+      "db_avg": 5.73,
+      "db_min": 2.5,
+      "db_max": 7.63,
+      "bench_range_min": 5.0,
+      "bench_range_max": 12.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "ok"
+    },
+    {
+      "commodity": "eagle_ford_light",
+      "main_group": "fuel_oil",
+      "n_refineries": 24,
+      "db_avg": 4.11,
+      "db_min": 1.0,
+      "db_max": 6.04,
+      "bench_range_min": 1.5,
+      "bench_range_max": 8.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "ok"
+    },
+    {
+      "commodity": "eagle_ford_light",
+      "main_group": "petroleum_coke",
+      "n_refineries": 12,
+      "db_avg": 2.84,
+      "db_min": 0.99,
+      "db_max": 8.0,
+      "bench_range_min": 0.0,
+      "bench_range_max": 3.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "ok"
+    },
+    {
+      "commodity": "eagle_ford_light",
+      "main_group": "lubricants",
+      "n_refineries": 2,
+      "db_avg": 1.24,
+      "db_min": 0.48,
+      "db_max": 2.0,
+      "bench_range_min": null,
+      "bench_range_max": null,
+      "bench_sources": [],
+      "flag": "no_benchmark"
+    },
+    {
+      "commodity": "eagle_ford_light",
+      "main_group": "bitumen",
+      "n_refineries": 2,
+      "db_avg": 1.21,
+      "db_min": 0.94,
+      "db_max": 1.47,
+      "bench_range_min": null,
+      "bench_range_max": null,
+      "bench_sources": [],
+      "flag": "no_benchmark"
+    },
+    {
+      "commodity": "eagle_ford_light",
+      "main_group": "other_products",
+      "n_refineries": 7,
+      "db_avg": 1.07,
+      "db_min": 0.5,
+      "db_max": 2.0,
+      "bench_range_min": null,
+      "bench_range_max": null,
+      "bench_sources": [],
+      "flag": "no_benchmark"
+    },
+    {
+      "commodity": "eagle_ford_light",
+      "main_group": "jet_kerosene",
+      "n_refineries": 26,
+      "db_avg": 0.35,
+      "db_min": 0.15,
+      "db_max": 0.96,
+      "bench_range_min": null,
+      "bench_range_max": null,
+      "bench_sources": [],
+      "flag": "no_benchmark"
+    },
+    {
+      "commodity": "kern_heavy",
+      "main_group": "bitumen",
+      "n_refineries": 3,
+      "db_avg": 41.33,
+      "db_min": 4.0,
+      "db_max": 60.0,
+      "bench_range_min": null,
+      "bench_range_max": null,
+      "bench_sources": [],
+      "flag": "no_benchmark"
+    },
+    {
+      "commodity": "kern_heavy",
+      "main_group": "motor_gasoline",
+      "n_refineries": 13,
+      "db_avg": 30.4,
+      "db_min": 3.0,
+      "db_max": 45.02,
+      "bench_range_min": 18.0,
+      "bench_range_max": 46.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "ok"
+    },
+    {
+      "commodity": "kern_heavy",
+      "main_group": "gas_diesel_oil",
+      "n_refineries": 13,
+      "db_avg": 24.7,
+      "db_min": 10.0,
+      "db_max": 33.0,
+      "bench_range_min": 14.0,
+      "bench_range_max": 28.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "ok"
+    },
+    {
+      "commodity": "kern_heavy",
+      "main_group": "fuel_oil",
+      "n_refineries": 13,
+      "db_avg": 15.68,
+      "db_min": 1.5,
+      "db_max": 25.05,
+      "bench_range_min": 2.5,
+      "bench_range_max": 40.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "ok"
+    },
+    {
+      "commodity": "kern_heavy",
+      "main_group": "kerosene_type_jet_fuel",
+      "n_refineries": 11,
+      "db_avg": 7.26,
+      "db_min": 4.75,
+      "db_max": 21.35,
+      "bench_range_min": 5.0,
+      "bench_range_max": 17.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "ok"
+    },
+    {
+      "commodity": "kern_heavy",
+      "main_group": "secondary_oil",
+      "n_refineries": 13,
+      "db_avg": 7.19,
+      "db_min": 3.0,
+      "db_max": 17.0,
+      "bench_range_min": null,
+      "bench_range_max": null,
+      "bench_sources": [],
+      "flag": "no_benchmark"
+    },
+    {
+      "commodity": "kern_heavy",
+      "main_group": "lpg",
+      "n_refineries": 11,
+      "db_avg": 4.92,
+      "db_min": 2.5,
+      "db_max": 6.02,
+      "bench_range_min": 2.5,
+      "bench_range_max": 9.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "ok"
+    },
+    {
+      "commodity": "kern_heavy",
+      "main_group": "petroleum_coke",
+      "n_refineries": 4,
+      "db_avg": 4.86,
+      "db_min": 3.47,
+      "db_max": 7.0,
+      "bench_range_min": 2.0,
+      "bench_range_max": 16.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "ok"
+    },
+    {
+      "commodity": "kern_heavy",
+      "main_group": "lubricants",
+      "n_refineries": 2,
+      "db_avg": 1.5,
+      "db_min": 1.0,
+      "db_max": 2.0,
+      "bench_range_min": null,
+      "bench_range_max": null,
+      "bench_sources": [],
+      "flag": "no_benchmark"
+    },
+    {
+      "commodity": "kern_heavy",
+      "main_group": "other_products",
+      "n_refineries": 3,
+      "db_avg": 1.17,
+      "db_min": 0.5,
+      "db_max": 2.0,
+      "bench_range_min": null,
+      "bench_range_max": null,
+      "bench_sources": [],
+      "flag": "no_benchmark"
+    },
+    {
+      "commodity": "kern_heavy",
+      "main_group": "jet_kerosene",
+      "n_refineries": 11,
+      "db_avg": 0.22,
+      "db_min": 0.15,
+      "db_max": 0.66,
+      "bench_range_min": null,
+      "bench_range_max": null,
+      "bench_sources": [],
+      "flag": "no_benchmark"
+    },
+    {
+      "commodity": "lls",
+      "main_group": "motor_gasoline",
+      "n_refineries": 24,
+      "db_avg": 38.91,
+      "db_min": 31.96,
+      "db_max": 60.0,
+      "bench_range_min": 38.0,
+      "bench_range_max": 50.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "ok"
+    },
+    {
+      "commodity": "lls",
+      "main_group": "gas_diesel_oil",
+      "n_refineries": 24,
+      "db_avg": 30.69,
+      "db_min": 18.0,
+      "db_max": 39.49,
+      "bench_range_min": 23.0,
+      "bench_range_max": 31.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "ok"
+    },
+    {
+      "commodity": "lls",
+      "main_group": "kerosene_type_jet_fuel",
+      "n_refineries": 24,
+      "db_avg": 9.87,
+      "db_min": 3.88,
+      "db_max": 10.67,
+      "bench_range_min": 5.0,
+      "bench_range_max": 12.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "ok"
+    },
+    {
+      "commodity": "lls",
+      "main_group": "fuel_oil",
+      "n_refineries": 24,
+      "db_avg": 6.78,
+      "db_min": 2.0,
+      "db_max": 8.26,
+      "bench_range_min": 1.5,
+      "bench_range_max": 12.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "ok"
+    },
+    {
+      "commodity": "lls",
+      "main_group": "lpg",
+      "n_refineries": 24,
+      "db_avg": 6.18,
+      "db_min": 3.0,
+      "db_max": 6.94,
+      "bench_range_min": 5.0,
+      "bench_range_max": 12.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "ok"
+    },
+    {
+      "commodity": "lls",
+      "main_group": "secondary_oil",
+      "n_refineries": 24,
+      "db_avg": 6.02,
+      "db_min": 5.0,
+      "db_max": 10.0,
+      "bench_range_min": null,
+      "bench_range_max": null,
+      "bench_sources": [],
+      "flag": "no_benchmark"
+    },
+    {
+      "commodity": "lls",
+      "main_group": "petroleum_coke",
+      "n_refineries": 7,
+      "db_avg": 3.32,
+      "db_min": 0.99,
+      "db_max": 6.0,
+      "bench_range_min": 0.0,
+      "bench_range_max": 4.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "ok"
+    },
+    {
+      "commodity": "lls",
+      "main_group": "other_products",
+      "n_refineries": 2,
+      "db_avg": 2.0,
+      "db_min": 1.0,
+      "db_max": 3.0,
+      "bench_range_min": null,
+      "bench_range_max": null,
+      "bench_sources": [],
+      "flag": "no_benchmark"
+    },
+    {
+      "commodity": "lls",
+      "main_group": "bitumen",
+      "n_refineries": 1,
+      "db_avg": 1.47,
+      "db_min": 1.47,
+      "db_max": 1.47,
+      "bench_range_min": null,
+      "bench_range_max": null,
+      "bench_sources": [],
+      "flag": "no_benchmark"
+    },
+    {
+      "commodity": "lls",
+      "main_group": "lubricants",
+      "n_refineries": 1,
+      "db_avg": 1.0,
+      "db_min": 1.0,
+      "db_max": 1.0,
+      "bench_range_min": null,
+      "bench_range_max": null,
+      "bench_sources": [],
+      "flag": "no_benchmark"
+    },
+    {
+      "commodity": "lls",
+      "main_group": "jet_kerosene",
+      "n_refineries": 24,
+      "db_avg": 0.31,
+      "db_min": 0.12,
+      "db_max": 0.33,
+      "bench_range_min": null,
+      "bench_range_max": null,
+      "bench_sources": [],
+      "flag": "no_benchmark"
+    },
+    {
+      "commodity": "mars",
+      "main_group": "motor_gasoline",
+      "n_refineries": 28,
+      "db_avg": 42.33,
+      "db_min": 30.07,
+      "db_max": 60.0,
+      "bench_range_min": 37.0,
+      "bench_range_max": 47.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "ok"
+    },
+    {
+      "commodity": "mars",
+      "main_group": "gas_diesel_oil",
+      "n_refineries": 28,
+      "db_avg": 30.82,
+      "db_min": 18.0,
+      "db_max": 40.97,
+      "bench_range_min": 24.0,
+      "bench_range_max": 32.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "ok"
+    },
+    {
+      "commodity": "mars",
+      "main_group": "kerosene_type_jet_fuel",
+      "n_refineries": 28,
+      "db_avg": 7.85,
+      "db_min": 3.88,
+      "db_max": 11.65,
+      "bench_range_min": 5.0,
+      "bench_range_max": 12.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "ok"
+    },
+    {
+      "commodity": "mars",
+      "main_group": "secondary_oil",
+      "n_refineries": 28,
+      "db_avg": 5.33,
+      "db_min": 2.0,
+      "db_max": 10.0,
+      "bench_range_min": null,
+      "bench_range_max": null,
+      "bench_sources": [],
+      "flag": "no_benchmark"
+    },
+    {
+      "commodity": "mars",
+      "main_group": "fuel_oil",
+      "n_refineries": 28,
+      "db_avg": 4.74,
+      "db_min": 1.5,
+      "db_max": 11.29,
+      "bench_range_min": 1.0,
+      "bench_range_max": 12.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "ok"
+    },
+    {
+      "commodity": "mars",
+      "main_group": "petroleum_coke",
+      "n_refineries": 21,
+      "db_avg": 4.56,
+      "db_min": 0.99,
+      "db_max": 10.0,
+      "bench_range_min": 0.0,
+      "bench_range_max": 7.5,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "ok"
+    },
+    {
+      "commodity": "mars",
+      "main_group": "lpg",
+      "n_refineries": 28,
+      "db_avg": 4.38,
+      "db_min": 2.5,
+      "db_max": 6.9,
+      "bench_range_min": 5.0,
+      "bench_range_max": 12.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "borderline"
+    },
+    {
+      "commodity": "mars",
+      "main_group": "lubricants",
+      "n_refineries": 5,
+      "db_avg": 2.1,
+      "db_min": 0.48,
+      "db_max": 5.0,
+      "bench_range_min": null,
+      "bench_range_max": null,
+      "bench_sources": [],
+      "flag": "no_benchmark"
+    },
+    {
+      "commodity": "mars",
+      "main_group": "bitumen",
+      "n_refineries": 3,
+      "db_avg": 1.46,
+      "db_min": 0.94,
+      "db_max": 1.96,
+      "bench_range_min": null,
+      "bench_range_max": null,
+      "bench_sources": [],
+      "flag": "no_benchmark"
+    },
+    {
+      "commodity": "mars",
+      "main_group": "other_products",
+      "n_refineries": 7,
+      "db_avg": 1.41,
+      "db_min": 0.5,
+      "db_max": 3.0,
+      "bench_range_min": null,
+      "bench_range_max": null,
+      "bench_sources": [],
+      "flag": "no_benchmark"
+    },
+    {
+      "commodity": "mars",
+      "main_group": "jet_kerosene",
+      "n_refineries": 28,
+      "db_avg": 0.24,
+      "db_min": 0.12,
+      "db_max": 0.36,
+      "bench_range_min": null,
+      "bench_range_max": null,
+      "bench_sources": [],
+      "flag": "no_benchmark"
+    },
+    {
+      "commodity": "midway_sunset",
+      "main_group": "bitumen",
+      "n_refineries": 2,
+      "db_avg": 60.0,
+      "db_min": 60.0,
+      "db_max": 60.0,
+      "bench_range_min": null,
+      "bench_range_max": null,
+      "bench_sources": [],
+      "flag": "no_benchmark"
+    },
+    {
+      "commodity": "midway_sunset",
+      "main_group": "motor_gasoline",
+      "n_refineries": 13,
+      "db_avg": 28.71,
+      "db_min": 3.0,
+      "db_max": 45.02,
+      "bench_range_min": 18.0,
+      "bench_range_max": 46.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "ok"
+    },
+    {
+      "commodity": "midway_sunset",
+      "main_group": "gas_diesel_oil",
+      "n_refineries": 13,
+      "db_avg": 25.51,
+      "db_min": 10.0,
+      "db_max": 42.08,
+      "bench_range_min": 14.0,
+      "bench_range_max": 28.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "ok"
+    },
+    {
+      "commodity": "midway_sunset",
+      "main_group": "fuel_oil",
+      "n_refineries": 13,
+      "db_avg": 16.57,
+      "db_min": 2.0,
+      "db_max": 26.29,
+      "bench_range_min": 2.5,
+      "bench_range_max": 40.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "ok"
+    },
+    {
+      "commodity": "midway_sunset",
+      "main_group": "secondary_oil",
+      "n_refineries": 13,
+      "db_avg": 7.39,
+      "db_min": 4.5,
+      "db_max": 17.0,
+      "bench_range_min": null,
+      "bench_range_max": null,
+      "bench_sources": [],
+      "flag": "no_benchmark"
+    },
+    {
+      "commodity": "midway_sunset",
+      "main_group": "kerosene_type_jet_fuel",
+      "n_refineries": 11,
+      "db_avg": 6.73,
+      "db_min": 4.75,
+      "db_max": 21.35,
+      "bench_range_min": 5.0,
+      "bench_range_max": 17.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "ok"
+    },
+    {
+      "commodity": "midway_sunset",
+      "main_group": "lpg",
+      "n_refineries": 11,
+      "db_avg": 5.42,
+      "db_min": 2.5,
+      "db_max": 7.65,
+      "bench_range_min": 2.5,
+      "bench_range_max": 9.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "ok"
+    },
+    {
+      "commodity": "midway_sunset",
+      "main_group": "petroleum_coke",
+      "n_refineries": 4,
+      "db_avg": 5.28,
+      "db_min": 3.47,
+      "db_max": 8.69,
+      "bench_range_min": 2.0,
+      "bench_range_max": 16.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "ok"
+    },
+    {
+      "commodity": "midway_sunset",
+      "main_group": "lubricants",
+      "n_refineries": 2,
+      "db_avg": 1.5,
+      "db_min": 1.0,
+      "db_max": 2.0,
+      "bench_range_min": null,
+      "bench_range_max": null,
+      "bench_sources": [],
+      "flag": "no_benchmark"
+    },
+    {
+      "commodity": "midway_sunset",
+      "main_group": "other_products",
+      "n_refineries": 3,
+      "db_avg": 1.17,
+      "db_min": 0.5,
+      "db_max": 2.0,
+      "bench_range_min": null,
+      "bench_range_max": null,
+      "bench_sources": [],
+      "flag": "no_benchmark"
+    },
+    {
+      "commodity": "midway_sunset",
+      "main_group": "jet_kerosene",
+      "n_refineries": 11,
+      "db_avg": 0.21,
+      "db_min": 0.15,
+      "db_max": 0.66,
+      "bench_range_min": null,
+      "bench_range_max": null,
+      "bench_sources": [],
+      "flag": "no_benchmark"
+    },
+    {
+      "commodity": "niobrara_sweet",
+      "main_group": "motor_gasoline",
+      "n_refineries": 11,
+      "db_avg": 39.7,
+      "db_min": 34.05,
+      "db_max": 46.02,
+      "bench_range_min": 39.0,
+      "bench_range_max": 51.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "ok"
+    },
+    {
+      "commodity": "niobrara_sweet",
+      "main_group": "gas_diesel_oil",
+      "n_refineries": 11,
+      "db_avg": 29.87,
+      "db_min": 29.08,
+      "db_max": 36.79,
+      "bench_range_min": 22.0,
+      "bench_range_max": 30.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "ok"
+    },
+    {
+      "commodity": "niobrara_sweet",
+      "main_group": "kerosene_type_jet_fuel",
+      "n_refineries": 11,
+      "db_avg": 10.92,
+      "db_min": 5.82,
+      "db_max": 11.64,
+      "bench_range_min": 5.0,
+      "bench_range_max": 13.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "ok"
+    },
+    {
+      "commodity": "niobrara_sweet",
+      "main_group": "lpg",
+      "n_refineries": 11,
+      "db_avg": 6.66,
+      "db_min": 4.0,
+      "db_max": 7.23,
+      "bench_range_min": 5.0,
+      "bench_range_max": 12.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "ok"
+    },
+    {
+      "commodity": "niobrara_sweet",
+      "main_group": "secondary_oil",
+      "n_refineries": 11,
+      "db_avg": 5.99,
+      "db_min": 5.5,
+      "db_max": 6.06,
+      "bench_range_min": null,
+      "bench_range_max": null,
+      "bench_sources": [],
+      "flag": "no_benchmark"
+    },
+    {
+      "commodity": "niobrara_sweet",
+      "main_group": "fuel_oil",
+      "n_refineries": 11,
+      "db_avg": 5.73,
+      "db_min": 1.5,
+      "db_max": 6.59,
+      "bench_range_min": 1.5,
+      "bench_range_max": 11.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "ok"
+    },
+    {
+      "commodity": "niobrara_sweet",
+      "main_group": "petroleum_coke",
+      "n_refineries": 2,
+      "db_avg": 3.43,
+      "db_min": 1.85,
+      "db_max": 5.0,
+      "bench_range_min": 0.0,
+      "bench_range_max": 3.5,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "ok"
+    },
+    {
+      "commodity": "niobrara_sweet",
+      "main_group": "bitumen",
+      "n_refineries": 1,
+      "db_avg": 1.96,
+      "db_min": 1.96,
+      "db_max": 1.96,
+      "bench_range_min": null,
+      "bench_range_max": null,
+      "bench_sources": [],
+      "flag": "no_benchmark"
+    },
+    {
+      "commodity": "niobrara_sweet",
+      "main_group": "jet_kerosene",
+      "n_refineries": 11,
+      "db_avg": 0.34,
+      "db_min": 0.18,
+      "db_max": 0.36,
+      "bench_range_min": null,
+      "bench_range_max": null,
+      "bench_sources": [],
+      "flag": "no_benchmark"
+    },
+    {
+      "commodity": "oklahoma_sweet",
+      "main_group": "motor_gasoline",
+      "n_refineries": 11,
+      "db_avg": 40.11,
+      "db_min": 28.0,
+      "db_max": 55.01,
+      "bench_range_min": 40.0,
+      "bench_range_max": 52.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "ok"
+    },
+    {
+      "commodity": "oklahoma_sweet",
+      "main_group": "gas_diesel_oil",
+      "n_refineries": 11,
+      "db_avg": 31.12,
+      "db_min": 22.0,
+      "db_max": 38.37,
+      "bench_range_min": 22.0,
+      "bench_range_max": 29.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "borderline"
+    },
+    {
+      "commodity": "oklahoma_sweet",
+      "main_group": "lubricants",
+      "n_refineries": 1,
+      "db_avg": 12.0,
+      "db_min": 12.0,
+      "db_max": 12.0,
+      "bench_range_min": null,
+      "bench_range_max": null,
+      "bench_sources": [],
+      "flag": "no_benchmark"
+    },
+    {
+      "commodity": "oklahoma_sweet",
+      "main_group": "kerosene_type_jet_fuel",
+      "n_refineries": 11,
+      "db_avg": 9.2,
+      "db_min": 1.94,
+      "db_max": 11.64,
+      "bench_range_min": 5.0,
+      "bench_range_max": 13.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "ok"
+    },
+    {
+      "commodity": "oklahoma_sweet",
+      "main_group": "other_products",
+      "n_refineries": 1,
+      "db_avg": 6.0,
+      "db_min": 6.0,
+      "db_max": 6.0,
+      "bench_range_min": null,
+      "bench_range_max": null,
+      "bench_sources": [],
+      "flag": "no_benchmark"
+    },
+    {
+      "commodity": "oklahoma_sweet",
+      "main_group": "secondary_oil",
+      "n_refineries": 11,
+      "db_avg": 5.68,
+      "db_min": 4.0,
+      "db_max": 7.0,
+      "bench_range_min": null,
+      "bench_range_max": null,
+      "bench_sources": [],
+      "flag": "no_benchmark"
+    },
+    {
+      "commodity": "oklahoma_sweet",
+      "main_group": "lpg",
+      "n_refineries": 11,
+      "db_avg": 5.42,
+      "db_min": 2.0,
+      "db_max": 6.77,
+      "bench_range_min": 5.0,
+      "bench_range_max": 12.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "ok"
+    },
+    {
+      "commodity": "oklahoma_sweet",
+      "main_group": "fuel_oil",
+      "n_refineries": 11,
+      "db_avg": 5.27,
+      "db_min": 1.0,
+      "db_max": 6.96,
+      "bench_range_min": 2.0,
+      "bench_range_max": 10.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "ok"
+    },
+    {
+      "commodity": "oklahoma_sweet",
+      "main_group": "bitumen",
+      "n_refineries": 1,
+      "db_avg": 4.0,
+      "db_min": 4.0,
+      "db_max": 4.0,
+      "bench_range_min": null,
+      "bench_range_max": null,
+      "bench_sources": [],
+      "flag": "no_benchmark"
+    },
+    {
+      "commodity": "oklahoma_sweet",
+      "main_group": "petroleum_coke",
+      "n_refineries": 4,
+      "db_avg": 2.49,
+      "db_min": 0.99,
+      "db_max": 6.0,
+      "bench_range_min": 0.0,
+      "bench_range_max": 4.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "ok"
+    },
+    {
+      "commodity": "oklahoma_sweet",
+      "main_group": "jet_kerosene",
+      "n_refineries": 11,
+      "db_avg": 0.28,
+      "db_min": 0.06,
+      "db_max": 0.36,
+      "bench_range_min": null,
+      "bench_range_max": null,
+      "bench_sources": [],
+      "flag": "no_benchmark"
+    },
+    {
+      "commodity": "permian_condensate",
+      "main_group": "motor_gasoline",
+      "n_refineries": 14,
+      "db_avg": 49.87,
+      "db_min": 48.0,
+      "db_max": 50.33,
+      "bench_range_min": 32.0,
+      "bench_range_max": 48.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "borderline"
+    },
+    {
+      "commodity": "permian_condensate",
+      "main_group": "gas_diesel_oil",
+      "n_refineries": 14,
+      "db_avg": 22.5,
+      "db_min": 18.56,
+      "db_max": 32.0,
+      "bench_range_min": 12.0,
+      "bench_range_max": 22.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "borderline"
+    },
+    {
+      "commodity": "permian_condensate",
+      "main_group": "kerosene_type_jet_fuel",
+      "n_refineries": 14,
+      "db_avg": 10.84,
+      "db_min": 5.82,
+      "db_max": 13.31,
+      "bench_range_min": 7.0,
+      "bench_range_max": 16.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "ok"
+    },
+    {
+      "commodity": "permian_condensate",
+      "main_group": "lpg",
+      "n_refineries": 14,
+      "db_avg": 7.0,
+      "db_min": 2.2,
+      "db_max": 8.98,
+      "bench_range_min": 7.0,
+      "bench_range_max": 14.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "ok"
+    },
+    {
+      "commodity": "permian_condensate",
+      "main_group": "secondary_oil",
+      "n_refineries": 14,
+      "db_avg": 6.77,
+      "db_min": 5.0,
+      "db_max": 7.37,
+      "bench_range_min": null,
+      "bench_range_max": null,
+      "bench_sources": [],
+      "flag": "no_benchmark"
+    },
+    {
+      "commodity": "permian_condensate",
+      "main_group": "petroleum_coke",
+      "n_refineries": 4,
+      "db_avg": 3.11,
+      "db_min": 1.49,
+      "db_max": 5.0,
+      "bench_range_min": 0.0,
+      "bench_range_max": 1.5,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "borderline"
+    },
+    {
+      "commodity": "permian_condensate",
+      "main_group": "bitumen",
+      "n_refineries": 1,
+      "db_avg": 2.6,
+      "db_min": 2.6,
+      "db_max": 2.6,
+      "bench_range_min": null,
+      "bench_range_max": null,
+      "bench_sources": [],
+      "flag": "no_benchmark"
+    },
+    {
+      "commodity": "permian_condensate",
+      "main_group": "fuel_oil",
+      "n_refineries": 13,
+      "db_avg": 1.26,
+      "db_min": 1.0,
+      "db_max": 3.5,
+      "bench_range_min": 0.0,
+      "bench_range_max": 5.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "ok"
+    },
+    {
+      "commodity": "permian_condensate",
+      "main_group": "other_products",
+      "n_refineries": 5,
+      "db_avg": 1.2,
+      "db_min": 0.5,
+      "db_max": 2.0,
+      "bench_range_min": null,
+      "bench_range_max": null,
+      "bench_sources": [],
+      "flag": "no_benchmark"
+    },
+    {
+      "commodity": "permian_condensate",
+      "main_group": "jet_kerosene",
+      "n_refineries": 14,
+      "db_avg": 0.34,
+      "db_min": 0.18,
+      "db_max": 0.41,
+      "bench_range_min": null,
+      "bench_range_max": null,
+      "bench_sources": [],
+      "flag": "no_benchmark"
+    },
+    {
+      "commodity": "poseidon",
+      "main_group": "motor_gasoline",
+      "n_refineries": 20,
+      "db_avg": 41.98,
+      "db_min": 35.31,
+      "db_max": 60.0,
+      "bench_range_min": 37.0,
+      "bench_range_max": 47.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "ok"
+    },
+    {
+      "commodity": "poseidon",
+      "main_group": "gas_diesel_oil",
+      "n_refineries": 20,
+      "db_avg": 29.62,
+      "db_min": 18.0,
+      "db_max": 35.01,
+      "bench_range_min": 24.0,
+      "bench_range_max": 32.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "ok"
+    },
+    {
+      "commodity": "poseidon",
+      "main_group": "kerosene_type_jet_fuel",
+      "n_refineries": 20,
+      "db_avg": 8.22,
+      "db_min": 3.88,
+      "db_max": 11.65,
+      "bench_range_min": 5.0,
+      "bench_range_max": 12.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "ok"
+    },
+    {
+      "commodity": "poseidon",
+      "main_group": "fuel_oil",
+      "n_refineries": 20,
+      "db_avg": 6.07,
+      "db_min": 1.5,
+      "db_max": 11.29,
+      "bench_range_min": 1.0,
+      "bench_range_max": 12.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "ok"
+    },
+    {
+      "commodity": "poseidon",
+      "main_group": "secondary_oil",
+      "n_refineries": 20,
+      "db_avg": 5.31,
+      "db_min": 2.0,
+      "db_max": 10.0,
+      "bench_range_min": null,
+      "bench_range_max": null,
+      "bench_sources": [],
+      "flag": "no_benchmark"
+    },
+    {
+      "commodity": "poseidon",
+      "main_group": "petroleum_coke",
+      "n_refineries": 12,
+      "db_avg": 4.97,
+      "db_min": 0.99,
+      "db_max": 10.0,
+      "bench_range_min": 0.0,
+      "bench_range_max": 7.5,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "ok"
+    },
+    {
+      "commodity": "poseidon",
+      "main_group": "lpg",
+      "n_refineries": 20,
+      "db_avg": 4.56,
+      "db_min": 2.5,
+      "db_max": 6.9,
+      "bench_range_min": 5.0,
+      "bench_range_max": 12.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "borderline"
+    },
+    {
+      "commodity": "poseidon",
+      "main_group": "lubricants",
+      "n_refineries": 4,
+      "db_avg": 2.12,
+      "db_min": 0.48,
+      "db_max": 5.0,
+      "bench_range_min": null,
+      "bench_range_max": null,
+      "bench_sources": [],
+      "flag": "no_benchmark"
+    },
+    {
+      "commodity": "poseidon",
+      "main_group": "other_products",
+      "n_refineries": 5,
+      "db_avg": 1.48,
+      "db_min": 1.0,
+      "db_max": 3.0,
+      "bench_range_min": null,
+      "bench_range_max": null,
+      "bench_sources": [],
+      "flag": "no_benchmark"
+    },
+    {
+      "commodity": "poseidon",
+      "main_group": "bitumen",
+      "n_refineries": 3,
+      "db_avg": 1.46,
+      "db_min": 0.94,
+      "db_max": 1.96,
+      "bench_range_min": null,
+      "bench_range_max": null,
+      "bench_sources": [],
+      "flag": "no_benchmark"
+    },
+    {
+      "commodity": "poseidon",
+      "main_group": "jet_kerosene",
+      "n_refineries": 20,
+      "db_avg": 0.25,
+      "db_min": 0.12,
+      "db_max": 0.36,
+      "bench_range_min": null,
+      "bench_range_max": null,
+      "bench_sources": [],
+      "flag": "no_benchmark"
+    },
+    {
+      "commodity": "southern_green_canyon",
+      "main_group": "motor_gasoline",
+      "n_refineries": 17,
+      "db_avg": 40.69,
+      "db_min": 29.03,
+      "db_max": 60.0,
+      "bench_range_min": 36.0,
+      "bench_range_max": 47.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "ok"
+    },
+    {
+      "commodity": "southern_green_canyon",
+      "main_group": "gas_diesel_oil",
+      "n_refineries": 17,
+      "db_avg": 30.44,
+      "db_min": 18.0,
+      "db_max": 41.78,
+      "bench_range_min": 24.0,
+      "bench_range_max": 32.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "ok"
+    },
+    {
+      "commodity": "southern_green_canyon",
+      "main_group": "kerosene_type_jet_fuel",
+      "n_refineries": 17,
+      "db_avg": 8.15,
+      "db_min": 3.88,
+      "db_max": 10.67,
+      "bench_range_min": 5.0,
+      "bench_range_max": 13.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "ok"
+    },
+    {
+      "commodity": "southern_green_canyon",
+      "main_group": "fuel_oil",
+      "n_refineries": 17,
+      "db_avg": 6.28,
+      "db_min": 1.5,
+      "db_max": 12.84,
+      "bench_range_min": 0.5,
+      "bench_range_max": 13.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "ok"
+    },
+    {
+      "commodity": "southern_green_canyon",
+      "main_group": "secondary_oil",
+      "n_refineries": 17,
+      "db_avg": 5.56,
+      "db_min": 3.5,
+      "db_max": 10.0,
+      "bench_range_min": null,
+      "bench_range_max": null,
+      "bench_sources": [],
+      "flag": "no_benchmark"
+    },
+    {
+      "commodity": "southern_green_canyon",
+      "main_group": "petroleum_coke",
+      "n_refineries": 11,
+      "db_avg": 5.44,
+      "db_min": 1.49,
+      "db_max": 9.0,
+      "bench_range_min": 0.0,
+      "bench_range_max": 9.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "ok"
+    },
+    {
+      "commodity": "southern_green_canyon",
+      "main_group": "lpg",
+      "n_refineries": 17,
+      "db_avg": 4.47,
+      "db_min": 2.5,
+      "db_max": 6.54,
+      "bench_range_min": 5.0,
+      "bench_range_max": 12.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "borderline"
+    },
+    {
+      "commodity": "southern_green_canyon",
+      "main_group": "other_products",
+      "n_refineries": 5,
+      "db_avg": 1.3,
+      "db_min": 0.5,
+      "db_max": 3.0,
+      "bench_range_min": null,
+      "bench_range_max": null,
+      "bench_sources": [],
+      "flag": "no_benchmark"
+    },
+    {
+      "commodity": "southern_green_canyon",
+      "main_group": "lubricants",
+      "n_refineries": 3,
+      "db_avg": 1.16,
+      "db_min": 0.48,
+      "db_max": 2.0,
+      "bench_range_min": null,
+      "bench_range_max": null,
+      "bench_sources": [],
+      "flag": "no_benchmark"
+    },
+    {
+      "commodity": "southern_green_canyon",
+      "main_group": "bitumen",
+      "n_refineries": 1,
+      "db_avg": 0.94,
+      "db_min": 0.94,
+      "db_max": 0.94,
+      "bench_range_min": null,
+      "bench_range_max": null,
+      "bench_sources": [],
+      "flag": "no_benchmark"
+    },
+    {
+      "commodity": "southern_green_canyon",
+      "main_group": "jet_kerosene",
+      "n_refineries": 17,
+      "db_avg": 0.25,
+      "db_min": 0.12,
+      "db_max": 0.33,
+      "bench_range_min": null,
+      "bench_range_max": null,
+      "bench_sources": [],
+      "flag": "no_benchmark"
+    },
+    {
+      "commodity": "thunder_horse",
+      "main_group": "motor_gasoline",
+      "n_refineries": 19,
+      "db_avg": 40.43,
+      "db_min": 30.67,
+      "db_max": 60.0,
+      "bench_range_min": 39.0,
+      "bench_range_max": 50.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "ok"
+    },
+    {
+      "commodity": "thunder_horse",
+      "main_group": "gas_diesel_oil",
+      "n_refineries": 19,
+      "db_avg": 30.59,
+      "db_min": 18.0,
+      "db_max": 40.47,
+      "bench_range_min": 23.0,
+      "bench_range_max": 31.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "ok"
+    },
+    {
+      "commodity": "thunder_horse",
+      "main_group": "kerosene_type_jet_fuel",
+      "n_refineries": 19,
+      "db_avg": 8.86,
+      "db_min": 3.88,
+      "db_max": 10.67,
+      "bench_range_min": 6.0,
+      "bench_range_max": 12.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "ok"
+    },
+    {
+      "commodity": "thunder_horse",
+      "main_group": "secondary_oil",
+      "n_refineries": 19,
+      "db_avg": 5.82,
+      "db_min": 3.0,
+      "db_max": 10.0,
+      "bench_range_min": null,
+      "bench_range_max": null,
+      "bench_sources": [],
+      "flag": "no_benchmark"
+    },
+    {
+      "commodity": "thunder_horse",
+      "main_group": "fuel_oil",
+      "n_refineries": 19,
+      "db_avg": 5.35,
+      "db_min": 1.5,
+      "db_max": 9.37,
+      "bench_range_min": 1.5,
+      "bench_range_max": 10.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "ok"
+    },
+    {
+      "commodity": "thunder_horse",
+      "main_group": "lpg",
+      "n_refineries": 19,
+      "db_avg": 4.98,
+      "db_min": 2.5,
+      "db_max": 6.65,
+      "bench_range_min": 5.0,
+      "bench_range_max": 12.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "borderline"
+    },
+    {
+      "commodity": "thunder_horse",
+      "main_group": "petroleum_coke",
+      "n_refineries": 12,
+      "db_avg": 4.42,
+      "db_min": 0.99,
+      "db_max": 10.0,
+      "bench_range_min": 0.0,
+      "bench_range_max": 5.5,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "ok"
+    },
+    {
+      "commodity": "thunder_horse",
+      "main_group": "lubricants",
+      "n_refineries": 3,
+      "db_avg": 1.83,
+      "db_min": 0.48,
+      "db_max": 4.0,
+      "bench_range_min": null,
+      "bench_range_max": null,
+      "bench_sources": [],
+      "flag": "no_benchmark"
+    },
+    {
+      "commodity": "thunder_horse",
+      "main_group": "other_products",
+      "n_refineries": 5,
+      "db_avg": 1.48,
+      "db_min": 1.0,
+      "db_max": 3.0,
+      "bench_range_min": null,
+      "bench_range_max": null,
+      "bench_sources": [],
+      "flag": "no_benchmark"
+    },
+    {
+      "commodity": "thunder_horse",
+      "main_group": "bitumen",
+      "n_refineries": 3,
+      "db_avg": 1.46,
+      "db_min": 0.94,
+      "db_max": 1.96,
+      "bench_range_min": null,
+      "bench_range_max": null,
+      "bench_sources": [],
+      "flag": "no_benchmark"
+    },
+    {
+      "commodity": "thunder_horse",
+      "main_group": "jet_kerosene",
+      "n_refineries": 19,
+      "db_avg": 0.27,
+      "db_min": 0.12,
+      "db_max": 0.33,
+      "bench_range_min": null,
+      "bench_range_max": null,
+      "bench_sources": [],
+      "flag": "no_benchmark"
+    },
+    {
+      "commodity": "wti_cushing",
+      "main_group": "motor_gasoline",
+      "n_refineries": 24,
+      "db_avg": 44.4,
+      "db_min": 28.0,
+      "db_max": 55.01,
+      "bench_range_min": 40.0,
+      "bench_range_max": 52.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "ok"
+    },
+    {
+      "commodity": "wti_cushing",
+      "main_group": "gas_diesel_oil",
+      "n_refineries": 24,
+      "db_avg": 30.18,
+      "db_min": 22.0,
+      "db_max": 38.0,
+      "bench_range_min": 22.0,
+      "bench_range_max": 30.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "borderline"
+    },
+    {
+      "commodity": "wti_cushing",
+      "main_group": "lubricants",
+      "n_refineries": 1,
+      "db_avg": 12.0,
+      "db_min": 12.0,
+      "db_max": 12.0,
+      "bench_range_min": null,
+      "bench_range_max": null,
+      "bench_sources": [],
+      "flag": "no_benchmark"
+    },
+    {
+      "commodity": "wti_cushing",
+      "main_group": "kerosene_type_jet_fuel",
+      "n_refineries": 24,
+      "db_avg": 8.25,
+      "db_min": 1.94,
+      "db_max": 11.64,
+      "bench_range_min": 5.0,
+      "bench_range_max": 13.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "ok"
+    },
+    {
+      "commodity": "wti_cushing",
+      "main_group": "secondary_oil",
+      "n_refineries": 24,
+      "db_avg": 5.46,
+      "db_min": 2.0,
+      "db_max": 8.0,
+      "bench_range_min": null,
+      "bench_range_max": null,
+      "bench_sources": [],
+      "flag": "no_benchmark"
+    },
+    {
+      "commodity": "wti_cushing",
+      "main_group": "lpg",
+      "n_refineries": 24,
+      "db_avg": 4.36,
+      "db_min": 2.0,
+      "db_max": 6.78,
+      "bench_range_min": 5.0,
+      "bench_range_max": 12.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "borderline"
+    },
+    {
+      "commodity": "wti_cushing",
+      "main_group": "petroleum_coke",
+      "n_refineries": 11,
+      "db_avg": 3.73,
+      "db_min": 0.99,
+      "db_max": 8.0,
+      "bench_range_min": 0.0,
+      "bench_range_max": 4.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "ok"
+    },
+    {
+      "commodity": "wti_cushing",
+      "main_group": "fuel_oil",
+      "n_refineries": 23,
+      "db_avg": 3.57,
+      "db_min": 0.5,
+      "db_max": 6.9,
+      "bench_range_min": 2.0,
+      "bench_range_max": 10.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "ok"
+    },
+    {
+      "commodity": "wti_cushing",
+      "main_group": "bitumen",
+      "n_refineries": 6,
+      "db_avg": 3.46,
+      "db_min": 1.96,
+      "db_max": 7.0,
+      "bench_range_min": null,
+      "bench_range_max": null,
+      "bench_sources": [],
+      "flag": "no_benchmark"
+    },
+    {
+      "commodity": "wti_cushing",
+      "main_group": "other_products",
+      "n_refineries": 8,
+      "db_avg": 1.81,
+      "db_min": 0.5,
+      "db_max": 6.0,
+      "bench_range_min": null,
+      "bench_range_max": null,
+      "bench_sources": [],
+      "flag": "no_benchmark"
+    },
+    {
+      "commodity": "wti_cushing",
+      "main_group": "jet_kerosene",
+      "n_refineries": 24,
+      "db_avg": 0.26,
+      "db_min": 0.06,
+      "db_max": 0.36,
+      "bench_range_min": null,
+      "bench_range_max": null,
+      "bench_sources": [],
+      "flag": "no_benchmark"
+    },
+    {
+      "commodity": "wti_houston",
+      "main_group": "motor_gasoline",
+      "n_refineries": 28,
+      "db_avg": 40.34,
+      "db_min": 28.0,
+      "db_max": 55.0,
+      "bench_range_min": 41.0,
+      "bench_range_max": 52.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "borderline"
+    },
+    {
+      "commodity": "wti_houston",
+      "main_group": "gas_diesel_oil",
+      "n_refineries": 28,
+      "db_avg": 30.07,
+      "db_min": 22.0,
+      "db_max": 36.95,
+      "bench_range_min": 22.0,
+      "bench_range_max": 29.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "borderline"
+    },
+    {
+      "commodity": "wti_houston",
+      "main_group": "kerosene_type_jet_fuel",
+      "n_refineries": 28,
+      "db_avg": 10.93,
+      "db_min": 4.85,
+      "db_max": 31.04,
+      "bench_range_min": 5.0,
+      "bench_range_max": 13.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "ok"
+    },
+    {
+      "commodity": "wti_houston",
+      "main_group": "secondary_oil",
+      "n_refineries": 28,
+      "db_avg": 6.06,
+      "db_min": 4.0,
+      "db_max": 10.0,
+      "bench_range_min": null,
+      "bench_range_max": null,
+      "bench_sources": [],
+      "flag": "no_benchmark"
+    },
+    {
+      "commodity": "wti_houston",
+      "main_group": "lpg",
+      "n_refineries": 28,
+      "db_avg": 5.54,
+      "db_min": 2.5,
+      "db_max": 6.78,
+      "bench_range_min": 5.0,
+      "bench_range_max": 12.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "ok"
+    },
+    {
+      "commodity": "wti_houston",
+      "main_group": "fuel_oil",
+      "n_refineries": 28,
+      "db_avg": 5.04,
+      "db_min": 1.5,
+      "db_max": 6.9,
+      "bench_range_min": 2.0,
+      "bench_range_max": 9.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "ok"
+    },
+    {
+      "commodity": "wti_houston",
+      "main_group": "petroleum_coke",
+      "n_refineries": 11,
+      "db_avg": 3.28,
+      "db_min": 0.99,
+      "db_max": 10.0,
+      "bench_range_min": 0.0,
+      "bench_range_max": 3.5,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "ok"
+    },
+    {
+      "commodity": "wti_houston",
+      "main_group": "bitumen",
+      "n_refineries": 2,
+      "db_avg": 1.72,
+      "db_min": 1.47,
+      "db_max": 1.96,
+      "bench_range_min": null,
+      "bench_range_max": null,
+      "bench_sources": [],
+      "flag": "no_benchmark"
+    },
+    {
+      "commodity": "wti_houston",
+      "main_group": "other_products",
+      "n_refineries": 5,
+      "db_avg": 1.38,
+      "db_min": 0.5,
+      "db_max": 3.0,
+      "bench_range_min": null,
+      "bench_range_max": null,
+      "bench_sources": [],
+      "flag": "no_benchmark"
+    },
+    {
+      "commodity": "wti_houston",
+      "main_group": "lubricants",
+      "n_refineries": 1,
+      "db_avg": 0.48,
+      "db_min": 0.48,
+      "db_max": 0.48,
+      "bench_range_min": null,
+      "bench_range_max": null,
+      "bench_sources": [],
+      "flag": "no_benchmark"
+    },
+    {
+      "commodity": "wti_houston",
+      "main_group": "jet_kerosene",
+      "n_refineries": 28,
+      "db_avg": 0.34,
+      "db_min": 0.15,
+      "db_max": 0.96,
+      "bench_range_min": null,
+      "bench_range_max": null,
+      "bench_sources": [],
+      "flag": "no_benchmark"
+    },
+    {
+      "commodity": "wti_midland",
+      "main_group": "motor_gasoline",
+      "n_refineries": 40,
+      "db_avg": 42.68,
+      "db_min": 28.0,
+      "db_max": 55.01,
+      "bench_range_min": 41.0,
+      "bench_range_max": 52.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "ok"
+    },
+    {
+      "commodity": "wti_midland",
+      "main_group": "gas_diesel_oil",
+      "n_refineries": 40,
+      "db_avg": 29.12,
+      "db_min": 22.0,
+      "db_max": 35.0,
+      "bench_range_min": 22.0,
+      "bench_range_max": 29.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "borderline"
+    },
+    {
+      "commodity": "wti_midland",
+      "main_group": "kerosene_type_jet_fuel",
+      "n_refineries": 40,
+      "db_avg": 10.03,
+      "db_min": 1.94,
+      "db_max": 31.04,
+      "bench_range_min": 5.0,
+      "bench_range_max": 13.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "ok"
+    },
+    {
+      "commodity": "wti_midland",
+      "main_group": "secondary_oil",
+      "n_refineries": 40,
+      "db_avg": 6.06,
+      "db_min": 4.0,
+      "db_max": 8.0,
+      "bench_range_min": null,
+      "bench_range_max": null,
+      "bench_sources": [],
+      "flag": "no_benchmark"
+    },
+    {
+      "commodity": "wti_midland",
+      "main_group": "lpg",
+      "n_refineries": 40,
+      "db_avg": 5.53,
+      "db_min": 2.0,
+      "db_max": 7.17,
+      "bench_range_min": 5.0,
+      "bench_range_max": 12.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "ok"
+    },
+    {
+      "commodity": "wti_midland",
+      "main_group": "lubricants",
+      "n_refineries": 3,
+      "db_avg": 4.83,
+      "db_min": 0.48,
+      "db_max": 12.0,
+      "bench_range_min": null,
+      "bench_range_max": null,
+      "bench_sources": [],
+      "flag": "no_benchmark"
+    },
+    {
+      "commodity": "wti_midland",
+      "main_group": "fuel_oil",
+      "n_refineries": 39,
+      "db_avg": 4.3,
+      "db_min": 1.0,
+      "db_max": 5.85,
+      "bench_range_min": 2.0,
+      "bench_range_max": 9.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "ok"
+    },
+    {
+      "commodity": "wti_midland",
+      "main_group": "petroleum_coke",
+      "n_refineries": 15,
+      "db_avg": 2.69,
+      "db_min": 0.99,
+      "db_max": 6.0,
+      "bench_range_min": 0.0,
+      "bench_range_max": 3.5,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "ok"
+    },
+    {
+      "commodity": "wti_midland",
+      "main_group": "bitumen",
+      "n_refineries": 4,
+      "db_avg": 2.67,
+      "db_min": 1.47,
+      "db_max": 4.0,
+      "bench_range_min": null,
+      "bench_range_max": null,
+      "bench_sources": [],
+      "flag": "no_benchmark"
+    },
+    {
+      "commodity": "wti_midland",
+      "main_group": "other_products",
+      "n_refineries": 10,
+      "db_avg": 1.75,
+      "db_min": 0.5,
+      "db_max": 6.0,
+      "bench_range_min": null,
+      "bench_range_max": null,
+      "bench_sources": [],
+      "flag": "no_benchmark"
+    },
+    {
+      "commodity": "wti_midland",
+      "main_group": "jet_kerosene",
+      "n_refineries": 40,
+      "db_avg": 0.31,
+      "db_min": 0.06,
+      "db_max": 0.96,
+      "bench_range_min": null,
+      "bench_range_max": null,
+      "bench_sources": [],
+      "flag": "no_benchmark"
+    },
+    {
+      "commodity": "wtl",
+      "main_group": "motor_gasoline",
+      "n_refineries": 9,
+      "db_avg": 47.99,
+      "db_min": 47.84,
+      "db_max": 49.2,
+      "bench_range_min": 38.0,
+      "bench_range_max": 52.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "ok"
+    },
+    {
+      "commodity": "wtl",
+      "main_group": "gas_diesel_oil",
+      "n_refineries": 9,
+      "db_avg": 21.9,
+      "db_min": 20.89,
+      "db_max": 30.0,
+      "bench_range_min": 19.0,
+      "bench_range_max": 27.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "ok"
+    },
+    {
+      "commodity": "wtl",
+      "main_group": "kerosene_type_jet_fuel",
+      "n_refineries": 9,
+      "db_avg": 11.74,
+      "db_min": 6.79,
+      "db_max": 12.36,
+      "bench_range_min": 6.0,
+      "bench_range_max": 15.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "ok"
+    },
+    {
+      "commodity": "wtl",
+      "main_group": "lpg",
+      "n_refineries": 9,
+      "db_avg": 7.53,
+      "db_min": 2.2,
+      "db_max": 8.2,
+      "bench_range_min": 6.0,
+      "bench_range_max": 13.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "ok"
+    },
+    {
+      "commodity": "wtl",
+      "main_group": "secondary_oil",
+      "n_refineries": 9,
+      "db_avg": 7.0,
+      "db_min": 6.0,
+      "db_max": 7.13,
+      "bench_range_min": null,
+      "bench_range_max": null,
+      "bench_sources": [],
+      "flag": "no_benchmark"
+    },
+    {
+      "commodity": "wtl",
+      "main_group": "fuel_oil",
+      "n_refineries": 9,
+      "db_avg": 3.01,
+      "db_min": 1.5,
+      "db_max": 3.2,
+      "bench_range_min": 1.0,
+      "bench_range_max": 7.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "ok"
+    },
+    {
+      "commodity": "wtl",
+      "main_group": "bitumen",
+      "n_refineries": 1,
+      "db_avg": 2.6,
+      "db_min": 2.6,
+      "db_max": 2.6,
+      "bench_range_min": null,
+      "bench_range_max": null,
+      "bench_sources": [],
+      "flag": "no_benchmark"
+    },
+    {
+      "commodity": "wtl",
+      "main_group": "other_products",
+      "n_refineries": 1,
+      "db_avg": 1.5,
+      "db_min": 1.5,
+      "db_max": 1.5,
+      "bench_range_min": null,
+      "bench_range_max": null,
+      "bench_sources": [],
+      "flag": "no_benchmark"
+    },
+    {
+      "commodity": "wtl",
+      "main_group": "jet_kerosene",
+      "n_refineries": 9,
+      "db_avg": 0.36,
+      "db_min": 0.21,
+      "db_max": 0.38,
+      "bench_range_min": null,
+      "bench_range_max": null,
+      "bench_sources": [],
+      "flag": "no_benchmark"
+    },
+    {
+      "commodity": "wyoming_asphaltic",
+      "main_group": "motor_gasoline",
+      "n_refineries": 12,
+      "db_avg": 33.64,
+      "db_min": 31.66,
+      "db_max": 46.02,
+      "bench_range_min": 24.0,
+      "bench_range_max": 48.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "ok"
+    },
+    {
+      "commodity": "wyoming_asphaltic",
+      "main_group": "gas_diesel_oil",
+      "n_refineries": 12,
+      "db_avg": 28.23,
+      "db_min": 27.43,
+      "db_max": 31.93,
+      "bench_range_min": 20.0,
+      "bench_range_max": 34.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "ok"
+    },
+    {
+      "commodity": "wyoming_asphaltic",
+      "main_group": "fuel_oil",
+      "n_refineries": 12,
+      "db_avg": 18.77,
+      "db_min": 1.5,
+      "db_max": 23.69,
+      "bench_range_min": 1.0,
+      "bench_range_max": 32.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "ok"
+    },
+    {
+      "commodity": "wyoming_asphaltic",
+      "main_group": "petroleum_coke",
+      "n_refineries": 3,
+      "db_avg": 7.63,
+      "db_min": 5.0,
+      "db_max": 9.0,
+      "bench_range_min": 1.0,
+      "bench_range_max": 11.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "ok"
+    },
+    {
+      "commodity": "wyoming_asphaltic",
+      "main_group": "kerosene_type_jet_fuel",
+      "n_refineries": 12,
+      "db_avg": 5.89,
+      "db_min": 5.7,
+      "db_max": 7.76,
+      "bench_range_min": 6.0,
+      "bench_range_max": 14.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "borderline"
+    },
+    {
+      "commodity": "wyoming_asphaltic",
+      "main_group": "secondary_oil",
+      "n_refineries": 12,
+      "db_avg": 5.62,
+      "db_min": 5.48,
+      "db_max": 6.5,
+      "bench_range_min": null,
+      "bench_range_max": null,
+      "bench_sources": [],
+      "flag": "no_benchmark"
+    },
+    {
+      "commodity": "wyoming_asphaltic",
+      "main_group": "lpg",
+      "n_refineries": 12,
+      "db_avg": 5.59,
+      "db_min": 3.0,
+      "db_max": 7.29,
+      "bench_range_min": 3.5,
+      "bench_range_max": 12.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "ok"
+    },
+    {
+      "commodity": "wyoming_asphaltic",
+      "main_group": "bitumen",
+      "n_refineries": 1,
+      "db_avg": 1.96,
+      "db_min": 1.96,
+      "db_max": 1.96,
+      "bench_range_min": null,
+      "bench_range_max": null,
+      "bench_sources": [],
+      "flag": "no_benchmark"
+    },
+    {
+      "commodity": "wyoming_asphaltic",
+      "main_group": "jet_kerosene",
+      "n_refineries": 12,
+      "db_avg": 0.18,
+      "db_min": 0.18,
+      "db_max": 0.24,
+      "bench_range_min": null,
+      "bench_range_max": null,
+      "bench_sources": [],
+      "flag": "no_benchmark"
+    },
+    {
+      "commodity": "wyoming_sweet",
+      "main_group": "motor_gasoline",
+      "n_refineries": 18,
+      "db_avg": 36.81,
+      "db_min": 12.0,
+      "db_max": 46.02,
+      "bench_range_min": 39.0,
+      "bench_range_max": 51.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "borderline"
+    },
+    {
+      "commodity": "wyoming_sweet",
+      "main_group": "gas_diesel_oil",
+      "n_refineries": 18,
+      "db_avg": 32.18,
+      "db_min": 29.69,
+      "db_max": 55.0,
+      "bench_range_min": 22.0,
+      "bench_range_max": 30.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "borderline"
+    },
+    {
+      "commodity": "wyoming_sweet",
+      "main_group": "kerosene_type_jet_fuel",
+      "n_refineries": 18,
+      "db_avg": 11.0,
+      "db_min": 5.82,
+      "db_max": 11.64,
+      "bench_range_min": 5.0,
+      "bench_range_max": 13.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "ok"
+    },
+    {
+      "commodity": "wyoming_sweet",
+      "main_group": "lpg",
+      "n_refineries": 18,
+      "db_avg": 6.23,
+      "db_min": 3.0,
+      "db_max": 6.87,
+      "bench_range_min": 5.0,
+      "bench_range_max": 12.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "ok"
+    },
+    {
+      "commodity": "wyoming_sweet",
+      "main_group": "fuel_oil",
+      "n_refineries": 18,
+      "db_avg": 6.07,
+      "db_min": 1.5,
+      "db_max": 7.64,
+      "bench_range_min": 1.5,
+      "bench_range_max": 11.0,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "ok"
+    },
+    {
+      "commodity": "wyoming_sweet",
+      "main_group": "secondary_oil",
+      "n_refineries": 18,
+      "db_avg": 6.02,
+      "db_min": 5.5,
+      "db_max": 9.0,
+      "bench_range_min": null,
+      "bench_range_max": null,
+      "bench_sources": [],
+      "flag": "no_benchmark"
+    },
+    {
+      "commodity": "wyoming_sweet",
+      "main_group": "petroleum_coke",
+      "n_refineries": 6,
+      "db_avg": 3.72,
+      "db_min": 2.18,
+      "db_max": 8.0,
+      "bench_range_min": 0.0,
+      "bench_range_max": 3.5,
+      "bench_sources": [
+        "cracking",
+        "coking"
+      ],
+      "flag": "borderline"
+    },
+    {
+      "commodity": "wyoming_sweet",
+      "main_group": "bitumen",
+      "n_refineries": 1,
+      "db_avg": 1.96,
+      "db_min": 1.96,
+      "db_max": 1.96,
+      "bench_range_min": null,
+      "bench_range_max": null,
+      "bench_sources": [],
+      "flag": "no_benchmark"
+    },
+    {
+      "commodity": "wyoming_sweet",
+      "main_group": "jet_kerosene",
+      "n_refineries": 18,
+      "db_avg": 0.34,
+      "db_min": 0.18,
+      "db_max": 0.36,
+      "bench_range_min": null,
+      "bench_range_max": null,
+      "bench_sources": [],
+      "flag": "no_benchmark"
+    }
+  ]
+}

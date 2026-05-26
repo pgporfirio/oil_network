@@ -1,0 +1,279 @@
+{
+  "refinery": {
+    "refinery_id": "ref_pbf_delaware_city",
+    "name": "DELAWARE CITY REFINING CO LLC \u2014 DELAWARE CITY",
+    "padd": "PADD1",
+    "state": "Delaware",
+    "corporation": "PBF ENERGY CO LLC",
+    "operator": "PBF Energy",
+    "site": "DELAWARE CITY",
+    "rdist_label": "East Coast",
+    "capacity_bpd": 171000,
+    "duoarea_code": "REC",
+    "existing_units": "has_fcc, has_coker, has_hydrocracker"
+  },
+  "result": {
+    "refinery_id": "ref_pbf_delaware_city",
+    "units": [
+      {
+        "unit_type": "fcc",
+        "capacity_bpd": 82000,
+        "source_url": "https://www.eia.gov/dnav/pet/pet_pnp_cap1_dcu_sde_a.htm"
+      },
+      {
+        "unit_type": "coker",
+        "capacity_bpd": 54500,
+        "source_url": "https://www.eia.gov/dnav/pet/pet_pnp_cap1_dcu_sde_a.htm"
+      },
+      {
+        "unit_type": "hydrocracker",
+        "capacity_bpd": 22300,
+        "source_url": "https://www.eia.gov/dnav/pet/pet_pnp_cap1_dcu_sde_a.htm"
+      },
+      {
+        "unit_type": "hydrotreater",
+        "capacity_bpd": 180300,
+        "source_url": "https://www.eia.gov/dnav/pet/pet_pnp_cap1_dcu_sde_a.htm"
+      },
+      {
+        "unit_type": "reformer",
+        "capacity_bpd": 43000,
+        "source_url": "https://www.eia.gov/dnav/pet/pet_pnp_cap1_dcu_sde_a.htm"
+      }
+    ],
+    "slate": [
+      {
+        "period_start": "2015-01-01",
+        "period_end": "2017-12-31",
+        "grade_name": "Bakken Light Sweet (by rail)",
+        "api_gravity": 42,
+        "sulphur_pct": 0.2,
+        "share_pct": 55,
+        "commodity": "bakken_light",
+        "source_url": "https://www.spglobal.com/commodity-insights/en/market-insights/latest-news/oil/050119-pbf-sees-light-heavy-crude-spreads-widening-by-end-of-q2-as-supply-increases"
+      },
+      {
+        "period_start": "2019-04-01",
+        "period_end": "2019-06-30",
+        "grade_name": "Western Canadian Select (WCS) by rail",
+        "api_gravity": 21,
+        "sulphur_pct": 3.3,
+        "share_pct": 37,
+        "commodity": "western_canadian_select",
+        "source_url": "https://www.spglobal.com/commodity-insights/en/market-insights/latest-news/oil/050119-pbf-sees-light-heavy-crude-spreads-widening-by-end-of-q2-as-supply-increases"
+      }
+    ],
+    "events": [
+      {
+        "event_type": "turnaround",
+        "start_date": "2022-03-01",
+        "end_date": "2022-04-30",
+        "units_affected": "reformer, secondary units",
+        "capacity_impact_bpd": 15000,
+        "description": "Planned catalytic reformer turnaround at Delaware City, commencing March 2022 and concluding April 2022. Secondary units also taken offline as part of the planned maintenance programme. Crude distillation and primary conversion units (FCC, coker) continued to operate.",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/0001534504/000153450422000017/a991pressreleaseq1-22.htm"
+      },
+      {
+        "event_type": "turnaround",
+        "start_date": "2023-03-15",
+        "end_date": "2023-05-31",
+        "units_affected": "fluid_coker, hydrocracker",
+        "capacity_impact_bpd": 50000,
+        "description": "Planned spring 2023 turnaround of the fluid coker (54,500 bpsd) and hydrocracker (22,300 bpsd) at Delaware City. Announced in Q4 2022 earnings (February 2023). Exact start and end dates are estimates; \"spring\" described in the earnings release. Crude distillation and FCC continued to operate at reduced feed. Combined conversion capacity impact estimated at ~50,000 bpd on crude runs.",
+        "source_url": "https://www.prnewswire.com/news-releases/pbf-energy-reports-fourth-quarter-2022-results-and-declares-dividend-of-0-20-per-share-and-announces-partnership-for-st-bernard-renewables-project-301748738.html"
+      },
+      {
+        "event_type": "turnaround",
+        "start_date": "2025-01-15",
+        "end_date": "2025-03-01",
+        "units_affected": "hydrocracker",
+        "capacity_impact_bpd": 22300,
+        "description": "Planned hydrocracker turnaround at Delaware City in the first half of 2025, disclosed in the Q4 2024 earnings as expected to last 35\u201345 days. Exact start date not confirmed; estimated to fall in Q1 2025 given the East Coast throughput guidance of 250,000\u2013270,000 bpd for Q1 2025 (versus 312,700 bpd in Q1 2024). Consistent with reduced Q1 2025 East Coast throughput of 262,200 bpd.",
+        "source_url": "https://www.prnewswire.com/news-releases/pbf-energy-reports-fourth-quarter-and-full-year-2024-results-declares-dividend-of-0-275-per-share-302375835.html"
+      }
+    ],
+    "financials": [
+      {
+        "period_start": "2022-01-01",
+        "period_end": "2022-12-31",
+        "period_type": "FY",
+        "throughput_bpd": 300300,
+        "utilisation_pct": 92.1,
+        "revenue_usd_m": 46780.6,
+        "ebitda_usd_m": 4466.4,
+        "source_url": "https://www.prnewswire.com/news-releases/pbf-energy-reports-fourth-quarter-2022-results-and-declares-dividend-of-0-20-per-share-and-announces-partnership-for-st-bernard-renewables-project-301748738.html"
+      },
+      {
+        "period_start": "2023-01-01",
+        "period_end": "2023-12-31",
+        "period_type": "FY",
+        "throughput_bpd": 327600,
+        "utilisation_pct": 100.5,
+        "revenue_usd_m": 0,
+        "ebitda_usd_m": 0,
+        "source_url": "https://www.prnewswire.com/news-releases/pbf-energy-reports-fourth-quarter-and-full-year-2024-results-declares-dividend-of-0-275-per-share-302375835.html"
+      },
+      {
+        "period_start": "2024-10-01",
+        "period_end": "2024-12-31",
+        "period_type": "Q4",
+        "throughput_bpd": 281400,
+        "utilisation_pct": 86.3,
+        "revenue_usd_m": 0,
+        "ebitda_usd_m": 0,
+        "source_url": "https://www.prnewswire.com/news-releases/pbf-energy-reports-fourth-quarter-and-full-year-2024-results-declares-dividend-of-0-275-per-share-302375835.html"
+      },
+      {
+        "period_start": "2025-01-01",
+        "period_end": "2025-03-31",
+        "period_type": "Q1",
+        "throughput_bpd": 262200,
+        "utilisation_pct": 80.4,
+        "revenue_usd_m": 7066.4,
+        "ebitda_usd_m": 0,
+        "source_url": "https://www.prnewswire.com/news-releases/pbf-energy-announces-first-quarter-2025-results-sale-of-terminal-assets-and-declares-dividend-of-0-275-per-share-302443864.html"
+      }
+    ],
+    "runs_obs": [
+      {
+        "observation_date": "2015-01-01",
+        "metric": "crude_runs_bpd",
+        "value": 159200,
+        "method": "eia_attributed",
+        "confidence": "low",
+        "notes": "EIA PADD-1 East Coast (REC) crude inputs 2015 annual average ~1,027 kbd. Delaware City attribution share estimated at ~15.5% (171 kbd / ~1,100 kbd REC operable, which included PES Philadelphia ~335 kbd, Bayway/Linden ~238 kbd, Monroe Trainer ~185 kbd, Paulsboro ~180 kbd, Delaware City 171 kbd). Confidence low: REC total capacity estimated, pre-PES-closure era.",
+        "commodity": "crude",
+        "source_url": "https://www.eia.gov/dnav/pet/pet_pnp_cap1_dcu_sde_a.htm"
+      },
+      {
+        "observation_date": "2021-01-01",
+        "metric": "crude_runs_bpd",
+        "value": 137700,
+        "method": "eia_attributed",
+        "confidence": "low",
+        "notes": "EIA PADD-1 East Coast (REC) crude inputs 2021 annual average ~580 kbd. Delaware City attribution share = 171/720 = 23.75% of REC operable capacity (post-PES closure, post-Paulsboro reconfiguration). Result: 580 \u00d7 0.2375 \u2248 137.7 kbd. Confidence low: district-level allocation, multiple refineries in REC.",
+        "commodity": "crude",
+        "source_url": "https://www.eia.gov/dnav/pet/pet_pnp_cap1_dcu_sde_a.htm"
+      },
+      {
+        "observation_date": "2022-01-01",
+        "metric": "crude_runs_bpd",
+        "value": 157500,
+        "method": "financials_quarterly_split",
+        "confidence": "medium",
+        "notes": "PBF East Coast segment (Delaware City + Paulsboro) FY 2022 average throughput = 300,300 bpd. Delaware City allocated at 52.45% capacity share (171 kbd / 326 kbd combined East Coast). Result: 300,300 \u00d7 0.5245 = 157,500 bpd. PBF does not disclose per-plant figures.",
+        "commodity": "crude",
+        "source_url": "https://www.prnewswire.com/news-releases/pbf-energy-reports-fourth-quarter-2022-results-and-declares-dividend-of-0-20-per-share-and-announces-partnership-for-st-bernard-renewables-project-301748738.html"
+      },
+      {
+        "observation_date": "2023-01-01",
+        "metric": "crude_runs_bpd",
+        "value": 171900,
+        "method": "financials_quarterly_split",
+        "confidence": "medium",
+        "notes": "PBF East Coast segment FY 2023 average throughput = 327,600 bpd. Delaware City at 52.45% capacity share = 171,900 bpd. Includes the Spring 2023 coker+hydrocracker TAR period which modestly depressed Q2; East Coast ran at effectively full combined capacity for the year. PBF does not disclose per-plant figures.",
+        "commodity": "crude",
+        "source_url": "https://www.prnewswire.com/news-releases/pbf-energy-reports-fourth-quarter-and-full-year-2024-results-declares-dividend-of-0-275-per-share-302375835.html"
+      },
+      {
+        "observation_date": "2024-01-01",
+        "metric": "crude_runs_bpd",
+        "value": 164000,
+        "method": "financials_quarterly_split",
+        "confidence": "medium",
+        "notes": "PBF East Coast segment Q1 2024 throughput = 312,700 bpd. Delaware City at 52.45% = 164,000 bpd. Q1 2024 was the strongest quarter of 2024 for East Coast. Annual FY 2024 EC average was 305,200 bpd (DC allocated 160,200 bpd).",
+        "commodity": "crude",
+        "source_url": "https://www.prnewswire.com/news-releases/pbf-energy-announces-first-quarter-2025-results-sale-of-terminal-assets-and-declares-dividend-of-0-275-per-share-302443864.html"
+      },
+      {
+        "observation_date": "2025-01-01",
+        "metric": "crude_runs_bpd",
+        "value": 137500,
+        "method": "financials_quarterly_split",
+        "confidence": "medium",
+        "notes": "PBF East Coast segment Q1 2025 throughput = 262,200 bpd (guidance was 250,000\u2013270,000 bpd reflecting Delaware City hydrocracker TAR). Delaware City at 52.45% = 137,500 bpd. Reflects a 35\u201345 day hydrocracker outage in H1 2025 and broader market weakness. EC Q4 2024 (prior observation) = 147,700 bpd (281,400 \u00d7 52.45%).",
+        "commodity": "crude",
+        "source_url": "https://www.prnewswire.com/news-releases/pbf-energy-announces-first-quarter-2025-results-sale-of-terminal-assets-and-declares-dividend-of-0-275-per-share-302443864.html"
+      }
+    ],
+    "slate_obs": [],
+    "sources": [
+      {
+        "url": "https://www.eia.gov/dnav/pet/pet_pnp_cap1_dcu_sde_a.htm",
+        "title": "EIA \u2014 Delaware State Number and Capacity of Petroleum Refineries (annual)",
+        "publisher": "U.S. Energy Information Administration",
+        "document_type": "eia",
+        "published_date": "2025-01-01",
+        "notes": "Primary source for all per-unit process capacities at Delaware City Refining Co LLC. Atmospheric distillation, vacuum, fluid coker, FCC, hydrocracker, hydrotreater, reformer capacities extracted."
+      },
+      {
+        "url": "https://www.pbfenergy.com/refineries/",
+        "title": "PBF Energy \u2014 Refineries Overview (Delaware City)",
+        "publisher": "PBF Energy Inc.",
+        "document_type": "other",
+        "published_date": "2024-01-01",
+        "notes": "PBF corporate website. Delaware City: 180,000 bpd nameplate (stream day), Nelson Complexity 13.6, ~5,000 acres, processes diverse heavy high-sulphur crude slate. Paulsboro: 155,000 bpd. Combined East Coast capacity 335,000 bpd."
+      },
+      {
+        "url": "https://www.prnewswire.com/news-releases/pbf-energy-reports-fourth-quarter-and-full-year-2024-results-declares-dividend-of-0-275-per-share-302375835.html",
+        "title": "PBF Energy Q4 and Full-Year 2024 Earnings Press Release",
+        "publisher": "PBF Energy Inc.",
+        "document_type": "press_release",
+        "published_date": "2025-02-14",
+        "notes": "East Coast Q4 2024 throughput 281.4 kbd; FY 2024 305.2 kbd; Q4 2023 329.2 kbd; FY 2023 327.6 kbd. Delaware City hydrocracker TAR planned H1 2025 (35\u201345 days). Gross refining margin East Coast Q4 2024: $4.342/bbl."
+      },
+      {
+        "url": "https://www.prnewswire.com/news-releases/pbf-energy-announces-first-quarter-2025-results-sale-of-terminal-assets-and-declares-dividend-of-0-275-per-share-302443864.html",
+        "title": "PBF Energy Q1 2025 Earnings Press Release",
+        "publisher": "PBF Energy Inc.",
+        "document_type": "press_release",
+        "published_date": "2025-05-01",
+        "notes": "East Coast Q1 2025 throughput 262.2 kbd; Q1 2024 throughput 312.7 kbd (comparison). Total revenues Q1 2025: $7,066.4M vs $8,645.6M Q1 2024. EC gross margin Q1 2025: $5.86/bbl vs $7.72/bbl Q1 2024."
+      },
+      {
+        "url": "https://www.prnewswire.com/news-releases/pbf-energy-reports-fourth-quarter-2022-results-and-declares-dividend-of-0-20-per-share-and-announces-partnership-for-st-bernard-renewables-project-301748738.html",
+        "title": "PBF Energy Q4 2022 Earnings Press Release",
+        "publisher": "PBF Energy Inc.",
+        "document_type": "press_release",
+        "published_date": "2023-02-10",
+        "notes": "East Coast Q4 2022 throughput 326.1 kbd; FY 2022 300.3 kbd; Q4 2022 gross margin $25.02/bbl. Discloses 2023 planned Spring TAR at Delaware City: Coker and Hydrocracker."
+      },
+      {
+        "url": "https://www.spglobal.com/commodity-insights/en/market-insights/latest-news/oil/050119-pbf-sees-light-heavy-crude-spreads-widening-by-end-of-q2-as-supply-increases",
+        "title": "S&P Global Commodity Insights \u2014 PBF crude slate: WCS rail volumes to Delaware City",
+        "publisher": "S&P Global Commodity Insights (Platts)",
+        "document_type": "trade_press",
+        "published_date": "2019-05-01",
+        "notes": "PBF expected to rail 65\u201370 kbd Western Canadian Select (WCS) to Delaware City in Q2 2019. Also notes Delaware City historically ran up to 100 kbd of Bakken crude by rail. Confirms crude-by-rail receipt infrastructure."
+      }
+    ],
+    "commodities": [
+      {
+        "commodity": "western_canadian_select",
+        "description": "Western Canadian Select (WCS) \u2014 heavy sour blend crude from Alberta, Canada; common feedstock delivered by rail to PBF Delaware City refinery",
+        "sweet_sour": "sour",
+        "density_class": "heavy",
+        "api_gravity_min": 20,
+        "api_gravity_max": 22,
+        "sulfur_pct_min": 3,
+        "sulfur_pct_max": 3.5,
+        "region": "Canada",
+        "typical_basin": "Alberta oil sands / conventional heavy blend (Hardisty delivery)"
+      }
+    ],
+    "primary_commodity": "crude",
+    "summary": "Delaware City Refining Co LLC (PBF Energy, acquired from Valero June 2010, restarted October 2011) is a high-complexity (Nelson 13.6) heavy-sour refinery on the Delaware River, with EIA-confirmed process units comprising a 171,000 bpd atmospheric still, 82,000 bpsd FCC, 54,500 bpsd fluid coker, 22,300 bpsd hydrocracker, 43,000 bpsd reformer, and 180,300 bpsd of hydrotreating; two alkylation units are present but their EIA capacities were not extractable from the survey data. The crude slate historically featured Bakken light sweet by rail (~55% circa 2015\u20132017), pivoting toward Western Canadian Select (~37% by Q2 2019) alongside other heavy high-sulphur imports received at the Delaware River docks; per-refinery slate percentages for 2020\u20132025 were not recoverable because the 10-K PDFs could not be parsed and no trade-press disclosures were found for that period. Three confirmed turnarounds within the past five years are recorded: a reformer TAR (March\u2013April 2022), a combined fluid-coker and hydrocracker TAR (spring 2023, ~50,000 bpd impact), and a hydrocracker TAR (H1 2025, 35\u201345 days); quarterly East Coast segment throughput (Delaware City + Paulsboro combined; individual plant data not disclosed by PBF) ranged from 300,300 bpd (FY 2022) to 327,600 bpd (FY 2023) and fell to 262,200 bpd in Q1 2025, with Delaware City attributed at the 52.45% capacity share (171/326 kbd); East Coast segment-level revenue and EBITDA by region were not separately disclosed in the press releases reviewed."
+  },
+  "run_meta": {
+    "model": "claude-sonnet-4-6",
+    "started_at": "2026-05-26 15:44:50.488976",
+    "finished_at": "2026-05-26 16:04:36.280850",
+    "tool_calls": 72,
+    "tokens_in": 0,
+    "tokens_out": 0,
+    "cost_usd": 2.7800772,
+    "status": "success",
+    "error": null,
+    "run_id": 3
+  }
+}

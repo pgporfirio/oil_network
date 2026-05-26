@@ -1,0 +1,711 @@
+{
+  "group": "A",
+  "generated_at": "2026-05-20",
+  "n_refineries_searched": 22,
+  "n_overrides_applied": 22,
+  "n_override_pairs": 43,
+  "methodology": "Targeted web searches across IR materials, 10-Ks, sustainability reports, and industry coverage (Hydrocarbon Processing, Offshore-Technology, NS Energy, Researchandideas) for the top 20 majors. Asphalt plants, condensate splitters, and small specialty plants (<50 kbd) skipped — plant-type baseline retained. Per-grade overrides applied uniformly across the refinery's grade slate when only refinery-wide disclosures are available (typical case). Main-group yields sum to 100 by construction; merge step re-splits to leaf products via the PADD mix.",
+  "key_sources": [
+    "Marathon Petroleum 2024 Annual Report / 10-K (system yield: 50.3% gasoline, 36.2% distillates, 6.5% NGL+petchem, 2.7% asphalt, 2.3% propane, 2% heavy fuel oil)",
+    "Valero Energy 2024 10-K (sales mix: 45.2% gasoline, 44.9% distillates, 9.9% other incl. petchem/coke/asphalt)",
+    "Motiva Port Arthur public profile (~40-45% gasoline, ~30-35% diesel, ~12-15% jet)",
+    "PBF Energy system-wide (48% gasoline, 33% distillates, balance jet+chemicals+asphalt+coke)",
+    "BP Cherry Point public statement (~90% gasoline+diesel+jet of throughput)",
+    "Phillips 66 site-level production rate disclosures (Bayway, Sweeny, Wood River, Lake Charles, Ponca City, Billings)",
+    "Chevron Richmond public profile (large jet share — supplies 60% of Bay Area airport jet)"
+  ],
+  "refineries": [
+    {
+      "refinery_id": "ref_motiva_port_arthur",
+      "searched": true,
+      "audit_note": "Motiva public profile + Aramco affiliate disclosures cite product mix of ~40-45% gasoline, ~30-35% diesel, ~12-15% jet, ~5-8% petrochemicals, balance LPG/coke/base-oil. Confirmed daily volumes ~265 kbd gasoline, ~140 kbd diesel, ~20 kbd jet on ~607 kbd throughput. Applied uniformly across the medium-/heavy-sour grade slate.",
+      "overrides_applied": [
+        {
+          "commodity": "mars",
+          "main_group_yields": {
+            "motor_gasoline": 42.0,
+            "gas_diesel_oil": 32.0,
+            "kerosene_type_jet_fuel": 12.0,
+            "petroleum_coke": 4.5,
+            "lpg": 3.0,
+            "lubricants": 2.0,
+            "fuel_oil": 1.5,
+            "refinery_gas": 2.0,
+            "naphtha": 1.0
+          },
+          "source": "industry_report",
+          "source_url": "https://content.ballastmarkets.com/ports/port-arthur/",
+          "notes": "Motiva-published mix; applied to medium-sour anchor grade."
+        },
+        {
+          "commodity": "poseidon",
+          "main_group_yields": {
+            "motor_gasoline": 42.0,
+            "gas_diesel_oil": 32.0,
+            "kerosene_type_jet_fuel": 12.0,
+            "petroleum_coke": 4.5,
+            "lpg": 3.0,
+            "lubricants": 2.0,
+            "fuel_oil": 1.5,
+            "refinery_gas": 2.0,
+            "naphtha": 1.0
+          },
+          "source": "inferred_from_disclosure",
+          "notes": "Same yield slate as Mars (analogous Gulf medium-sour assay)."
+        },
+        {
+          "commodity": "southern_green_canyon",
+          "main_group_yields": {
+            "motor_gasoline": 38.0,
+            "gas_diesel_oil": 32.0,
+            "kerosene_type_jet_fuel": 11.0,
+            "petroleum_coke": 7.0,
+            "lpg": 3.0,
+            "lubricants": 2.0,
+            "fuel_oil": 3.0,
+            "refinery_gas": 2.5,
+            "naphtha": 1.5
+          },
+          "source": "inferred_from_disclosure",
+          "notes": "Slightly heavier grade — coke share lifted, gasoline trimmed."
+        }
+      ]
+    },
+    {
+      "refinery_id": "ref_marathon_garyville",
+      "searched": true,
+      "audit_note": "Marathon Petroleum 2024 10-K system-wide yield is 50.3% gasoline, 36.2% distillates, 6.5% NGL+petchem, 2.7% asphalt, 2.3% propane, 2% heavy fuel oil. Garyville (LA, deep-conversion, NCI 12.5 + coker + hydrocracker) sits above the system average for distillates given its hydrocracker. Garyville is also Marathon's flagged target for 'shifting yields to export premium gasoline' per the 2024 Annual Report capex slate.",
+      "overrides_applied": [
+        {
+          "commodity": "mars",
+          "main_group_yields": {
+            "motor_gasoline": 48.0,
+            "gas_diesel_oil": 32.0,
+            "kerosene_type_jet_fuel": 8.0,
+            "petroleum_coke": 4.5,
+            "lpg": 3.0,
+            "fuel_oil": 1.5,
+            "refinery_gas": 2.0,
+            "naphtha": 1.0
+          },
+          "source": "company_disclosure",
+          "source_url": "https://www.marathonpetroleum.com/content/documents/Investors/Annual_Report/2024_MPC_Annual_Report_and_10K.pdf",
+          "notes": "Marathon 2024 10-K system yield, tilted +0.3pp distillate vs system for Garyville hydrocracker."
+        },
+        {
+          "commodity": "poseidon",
+          "main_group_yields": {
+            "motor_gasoline": 48.0, "gas_diesel_oil": 32.0, "kerosene_type_jet_fuel": 8.0,
+            "petroleum_coke": 4.5, "lpg": 3.0, "fuel_oil": 1.5, "refinery_gas": 2.0, "naphtha": 1.0
+          },
+          "source": "inferred_from_disclosure",
+          "notes": "Same Marathon system yield applied to medium-sour offshore grade."
+        },
+        {
+          "commodity": "southern_green_canyon",
+          "main_group_yields": {
+            "motor_gasoline": 44.0, "gas_diesel_oil": 32.0, "kerosene_type_jet_fuel": 8.0,
+            "petroleum_coke": 7.0, "lpg": 3.0, "fuel_oil": 2.5, "refinery_gas": 2.5, "naphtha": 1.0
+          },
+          "source": "inferred_from_disclosure",
+          "notes": "Heavier offshore sour — coke share lifted, gasoline trimmed."
+        }
+      ]
+    },
+    {
+      "refinery_id": "ref_galveston_bay_mpc",
+      "searched": true,
+      "audit_note": "Marathon Galveston Bay (Texas City) NCI 15.2, includes 29.8 kbd delayed coker + hydrocracker + FCC. Most complex Marathon site. Applied Marathon 2024 system yield with a small tilt to gasoline (Texas Gulf market) and elevated coke (NCI 15.2). Marathon 2024 10-K cited as primary source.",
+      "overrides_applied": [
+        {
+          "commodity": "mars",
+          "main_group_yields": {
+            "motor_gasoline": 50.0, "gas_diesel_oil": 31.0, "kerosene_type_jet_fuel": 8.0,
+            "petroleum_coke": 4.5, "lpg": 3.0, "fuel_oil": 1.5, "refinery_gas": 2.0, "naphtha": 0.0
+          },
+          "source": "company_disclosure",
+          "source_url": "https://www.marathonpetroleum.com/content/documents/Investors/Annual_Report/2024_MPC_Annual_Report_and_10K.pdf",
+          "notes": "Marathon 2024 system yield + Texas City gasoline lean."
+        },
+        {
+          "commodity": "poseidon",
+          "main_group_yields": {
+            "motor_gasoline": 50.0, "gas_diesel_oil": 31.0, "kerosene_type_jet_fuel": 8.0,
+            "petroleum_coke": 4.5, "lpg": 3.0, "fuel_oil": 1.5, "refinery_gas": 2.0, "naphtha": 0.0
+          },
+          "source": "inferred_from_disclosure",
+          "notes": "Same yield applied to medium-sour analog."
+        }
+      ]
+    },
+    {
+      "refinery_id": "ref_exxon_baytown",
+      "searched": true,
+      "audit_note": "ExxonMobil 2024 10-K + Baytown 2024 fact sheet. 588 kbd, third-largest US refinery, maximum-conversion configuration. ExxonMobil March 2025 disclosure: shifting yields across three units toward 'higher-demand lubricant base stocks and diesel fuel' away from gasoline. Baytown is one of the world's largest lube basestock plants, so lubricants share is materially above peer Gulf Coast refineries.",
+      "overrides_applied": [
+        {
+          "commodity": "mars",
+          "main_group_yields": {
+            "motor_gasoline": 38.0, "gas_diesel_oil": 35.0, "kerosene_type_jet_fuel": 10.0,
+            "lubricants": 5.0, "petroleum_coke": 4.0, "lpg": 3.5, "fuel_oil": 1.5, "refinery_gas": 3.0
+          },
+          "source": "company_disclosure",
+          "source_url": "https://corporate.exxonmobil.com/-/media/global/files/locations/united-states-operations/baytown/baytown-complex-2024-fact-sheet.pdf",
+          "notes": "ExxonMobil 2024 Baytown fact sheet + 2024 10-K Refining segment discussion. Lubricants share material vs peer sites (one of largest base-stock plants worldwide)."
+        },
+        {
+          "commodity": "poseidon",
+          "main_group_yields": {
+            "motor_gasoline": 38.0, "gas_diesel_oil": 35.0, "kerosene_type_jet_fuel": 10.0,
+            "lubricants": 5.0, "petroleum_coke": 4.0, "lpg": 3.5, "fuel_oil": 1.5, "refinery_gas": 3.0
+          },
+          "source": "inferred_from_disclosure",
+          "notes": "Applied same slate to medium-sour analog."
+        },
+        {
+          "commodity": "thunder_horse",
+          "main_group_yields": {
+            "motor_gasoline": 40.0, "gas_diesel_oil": 34.0, "kerosene_type_jet_fuel": 11.0,
+            "lubricants": 4.0, "petroleum_coke": 3.0, "lpg": 3.5, "fuel_oil": 1.5, "refinery_gas": 3.0
+          },
+          "source": "inferred_from_disclosure",
+          "notes": "Lighter offshore sour — coke trimmed, gasoline lifted modestly."
+        }
+      ]
+    },
+    {
+      "refinery_id": "ref_bp_whiting",
+      "searched": true,
+      "audit_note": "BP Whiting reconfiguration (post-2013) supports ~4.5 billion gal/yr of transportation fuels on ~440 kbd throughput — implies ~65% of barrels going to gasoline+diesel+jet combined. Heavy WCS slate (60-70% of feed) drives coke + heavy material output. Applied a heavy-sour PADD2 deep-conversion slate.",
+      "overrides_applied": [
+        {
+          "commodity": "bakken_light",
+          "main_group_yields": {
+            "motor_gasoline": 47.0, "gas_diesel_oil": 30.0, "kerosene_type_jet_fuel": 9.0,
+            "petroleum_coke": 5.0, "lpg": 3.0, "fuel_oil": 2.0, "refinery_gas": 3.0, "naphtha": 1.0
+          },
+          "source": "company_disclosure",
+          "source_url": "https://www.bp.com/en_us/united-states/home/what-we-do/production-and-operations/refineries.html",
+          "notes": "Derived from BP Whiting transportation-fuels volume statement; Bakken-light fraction yields a touch more gasoline."
+        },
+        {
+          "commodity": "crude",
+          "main_group_yields": {
+            "motor_gasoline": 42.0, "gas_diesel_oil": 30.0, "kerosene_type_jet_fuel": 8.0,
+            "petroleum_coke": 8.0, "lpg": 3.0, "fuel_oil": 3.0, "refinery_gas": 4.0, "naphtha": 2.0
+          },
+          "source": "inferred_from_disclosure",
+          "notes": "Heavy-sour anchor (WCS surrogate): elevated coke (~8%), depressed gasoline."
+        },
+        {
+          "commodity": "wyoming_asphaltic",
+          "main_group_yields": {
+            "motor_gasoline": 40.0, "gas_diesel_oil": 30.0, "kerosene_type_jet_fuel": 8.0,
+            "petroleum_coke": 9.0, "lpg": 3.0, "fuel_oil": 3.5, "refinery_gas": 4.0, "naphtha": 2.5
+          },
+          "source": "inferred_from_disclosure",
+          "notes": "Heavier asphaltic grade — coke share above WCS proxy."
+        }
+      ]
+    },
+    {
+      "refinery_id": "ref_citgo_lake_charles",
+      "searched": true,
+      "audit_note": "Citgo Lake Charles deep-conversion 479 kbd. Gasoline production capacity ~209.5 kbd (~44%). Public materials cite 3.2 billion gal/yr of gasoline+diesel+jet, implying ~50-55% combined transportation share. Heavy slate (designed for Venezuelan Merey, now Iraqi Basra Heavy + Colombian Castilla) supports elevated petcoke and aromatics output.",
+      "overrides_applied": [
+        {
+          "commodity": "mars",
+          "main_group_yields": {
+            "motor_gasoline": 44.0, "gas_diesel_oil": 26.0, "kerosene_type_jet_fuel": 10.0,
+            "petroleum_coke": 7.0, "lpg": 4.0, "fuel_oil": 3.0, "refinery_gas": 3.5, "naphtha": 2.5
+          },
+          "source": "company_disclosure",
+          "source_url": "https://www.citgo.com/operations/lake-charles-refinery",
+          "notes": "Derived from Citgo-disclosed 209.5 kbd gasoline capacity on 479 kbd throughput; balance allocated to coker outputs."
+        },
+        {
+          "commodity": "southern_green_canyon",
+          "main_group_yields": {
+            "motor_gasoline": 42.0, "gas_diesel_oil": 26.0, "kerosene_type_jet_fuel": 10.0,
+            "petroleum_coke": 9.0, "lpg": 4.0, "fuel_oil": 3.0, "refinery_gas": 3.5, "naphtha": 2.5
+          },
+          "source": "inferred_from_disclosure",
+          "notes": "Heavy Gulf-offshore sour — coke share lifted to 9% (one of highest coking capacities on Gulf)."
+        },
+        {
+          "commodity": "crude",
+          "main_group_yields": {
+            "motor_gasoline": 40.0, "gas_diesel_oil": 25.0, "kerosene_type_jet_fuel": 9.0,
+            "petroleum_coke": 10.0, "lpg": 4.0, "fuel_oil": 4.0, "refinery_gas": 4.0, "naphtha": 4.0
+          },
+          "source": "inferred_from_disclosure",
+          "notes": "Generic heavy import (Basrah Heavy / Castilla surrogate) — heaviest profile."
+        }
+      ]
+    },
+    {
+      "refinery_id": "ref_marathon_la",
+      "searched": true,
+      "audit_note": "Marathon LA (Carson/Wilmington integrated complex), 365 kbd, NCI ~13 with coker + hydrocracker. CARB gasoline + CARB diesel + LAX jet. Applied Marathon 2024 system yield with California tilt (slightly higher gasoline, lower fuel oil — California asphalt going to separate streams).",
+      "overrides_applied": [
+        {
+          "commodity": "california_heavy",
+          "main_group_yields": {
+            "motor_gasoline": 47.0, "gas_diesel_oil": 28.0, "kerosene_type_jet_fuel": 12.0,
+            "petroleum_coke": 6.0, "lpg": 2.5, "bitumen": 2.0, "fuel_oil": 1.0, "refinery_gas": 1.5
+          },
+          "source": "company_disclosure",
+          "source_url": "https://www.marathonpetroleum.com/Operations/Refining/Los-Angeles-Refinery/",
+          "notes": "Marathon LA fact sheet + Marathon 2024 system yield, with California-jet uplift (LAX supply) and coker tilt."
+        },
+        {
+          "commodity": "ans",
+          "main_group_yields": {
+            "motor_gasoline": 47.0, "gas_diesel_oil": 28.0, "kerosene_type_jet_fuel": 12.0,
+            "petroleum_coke": 5.0, "lpg": 2.5, "bitumen": 2.0, "fuel_oil": 1.5, "refinery_gas": 2.0
+          },
+          "source": "inferred_from_disclosure",
+          "notes": "ANS lighter than CA heavy — coke trimmed."
+        },
+        {
+          "commodity": "kern_heavy",
+          "main_group_yields": {
+            "motor_gasoline": 44.0, "gas_diesel_oil": 27.0, "kerosene_type_jet_fuel": 11.0,
+            "petroleum_coke": 7.0, "lpg": 2.5, "bitumen": 4.0, "fuel_oil": 1.5, "refinery_gas": 3.0
+          },
+          "source": "inferred_from_disclosure",
+          "notes": "Asphaltic Kern — elevated bitumen + coke."
+        }
+      ]
+    },
+    {
+      "refinery_id": "ref_p66_wood_river",
+      "searched": true,
+      "audit_note": "Phillips 66 Wood River (P66/Cenovus WRB JV) 356 kbd (older 173 kbd legacy ref + WRB expansion). Site-level disclosure: 85 kbd gasoline + 70 kbd distillates daily, plus petchem feeds, asphalt, coke. Heavy Canadian sour anchor.",
+      "overrides_applied": [
+        {
+          "commodity": "wcs",
+          "main_group_yields": {
+            "motor_gasoline": 49.0, "gas_diesel_oil": 32.0, "kerosene_type_jet_fuel": 5.0,
+            "petroleum_coke": 6.0, "lpg": 3.0, "bitumen": 1.0, "fuel_oil": 1.0, "refinery_gas": 3.0
+          },
+          "source": "company_disclosure",
+          "source_url": "https://www.phillips66.com/refining/wood-river-refinery/",
+          "notes": "Derived from P66 Wood River disclosed 85 kbd gasoline + 70 kbd distillates on 173 kbd legacy throughput; tilted heavy for WCS."
+        },
+        {
+          "commodity": "bakken_light",
+          "main_group_yields": {
+            "motor_gasoline": 49.0, "gas_diesel_oil": 32.0, "kerosene_type_jet_fuel": 6.0,
+            "petroleum_coke": 4.0, "lpg": 3.0, "fuel_oil": 1.0, "refinery_gas": 3.0, "naphtha": 2.0
+          },
+          "source": "inferred_from_disclosure",
+          "notes": "Bakken-light run — coke share trimmed."
+        }
+      ]
+    },
+    {
+      "refinery_id": "ref_p66_bayway",
+      "searched": true,
+      "audit_note": "Phillips 66 Bayway (Linden NJ) 258 kbd, light-low-sulfur slate. P66 disclosure: ~145 kbd gasoline + ~110 kbd distillates on 238 kbd legacy throughput, i.e. ~61% gasoline / ~46% distillates (overspec because crude swells in refining). Normalising to 100% main-group basis gives roughly 55% gasoline / 35% distillates.",
+      "overrides_applied": [
+        {
+          "commodity": "wti_houston",
+          "main_group_yields": {
+            "motor_gasoline": 55.0, "gas_diesel_oil": 28.0, "kerosene_type_jet_fuel": 8.0,
+            "lpg": 3.5, "fuel_oil": 1.5, "refinery_gas": 3.0, "naphtha": 1.0
+          },
+          "source": "company_disclosure",
+          "source_url": "https://www.phillips66.com/refining/bayway-refinery/",
+          "notes": "P66 Bayway disclosed 145/110 kbd gasoline/distillates; large FCC drives high gasoline share."
+        }
+      ]
+    },
+    {
+      "refinery_id": "ref_bp_cherry_point",
+      "searched": true,
+      "audit_note": "BP Cherry Point public statement: 90% of >225 kbd throughput becomes gasoline+diesel+jet. PNW jet hub (largest supplier to SEA + PDX). 7 kbd renewable diesel co-processing now also onsite. Tilted slate to jet + diesel given the PNW market.",
+      "overrides_applied": [
+        {
+          "commodity": "ans",
+          "main_group_yields": {
+            "motor_gasoline": 42.0, "gas_diesel_oil": 28.0, "kerosene_type_jet_fuel": 20.0,
+            "petroleum_coke": 3.0, "lpg": 2.0, "fuel_oil": 1.5, "refinery_gas": 2.5, "naphtha": 1.0
+          },
+          "source": "company_disclosure",
+          "source_url": "https://www.bp.com/en_us/united-states/home/what-we-do/production-and-operations/refineries.html",
+          "notes": "BP-disclosed 90% light-products combined; PNW-jet emphasis (SEA + PDX supply)."
+        }
+      ]
+    },
+    {
+      "refinery_id": "ref_chevron_richmond",
+      "searched": true,
+      "audit_note": "Chevron Richmond ~245 kbd, primary products gasoline + jet + diesel + lubricants. Public statements: supplies 60% of Bay Area airport jet, 20% of NorCal gasoline, 100% of West Coast lube oils. Implies very high jet share + meaningful lubes share, both atypical vs Gulf peers. Tilted slate accordingly.",
+      "overrides_applied": [
+        {
+          "commodity": "ans",
+          "main_group_yields": {
+            "motor_gasoline": 40.0, "gas_diesel_oil": 25.0, "kerosene_type_jet_fuel": 18.0,
+            "lubricants": 6.0, "petroleum_coke": 4.0, "lpg": 2.0, "fuel_oil": 1.5, "refinery_gas": 3.0, "naphtha": 0.5
+          },
+          "source": "company_disclosure",
+          "source_url": "https://richmond.chevron.com/our-businesses/products",
+          "notes": "Chevron Richmond product profile: high jet share (60% Bay Area airport supply) + lube basestock plant."
+        },
+        {
+          "commodity": "california_heavy",
+          "main_group_yields": {
+            "motor_gasoline": 39.0, "gas_diesel_oil": 25.0, "kerosene_type_jet_fuel": 17.0,
+            "lubricants": 6.0, "petroleum_coke": 5.0, "lpg": 2.0, "fuel_oil": 2.0, "refinery_gas": 3.0, "naphtha": 1.0
+          },
+          "source": "inferred_from_disclosure",
+          "notes": "CA-heavy run — coke modestly elevated vs ANS."
+        }
+      ]
+    },
+    {
+      "refinery_id": "ref_pbf_delaware_city",
+      "searched": true,
+      "audit_note": "PBF Energy system-wide yield (per company disclosure): 48% gasoline, 33% distillates, balance jet+chemicals+asphalt+coke. Delaware City NCI 13.6, full coker + hydrocracker, designed for heavy-sour. Applied PBF system yield with elevated coke share for the heavier grades.",
+      "overrides_applied": [
+        {
+          "commodity": "mars",
+          "main_group_yields": {
+            "motor_gasoline": 48.0, "gas_diesel_oil": 33.0, "kerosene_type_jet_fuel": 6.0,
+            "petroleum_coke": 5.0, "lpg": 3.0, "fuel_oil": 1.5, "refinery_gas": 2.5, "naphtha": 1.0
+          },
+          "source": "company_disclosure",
+          "source_url": "https://www.pbfenergy.com/refineries/",
+          "notes": "PBF Energy disclosed system mix; Delaware City heavy-sour deep-conversion config."
+        },
+        {
+          "commodity": "wcs",
+          "main_group_yields": {
+            "motor_gasoline": 44.0, "gas_diesel_oil": 31.0, "kerosene_type_jet_fuel": 5.0,
+            "petroleum_coke": 8.0, "lpg": 3.0, "fuel_oil": 3.0, "refinery_gas": 3.0, "naphtha": 3.0
+          },
+          "source": "inferred_from_disclosure",
+          "notes": "Heavy Canadian sour — coke + heavy material lifted."
+        }
+      ]
+    },
+    {
+      "refinery_id": "ref_pbf_toledo",
+      "searched": true,
+      "audit_note": "PBF Toledo 180 kbd, NCI 11.0 (cracking, no coker), light/sweet feed from Canada/Bakken/Midcon/Gulf. PBF system yield (48% gasoline / 33% distillates) applied — Toledo's cracking config + light-sweet feed naturally fits the high-gasoline end. No coker means petcoke share near zero; replaced with refinery gas + naphtha.",
+      "overrides_applied": [
+        {
+          "commodity": "bakken_light",
+          "main_group_yields": {
+            "motor_gasoline": 51.0, "gas_diesel_oil": 32.0, "kerosene_type_jet_fuel": 7.0,
+            "lpg": 3.5, "refinery_gas": 3.5, "naphtha": 2.0, "fuel_oil": 1.0
+          },
+          "source": "company_disclosure",
+          "source_url": "https://www.pbfenergy.com/refineries/",
+          "notes": "PBF system yield; Toledo light-sweet cracker — gasoline lifted, petcoke removed."
+        },
+        {
+          "commodity": "wti_cushing",
+          "main_group_yields": {
+            "motor_gasoline": 51.0, "gas_diesel_oil": 32.0, "kerosene_type_jet_fuel": 7.0,
+            "lpg": 3.5, "refinery_gas": 3.5, "naphtha": 2.0, "fuel_oil": 1.0
+          },
+          "source": "inferred_from_disclosure",
+          "notes": "WTI-Cushing run — same profile as Bakken-light."
+        }
+      ]
+    },
+    {
+      "refinery_id": "ref_phillips_sweeny",
+      "searched": true,
+      "audit_note": "Phillips 66 Sweeny 265 kbd, NCI 13.4, clean product yield 86%. Site disclosure: up to 140 kbd gasoline + 125 kbd distillates daily. Normalised: ~53% gasoline / ~47% distillates of total clean products, with petchem + coke for the residual ~14%.",
+      "overrides_applied": [
+        {
+          "commodity": "mars",
+          "main_group_yields": {
+            "motor_gasoline": 46.0, "gas_diesel_oil": 38.0, "kerosene_type_jet_fuel": 4.0,
+            "petroleum_coke": 4.0, "lpg": 3.0, "fuel_oil": 1.5, "refinery_gas": 2.5, "naphtha": 1.0
+          },
+          "source": "company_disclosure",
+          "source_url": "https://www.phillips66.com/refining/sweeny-refinery/",
+          "notes": "P66 Sweeny disclosed 140 kbd gasoline + 125 kbd distillates (53/47 split of light products); 86% clean product yield."
+        }
+      ]
+    },
+    {
+      "refinery_id": "ref_phillips_westlake",
+      "searched": true,
+      "audit_note": "Phillips 66 Lake Charles (Westlake LA) 249 kbd. Site disclosure: up to 105 kbd gasoline + 115 kbd distillates daily; produces petcoke, propane, jet. Distillate-leaning vs Gulf peers (FCC + delayed coker + specialty coker + hydrocracker).",
+      "overrides_applied": [
+        {
+          "commodity": "mars",
+          "main_group_yields": {
+            "motor_gasoline": 42.0, "gas_diesel_oil": 38.0, "kerosene_type_jet_fuel": 7.0,
+            "petroleum_coke": 5.0, "lpg": 3.0, "fuel_oil": 1.5, "refinery_gas": 2.5, "naphtha": 1.0
+          },
+          "source": "company_disclosure",
+          "source_url": "https://www.phillips66.com/refining/lake-charles-refinery/",
+          "notes": "P66 Lake Charles disclosed 105 kbd gasoline + 115 kbd distillates (distillate-leaning)."
+        }
+      ]
+    },
+    {
+      "refinery_id": "ref_valero_memphis",
+      "searched": true,
+      "audit_note": "Valero Memphis 195 kbd, light-sweet feed, '~100% light products' per company disclosure (gasoline + diesel + jet + petrochemicals). Applied Valero 2024 system mix (45.2% gasoline / 44.9% distillates) with petcoke essentially eliminated.",
+      "overrides_applied": [
+        {
+          "commodity": "wti_cushing",
+          "main_group_yields": {
+            "motor_gasoline": 46.0, "gas_diesel_oil": 38.0, "kerosene_type_jet_fuel": 8.0,
+            "lpg": 3.0, "refinery_gas": 3.0, "naphtha": 1.5, "fuel_oil": 0.5
+          },
+          "source": "company_disclosure",
+          "source_url": "https://www.valero.com/about/locations/memphis-refinery",
+          "notes": "Valero 2024 10-K system mix + Memphis '~100% light products' statement; no coker."
+        },
+        {
+          "commodity": "bakken_light",
+          "main_group_yields": {
+            "motor_gasoline": 46.0, "gas_diesel_oil": 38.0, "kerosene_type_jet_fuel": 8.0,
+            "lpg": 3.0, "refinery_gas": 3.0, "naphtha": 1.5, "fuel_oil": 0.5
+          },
+          "source": "inferred_from_disclosure",
+          "notes": "Bakken run — same light-products profile."
+        }
+      ]
+    },
+    {
+      "refinery_id": "ref_valero_benicia",
+      "searched": true,
+      "audit_note": "Valero Benicia 170 kbd, CARBOB+CARB diesel+jet+asphalt. Valero 2024 system mix applied with California asphalt presence. Note: refinery committed to idle April 2026; baseline kept for historical scenarios.",
+      "overrides_applied": [
+        {
+          "commodity": "ans",
+          "main_group_yields": {
+            "motor_gasoline": 45.0, "gas_diesel_oil": 32.0, "kerosene_type_jet_fuel": 12.0,
+            "petroleum_coke": 2.0, "lpg": 2.5, "bitumen": 2.5, "fuel_oil": 1.0, "refinery_gas": 3.0
+          },
+          "source": "company_disclosure",
+          "source_url": "https://www.valero.com/about/locations/benicia-refinery",
+          "notes": "Valero 2024 10-K mix + Benicia disclosed product list (CARB gasoline, diesel, jet, asphalt)."
+        }
+      ]
+    },
+    {
+      "refinery_id": "ref_marathon_catlettsburg",
+      "searched": true,
+      "audit_note": "Marathon Catlettsburg 291 kbd, deep-conversion, sweet+sour processing. Per Marathon 2024 system mix (50.3% gasoline / 36.2% distillates / 2.7% asphalt). Catlettsburg is a Marathon asphalt-producing site, justifying a small bitumen carve-out vs Marathon LA/Garyville.",
+      "overrides_applied": [
+        {
+          "commodity": "wti_cushing",
+          "main_group_yields": {
+            "motor_gasoline": 50.0, "gas_diesel_oil": 32.0, "kerosene_type_jet_fuel": 7.0,
+            "petroleum_coke": 3.0, "lpg": 2.5, "bitumen": 2.0, "fuel_oil": 1.5, "refinery_gas": 2.0
+          },
+          "source": "company_disclosure",
+          "source_url": "https://www.marathonpetroleum.com/Operations/Refining/Catlettsburg-Refinery/",
+          "notes": "Marathon 2024 system yield + Catlettsburg asphalt production."
+        },
+        {
+          "commodity": "wcs",
+          "main_group_yields": {
+            "motor_gasoline": 46.0, "gas_diesel_oil": 31.0, "kerosene_type_jet_fuel": 6.0,
+            "petroleum_coke": 6.0, "lpg": 2.5, "bitumen": 2.5, "fuel_oil": 2.5, "refinery_gas": 3.0
+          },
+          "source": "inferred_from_disclosure",
+          "notes": "WCS heavy-sour run — coke share lifted."
+        }
+      ]
+    },
+    {
+      "refinery_id": "ref_exxon_joliet",
+      "searched": true,
+      "audit_note": "ExxonMobil Joliet 275 kbd, processes Canadian heavy via Enbridge. Public statement: 11 million gallons/day of gasoline+diesel = ~262 kbd light products on 275 kbd throughput, i.e. ~95% transportation fuels. No hydrocracker (cracking config). Applied gasoline-heavy slate.",
+      "overrides_applied": [
+        {
+          "commodity": "wcs",
+          "main_group_yields": {
+            "motor_gasoline": 50.0, "gas_diesel_oil": 32.0, "kerosene_type_jet_fuel": 4.0,
+            "petroleum_coke": 6.0, "lpg": 2.5, "fuel_oil": 2.0, "refinery_gas": 2.5, "naphtha": 1.0
+          },
+          "source": "company_disclosure",
+          "source_url": "https://corporate.exxonmobil.com/-/media/global/files/locations/united-states-operations/joliet-refinery-fact-sheet_082024.pdf",
+          "notes": "ExxonMobil Joliet 2024 fact sheet: 11 million gal/day gasoline+diesel from 275 kbd throughput."
+        },
+        {
+          "commodity": "bakken_light",
+          "main_group_yields": {
+            "motor_gasoline": 53.0, "gas_diesel_oil": 32.0, "kerosene_type_jet_fuel": 5.0,
+            "petroleum_coke": 3.0, "lpg": 3.0, "fuel_oil": 1.0, "refinery_gas": 2.0, "naphtha": 1.0
+          },
+          "source": "inferred_from_disclosure",
+          "notes": "Light-sweet feed — coke trimmed, gasoline lifted."
+        }
+      ]
+    },
+    {
+      "refinery_id": "ref_p66_ponca_city",
+      "searched": true,
+      "audit_note": "Phillips 66 Ponca City 196-210 kbd, deep-conversion (FCC + delayed coker + hydrocracker), mixed light/medium/heavy feed via Cushing access. Anode-grade petcoke producer. Applied a typical deep-conversion Midcon yield.",
+      "overrides_applied": [
+        {
+          "commodity": "wti_cushing",
+          "main_group_yields": {
+            "motor_gasoline": 49.0, "gas_diesel_oil": 33.0, "kerosene_type_jet_fuel": 6.0,
+            "petroleum_coke": 4.5, "lpg": 3.0, "fuel_oil": 1.5, "refinery_gas": 2.5, "naphtha": 0.5
+          },
+          "source": "company_disclosure",
+          "source_url": "https://www.phillips66.com/refining/ponca-city-refinery/",
+          "notes": "P66 Ponca City public profile: gasoline+diesel+jet+LPG+anode coke."
+        }
+      ]
+    },
+    {
+      "refinery_id": "ref_suncor_commerce_city",
+      "searched": false,
+      "audit_note": "Suncor Commerce City 98 kbd: cracking config, primarily Colorado-state delivery (95% in-state). Plant 3 dedicated to asphalt — already captured in hydroskimming archetype baseline + PADD4 leaf mix. No granular yield disclosure found; baseline retained.",
+      "overrides_applied": []
+    },
+    {
+      "refinery_id": "ref_hf_sinclair_wy",
+      "searched": false,
+      "audit_note": "HF Sinclair Sinclair WY 80 kbd. 10-K cited but specific per-site yields not in available extracts; HF Sinclair system mix varies quarter to quarter per company disclosure. Baseline (cracking, PADD4, medium-sour) retained as best-available estimate.",
+      "overrides_applied": []
+    },
+    {
+      "refinery_id": "ref_phillips_billings",
+      "searched": true,
+      "audit_note": "Phillips 66 Billings 60 kbd: disclosed yields 6 kbd gasoline (10%), 4.4 kbd kerosene (7%), 30.4 kbd diesel (51%). Sharply distillate-heavy and unusual relative to peer cokers. Override applied.",
+      "overrides_applied": [
+        {
+          "commodity": "wyoming_sweet",
+          "main_group_yields": {
+            "motor_gasoline": 12.0, "gas_diesel_oil": 55.0, "kerosene_type_jet_fuel": 9.0,
+            "petroleum_coke": 8.0, "lpg": 3.0, "fuel_oil": 4.0, "refinery_gas": 5.0, "naphtha": 4.0
+          },
+          "source": "company_disclosure",
+          "source_url": "https://researchandideas.com/index.php?title=Phillips_66:_Billings_Refinery",
+          "notes": "Strongly distillate-leaning Billings yield as disclosed (6/4.4/30.4 kbd gasoline/jet/diesel of 60 kbd)."
+        },
+        {
+          "commodity": "wcs",
+          "main_group_yields": {
+            "motor_gasoline": 11.0, "gas_diesel_oil": 52.0, "kerosene_type_jet_fuel": 8.0,
+            "petroleum_coke": 11.0, "lpg": 3.0, "fuel_oil": 4.0, "refinery_gas": 5.0, "naphtha": 6.0
+          },
+          "source": "inferred_from_disclosure",
+          "notes": "Heavy WCS run — coke share lifted, gasoline trimmed further."
+        }
+      ]
+    },
+    {
+      "refinery_id": "ref_shell_norco",
+      "searched": true,
+      "audit_note": "Shell Norco 227 kbd (now Valero/PBF-adjacent ownership lineage). 112 kbd RCCU (gasoline-leaning) + 40 kbd hydrocracker (diesel) + anode-coke + jet + petchem integration with Norco chemical plant + Geismar. Implies gasoline ~50%, diesel ~20%, petchem feed (ethylene/propylene precursors) noticeable.",
+      "overrides_applied": [
+        {
+          "commodity": "mars",
+          "main_group_yields": {
+            "motor_gasoline": 49.0, "gas_diesel_oil": 22.0, "kerosene_type_jet_fuel": 8.0,
+            "lpg": 5.0, "naphtha": 6.0, "petroleum_coke": 4.0, "fuel_oil": 2.5, "refinery_gas": 3.5
+          },
+          "source": "company_disclosure",
+          "source_url": "https://www.hydrocarbonprocessing.com/news/2021/06/shell-plans-to-hang-on-to-louisiana-refinery",
+          "notes": "Shell Norco RCCU/hydrocracker disclosure + petchem integration; elevated naphtha+LPG share for ethylene/propylene feedstock."
+        }
+      ]
+    },
+    {
+      "refinery_id": "ref_diamond_sunray",
+      "searched": false,
+      "audit_note": "Valero Sunray TX (former Diamond Shamrock). Mid-size sour-processing, no granular public yield. Valero 2024 system mix already partly captured by Memphis/Ardmore/Benicia overrides; small-share refinery — baseline retained.",
+      "overrides_applied": []
+    },
+    {
+      "refinery_id": "ref_diamond_three_rivers",
+      "searched": false,
+      "audit_note": "Valero Three Rivers 100 kbd, produces hydrotreated naphthenic base oils alongside gasoline/diesel/jet/LPG. Specialty lube share is captured by archetype baseline. Insufficient yield disclosure for an override.",
+      "overrides_applied": []
+    },
+    {
+      "refinery_id": "ref_valero_meraux",
+      "searched": false,
+      "audit_note": "Valero Meraux LA. No public site-level yield disclosure encountered. Valero 2024 system mix (45.2% gasoline / 44.9% distillates) could be applied, but site-specific config (medium-sour, cracking-only) is already approximated by archetype baseline. Baseline retained to avoid pseudo-precision.",
+      "overrides_applied": []
+    },
+    {
+      "refinery_id": "ref_valero_ardmore",
+      "searched": false,
+      "audit_note": "Valero Ardmore OK. Tier-III gasoline desulfurisation upgrade noted but no granular yield disclosure encountered. Baseline retained.",
+      "overrides_applied": []
+    },
+    {
+      "refinery_id": "ref_salt_lake_cluster",
+      "searched": false,
+      "audit_note": "Salt Lake cluster (HF Sinclair / Marathon / Chevron / Big West, 180 kbd combined): four small hydroskimming sites with diverse operators. No combined yield disclosure exists. Hydroskimming + PADD4 baseline retained.",
+      "overrides_applied": []
+    },
+    {
+      "refinery_id": "ref_petromax_houston",
+      "searched": false,
+      "audit_note": "Petromax Houston condensate splitter: condensate-splitter archetype baseline is adequate; the unit physically cannot produce coker products. No public yield disclosure exists. Baseline retained.",
+      "overrides_applied": []
+    },
+    {
+      "refinery_id": "ref_texas_galveston",
+      "searched": false,
+      "audit_note": "TX International Terminals Galveston condensate splitter — same logic as Petromax. Baseline retained.",
+      "overrides_applied": []
+    },
+    {
+      "refinery_id": "ref_placid_port_allen",
+      "searched": false,
+      "audit_note": "Placid LA Port Allen: small specialty plant; no public yield disclosure. Baseline retained.",
+      "overrides_applied": []
+    },
+    {
+      "refinery_id": "ref_united_warren",
+      "searched": false,
+      "audit_note": "United Refining Warren PA: small specialty plant, mostly captive lubricants + asphalt + gasoline + diesel for regional market. No granular disclosure. Baseline retained.",
+      "overrides_applied": []
+    },
+    {
+      "refinery_id": "ref_san_bakersfield",
+      "searched": false,
+      "audit_note": "San Joaquin Bakersfield: small CA specialty plant. Baseline retained.",
+      "overrides_applied": []
+    },
+    {
+      "refinery_id": "ref_silver_evanston",
+      "searched": false,
+      "audit_note": "Silver Eagle Evanston WY: very small (<10 kbd) specialty plant. Baseline retained.",
+      "overrides_applied": []
+    },
+    {
+      "refinery_id": "ref_san_san_antonio",
+      "searched": false,
+      "audit_note": "San Antonio Refinery small specialty plant. Baseline retained.",
+      "overrides_applied": []
+    },
+    {
+      "refinery_id": "ref_talley_kern",
+      "searched": false,
+      "audit_note": "Asphalt plant — baseline plant_type template adequate; no public yield data exists. Baseline retained.",
+      "overrides_applied": []
+    },
+    {
+      "refinery_id": "ref_ultramar_wilmington_refinery",
+      "searched": false,
+      "audit_note": "Ultramar CA Wilmington (Valero-affiliated heritage): small specialty CA plant. Valero 2024 system mix would cover but site is too small to merit refinery-specific override beyond archetype. Baseline retained.",
+      "overrides_applied": []
+    },
+    {
+      "refinery_id": "ref_valero_wilmington_asphalt_plant",
+      "searched": false,
+      "audit_note": "Asphalt plant — baseline plant_type template adequate; no public yield data exists. Baseline retained.",
+      "overrides_applied": []
+    }
+  ]
+}

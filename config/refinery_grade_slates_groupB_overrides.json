@@ -1,0 +1,379 @@
+{
+  "group": "B",
+  "generated_at": "2026-05-20",
+  "n_refineries_reviewed": 38,
+  "n_refineries_searched": 22,
+  "n_overrides_applied": 8,
+  "notes": "Group-B web-research overrides for the algorithmic baseline. Overrides specify main-group totals only (sum ~100); merge step re-allocates to leaf products. Plant-type-specialty refineries (lubricant, asphalt, topping, condensate-splitter) and very small generic plants were not web-searched — their baselines were retained per methodology. Sources: company_disclosure (operator IR/factsheet/10-K/SEC 8-K), industry_report (RBN/S&P/Argus/OPIS/Reuters), inferred_from_disclosure (derived percentages from disclosed daily volumes).",
+  "refineries": [
+    {
+      "refinery_id": "ref_valero_corpus_christi",
+      "searched": true,
+      "audit_note": "Valero 2024 10-K / 4Q24 earnings discloses system-wide refining yields (no per-refinery split): gasolines+blendstocks 48.6%, distillates 37.4%, other 14.0%. Applied refinery-wide to all Corpus Christi feed grades.",
+      "overrides_applied": [
+        {
+          "commodity": "*",
+          "main_group_yields": {
+            "motor_gasoline":          48.0,
+            "gas_diesel_oil":          32.0,
+            "kerosene_type_jet_fuel":   6.0,
+            "fuel_oil":                 3.5,
+            "lpg":                      3.0,
+            "naphtha":                  2.5,
+            "refinery_gas":             3.0,
+            "petroleum_coke":           1.5,
+            "other_oil_products_misc":  0.5
+          },
+          "source": "company_disclosure",
+          "source_url": "https://www.valero.com/sites/default/files/valero-documents/2025-01/VLO%204Q24%20Earnings%20Release_0.pdf",
+          "notes": "Valero 4Q24 earnings release: full-year 2024 yield 48.6% gasolines / 37.4% distillates / 14% other (3,007 kb/d total). Distillates split jet vs diesel using Gulf-Coast cracker rule (~6% jet, ~32% diesel) as the system-wide table does not separate them. Applies to all grades (wildcard)."
+        }
+      ]
+    },
+    {
+      "refinery_id": "ref_valero_houston",
+      "searched": true,
+      "audit_note": "Same Valero 2024 10-K system-wide yield applied: 48.6% gasoline, 37.4% distillate, 14% other. Houston refinery also produces asphalt and No. 6 fuel oil per Valero plant profile.",
+      "overrides_applied": [
+        {
+          "commodity": "*",
+          "main_group_yields": {
+            "motor_gasoline":          47.0,
+            "gas_diesel_oil":          31.0,
+            "kerosene_type_jet_fuel":   6.0,
+            "fuel_oil":                 5.0,
+            "lpg":                      3.0,
+            "naphtha":                  2.5,
+            "refinery_gas":             3.0,
+            "bitumen":                  1.5,
+            "petroleum_coke":           1.0
+          },
+          "source": "company_disclosure",
+          "source_url": "https://www.valero.com/sites/default/files/valero-documents/2025-01/VLO%204Q24%20Earnings%20Release_0.pdf",
+          "notes": "Valero Houston (135 kb/d) produces gasoline, ULSD, jet, asphalt, No. 6 fuel oil and LPG (Valero plant page). Adjusted Houston-specific to include asphalt (1.5%) and slightly more fuel oil than CC. Distillate split ~6% jet / 31% diesel."
+        }
+      ]
+    },
+    {
+      "refinery_id": "ref_houston_houston",
+      "searched": true,
+      "audit_note": "LyondellBasell-legacy Houston refinery (now closed Q1 2025): pre-shutdown disclosure of 140 kbd gasoline + 100 kbd diesel from 263 kbd nameplate => ~53% gasoline, ~38% diesel. Also produced jet, fuel oil, lubes. Heavy-sour coker plant.",
+      "overrides_applied": [
+        {
+          "commodity": "*",
+          "main_group_yields": {
+            "motor_gasoline":          50.0,
+            "gas_diesel_oil":          32.0,
+            "kerosene_type_jet_fuel":   5.0,
+            "fuel_oil":                 3.0,
+            "lpg":                      2.5,
+            "naphtha":                  2.0,
+            "refinery_gas":             2.5,
+            "petroleum_coke":           2.5,
+            "lubricants":               0.5
+          },
+          "source": "industry_report",
+          "source_url": "https://www.enerdata.net/publications/daily-energy-news/lyondellbasell-will-shut-down-its-268-kbd-houston-oil-refinery-early-2025-us.html",
+          "notes": "Pre-shutdown average: 140 kbd gasoline + 100 kbd diesel + jet + lube oils from 263 kbd nameplate. Implied 53% gasoline / 38% diesel (industry-cited average). Adjusted to 50/32 to leave room for jet, fuel oil, coke (heavy-sour coker), LPG, refinery gas. Note: refinery shut down Q1 2025; pre-shutdown slate retained for historical scenarios."
+        }
+      ]
+    },
+    {
+      "refinery_id": "ref_american_bradford",
+      "searched": false,
+      "audit_note": "lubricant_plant; Penn-grade paraffinic specialty (American Refining Group). Baseline plant_type template (lubes-tilted) optimal.",
+      "overrides_applied": []
+    },
+    {
+      "refinery_id": "ref_petro_north_pole",
+      "searched": false,
+      "audit_note": "topping_plant; Petro Star Alaska ~22 kbd of ANS off TAPS. Baseline plant_type template (topping; naphtha + diesel cuts only, no conversion) optimal.",
+      "overrides_applied": []
+    },
+    {
+      "refinery_id": "ref_petro_valdez",
+      "searched": false,
+      "audit_note": "topping_plant; Petro Star Valdez ~60 kbd of ANS off TAPS. Baseline plant_type template optimal.",
+      "overrides_applied": []
+    },
+    {
+      "refinery_id": "ref_lazarus_nixon",
+      "searched": false,
+      "audit_note": "Very small topping plant (~10 kbd, Eagle Ford condensate splitter). Public yield data too thin; baseline retained.",
+      "overrides_applied": []
+    },
+    {
+      "refinery_id": "ref_buckeye_corpus_christi",
+      "searched": false,
+      "audit_note": "condensate_splitter (Trafigura tolling; ~50 kbd Eagle Ford condensate). Baseline plant_type template (light-end heavy: naphtha + jet + diesel cuts, near-zero residual) optimal.",
+      "overrides_applied": []
+    },
+    {
+      "refinery_id": "ref_calumet_cotton_valley",
+      "searched": false,
+      "audit_note": "lubricant_plant (Calumet specialty LA); baseline plant_type template optimal.",
+      "overrides_applied": []
+    },
+    {
+      "refinery_id": "ref_calumet_great_falls",
+      "searched": false,
+      "audit_note": "lubricant_plant (Calumet Montana asphalt+lubes); baseline plant_type template optimal.",
+      "overrides_applied": []
+    },
+    {
+      "refinery_id": "ref_calumet_princeton",
+      "searched": false,
+      "audit_note": "lubricant_plant (Calumet specialty LA asphalt); baseline plant_type template optimal.",
+      "overrides_applied": []
+    },
+    {
+      "refinery_id": "ref_calumet_shreveport",
+      "searched": false,
+      "audit_note": "lubricant_plant (Calumet specialty LA fuels+lubes); baseline plant_type template optimal.",
+      "overrides_applied": []
+    },
+    {
+      "refinery_id": "ref_lima_lima",
+      "searched": true,
+      "audit_note": "Cenovus Lima (172 kbd) discloses daily volumes: 3.8 M gal gasoline + 1.3 M gal diesel + 0.6 M gal jet + petchem feedstocks + byproducts. Per-product breakdown: gasoline ~52%, diesel ~18%, jet ~8% of crude throughput (after subtracting byproducts).",
+      "overrides_applied": [
+        {
+          "commodity": "*",
+          "main_group_yields": {
+            "motor_gasoline":          52.0,
+            "gas_diesel_oil":          22.0,
+            "kerosene_type_jet_fuel":   8.0,
+            "naphtha":                  4.0,
+            "fuel_oil":                 3.0,
+            "lpg":                      3.5,
+            "refinery_gas":             4.0,
+            "petroleum_coke":           2.5,
+            "other_oil_products_misc":  1.0
+          },
+          "source": "company_disclosure",
+          "source_url": "https://www.cenovus.com/Our-operations/Upgrading-and-refining",
+          "notes": "Cenovus disclosure: Lima produces 3.8 Mgal/d gasoline + 1.3 Mgal/d diesel + 0.6 Mgal/d jet from 172 kbd (~7.2 Mgal/d crude). Implied yields: 52% gasoline, 18% diesel, 8% jet. Rounded to add naphtha (petchem feedstock) and balance products. 2019 heavy-conversion project lets plant swing light/heavy."
+        }
+      ]
+    },
+    {
+      "refinery_id": "ref_superior_superior",
+      "searched": true,
+      "audit_note": "Cenovus Superior (50 kbd) produces 740 M gal/y of full product slate including asphalt, gasoline, diesel. Heavy-asphalt-tilted plant (WCS feed). No public yield split; baseline retained but with light asphalt bias note. Skipped override (insufficient quantitative disclosure).",
+      "overrides_applied": []
+    },
+    {
+      "refinery_id": "ref_chevron_el_segundo",
+      "searched": true,
+      "audit_note": "Chevron El Segundo (290 kbd): RBN Energy and Chevron public materials disclose 45% gasoline finished-product yield and 41% combined jet+diesel. Refinery supplies 40% of Southern California jet fuel — jet-heavy by US standards.",
+      "overrides_applied": [
+        {
+          "commodity": "*",
+          "main_group_yields": {
+            "motor_gasoline":          45.0,
+            "kerosene_type_jet_fuel":  22.0,
+            "gas_diesel_oil":          19.0,
+            "fuel_oil":                 3.0,
+            "petroleum_coke":           3.5,
+            "lpg":                      2.5,
+            "naphtha":                  1.5,
+            "refinery_gas":             3.0,
+            "other_oil_products_misc":  0.5
+          },
+          "source": "industry_report",
+          "source_url": "https://rbnenergy.com/daily-posts/blog/fire-chevrons-el-segundo-refinery-shows-vulnerability-california-refining-sector",
+          "notes": "RBN Energy / Chevron disclosure: 290 kbd, 45% gasoline, 41% jet+diesel. Jet vs diesel split inferred from CA market profile (LAX is the country's #4 jet hub): jet ~22%, diesel ~19%. Plant has full coker (heavy CA crude / ANS) so non-trivial coke yield."
+        }
+      ]
+    },
+    {
+      "refinery_id": "ref_chevron_pascagoula",
+      "searched": true,
+      "audit_note": "Chevron Pascagoula (330 kbd) is a heavy-sour deep-conversion refinery; produces gasoline, jet, diesel, LPG, av-gas, coke, sulfur. No specific yield percentages disclosed publicly. Baseline deep_conversion template retained.",
+      "overrides_applied": []
+    },
+    {
+      "refinery_id": "ref_pasadena_pasadena",
+      "searched": true,
+      "audit_note": "Chevron Pasadena TX (110 kbd, expanding to 125 kbd post-2024 LTO project) refines 100% Texas light sweet; produces gasoline, gasoline components, distillates, jet (newly added 2024), fuel gas, LPG. No specific yield disclosure. Baseline retained.",
+      "overrides_applied": []
+    },
+    {
+      "refinery_id": "ref_cenex_laurel",
+      "searched": true,
+      "audit_note": "Cenex/CHS Laurel MT (60 kbd) produces propane, gasoline, burner fuel, diesel, asphalt, propane de-asphalted pitch, road oil. No yield percentages disclosed in the public DEQ fact sheet or CHS materials. Baseline retained.",
+      "overrides_applied": []
+    },
+    {
+      "refinery_id": "ref_chs_mcpherson",
+      "searched": true,
+      "audit_note": "CHS McPherson KS (~85-115 kbd; cracking + coker since 2014) produces gasoline, diesel, jet, propane, specialty lubes. No yield percentages disclosed in public CHS materials. Baseline cracking template retained.",
+      "overrides_applied": []
+    },
+    {
+      "refinery_id": "ref_conocophillips_prudhoe_bay",
+      "searched": false,
+      "audit_note": "topping_plant; ConocoPhillips North Slope ~12 kbd ANS, output consumed on-Slope. Baseline plant_type template optimal.",
+      "overrides_applied": []
+    },
+    {
+      "refinery_id": "ref_countrymark_mount_vernon",
+      "searched": false,
+      "audit_note": "Small coop refinery (~30 kbd Illinois Basin crude); public yield data too thin. Baseline retained.",
+      "overrides_applied": []
+    },
+    {
+      "refinery_id": "ref_cvr_coffeyville",
+      "searched": true,
+      "audit_note": "CVR Energy 2024 investor presentation (S&P Global, CVR IR): Coffeyville (132 kbd) and Wynnewood (74.5 kbd) achieved 97% liquid volume yield and 92% combined gasoline+distillate yield in 2024 (90% in 2025). Mid-Con cracker mix; targeting +6 kbd more distillate over 2-3 yrs.",
+      "overrides_applied": [
+        {
+          "commodity": "*",
+          "main_group_yields": {
+            "motor_gasoline":          55.0,
+            "gas_diesel_oil":          35.0,
+            "kerosene_type_jet_fuel":   2.0,
+            "lpg":                      2.0,
+            "naphtha":                  1.5,
+            "refinery_gas":             2.5,
+            "fuel_oil":                 1.0,
+            "petroleum_coke":           1.0
+          },
+          "source": "company_disclosure",
+          "source_url": "https://s206.q4cdn.com/146017951/files/doc_presentations/2026/Feb/24/Investor-Presentation-February-2026.pdf",
+          "notes": "CVR 2026 investor presentation: 97% liquid volume yield, 90% gasoline+distillate combined (peer-leading). Mid-Con Group-3 refinery; very low fuel-oil/coke output. Jet share is small (no major airport hub). Gasoline:distillate ratio ~55:35 from S&P Global reporting on CVR distillate-tilt strategy."
+        }
+      ]
+    },
+    {
+      "refinery_id": "ref_cvr_wynnewood",
+      "searched": true,
+      "audit_note": "Same CVR 2024 disclosure as Coffeyville: combined system 92% gasoline+distillate, 97% liquid volume yield. Wynnewood (74.5 kbd) shares the slate profile.",
+      "overrides_applied": [
+        {
+          "commodity": "*",
+          "main_group_yields": {
+            "motor_gasoline":          55.0,
+            "gas_diesel_oil":          35.0,
+            "kerosene_type_jet_fuel":   2.0,
+            "lpg":                      2.0,
+            "naphtha":                  1.5,
+            "refinery_gas":             2.5,
+            "fuel_oil":                 1.0,
+            "petroleum_coke":           1.0
+          },
+          "source": "company_disclosure",
+          "source_url": "https://s206.q4cdn.com/146017951/files/doc_presentations/2026/Feb/24/Investor-Presentation-February-2026.pdf",
+          "notes": "CVR 2026 investor presentation: 97% liquid volume yield, 90% gasoline+distillate combined (peer-leading). Mid-Con Group-3 refinery; very low fuel-oil/coke output."
+        }
+      ]
+    },
+    {
+      "refinery_id": "ref_alon_krotz_springs",
+      "searched": true,
+      "audit_note": "Delek Krotz Springs LA (74 kbd, light-sweet hydroskimming). Delek 4Q24 results discuss Krotz Springs turnaround completion + Enterprise Optimization Plan (EOP) targeting higher distillate yield, but no specific per-refinery yield percentages disclosed. Baseline retained.",
+      "overrides_applied": []
+    },
+    {
+      "refinery_id": "ref_alon_big_spring",
+      "searched": true,
+      "audit_note": "Delek Big Spring TX (73 kbd cracker, Permian feed). Delek 2024 disclosure mentions yield improvements post-turnaround but no per-refinery yield percentages. Baseline cracking template retained.",
+      "overrides_applied": []
+    },
+    {
+      "refinery_id": "ref_delek_tyler",
+      "searched": true,
+      "audit_note": "Delek Tyler TX (75 kbd cracker). No per-refinery yield disclosure in Delek 4Q24 materials. Baseline cracking template retained.",
+      "overrides_applied": []
+    },
+    {
+      "refinery_id": "ref_lion_el_dorado",
+      "searched": true,
+      "audit_note": "Delek Lion Oil El Dorado AR (80 kbd cracker). No per-refinery yield disclosure. Baseline cracking template retained.",
+      "overrides_applied": []
+    },
+    {
+      "refinery_id": "ref_monroe_trainer",
+      "searched": true,
+      "audit_note": "Delta Air Lines SEC 8-K (2012 acquisition) + EIA disclosure: Monroe Energy Trainer (185 kbd) reconfigured to target 32% jet fuel yield (vs 8-10% US average). Recent operations: ~52 kbd jet from 185 kbd = ~28% jet realized.",
+      "overrides_applied": [
+        {
+          "commodity": "*",
+          "main_group_yields": {
+            "motor_gasoline":          28.0,
+            "kerosene_type_jet_fuel":  32.0,
+            "gas_diesel_oil":          25.0,
+            "fuel_oil":                 4.0,
+            "lpg":                      3.0,
+            "naphtha":                  3.0,
+            "refinery_gas":             4.0,
+            "other_oil_products_misc":  1.0
+          },
+          "source": "company_disclosure",
+          "source_url": "https://www.eia.gov/todayinenergy/detail.php?id=6650",
+          "notes": "Delta/EIA disclosure: Monroe Trainer reconfigured for ~32% jet fuel yield, significantly above US-typical 8-10%. Realized ~28% jet (52 kbd of 185 kbd). Refinery covers 75% of Delta's fuel demand via in-house + swaps. Gasoline yield correspondingly suppressed."
+        }
+      ]
+    },
+    {
+      "refinery_id": "ref_ergon_vicksburg",
+      "searched": false,
+      "audit_note": "lubricant_plant; Ergon naphthenic specialty oils (world-leading producer). Baseline plant_type template optimal.",
+      "overrides_applied": []
+    },
+    {
+      "refinery_id": "ref_ergon_newell",
+      "searched": false,
+      "audit_note": "lubricant_plant; Ergon WV paraffinic base oils / specialties. Baseline plant_type template optimal.",
+      "overrides_applied": []
+    },
+    {
+      "refinery_id": "ref_exxonmobil_baton_rouge",
+      "searched": true,
+      "audit_note": "ExxonMobil Baton Rouge (522 kbd) produces ~300 products incl. gasoline, diesel, jet, av-gas, lubricating oils, waxes, coke. PDF fact sheet was binary-encoded; no usable yield percentages extracted. Baseline deep_conversion template retained but note lube/wax tilt for lubricants.",
+      "overrides_applied": []
+    },
+    {
+      "refinery_id": "ref_exxonmobil_beaumont",
+      "searched": true,
+      "audit_note": "ExxonMobil Beaumont (609 kbd post-2023 expansion) produces gasoline, diesel, jet, petchems. PDF fact sheet was binary-encoded; no usable yield percentages extracted. Baseline deep_conversion template retained.",
+      "overrides_applied": []
+    },
+    {
+      "refinery_id": "ref_foreland_ely",
+      "searched": false,
+      "audit_note": "Very small (~2 kbd) Nevada topping plant; public data too thin. Baseline retained.",
+      "overrides_applied": []
+    },
+    {
+      "refinery_id": "ref_goodway_atmore",
+      "searched": false,
+      "audit_note": "Very small (~4 kbd) Alabama plant; public data too thin. Baseline retained.",
+      "overrides_applied": []
+    },
+    {
+      "refinery_id": "ref_hartree_channelview",
+      "searched": false,
+      "audit_note": "condensate_splitter (~50 kbd Eagle Ford / Permian condensate, acquired from Targa 2020). Baseline plant_type template (light-end heavy) optimal.",
+      "overrides_applied": []
+    },
+    {
+      "refinery_id": "ref_hf_evansville",
+      "searched": true,
+      "audit_note": "HF Sinclair Casper WY (30 kbd; mailing in Evansville). General disclosure: gasoline + diesel from sweet Rocky Mountain crude + Canadian SCO capability. No specific yield percentages disclosed. Baseline retained.",
+      "overrides_applied": []
+    },
+    {
+      "refinery_id": "ref_hf_el_dorado",
+      "searched": true,
+      "audit_note": "HF Sinclair El Dorado KS (135 kbd cracker+coker). HF Sinclair 2024 10-K describes refining segment system-wide but does not split per-refinery yields. Baseline cracking template retained.",
+      "overrides_applied": []
+    },
+    {
+      "refinery_id": "ref_hf_artesia",
+      "searched": true,
+      "audit_note": "HF Sinclair Navajo Artesia NM (100 kbd Permian-fed cracker). Public materials describe product market mix (CBG / CBOB / ULSD blends) but not yield percentages on crude. Baseline cracking template retained.",
+      "overrides_applied": []
+    }
+  ]
+}

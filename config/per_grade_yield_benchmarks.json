@@ -1,0 +1,848 @@
+{
+  "generated_at": "2026-05-20",
+  "n_grades": 22,
+  "main_groups": [
+    "motor_gasoline",
+    "naphtha",
+    "kerosene_type_jet_fuel",
+    "gas_diesel_oil",
+    "fuel_oil",
+    "lpg",
+    "petroleum_coke",
+    "refinery_gas"
+  ],
+  "methodology_notes": {
+    "assay_cuts_mapping": "Atmospheric/vacuum cut boundaries reported in source assays (TBP, deg C) mapped to product groups as: lpg=C2-C4+isopentane, light_naphtha=C5-100C, heavy_naphtha=100-150C, kerosene=150-250C (jet+kero), atmos_gasoil=250-370C (diesel range), vacuum_gasoil=370-550C, vacuum_resid=550C+.",
+    "configurations": {
+      "hydroskimming": "Crude distillation + naphtha reformer + hydrotreaters only; produces straight-run fuel oil from atm residue. Reference: IEA NWE/MED light sweet hydroskimming yields.",
+      "typical_cracking_refinery": "Atm + vacuum distillation + FCC + reformer + hydrotreaters; no coker. NCI 5-9. Reference: IEA USGC/USMC light sweet cracking yields.",
+      "typical_coking_refinery": "Cracking refinery plus delayed coker + hydrocracker; deep conversion. NCI 10-13+. Reference: IEA USGC/USMC heavy sour coking yields."
+    },
+    "primary_sources": {
+      "IEA_yield_matrix": "IEA Refining Margin Methodology, Aug 2024 - Table 'IEA Global Indicator Refinery Margin Yields and Cost Parameters 2023' - provides USGC and USMC yields for light sweet cracking, medium sour cracking, and heavy sour coking. https://iea.blob.core.windows.net/assets/b6542edd-41b7-4a11-988f-4ffbc0a28e3b/IEARefineryMarginMethodologyAugust2024.pdf",
+      "EIA_national_yields": "EIA U.S. Refinery Yield (Feb 2026): Gasoline 46.1%, Distillate 30.3%, Jet 11.0%, Petcoke 4.7%, Still Gas 4.0%, HGL 2.8%, Resid 1.9%, Asphalt 1.9%, Naphtha-petchem 1.2%. https://www.eia.gov/dnav/pet/pet_pnp_pct_dc_nus_pct_m.htm",
+      "EIA_PADD3_yields": "EIA PADD 3 Gulf Coast 2025 annual: Gasoline 43.2%, Distillate 32.3%, Jet 10.7%, HGL 4.5%, Petcoke 4.7%, Still Gas 3.7%, Naphtha 1.4%, Resid 1.6%.",
+      "EIA_PADD5_yields": "EIA PADD 5 West Coast 2025 annual: Gasoline 48.0%, Jet 20.3%, Distillate 19.3%, Still Gas 5.0%, Petcoke 4.8%, Resid 4.5%, HGL 1.8%.",
+      "ExxonMobil_assays": "ExxonMobil EMTEC crude assay summary reports (2024). Provided atmospheric+vacuum cut yields for: WTI Light (WTIL220Y, API 47.5, S 0.05%), Bakken (BAKN523Y, API 43.8, S 0.09%), Thunder Horse (THUND24Y, API 35.1, S 0.60%), Alaska North Slope (ANS17Y, API 32.1, S 0.96%).",
+      "OGJ_Mars_assay": "Oil & Gas Journal: 'Preliminary assay reveals quality of Mars blend' - Shell preproduction sample. API 31.0, S 2.0%. https://www.ogj.com/home/article/17235372",
+      "Platts_via_EPRINC": "Platts crude assays summarized in EPRINC Condensate Primer (Feb 2015), Exhibit 2 - provides {API, S, Gas-to-C4, light naphtha, heavy naphtha, kero, gasoil, residue} for Bakken (Platts API 41), Eagle Ford (Platts API 47), WTI (API 40), LLS (API 35.8), Maya (API 21.1).",
+      "OGJ_WTI_assay": "Oil & Gas Journal 'Benchmark WTI assayed' (1995) - WTI 40.8 API, S 0.34%. https://www.ogj.com/home/article/17211434/"
+    }
+  },
+  "grades": {
+    "wti": {
+      "description": "WTI generic, 40 API, 0.34% S (light sweet)",
+      "assay_cuts": {
+        "lpg": 1.5,
+        "light_naphtha": 5.7,
+        "heavy_naphtha": 24.1,
+        "kerosene": 14.9,
+        "atmos_gasoil": 23.5,
+        "vacuum_gasoil": 21.0,
+        "vacuum_resid": 9.2,
+        "_source": "Platts assay via EPRINC Condensate Primer 2015. API 40, S 0.3%, Gas-to-C4 1.5, lt-naphtha 5.7, hvy-naphtha 24.1, kero 14.9, gasoil 23.5, residue 30.2 (residue split into VGO 21.0 + vac-resid 9.2 using typical light-sweet split)."
+      },
+      "typical_cracking_refinery": {
+        "motor_gasoline":         { "value": 44.0, "range_min": 40.0, "range_max": 48.0 },
+        "naphtha":                { "value":  4.0, "range_min":  2.0, "range_max":  6.0 },
+        "kerosene_type_jet_fuel": { "value": 10.0, "range_min":  8.0, "range_max": 13.0 },
+        "gas_diesel_oil":         { "value": 25.2, "range_min": 22.0, "range_max": 30.0 },
+        "fuel_oil":               { "value":  6.5, "range_min":  4.0, "range_max": 10.0 },
+        "lpg":                    { "value":  7.0, "range_min":  5.0, "range_max":  9.0 },
+        "petroleum_coke":         { "value":  0.0, "range_min":  0.0, "range_max":  1.0 },
+        "refinery_gas":           { "value":  3.5, "range_min":  2.5, "range_max":  4.5 }
+      },
+      "typical_coking_refinery": {
+        "motor_gasoline":         { "value": 47.6, "range_min": 44.0, "range_max": 52.0 },
+        "naphtha":                { "value":  1.0, "range_min":  0.0, "range_max":  3.0 },
+        "kerosene_type_jet_fuel": { "value":  6.0, "range_min":  5.0, "range_max": 12.0 },
+        "gas_diesel_oil":         { "value": 25.7, "range_min": 23.0, "range_max": 30.0 },
+        "fuel_oil":               { "value":  3.7, "range_min":  2.0, "range_max":  8.0 },
+        "lpg":                    { "value": 10.0, "range_min":  7.0, "range_max": 12.0 },
+        "petroleum_coke":         { "value":  2.0, "range_min":  1.0, "range_max":  4.0 },
+        "refinery_gas":           { "value":  4.0, "range_min":  3.0, "range_max":  5.0 }
+      },
+      "confidence": "high",
+      "source": "IEA Refining Margin Methodology Aug 2024 (USGC/USMC light sweet cracking yields); Platts assay via EPRINC 2015 for cut breakdown; OGJ WTI assay (1995).",
+      "source_url": "https://iea.blob.core.windows.net/assets/b6542edd-41b7-4a11-988f-4ffbc0a28e3b/IEARefineryMarginMethodologyAugust2024.pdf",
+      "notes": "WTI is the IEA's reference crude for USGC light sweet cracking and USMC light sweet cracking. Yield ranges span both regional configurations. Naphtha values reflect dedicated petrochemical naphtha after gasoline blending."
+    },
+    "wti_midland": {
+      "description": "WTI Midland (40-44 API, lower sulfur ~0.2%)",
+      "assay_cuts": {
+        "lpg": 1.7,
+        "light_naphtha": 7.0,
+        "heavy_naphtha": 24.5,
+        "kerosene": 14.5,
+        "atmos_gasoil": 22.5,
+        "vacuum_gasoil": 21.0,
+        "vacuum_resid": 8.5,
+        "_source": "Derived from WTI Platts assay and WTI Light ExxonMobil assay; Midland is slightly lighter / sweeter than generic WTI - skews ~1pp toward light naphtha."
+      },
+      "typical_cracking_refinery": {
+        "motor_gasoline":         { "value": 44.5, "range_min": 41.0, "range_max": 48.0 },
+        "naphtha":                { "value":  4.5, "range_min":  2.5, "range_max":  6.5 },
+        "kerosene_type_jet_fuel": { "value": 10.0, "range_min":  8.0, "range_max": 13.0 },
+        "gas_diesel_oil":         { "value": 24.5, "range_min": 22.0, "range_max": 29.0 },
+        "fuel_oil":               { "value":  6.0, "range_min":  4.0, "range_max":  9.0 },
+        "lpg":                    { "value":  7.2, "range_min":  5.0, "range_max":  9.0 },
+        "petroleum_coke":         { "value":  0.0, "range_min":  0.0, "range_max":  1.0 },
+        "refinery_gas":           { "value":  3.5, "range_min":  2.5, "range_max":  4.5 }
+      },
+      "typical_coking_refinery": {
+        "motor_gasoline":         { "value": 48.0, "range_min": 44.0, "range_max": 52.0 },
+        "naphtha":                { "value":  1.5, "range_min":  0.0, "range_max":  3.5 },
+        "kerosene_type_jet_fuel": { "value":  6.0, "range_min":  5.0, "range_max": 12.0 },
+        "gas_diesel_oil":         { "value": 25.0, "range_min": 22.0, "range_max": 29.0 },
+        "fuel_oil":               { "value":  3.5, "range_min":  2.0, "range_max":  7.0 },
+        "lpg":                    { "value": 10.0, "range_min":  7.0, "range_max": 12.0 },
+        "petroleum_coke":         { "value":  1.8, "range_min":  0.5, "range_max":  3.5 },
+        "refinery_gas":           { "value":  4.0, "range_min":  3.0, "range_max":  5.0 }
+      },
+      "confidence": "medium",
+      "source": "Derived from WTI/IEA USGC light sweet cracking yields, biased slightly toward gasoline/naphtha because WTI Midland is 1-2 deg API lighter than benchmark WTI.",
+      "source_url": "https://iea.blob.core.windows.net/assets/b6542edd-41b7-4a11-988f-4ffbc0a28e3b/IEARefineryMarginMethodologyAugust2024.pdf",
+      "notes": "WTI Midland is the principal WTI grade traded since 2022 (ICE Midland WTI HOU). Treated as essentially equivalent to WTI for yield purposes."
+    },
+    "wti_houston": {
+      "description": "WTI delivered Houston (MEH) - same physical crude as WTI Midland, different delivery point",
+      "assay_cuts": {
+        "lpg": 1.7,
+        "light_naphtha": 7.0,
+        "heavy_naphtha": 24.5,
+        "kerosene": 14.5,
+        "atmos_gasoil": 22.5,
+        "vacuum_gasoil": 21.0,
+        "vacuum_resid": 8.5,
+        "_source": "Same as WTI Midland - this is a delivery-location distinction, not a chemistry distinction."
+      },
+      "typical_cracking_refinery": {
+        "motor_gasoline":         { "value": 44.5, "range_min": 41.0, "range_max": 48.0 },
+        "naphtha":                { "value":  4.5, "range_min":  2.5, "range_max":  6.5 },
+        "kerosene_type_jet_fuel": { "value": 10.0, "range_min":  8.0, "range_max": 13.0 },
+        "gas_diesel_oil":         { "value": 24.5, "range_min": 22.0, "range_max": 29.0 },
+        "fuel_oil":               { "value":  6.0, "range_min":  4.0, "range_max":  9.0 },
+        "lpg":                    { "value":  7.2, "range_min":  5.0, "range_max":  9.0 },
+        "petroleum_coke":         { "value":  0.0, "range_min":  0.0, "range_max":  1.0 },
+        "refinery_gas":           { "value":  3.5, "range_min":  2.5, "range_max":  4.5 }
+      },
+      "typical_coking_refinery": {
+        "motor_gasoline":         { "value": 48.0, "range_min": 44.0, "range_max": 52.0 },
+        "naphtha":                { "value":  1.5, "range_min":  0.0, "range_max":  3.5 },
+        "kerosene_type_jet_fuel": { "value":  6.0, "range_min":  5.0, "range_max": 12.0 },
+        "gas_diesel_oil":         { "value": 25.0, "range_min": 22.0, "range_max": 29.0 },
+        "fuel_oil":               { "value":  3.5, "range_min":  2.0, "range_max":  7.0 },
+        "lpg":                    { "value": 10.0, "range_min":  7.0, "range_max": 12.0 },
+        "petroleum_coke":         { "value":  1.8, "range_min":  0.5, "range_max":  3.5 },
+        "refinery_gas":           { "value":  4.0, "range_min":  3.0, "range_max":  5.0 }
+      },
+      "confidence": "medium",
+      "source": "Same as WTI Midland; ICE Midland WTI HOU futures contract delivers physical Midland barrels at Houston.",
+      "source_url": "https://iea.blob.core.windows.net/assets/b6542edd-41b7-4a11-988f-4ffbc0a28e3b/IEARefineryMarginMethodologyAugust2024.pdf",
+      "notes": "Pricing/delivery alias for WTI Midland. Yield profile is identical."
+    },
+    "wti_cushing": {
+      "description": "WTI Cushing pipeline delivery (NYMEX WTI - generic 40 API, 0.3-0.4% S)",
+      "assay_cuts": {
+        "lpg": 1.5,
+        "light_naphtha": 5.7,
+        "heavy_naphtha": 24.1,
+        "kerosene": 14.9,
+        "atmos_gasoil": 23.5,
+        "vacuum_gasoil": 21.0,
+        "vacuum_resid": 9.2,
+        "_source": "Platts WTI assay via EPRINC Condensate Primer 2015 - this is the standard WTI assay assigned to the Cushing-delivered benchmark stream."
+      },
+      "typical_cracking_refinery": {
+        "motor_gasoline":         { "value": 44.0, "range_min": 40.0, "range_max": 48.0 },
+        "naphtha":                { "value":  4.0, "range_min":  2.0, "range_max":  6.0 },
+        "kerosene_type_jet_fuel": { "value": 10.0, "range_min":  8.0, "range_max": 13.0 },
+        "gas_diesel_oil":         { "value": 25.2, "range_min": 22.0, "range_max": 30.0 },
+        "fuel_oil":               { "value":  6.5, "range_min":  4.0, "range_max": 10.0 },
+        "lpg":                    { "value":  7.0, "range_min":  5.0, "range_max":  9.0 },
+        "petroleum_coke":         { "value":  0.0, "range_min":  0.0, "range_max":  1.0 },
+        "refinery_gas":           { "value":  3.5, "range_min":  2.5, "range_max":  4.5 }
+      },
+      "typical_coking_refinery": {
+        "motor_gasoline":         { "value": 47.6, "range_min": 44.0, "range_max": 52.0 },
+        "naphtha":                { "value":  1.0, "range_min":  0.0, "range_max":  3.0 },
+        "kerosene_type_jet_fuel": { "value":  6.0, "range_min":  5.0, "range_max": 12.0 },
+        "gas_diesel_oil":         { "value": 25.7, "range_min": 23.0, "range_max": 30.0 },
+        "fuel_oil":               { "value":  3.7, "range_min":  2.0, "range_max":  8.0 },
+        "lpg":                    { "value": 10.0, "range_min":  7.0, "range_max": 12.0 },
+        "petroleum_coke":         { "value":  2.0, "range_min":  1.0, "range_max":  4.0 },
+        "refinery_gas":           { "value":  4.0, "range_min":  3.0, "range_max":  5.0 }
+      },
+      "confidence": "high",
+      "source": "IEA USMC light sweet cracking + USGC light sweet cracking are both based on WTI (Cushing/Midland blend).",
+      "source_url": "https://iea.blob.core.windows.net/assets/b6542edd-41b7-4a11-988f-4ffbc0a28e3b/IEARefineryMarginMethodologyAugust2024.pdf",
+      "notes": "NYMEX WTI is delivered at Cushing, OK. The yield profile is identical to generic WTI."
+    },
+    "bakken_light": {
+      "description": "Bakken light sweet (41-44 API, 0.09-0.2% S)",
+      "assay_cuts": {
+        "lpg": 1.7,
+        "light_naphtha": 7.9,
+        "heavy_naphtha": 23.7,
+        "kerosene": 19.7,
+        "atmos_gasoil": 22.3,
+        "vacuum_gasoil": 14.7,
+        "vacuum_resid": 8.3,
+        "_source": "ExxonMobil EMTEC Bakken assay BAKN523Y (Dec 2023). API 43.8, S 0.09%, light ends (C2-C4)+pentanes: 5.65 wt%; mapped vol% cuts: C5-100C ~17.5, 100-150C ~11.5, 150-250C ~19.7, 250-370C ~22.3, 370-550C ~14.7, 550+ ~8.3. Light/heavy naphtha split estimated from cut data."
+      },
+      "typical_cracking_refinery": {
+        "motor_gasoline":         { "value": 45.0, "range_min": 41.0, "range_max": 49.0 },
+        "naphtha":                { "value":  5.0, "range_min":  3.0, "range_max":  7.0 },
+        "kerosene_type_jet_fuel": { "value": 11.0, "range_min":  9.0, "range_max": 14.0 },
+        "gas_diesel_oil":         { "value": 24.0, "range_min": 21.0, "range_max": 28.0 },
+        "fuel_oil":               { "value":  5.5, "range_min":  3.0, "range_max":  9.0 },
+        "lpg":                    { "value":  7.5, "range_min":  5.0, "range_max":  9.5 },
+        "petroleum_coke":         { "value":  0.0, "range_min":  0.0, "range_max":  1.0 },
+        "refinery_gas":           { "value":  3.5, "range_min":  2.5, "range_max":  4.5 }
+      },
+      "typical_coking_refinery": {
+        "motor_gasoline":         { "value": 48.0, "range_min": 44.0, "range_max": 52.0 },
+        "naphtha":                { "value":  1.5, "range_min":  0.0, "range_max":  3.5 },
+        "kerosene_type_jet_fuel": { "value":  7.0, "range_min":  5.0, "range_max": 12.0 },
+        "gas_diesel_oil":         { "value": 25.0, "range_min": 22.0, "range_max": 29.0 },
+        "fuel_oil":               { "value":  3.5, "range_min":  2.0, "range_max":  7.0 },
+        "lpg":                    { "value": 10.0, "range_min":  7.0, "range_max": 12.0 },
+        "petroleum_coke":         { "value":  1.5, "range_min":  0.5, "range_max":  3.0 },
+        "refinery_gas":           { "value":  4.0, "range_min":  3.0, "range_max":  5.0 }
+      },
+      "confidence": "high",
+      "source": "ExxonMobil Bakken assay BAKN523Y (Dec 2023); IEA USMC light sweet cracking yields (Bakken is a primary USMC feedstock).",
+      "source_url": "https://corporate.exxonmobil.com/-/media/global/files/crude-oils/pdf/2024/bakken.pdf",
+      "notes": "Bakken has unusually high light-naphtha content for a 43.8 API crude (high paraffin content). Lower residue fraction than WTI."
+    },
+    "eagle_ford_light": {
+      "description": "Eagle Ford light sweet (45-50 API, 0.1-0.2% S)",
+      "assay_cuts": {
+        "lpg": 1.5,
+        "light_naphtha": 11.6,
+        "heavy_naphtha": 22.4,
+        "kerosene": 15.0,
+        "atmos_gasoil": 23.0,
+        "vacuum_gasoil": 18.0,
+        "vacuum_resid": 9.0,
+        "_source": "Platts Eagle Ford 47 API assay via EPRINC 2015 Exhibit 2: Gas-to-C4 1.0, lt-nap 11.6, hvy-nap 22.4, kero 15.0, gasoil 23.0, residue 27.0 (residue split into VGO ~18 + vac-resid ~9 using typical split)."
+      },
+      "typical_cracking_refinery": {
+        "motor_gasoline":         { "value": 47.0, "range_min": 43.0, "range_max": 51.0 },
+        "naphtha":                { "value":  6.0, "range_min":  4.0, "range_max":  8.5 },
+        "kerosene_type_jet_fuel": { "value": 11.0, "range_min":  8.0, "range_max": 14.0 },
+        "gas_diesel_oil":         { "value": 22.0, "range_min": 19.0, "range_max": 26.0 },
+        "fuel_oil":               { "value":  5.0, "range_min":  3.0, "range_max":  8.0 },
+        "lpg":                    { "value":  7.5, "range_min":  5.0, "range_max": 10.0 },
+        "petroleum_coke":         { "value":  0.0, "range_min":  0.0, "range_max":  0.5 },
+        "refinery_gas":           { "value":  3.5, "range_min":  2.5, "range_max":  4.5 }
+      },
+      "typical_coking_refinery": {
+        "motor_gasoline":         { "value": 50.0, "range_min": 46.0, "range_max": 54.0 },
+        "naphtha":                { "value":  3.0, "range_min":  1.0, "range_max":  6.0 },
+        "kerosene_type_jet_fuel": { "value":  8.0, "range_min":  6.0, "range_max": 12.0 },
+        "gas_diesel_oil":         { "value": 22.0, "range_min": 18.0, "range_max": 26.0 },
+        "fuel_oil":               { "value":  3.0, "range_min":  1.5, "range_max":  6.0 },
+        "lpg":                    { "value": 10.0, "range_min":  7.0, "range_max": 12.0 },
+        "petroleum_coke":         { "value":  1.5, "range_min":  0.5, "range_max":  3.0 },
+        "refinery_gas":           { "value":  4.0, "range_min":  3.0, "range_max":  5.0 }
+      },
+      "confidence": "high",
+      "source": "Platts Eagle Ford assay (47 API) via EPRINC Condensate Primer 2015 Exhibit 2; IEA USGC light sweet cracking config.",
+      "source_url": "https://eprinc.org/wp-content/uploads/2015/02/EPRINC-Condensate-Primer.pdf",
+      "notes": "Eagle Ford as a 'typical barrel' has 22% naphtha cut per Platts; Eagle Ford chem grade (60 API condensate) has 46% naphtha (much higher). Refined as light sweet in USGC cracking config."
+    },
+    "eagle_ford_condensate": {
+      "description": "Eagle Ford condensate (55-65 API, very low S)",
+      "assay_cuts": {
+        "lpg": 3.0,
+        "light_naphtha": 25.0,
+        "heavy_naphtha": 33.0,
+        "kerosene": 17.0,
+        "atmos_gasoil": 14.0,
+        "vacuum_gasoil": 6.0,
+        "vacuum_resid": 2.0,
+        "_source": "Inferred from Platts Eagle Ford 60 API chem grade assay (cited by Argus as having 46% naphtha cut) and the EPRINC condensate marker pattern where avg naphtha = 60%, atm residue avg 2.5%. Allocation: ~58% naphtha (light+heavy), ~17% kero, ~20% gasoil, ~2% residue."
+      },
+      "typical_cracking_refinery": {
+        "motor_gasoline":         { "value": 38.0, "range_min": 32.0, "range_max": 45.0 },
+        "naphtha":                { "value": 18.0, "range_min": 12.0, "range_max": 25.0 },
+        "kerosene_type_jet_fuel": { "value": 12.0, "range_min":  9.0, "range_max": 16.0 },
+        "gas_diesel_oil":         { "value": 15.0, "range_min": 12.0, "range_max": 19.0 },
+        "fuel_oil":               { "value":  2.0, "range_min":  0.5, "range_max":  5.0 },
+        "lpg":                    { "value": 10.0, "range_min":  7.0, "range_max": 13.0 },
+        "petroleum_coke":         { "value":  0.0, "range_min":  0.0, "range_max":  0.0 },
+        "refinery_gas":           { "value":  4.0, "range_min":  3.0, "range_max":  5.0 }
+      },
+      "typical_coking_refinery": {
+        "motor_gasoline":         { "value": 42.0, "range_min": 35.0, "range_max": 48.0 },
+        "naphtha":                { "value": 14.0, "range_min":  8.0, "range_max": 22.0 },
+        "kerosene_type_jet_fuel": { "value": 10.0, "range_min":  7.0, "range_max": 14.0 },
+        "gas_diesel_oil":         { "value": 18.0, "range_min": 14.0, "range_max": 22.0 },
+        "fuel_oil":               { "value":  1.0, "range_min":  0.0, "range_max":  3.0 },
+        "lpg":                    { "value": 11.0, "range_min":  8.0, "range_max": 14.0 },
+        "petroleum_coke":         { "value":  0.5, "range_min":  0.0, "range_max":  1.5 },
+        "refinery_gas":           { "value":  4.5, "range_min":  3.5, "range_max":  5.5 }
+      },
+      "confidence": "medium",
+      "source": "Equinor Eagle Ford chem grade (60 API) assay reference; EPRINC condensate marker stats; Platts mid-API Eagle Ford assays.",
+      "source_url": "https://www.spglobal.com/platts/en/market-insights/latest-news/oil/010219-equinor-publishes-updated-assay-for-60-api-eagle-ford-chem-grade",
+      "notes": "Eagle Ford condensate is typically processed in a condensate splitter (no FCC/coker) or co-blended with heavier crudes. The 'cracking' figures here assume blending with heavier crudes into a refinery slate, or a splitter+aromatic-extraction config."
+    },
+    "permian_condensate": {
+      "description": "Permian condensate (55-65 API)",
+      "assay_cuts": {
+        "lpg": 3.0,
+        "light_naphtha": 25.0,
+        "heavy_naphtha": 33.0,
+        "kerosene": 17.0,
+        "atmos_gasoil": 14.0,
+        "vacuum_gasoil": 6.0,
+        "vacuum_resid": 2.0,
+        "_source": "Assumed equivalent to Eagle Ford condensate (similar shale-derived very-light hydrocarbons). Permian condensates have not been characterized in publicly-available marker assays."
+      },
+      "typical_cracking_refinery": {
+        "motor_gasoline":         { "value": 38.0, "range_min": 32.0, "range_max": 45.0 },
+        "naphtha":                { "value": 18.0, "range_min": 12.0, "range_max": 25.0 },
+        "kerosene_type_jet_fuel": { "value": 12.0, "range_min":  9.0, "range_max": 16.0 },
+        "gas_diesel_oil":         { "value": 15.0, "range_min": 12.0, "range_max": 19.0 },
+        "fuel_oil":               { "value":  2.0, "range_min":  0.5, "range_max":  5.0 },
+        "lpg":                    { "value": 10.0, "range_min":  7.0, "range_max": 13.0 },
+        "petroleum_coke":         { "value":  0.0, "range_min":  0.0, "range_max":  0.0 },
+        "refinery_gas":           { "value":  4.0, "range_min":  3.0, "range_max":  5.0 }
+      },
+      "typical_coking_refinery": {
+        "motor_gasoline":         { "value": 42.0, "range_min": 35.0, "range_max": 48.0 },
+        "naphtha":                { "value": 14.0, "range_min":  8.0, "range_max": 22.0 },
+        "kerosene_type_jet_fuel": { "value": 10.0, "range_min":  7.0, "range_max": 14.0 },
+        "gas_diesel_oil":         { "value": 18.0, "range_min": 14.0, "range_max": 22.0 },
+        "fuel_oil":               { "value":  1.0, "range_min":  0.0, "range_max":  3.0 },
+        "lpg":                    { "value": 11.0, "range_min":  8.0, "range_max": 14.0 },
+        "petroleum_coke":         { "value":  0.5, "range_min":  0.0, "range_max":  1.5 },
+        "refinery_gas":           { "value":  4.5, "range_min":  3.5, "range_max":  5.5 }
+      },
+      "confidence": "low",
+      "source": "Derived by analogy from Eagle Ford condensate (no published Permian condensate marker assay found).",
+      "source_url": "https://www.enverus.com/blog/west-texas-light-analyzing-the-growth-of-the-permians-latest-crude-grade/",
+      "notes": "Permian condensate (>55 API) is increasingly common with WTL stream growth. No primary published marker assay found; analogue based on Eagle Ford condensate."
+    },
+    "wtl": {
+      "description": "West Texas Light / WTI Light (44-50 API, very low S)",
+      "assay_cuts": {
+        "lpg": 2.4,
+        "light_naphtha": 11.1,
+        "heavy_naphtha": 17.2,
+        "kerosene": 19.2,
+        "atmos_gasoil": 22.2,
+        "vacuum_gasoil": 18.7,
+        "vacuum_resid": 8.7,
+        "_source": "ExxonMobil EMTEC WTI Light assay WTIL220Y (Oct 2020). API 47.5, S 0.05%. Vol% cuts (mapped from C2-C4 1.86 + i+nC5 2.7 -> LPG 2.4, C5-65C 7.3 + 65-100 11.1 -> light_naphtha bin uses 65-100 = 11.1 wt, 100-150 = 17.2, 150-250 = 12.3+10.0 -> 19.2 (jet range), 250-370 = 9.2+7.8+2.7 -> 22.2 (gasoil), 370-550 = 8.7+4.0+2.8 -> 18.7 (VGO), 550+ = 4.0 (vac resid)... renormalized."
+      },
+      "typical_cracking_refinery": {
+        "motor_gasoline":         { "value": 43.0, "range_min": 38.0, "range_max": 48.0 },
+        "naphtha":                { "value":  8.0, "range_min":  5.0, "range_max": 12.0 },
+        "kerosene_type_jet_fuel": { "value": 12.0, "range_min":  9.0, "range_max": 15.0 },
+        "gas_diesel_oil":         { "value": 22.0, "range_min": 19.0, "range_max": 26.0 },
+        "fuel_oil":               { "value":  4.0, "range_min":  2.0, "range_max":  7.0 },
+        "lpg":                    { "value":  8.5, "range_min":  6.0, "range_max": 11.0 },
+        "petroleum_coke":         { "value":  0.0, "range_min":  0.0, "range_max":  0.5 },
+        "refinery_gas":           { "value":  4.0, "range_min":  3.0, "range_max":  5.0 }
+      },
+      "typical_coking_refinery": {
+        "motor_gasoline":         { "value": 47.0, "range_min": 42.0, "range_max": 52.0 },
+        "naphtha":                { "value":  5.0, "range_min":  2.0, "range_max":  9.0 },
+        "kerosene_type_jet_fuel": { "value":  9.0, "range_min":  6.0, "range_max": 13.0 },
+        "gas_diesel_oil":         { "value": 23.0, "range_min": 19.0, "range_max": 27.0 },
+        "fuel_oil":               { "value":  2.5, "range_min":  1.0, "range_max":  5.0 },
+        "lpg":                    { "value": 10.5, "range_min":  8.0, "range_max": 13.0 },
+        "petroleum_coke":         { "value":  1.0, "range_min":  0.5, "range_max":  2.0 },
+        "refinery_gas":           { "value":  4.5, "range_min":  3.5, "range_max":  5.5 }
+      },
+      "confidence": "high",
+      "source": "ExxonMobil EMTEC WTI Light assay (Oct 2020); IEA USGC light sweet cracking config as baseline.",
+      "source_url": "https://corporate.exxonmobil.com/-/media/global/files/crude-oils/pdf/2024/wti_light.pdf",
+      "notes": "WTL is between WTI and condensate. Higher light-end content tilts product slate toward LPG and naphtha vs gasoline."
+    },
+    "lls": {
+      "description": "Louisiana Light Sweet (35-40 API, 0.3-0.5% S)",
+      "assay_cuts": {
+        "lpg": 2.5,
+        "light_naphtha": 7.6,
+        "heavy_naphtha": 16.6,
+        "kerosene": 12.4,
+        "atmos_gasoil": 26.4,
+        "vacuum_gasoil": 24.0,
+        "vacuum_resid": 10.5,
+        "_source": "Platts LLS assay via EPRINC 2015 Exhibit 2: API 35.8, S 0.4, Gas-to-C4 2.5, lt-nap 7.6, hvy-nap 16.6, kero 12.4, gasoil 26.4, residue 34.5 (residue split into VGO ~24 + vac-resid ~10.5)."
+      },
+      "typical_cracking_refinery": {
+        "motor_gasoline":         { "value": 42.0, "range_min": 38.0, "range_max": 46.0 },
+        "naphtha":                { "value":  4.0, "range_min":  2.0, "range_max":  6.0 },
+        "kerosene_type_jet_fuel": { "value":  9.0, "range_min":  7.0, "range_max": 12.0 },
+        "gas_diesel_oil":         { "value": 26.5, "range_min": 23.0, "range_max": 30.0 },
+        "fuel_oil":               { "value":  8.0, "range_min":  5.0, "range_max": 12.0 },
+        "lpg":                    { "value":  7.0, "range_min":  5.0, "range_max":  9.0 },
+        "petroleum_coke":         { "value":  0.0, "range_min":  0.0, "range_max":  1.0 },
+        "refinery_gas":           { "value":  3.5, "range_min":  2.5, "range_max":  4.5 }
+      },
+      "typical_coking_refinery": {
+        "motor_gasoline":         { "value": 46.0, "range_min": 42.0, "range_max": 50.0 },
+        "naphtha":                { "value":  1.5, "range_min":  0.0, "range_max":  4.0 },
+        "kerosene_type_jet_fuel": { "value":  7.0, "range_min":  5.0, "range_max": 11.0 },
+        "gas_diesel_oil":         { "value": 27.0, "range_min": 23.0, "range_max": 31.0 },
+        "fuel_oil":               { "value":  3.5, "range_min":  1.5, "range_max":  7.0 },
+        "lpg":                    { "value":  9.5, "range_min":  7.0, "range_max": 12.0 },
+        "petroleum_coke":         { "value":  2.0, "range_min":  1.0, "range_max":  4.0 },
+        "refinery_gas":           { "value":  4.0, "range_min":  3.0, "range_max":  5.0 }
+      },
+      "confidence": "high",
+      "source": "Platts LLS assay via EPRINC Condensate Primer 2015; IEA USGC light sweet cracking config.",
+      "source_url": "https://eprinc.org/wp-content/uploads/2015/02/EPRINC-Condensate-Primer.pdf",
+      "notes": "LLS is the primary light-sweet USGC waterborne benchmark. Lower API and higher residue than WTI -> more distillate-tilted yield, more fuel oil/petcoke in resid."
+    },
+    "niobrara_sweet": {
+      "description": "Niobrara/DJ Basin sweet (35-42 API, ~0.2% S)",
+      "assay_cuts": {
+        "lpg": 1.8,
+        "light_naphtha": 6.5,
+        "heavy_naphtha": 22.0,
+        "kerosene": 14.5,
+        "atmos_gasoil": 24.0,
+        "vacuum_gasoil": 21.5,
+        "vacuum_resid": 9.5,
+        "_source": "No published primary marker assay for Niobrara found. Estimated from positional analogy: Niobrara at ~40 API sweet, between WTI (40 API) and LLS (35.8 API). Cut profile interpolated."
+      },
+      "typical_cracking_refinery": {
+        "motor_gasoline":         { "value": 43.5, "range_min": 39.0, "range_max": 47.0 },
+        "naphtha":                { "value":  4.0, "range_min":  2.0, "range_max":  6.0 },
+        "kerosene_type_jet_fuel": { "value": 10.0, "range_min":  8.0, "range_max": 13.0 },
+        "gas_diesel_oil":         { "value": 25.5, "range_min": 22.0, "range_max": 29.0 },
+        "fuel_oil":               { "value":  7.0, "range_min":  4.0, "range_max": 11.0 },
+        "lpg":                    { "value":  7.0, "range_min":  5.0, "range_max":  9.0 },
+        "petroleum_coke":         { "value":  0.0, "range_min":  0.0, "range_max":  1.0 },
+        "refinery_gas":           { "value":  3.5, "range_min":  2.5, "range_max":  4.5 }
+      },
+      "typical_coking_refinery": {
+        "motor_gasoline":         { "value": 47.0, "range_min": 43.0, "range_max": 51.0 },
+        "naphtha":                { "value":  1.5, "range_min":  0.0, "range_max":  4.0 },
+        "kerosene_type_jet_fuel": { "value":  7.0, "range_min":  5.0, "range_max": 11.0 },
+        "gas_diesel_oil":         { "value": 26.0, "range_min": 22.0, "range_max": 30.0 },
+        "fuel_oil":               { "value":  3.5, "range_min":  1.5, "range_max":  7.0 },
+        "lpg":                    { "value": 10.0, "range_min":  7.0, "range_max": 12.0 },
+        "petroleum_coke":         { "value":  1.8, "range_min":  0.5, "range_max":  3.5 },
+        "refinery_gas":           { "value":  4.0, "range_min":  3.0, "range_max":  5.0 }
+      },
+      "confidence": "low",
+      "source": "Inferred from WTI and LLS marker assays; Argus and RBN Niobrara grade specs (35-42 API for Niobrara-spec barrels). No publicly-available marker assay.",
+      "source_url": "https://www.argusmedia.com/en/news-and-insights/latest-market-news/2047817-heavier-dj-crude-output-spawns-new-grade",
+      "notes": "DJ Basin Niobrara crude is broadly similar to WTI in distillation profile; treated as USMC light sweet cracking feedstock."
+    },
+    "oklahoma_sweet": {
+      "description": "Oklahoma sweet (36-42 API, low sulfur)",
+      "assay_cuts": {
+        "lpg": 1.5,
+        "light_naphtha": 5.7,
+        "heavy_naphtha": 23.5,
+        "kerosene": 14.7,
+        "atmos_gasoil": 23.5,
+        "vacuum_gasoil": 21.5,
+        "vacuum_resid": 9.6,
+        "_source": "No published Oklahoma sweet marker assay. Treated as a sister grade to WTI - both are Anadarko/Permian-region light sweet streams that historically blended into the Cushing pool."
+      },
+      "typical_cracking_refinery": {
+        "motor_gasoline":         { "value": 44.0, "range_min": 40.0, "range_max": 48.0 },
+        "naphtha":                { "value":  4.0, "range_min":  2.0, "range_max":  6.0 },
+        "kerosene_type_jet_fuel": { "value": 10.0, "range_min":  8.0, "range_max": 13.0 },
+        "gas_diesel_oil":         { "value": 25.0, "range_min": 22.0, "range_max": 29.0 },
+        "fuel_oil":               { "value":  6.5, "range_min":  4.0, "range_max": 10.0 },
+        "lpg":                    { "value":  7.0, "range_min":  5.0, "range_max":  9.0 },
+        "petroleum_coke":         { "value":  0.0, "range_min":  0.0, "range_max":  1.0 },
+        "refinery_gas":           { "value":  3.5, "range_min":  2.5, "range_max":  4.5 }
+      },
+      "typical_coking_refinery": {
+        "motor_gasoline":         { "value": 47.5, "range_min": 44.0, "range_max": 52.0 },
+        "naphtha":                { "value":  1.0, "range_min":  0.0, "range_max":  3.0 },
+        "kerosene_type_jet_fuel": { "value":  6.5, "range_min":  5.0, "range_max": 12.0 },
+        "gas_diesel_oil":         { "value": 25.5, "range_min": 22.0, "range_max": 29.0 },
+        "fuel_oil":               { "value":  3.7, "range_min":  2.0, "range_max":  7.0 },
+        "lpg":                    { "value": 10.0, "range_min":  7.0, "range_max": 12.0 },
+        "petroleum_coke":         { "value":  2.0, "range_min":  1.0, "range_max":  4.0 },
+        "refinery_gas":           { "value":  4.0, "range_min":  3.0, "range_max":  5.0 }
+      },
+      "confidence": "low",
+      "source": "Treated as WTI-equivalent (Oklahoma sweet historically blended into the Cushing/WTI common stream).",
+      "source_url": "https://iea.blob.core.windows.net/assets/b6542edd-41b7-4a11-988f-4ffbc0a28e3b/IEARefineryMarginMethodologyAugust2024.pdf",
+      "notes": "Most Oklahoma-produced sweet crude flows into the Cushing hub and contributes to WTI specification. No standalone marker assay published."
+    },
+    "wyoming_sweet": {
+      "description": "Wyoming sweet (35-42 API, low sulfur)",
+      "assay_cuts": {
+        "lpg": 1.8,
+        "light_naphtha": 6.5,
+        "heavy_naphtha": 22.0,
+        "kerosene": 14.5,
+        "atmos_gasoil": 24.0,
+        "vacuum_gasoil": 21.5,
+        "vacuum_resid": 9.5,
+        "_source": "No publicly-available Wyoming Sweet marker assay. Estimated from positional analogy: 38-40 API range, broadly similar to mid-grade WTI/Niobrara."
+      },
+      "typical_cracking_refinery": {
+        "motor_gasoline":         { "value": 43.5, "range_min": 39.0, "range_max": 47.0 },
+        "naphtha":                { "value":  4.0, "range_min":  2.0, "range_max":  6.0 },
+        "kerosene_type_jet_fuel": { "value": 10.0, "range_min":  8.0, "range_max": 13.0 },
+        "gas_diesel_oil":         { "value": 25.5, "range_min": 22.0, "range_max": 29.0 },
+        "fuel_oil":               { "value":  7.0, "range_min":  4.0, "range_max": 11.0 },
+        "lpg":                    { "value":  7.0, "range_min":  5.0, "range_max":  9.0 },
+        "petroleum_coke":         { "value":  0.0, "range_min":  0.0, "range_max":  1.0 },
+        "refinery_gas":           { "value":  3.5, "range_min":  2.5, "range_max":  4.5 }
+      },
+      "typical_coking_refinery": {
+        "motor_gasoline":         { "value": 47.0, "range_min": 43.0, "range_max": 51.0 },
+        "naphtha":                { "value":  1.5, "range_min":  0.0, "range_max":  4.0 },
+        "kerosene_type_jet_fuel": { "value":  7.0, "range_min":  5.0, "range_max": 11.0 },
+        "gas_diesel_oil":         { "value": 26.0, "range_min": 22.0, "range_max": 30.0 },
+        "fuel_oil":               { "value":  3.5, "range_min":  1.5, "range_max":  7.0 },
+        "lpg":                    { "value": 10.0, "range_min":  7.0, "range_max": 12.0 },
+        "petroleum_coke":         { "value":  1.8, "range_min":  0.5, "range_max":  3.5 },
+        "refinery_gas":           { "value":  4.0, "range_min":  3.0, "range_max":  5.0 }
+      },
+      "confidence": "low",
+      "source": "WSGS Wyoming Crude Oil Classification; analogue to WTI/Niobrara. No publicly-available primary marker assay.",
+      "source_url": "https://main.wsgs.wyo.gov/energy/oil-gas/oil-gas-facts/classification",
+      "notes": "Wyoming Sweet (e.g. Powder River, Big Horn) is broadly a WTI-look-alike; treated as a USMC light sweet feedstock."
+    },
+    "mars": {
+      "description": "Mars Blend - GoM medium sour (28-32 API, 1.5-2.0% S)",
+      "assay_cuts": {
+        "lpg": 1.5,
+        "light_naphtha": 6.9,
+        "heavy_naphtha": 17.0,
+        "kerosene": 12.9,
+        "atmos_gasoil": 14.0,
+        "vacuum_gasoil": 24.6,
+        "vacuum_resid": 23.1,
+        "_source": "Shell Mars Blend preproduction assay via OGJ (1996) and Equinor Mars assay update (Jan 2024). API 31, S 2.0%. Vol%: light ends 2.8, gasoline 6.9, light naphtha 9.0 (re-mapped here), heavy naphtha 8.0, kerosene 12.9, heavy gasoil 12.7, FCC feed (650-1000F = 343-538C) 24.6, long residue (650+) 47.7, pitch (1000+) 23.1."
+      },
+      "typical_cracking_refinery": {
+        "motor_gasoline":         { "value": 41.7, "range_min": 37.0, "range_max": 46.0 },
+        "naphtha":                { "value":  3.9, "range_min":  2.0, "range_max":  6.0 },
+        "kerosene_type_jet_fuel": { "value":  7.0, "range_min":  5.0, "range_max": 10.0 },
+        "gas_diesel_oil":         { "value": 27.3, "range_min": 24.0, "range_max": 31.0 },
+        "fuel_oil":               { "value":  7.4, "range_min":  4.0, "range_max": 12.0 },
+        "lpg":                    { "value":  7.0, "range_min":  5.0, "range_max":  9.0 },
+        "petroleum_coke":         { "value":  0.0, "range_min":  0.0, "range_max":  2.0 },
+        "refinery_gas":           { "value":  3.5, "range_min":  2.5, "range_max":  4.5 }
+      },
+      "typical_coking_refinery": {
+        "motor_gasoline":         { "value": 43.0, "range_min": 39.0, "range_max": 47.0 },
+        "naphtha":                { "value":  1.0, "range_min":  0.0, "range_max":  3.0 },
+        "kerosene_type_jet_fuel": { "value":  9.0, "range_min":  7.0, "range_max": 12.0 },
+        "gas_diesel_oil":         { "value": 28.0, "range_min": 25.0, "range_max": 32.0 },
+        "fuel_oil":               { "value":  2.5, "range_min":  1.0, "range_max":  5.0 },
+        "lpg":                    { "value":  9.5, "range_min":  7.0, "range_max": 12.0 },
+        "petroleum_coke":         { "value":  5.5, "range_min":  4.0, "range_max":  7.5 },
+        "refinery_gas":           { "value":  4.0, "range_min":  3.0, "range_max":  5.0 }
+      },
+      "confidence": "high",
+      "source": "Shell Mars assay via OGJ; Equinor Mars assay (Oct 2025 update); IEA USGC medium sour cracking yields (Mars is IEA's reference USGC medium sour crude).",
+      "source_url": "https://www.ogj.com/home/article/17235372/technology-preliminary-assay-reveals-quality-of-mars-blend",
+      "notes": "Mars is the IEA's designated USGC medium sour reference crude. Cracking yields taken directly from the IEA Aug 2024 yield matrix (LPG 7, naphtha 3.9, gasoline 41.7, jet 7.0, diesel 27.3, heat oil 6.3, HSFO 7.4, petcoke 0)."
+    },
+    "poseidon": {
+      "description": "Poseidon - GoM medium sour (28-32 API, ~2.0% S)",
+      "assay_cuts": {
+        "lpg": 1.5,
+        "light_naphtha": 6.5,
+        "heavy_naphtha": 17.0,
+        "kerosene": 13.5,
+        "atmos_gasoil": 14.5,
+        "vacuum_gasoil": 24.0,
+        "vacuum_resid": 23.0,
+        "_source": "Equinor Poseidon assay (API 29.9). Profile very similar to Mars Blend (both GoM medium sour streams)."
+      },
+      "typical_cracking_refinery": {
+        "motor_gasoline":         { "value": 41.5, "range_min": 37.0, "range_max": 45.5 },
+        "naphtha":                { "value":  3.8, "range_min":  2.0, "range_max":  6.0 },
+        "kerosene_type_jet_fuel": { "value":  7.0, "range_min":  5.0, "range_max": 10.0 },
+        "gas_diesel_oil":         { "value": 27.5, "range_min": 24.0, "range_max": 31.0 },
+        "fuel_oil":               { "value":  7.5, "range_min":  4.0, "range_max": 12.0 },
+        "lpg":                    { "value":  7.0, "range_min":  5.0, "range_max":  9.0 },
+        "petroleum_coke":         { "value":  0.0, "range_min":  0.0, "range_max":  2.0 },
+        "refinery_gas":           { "value":  3.5, "range_min":  2.5, "range_max":  4.5 }
+      },
+      "typical_coking_refinery": {
+        "motor_gasoline":         { "value": 43.0, "range_min": 39.0, "range_max": 47.0 },
+        "naphtha":                { "value":  1.0, "range_min":  0.0, "range_max":  3.0 },
+        "kerosene_type_jet_fuel": { "value":  9.0, "range_min":  7.0, "range_max": 12.0 },
+        "gas_diesel_oil":         { "value": 28.0, "range_min": 25.0, "range_max": 32.0 },
+        "fuel_oil":               { "value":  2.5, "range_min":  1.0, "range_max":  5.0 },
+        "lpg":                    { "value":  9.5, "range_min":  7.0, "range_max": 12.0 },
+        "petroleum_coke":         { "value":  5.5, "range_min":  4.0, "range_max":  7.5 },
+        "refinery_gas":           { "value":  4.0, "range_min":  3.0, "range_max":  5.0 }
+      },
+      "confidence": "medium",
+      "source": "Equinor Poseidon assay; IEA USGC medium sour cracking yields (sister grade to Mars).",
+      "source_url": "https://www.equinor.com/news/crude-oil-assay-update-13-04-2023",
+      "notes": "Poseidon is in the same GoM medium-sour family as Mars; yield profile is essentially indistinguishable for refinery LP purposes."
+    },
+    "thunder_horse": {
+      "description": "Thunder Horse - GoM medium sour-lite (32-35 API, 0.6-1.0% S)",
+      "assay_cuts": {
+        "lpg": 2.0,
+        "light_naphtha": 6.2,
+        "heavy_naphtha": 19.6,
+        "kerosene": 18.0,
+        "atmos_gasoil": 20.9,
+        "vacuum_gasoil": 23.0,
+        "vacuum_resid": 13.8,
+        "_source": "ExxonMobil EMTEC Thunder Horse assay THUND24Y (Apr 2024). API 35.1, S 0.60%. Vol% cuts: C2-C4+iC5+nC5 ~3.7 -> LPG 2.0, C5-65C 5.5 -> light naphtha 6.2, 65-100C 6.2 + 100-150C 10.0 -> heavy naphtha 16.2; 150-250C 9.6+9.0 = 18.6 -> kerosene; 250-370C 9.0+8.6+3.3 = 20.9 -> atmos gasoil; 370-550C 11.8+6.1+5.1 = 23.0 -> VGO; 550C+ 13.8 -> vac resid."
+      },
+      "typical_cracking_refinery": {
+        "motor_gasoline":         { "value": 43.0, "range_min": 39.0, "range_max": 47.0 },
+        "naphtha":                { "value":  4.0, "range_min":  2.5, "range_max":  6.0 },
+        "kerosene_type_jet_fuel": { "value":  9.0, "range_min":  7.0, "range_max": 12.0 },
+        "gas_diesel_oil":         { "value": 26.5, "range_min": 23.0, "range_max": 30.0 },
+        "fuel_oil":               { "value":  6.5, "range_min":  4.0, "range_max": 10.0 },
+        "lpg":                    { "value":  7.0, "range_min":  5.0, "range_max":  9.0 },
+        "petroleum_coke":         { "value":  0.0, "range_min":  0.0, "range_max":  1.5 },
+        "refinery_gas":           { "value":  3.5, "range_min":  2.5, "range_max":  4.5 }
+      },
+      "typical_coking_refinery": {
+        "motor_gasoline":         { "value": 45.5, "range_min": 41.0, "range_max": 50.0 },
+        "naphtha":                { "value":  1.0, "range_min":  0.0, "range_max":  3.0 },
+        "kerosene_type_jet_fuel": { "value":  8.0, "range_min":  6.0, "range_max": 12.0 },
+        "gas_diesel_oil":         { "value": 27.0, "range_min": 23.0, "range_max": 31.0 },
+        "fuel_oil":               { "value":  3.0, "range_min":  1.5, "range_max":  6.0 },
+        "lpg":                    { "value": 10.0, "range_min":  7.0, "range_max": 12.0 },
+        "petroleum_coke":         { "value":  3.5, "range_min":  2.0, "range_max":  5.5 },
+        "refinery_gas":           { "value":  4.0, "range_min":  3.0, "range_max":  5.0 }
+      },
+      "confidence": "high",
+      "source": "ExxonMobil EMTEC Thunder Horse assay THUND24Y (Apr 2024); IEA USGC light sweet cracking + medium sour cracking blend (Thunder Horse is between the two).",
+      "source_url": "https://corporate.exxonmobil.com/-/media/global/files/crude-oils/pdf/2024/thunder_horse.pdf",
+      "notes": "Thunder Horse at 35 API / 0.6% S is medium-sweet rather than medium-sour. Yields halfway between light sweet (WTI) and medium sour (Mars) baselines."
+    },
+    "southern_green_canyon": {
+      "description": "Southern Green Canyon (SGC) - GoM medium sour (27-30 API, 1.6-2.2% S)",
+      "assay_cuts": {
+        "lpg": 1.4,
+        "light_naphtha": 5.5,
+        "heavy_naphtha": 15.0,
+        "kerosene": 11.5,
+        "atmos_gasoil": 14.0,
+        "vacuum_gasoil": 25.0,
+        "vacuum_resid": 26.0,
+        "_source": "Equinor SGC Blend assay (Sep 2025, API 27.8, S 2.18% wt). Pattern follows medium-sour GoM family; slightly heavier than Mars (more vac resid, less naphtha)."
+      },
+      "typical_cracking_refinery": {
+        "motor_gasoline":         { "value": 40.0, "range_min": 36.0, "range_max": 44.0 },
+        "naphtha":                { "value":  3.5, "range_min":  2.0, "range_max":  5.5 },
+        "kerosene_type_jet_fuel": { "value":  6.5, "range_min":  5.0, "range_max":  9.0 },
+        "gas_diesel_oil":         { "value": 27.0, "range_min": 24.0, "range_max": 31.0 },
+        "fuel_oil":               { "value":  9.0, "range_min":  5.0, "range_max": 13.0 },
+        "lpg":                    { "value":  7.0, "range_min":  5.0, "range_max":  9.0 },
+        "petroleum_coke":         { "value":  0.0, "range_min":  0.0, "range_max":  2.0 },
+        "refinery_gas":           { "value":  3.5, "range_min":  2.5, "range_max":  4.5 }
+      },
+      "typical_coking_refinery": {
+        "motor_gasoline":         { "value": 43.0, "range_min": 39.0, "range_max": 47.0 },
+        "naphtha":                { "value":  0.5, "range_min":  0.0, "range_max":  2.0 },
+        "kerosene_type_jet_fuel": { "value":  9.5, "range_min":  7.0, "range_max": 13.0 },
+        "gas_diesel_oil":         { "value": 28.0, "range_min": 25.0, "range_max": 32.0 },
+        "fuel_oil":               { "value":  2.0, "range_min":  0.5, "range_max":  4.5 },
+        "lpg":                    { "value":  9.0, "range_min":  7.0, "range_max": 12.0 },
+        "petroleum_coke":         { "value":  6.5, "range_min":  5.0, "range_max":  9.0 },
+        "refinery_gas":           { "value":  4.0, "range_min":  3.0, "range_max":  5.0 }
+      },
+      "confidence": "medium",
+      "source": "Equinor SGC Blend crude assay (Sep 2025); BP Gulf of Mexico assays via OGJ; IEA USGC medium sour cracking + heavy sour coking (SGC straddles the two).",
+      "source_url": "https://www.equinor.com/energy/crude-oil-assays",
+      "notes": "SGC is sour and heavier than Mars/Poseidon - more vacuum resid and petcoke. Treated as USGC medium-sour leaning toward heavy-sour in deep-conversion config."
+    },
+    "ans": {
+      "description": "Alaska North Slope (29-33 API, 0.8-1.0% S)",
+      "assay_cuts": {
+        "lpg": 1.6,
+        "light_naphtha": 6.2,
+        "heavy_naphtha": 17.5,
+        "kerosene": 16.1,
+        "atmos_gasoil": 19.4,
+        "vacuum_gasoil": 23.4,
+        "vacuum_resid": 15.4,
+        "_source": "ExxonMobil EMTEC Alaska North Slope assay ANS17Y (Aug 2017). API 32.1, S 0.96%. Vol% cuts (mapped): LPG 1.6, light naphtha 6.2, heavy naphtha 9.5+8.0 ~17.5, kerosene 7.9+8.2 ~16.1, atmos gasoil 8.1+8.1+3.2 ~19.4, VGO 11.8+6.3+5.3 ~23.4, vac resid 15.4."
+      },
+      "typical_cracking_refinery": {
+        "motor_gasoline":         { "value": 41.0, "range_min": 37.0, "range_max": 45.0 },
+        "naphtha":                { "value":  3.5, "range_min":  2.0, "range_max":  5.5 },
+        "kerosene_type_jet_fuel": { "value": 13.0, "range_min": 10.0, "range_max": 18.0 },
+        "gas_diesel_oil":         { "value": 22.0, "range_min": 19.0, "range_max": 26.0 },
+        "fuel_oil":               { "value":  9.0, "range_min":  5.0, "range_max": 13.0 },
+        "lpg":                    { "value":  6.5, "range_min":  4.5, "range_max":  8.5 },
+        "petroleum_coke":         { "value":  1.0, "range_min":  0.0, "range_max":  3.0 },
+        "refinery_gas":           { "value":  3.5, "range_min":  2.5, "range_max":  4.5 }
+      },
+      "typical_coking_refinery": {
+        "motor_gasoline":         { "value": 44.0, "range_min": 40.0, "range_max": 48.0 },
+        "naphtha":                { "value":  1.0, "range_min":  0.0, "range_max":  3.0 },
+        "kerosene_type_jet_fuel": { "value": 15.0, "range_min": 11.0, "range_max": 20.0 },
+        "gas_diesel_oil":         { "value": 22.5, "range_min": 19.0, "range_max": 26.0 },
+        "fuel_oil":               { "value":  3.0, "range_min":  1.5, "range_max":  6.0 },
+        "lpg":                    { "value":  9.0, "range_min":  6.5, "range_max": 11.5 },
+        "petroleum_coke":         { "value":  4.0, "range_min":  2.5, "range_max":  6.0 },
+        "refinery_gas":           { "value":  4.0, "range_min":  3.0, "range_max":  5.0 }
+      },
+      "confidence": "high",
+      "source": "ExxonMobil EMTEC ANS assay ANS17Y; EIA PADD 5 yield mix (West Coast refineries are ANS-tilted: gasoline 48%, jet 20.3%, diesel 19.3%, resid 4.5%, petcoke 4.8%).",
+      "source_url": "https://corporate.exxonmobil.com/-/media/global/files/crude-oils/pdf/2024/alaska_north_slope.pdf",
+      "notes": "ANS is the dominant West Coast feed. Higher jet/kero yield reflects PADD 5 product slate (large jet demand from LAX/SFO). Higher petcoke from California coking refineries."
+    },
+    "california_heavy": {
+      "description": "California heavy (13-25 API, 0.8-1.5% S)",
+      "assay_cuts": {
+        "lpg": 0.8,
+        "light_naphtha": 2.0,
+        "heavy_naphtha": 8.0,
+        "kerosene": 10.0,
+        "atmos_gasoil": 13.0,
+        "vacuum_gasoil": 28.0,
+        "vacuum_resid": 38.2,
+        "_source": "USGS / California Energy Commission characterizations + analogy to Maya (21 API, 3.3%S) Platts assay. SJV heavy at ~14-18 API has very high residue fraction."
+      },
+      "typical_cracking_refinery": {
+        "motor_gasoline":         { "value": 32.0, "range_min": 26.0, "range_max": 38.0 },
+        "naphtha":                { "value":  2.0, "range_min":  1.0, "range_max":  4.0 },
+        "kerosene_type_jet_fuel": { "value": 10.0, "range_min":  7.0, "range_max": 14.0 },
+        "gas_diesel_oil":         { "value": 22.0, "range_min": 18.0, "range_max": 26.0 },
+        "fuel_oil":               { "value": 22.0, "range_min": 15.0, "range_max": 30.0 },
+        "lpg":                    { "value":  5.0, "range_min":  3.5, "range_max":  7.0 },
+        "petroleum_coke":         { "value":  3.0, "range_min":  1.0, "range_max":  6.0 },
+        "refinery_gas":           { "value":  3.5, "range_min":  2.5, "range_max":  4.5 }
+      },
+      "typical_coking_refinery": {
+        "motor_gasoline":         { "value": 43.0, "range_min": 38.0, "range_max": 48.0 },
+        "naphtha":                { "value":  0.0, "range_min":  0.0, "range_max":  2.0 },
+        "kerosene_type_jet_fuel": { "value": 14.0, "range_min": 10.0, "range_max": 18.0 },
+        "gas_diesel_oil":         { "value": 24.9, "range_min": 21.0, "range_max": 29.0 },
+        "fuel_oil":               { "value":  4.6, "range_min":  2.0, "range_max":  8.0 },
+        "lpg":                    { "value":  7.0, "range_min":  5.0, "range_max": 10.0 },
+        "petroleum_coke":         { "value": 10.0, "range_min":  7.0, "range_max": 13.0 },
+        "refinery_gas":           { "value":  4.5, "range_min":  3.5, "range_max":  5.5 }
+      },
+      "confidence": "medium",
+      "source": "Platts Maya assay via EPRINC (heavy sour analogue); IEA USGC heavy sour coking yields (WCS reference, similar API band); EIA PADD 5 yield mix.",
+      "source_url": "https://iea.blob.core.windows.net/assets/b6542edd-41b7-4a11-988f-4ffbc0a28e3b/IEARefineryMarginMethodologyAugust2024.pdf",
+      "notes": "California heavy is processed almost exclusively in PADD 5 coking refineries (Marathon LA, Chevron Richmond, PBF Torrance). Hydroskimming/cracking values are theoretical - in practice it is rarely processed without a coker. IEA USMC heavy sour coking yields used for the coking refinery row."
+    },
+    "kern_heavy": {
+      "description": "Kern County heavy (12-16 API, sour)",
+      "assay_cuts": {
+        "lpg": 0.5,
+        "light_naphtha": 1.0,
+        "heavy_naphtha": 5.0,
+        "kerosene": 8.0,
+        "atmos_gasoil": 11.0,
+        "vacuum_gasoil": 28.0,
+        "vacuum_resid": 46.5,
+        "_source": "Kern River oil field characterized at 13 API (Hydrocarbon Online); steam distillation studies show 10% distillable below 300F, 15% below 400F. Yield profile is dominated by vacuum residue / asphaltenes (>45%)."
+      },
+      "typical_cracking_refinery": {
+        "motor_gasoline":         { "value": 25.0, "range_min": 18.0, "range_max": 32.0 },
+        "naphtha":                { "value":  1.0, "range_min":  0.0, "range_max":  2.5 },
+        "kerosene_type_jet_fuel": { "value":  8.0, "range_min":  5.0, "range_max": 12.0 },
+        "gas_diesel_oil":         { "value": 18.0, "range_min": 14.0, "range_max": 22.0 },
+        "fuel_oil":               { "value": 32.0, "range_min": 24.0, "range_max": 40.0 },
+        "lpg":                    { "value":  4.0, "range_min":  2.5, "range_max":  6.0 },
+        "petroleum_coke":         { "value":  4.0, "range_min":  2.0, "range_max":  7.0 },
+        "refinery_gas":           { "value":  3.5, "range_min":  2.5, "range_max":  4.5 }
+      },
+      "typical_coking_refinery": {
+        "motor_gasoline":         { "value": 40.0, "range_min": 34.0, "range_max": 46.0 },
+        "naphtha":                { "value":  0.0, "range_min":  0.0, "range_max":  1.0 },
+        "kerosene_type_jet_fuel": { "value": 13.0, "range_min":  9.0, "range_max": 17.0 },
+        "gas_diesel_oil":         { "value": 24.0, "range_min": 20.0, "range_max": 28.0 },
+        "fuel_oil":               { "value":  5.0, "range_min":  2.5, "range_max":  9.0 },
+        "lpg":                    { "value":  6.5, "range_min":  4.5, "range_max":  9.0 },
+        "petroleum_coke":         { "value": 12.0, "range_min":  9.0, "range_max": 16.0 },
+        "refinery_gas":           { "value":  4.5, "range_min":  3.5, "range_max":  5.5 }
+      },
+      "confidence": "low",
+      "source": "Kern River characterizations + analogy to Maya (Platts) and IEA USGC heavy sour coking baseline.",
+      "source_url": "https://en.wikipedia.org/wiki/Kern_River_Oil_Field",
+      "notes": "Kern is among the heaviest US crudes. Requires coker + extensive hydroprocessing. The cracking-only configuration is hypothetical - in practice 100% requires coking. Very high petcoke yield (up to 16%)."
+    },
+    "midway_sunset": {
+      "description": "Midway-Sunset heavy (12-14 API, sour)",
+      "assay_cuts": {
+        "lpg": 0.5,
+        "light_naphtha": 1.0,
+        "heavy_naphtha": 5.0,
+        "kerosene": 8.0,
+        "atmos_gasoil": 11.0,
+        "vacuum_gasoil": 28.0,
+        "vacuum_resid": 46.5,
+        "_source": "Same family as Kern (both Kern County / SJV heavy oils). Knovel 1978 historical assay characterized at 22.6 API but recent production is ~12 API. Profile dominated by residue."
+      },
+      "typical_cracking_refinery": {
+        "motor_gasoline":         { "value": 25.0, "range_min": 18.0, "range_max": 32.0 },
+        "naphtha":                { "value":  1.0, "range_min":  0.0, "range_max":  2.5 },
+        "kerosene_type_jet_fuel": { "value":  8.0, "range_min":  5.0, "range_max": 12.0 },
+        "gas_diesel_oil":         { "value": 18.0, "range_min": 14.0, "range_max": 22.0 },
+        "fuel_oil":               { "value": 32.0, "range_min": 24.0, "range_max": 40.0 },
+        "lpg":                    { "value":  4.0, "range_min":  2.5, "range_max":  6.0 },
+        "petroleum_coke":         { "value":  4.0, "range_min":  2.0, "range_max":  7.0 },
+        "refinery_gas":           { "value":  3.5, "range_min":  2.5, "range_max":  4.5 }
+      },
+      "typical_coking_refinery": {
+        "motor_gasoline":         { "value": 40.0, "range_min": 34.0, "range_max": 46.0 },
+        "naphtha":                { "value":  0.0, "range_min":  0.0, "range_max":  1.0 },
+        "kerosene_type_jet_fuel": { "value": 13.0, "range_min":  9.0, "range_max": 17.0 },
+        "gas_diesel_oil":         { "value": 24.0, "range_min": 20.0, "range_max": 28.0 },
+        "fuel_oil":               { "value":  5.0, "range_min":  2.5, "range_max":  9.0 },
+        "lpg":                    { "value":  6.5, "range_min":  4.5, "range_max":  9.0 },
+        "petroleum_coke":         { "value": 12.0, "range_min":  9.0, "range_max": 16.0 },
+        "refinery_gas":           { "value":  4.5, "range_min":  3.5, "range_max":  5.5 }
+      },
+      "confidence": "low",
+      "source": "Kern River analogue (same field complex); Carnegie Endowment Midway-Sunset profile (variable API 8-25); IEA heavy sour coking yields.",
+      "source_url": "https://carnegieendowment.org/posts/2017/03/drilling-down-on-oil-the-case-of-californias-complex-midway-sunset-field",
+      "notes": "Midway-Sunset is essentially Kern-equivalent for refinery yield purposes. Heavy California crudes are difficult to assay because their composition is variable across the field."
+    },
+    "wyoming_asphaltic": {
+      "description": "Wyoming asphaltic heavy (18-26 API, 1.8-3.0% S)",
+      "assay_cuts": {
+        "lpg": 1.2,
+        "light_naphtha": 2.5,
+        "heavy_naphtha": 12.0,
+        "kerosene": 12.0,
+        "atmos_gasoil": 12.0,
+        "vacuum_gasoil": 24.0,
+        "vacuum_resid": 36.3,
+        "_source": "Wyoming Asphaltic / Sour family is in the 18-25 API range. Analogue to Maya (Platts, 21 API 3.3%S): Gas-to-C4 2.0, lt-nap 2.4, hvy-nap 12.0, kero 12.0, gasoil 11.9, residue 59.7. Adjusted for slightly higher API (22-25)."
+      },
+      "typical_cracking_refinery": {
+        "motor_gasoline":         { "value": 30.0, "range_min": 24.0, "range_max": 36.0 },
+        "naphtha":                { "value":  2.0, "range_min":  1.0, "range_max":  4.0 },
+        "kerosene_type_jet_fuel": { "value":  9.0, "range_min":  6.0, "range_max": 12.0 },
+        "gas_diesel_oil":         { "value": 24.0, "range_min": 20.0, "range_max": 28.0 },
+        "fuel_oil":               { "value": 24.0, "range_min": 18.0, "range_max": 32.0 },
+        "lpg":                    { "value":  5.0, "range_min":  3.5, "range_max":  7.0 },
+        "petroleum_coke":         { "value":  3.0, "range_min":  1.0, "range_max":  6.0 },
+        "refinery_gas":           { "value":  3.5, "range_min":  2.5, "range_max":  4.5 }
+      },
+      "typical_coking_refinery": {
+        "motor_gasoline":         { "value": 43.0, "range_min": 38.0, "range_max": 48.0 },
+        "naphtha":                { "value":  0.0, "range_min":  0.0, "range_max":  2.0 },
+        "kerosene_type_jet_fuel": { "value": 10.0, "range_min":  7.0, "range_max": 14.0 },
+        "gas_diesel_oil":         { "value": 30.0, "range_min": 26.0, "range_max": 34.0 },
+        "fuel_oil":               { "value":  3.0, "range_min":  1.0, "range_max":  6.0 },
+        "lpg":                    { "value": 10.0, "range_min":  7.0, "range_max": 12.0 },
+        "petroleum_coke":         { "value":  8.0, "range_min":  5.0, "range_max": 11.0 },
+        "refinery_gas":           { "value":  4.0, "range_min":  3.0, "range_max":  5.0 }
+      },
+      "confidence": "low",
+      "source": "Maya Platts assay via EPRINC as heavy sour analogue; IEA USMC heavy sour coking config (WCS, the reference USMC heavy sour, has similar density to Wyoming Asphaltic).",
+      "source_url": "https://iea.blob.core.windows.net/assets/b6542edd-41b7-4a11-988f-4ffbc0a28e3b/IEARefineryMarginMethodologyAugust2024.pdf",
+      "notes": "Wyoming Asphalt Sour traded at low prices ($38/bbl) reflecting heavy/sour penalty. Processed primarily at Sinclair Casper and HollyFrontier Cheyenne in USMC (heavy sour coking config). No publicly-available primary assay."
+    }
+  }
+}

@@ -1,0 +1,325 @@
+{
+  "group": "C",
+  "generated_at": "2026-05-20",
+  "vocabulary_note": "Grades drawn from the 23-grade US-only vocabulary defined in oil_network.commodities. Foreign feedstocks (WCS, Maya, Merey, Bonny Light, Russian ESPO, etc.) are referenced in notes but not represented as grade rows; the generic 'crude' root is used where a slate is materially driven by imports not covered by the vocabulary.",
+  "refineries": [
+    {
+      "refinery_id": "ref_hf_anacortes",
+      "grades": [
+        {"commodity": "bakken_light", "is_primary": true, "source": "industry_report", "notes": "HF Sinclair Puget Sound (ex-Shell Anacortes) is a major rail-served destination for Bakken; light-sweet anchor of the slate."},
+        {"commodity": "ans", "is_primary": true, "source": "inferred_operator_region", "notes": "Puget Sound refineries take ANS via tanker from Valdez; standard PNW feedstock."},
+        {"commodity": "wti_midland", "is_primary": false, "source": "inferred_operator_region", "notes": "Occasional Permian light-sweet via Gulf-to-PNW tanker movements."},
+        {"commodity": "crude", "is_primary": false, "source": "industry_report", "notes": "WCS heavy from Trans Mountain pipeline at Anacortes is a meaningful share of the slate; not in the US-only vocabulary."}
+      ]
+    },
+    {
+      "refinery_id": "ref_hf_tulsa_east",
+      "grades": [
+        {"commodity": "wti_cushing", "is_primary": true, "source": "company_disclosure", "notes": "Cushing Connect pipeline (160 kbd JV) directly feeds the Tulsa complex; WTI Cushing is the anchor grade."},
+        {"commodity": "oklahoma_sweet", "is_primary": true, "source": "inferred_operator_region", "notes": "Local Oklahoma sweet gathered from regional production."},
+        {"commodity": "bakken_light", "is_primary": false, "source": "industry_report", "notes": "Mid-continent pipeline access to Bakken via Cushing."},
+        {"commodity": "wti_midland", "is_primary": false, "source": "inferred_operator_region", "notes": "Permian barrels reachable via Cushing."},
+        {"commodity": "crude", "is_primary": false, "source": "company_disclosure", "notes": "WCS heavy via Keystone/Cushing routes; not in US-only vocabulary."}
+      ]
+    },
+    {
+      "refinery_id": "ref_hf_tulsa_west",
+      "grades": [
+        {"commodity": "wti_cushing", "is_primary": true, "source": "company_disclosure", "notes": "Sister plant to Tulsa East on the same Cushing Connect infrastructure."},
+        {"commodity": "oklahoma_sweet", "is_primary": true, "source": "inferred_operator_region", "notes": "Local Oklahoma sweet anchored by HF Sinclair's mid-continent gathering."},
+        {"commodity": "wti_midland", "is_primary": false, "source": "inferred_operator_region", "notes": "Permian barrels via Cushing."},
+        {"commodity": "bakken_light", "is_primary": false, "source": "industry_report", "notes": "Bakken via Cushing storage hub."}
+      ]
+    },
+    {
+      "refinery_id": "ref_hilcorp_prudhoe_bay",
+      "grades": [
+        {"commodity": "ans", "is_primary": true, "source": "inferred_plant_type", "notes": "Topping plant on the North Slope; processes only Alaska North Slope crude for local fuel needs (diesel, jet, gasoline) for oilfield operations."}
+      ]
+    },
+    {
+      "refinery_id": "ref_hunt_tuscaloosa",
+      "grades": [
+        {"commodity": "lls", "is_primary": true, "source": "company_disclosure", "notes": "Hunt Crude Oil Supply trucks/pipelines blended Mississippi-Alabama sweet to the plant; closest US-vocabulary analog is LLS."},
+        {"commodity": "wti_houston", "is_primary": false, "source": "inferred_operator_region", "notes": "Term/spot barge crude from US Gulf Coast via the Mid-Continent (St. Louis) and Gulf sourcing channels."},
+        {"commodity": "crude", "is_primary": false, "source": "company_disclosure", "notes": "Canadian heavy from Alberta/Saskatchewan acquired via rail/pipeline; not in US-only vocabulary."}
+      ]
+    },
+    {
+      "refinery_id": "ref_st_saint_paul",
+      "grades": [
+        {"commodity": "bakken_light", "is_primary": true, "source": "company_disclosure", "notes": "Marathon disclosed ~58% of crude from North Dakota Bakken; the anchor grade."},
+        {"commodity": "crude", "is_primary": true, "source": "company_disclosure", "notes": "Canadian sweet and heavy sour (WCS-equivalent) make up the balance; not in US-only vocabulary."}
+      ]
+    },
+    {
+      "refinery_id": "ref_kern_bakersfield",
+      "grades": [
+        {"commodity": "kern_heavy", "is_primary": true, "source": "company_disclosure", "notes": "Kern Energy (ex-Kern Oil) sits in the San Joaquin Valley; Kern County heavy is the natural anchor grade."},
+        {"commodity": "midway_sunset", "is_primary": true, "source": "inferred_operator_region", "notes": "Midway-Sunset field is the largest in California and a routine San Joaquin feedstock."},
+        {"commodity": "california_heavy", "is_primary": false, "source": "inferred_operator_region", "notes": "Generic San Joaquin heavy blend."}
+      ]
+    },
+    {
+      "refinery_id": "ref_kinder_galena_park",
+      "grades": [
+        {"commodity": "eagle_ford_condensate", "is_primary": true, "source": "company_disclosure", "notes": "100 kbd splitter (2x50) supplied by KMCC Eagle Ford gathering; offtake to BP. Dedicated condensate splitter."},
+        {"commodity": "eagle_ford_light", "is_primary": false, "source": "inferred_plant_type", "notes": "Light Eagle Ford streams that fit the splitter envelope."}
+      ]
+    },
+    {
+      "refinery_id": "ref_flint_saint_paul",
+      "grades": [
+        {"commodity": "bakken_light", "is_primary": false, "source": "inferred_operator_region", "notes": "Bakken reaches Pine Bend via Enbridge mainline and rail."},
+        {"commodity": "crude", "is_primary": true, "source": "industry_report", "notes": "Pine Bend was purpose-built for WCS / Alberta heavy and remains the largest Canadian-sour processor in the upper Midwest; not in US-only vocabulary."}
+      ]
+    },
+    {
+      "refinery_id": "ref_wrb_borger",
+      "grades": [
+        {"commodity": "wti_midland", "is_primary": true, "source": "company_disclosure", "notes": "Phillips 66 Lines WA/80 deliver 120-130 kbd of Permian crude into Borger."},
+        {"commodity": "permian_condensate", "is_primary": false, "source": "inferred_operator_region", "notes": "Permian condensate moves on the same gathering systems."},
+        {"commodity": "wti_cushing", "is_primary": false, "source": "company_disclosure", "notes": "Borger historically pulled barrels from Cushing; legacy Line O retired in favour of Canyon Crossing."},
+        {"commodity": "crude", "is_primary": true, "source": "company_disclosure", "notes": "Canyon Crossing pipeline supplies ~60 kbd of heavy crude (API down to 18.5), enabling WCS-equivalent runs at Borger; not in US-only vocabulary."}
+      ]
+    },
+    {
+      "refinery_id": "ref_flint_corpus_christi_east",
+      "grades": [
+        {"commodity": "eagle_ford_light", "is_primary": true, "source": "inferred_operator_region", "notes": "Corpus Christi plants are the natural home for Eagle Ford light; Flint Hills runs the full Eagle Ford slate."},
+        {"commodity": "eagle_ford_condensate", "is_primary": true, "source": "inferred_operator_region", "notes": "Condensate stabilisation and splitting are standard at the Corpus complex."},
+        {"commodity": "wti_midland", "is_primary": false, "source": "inferred_operator_region", "notes": "Permian crude reaches Corpus via EPIC and Cactus pipelines."},
+        {"commodity": "permian_condensate", "is_primary": false, "source": "inferred_operator_region", "notes": "Permian condensate via Corpus terminal infrastructure."}
+      ]
+    },
+    {
+      "refinery_id": "ref_flint_corpus_christi_west",
+      "grades": [
+        {"commodity": "eagle_ford_light", "is_primary": true, "source": "inferred_operator_region", "notes": "Twin to the East plant; full Eagle Ford slate."},
+        {"commodity": "eagle_ford_condensate", "is_primary": true, "source": "inferred_operator_region", "notes": "Eagle Ford condensate via Karnes-to-Corpus pipelines."},
+        {"commodity": "wti_midland", "is_primary": false, "source": "inferred_operator_region", "notes": "Permian crude via EPIC/Cactus."},
+        {"commodity": "permian_condensate", "is_primary": false, "source": "inferred_operator_region", "notes": "Permian condensate via Corpus terminal infrastructure."}
+      ]
+    },
+    {
+      "refinery_id": "ref_marathon_robinson",
+      "grades": [
+        {"commodity": "wti_cushing", "is_primary": false, "source": "inferred_operator_region", "notes": "Mid-continent WTI via Patoka/Wood River pipeline interconnects."},
+        {"commodity": "bakken_light", "is_primary": false, "source": "inferred_operator_region", "notes": "Bakken via Enbridge mainline to Patoka."},
+        {"commodity": "crude", "is_primary": true, "source": "industry_report", "notes": "253 kbd Illinois refinery processes large volumes of Canadian heavy (WCS-equivalent) per Marathon disclosures; not in US-only vocabulary."}
+      ]
+    },
+    {
+      "refinery_id": "ref_marathon_detroit",
+      "grades": [
+        {"commodity": "bakken_light", "is_primary": false, "source": "inferred_operator_region", "notes": "Bakken delivered by rail and Enbridge Line 5/6 system."},
+        {"commodity": "wti_cushing", "is_primary": false, "source": "inferred_operator_region", "notes": "Mid-continent WTI via Wood River/Patoka interconnects."},
+        {"commodity": "crude", "is_primary": true, "source": "company_disclosure", "notes": "Post-DHOUP (2012, $2.2B Fluor build) the plant processes an additional 80 kbd of heavy sour Canadian crude (WCS-equivalent); not in US-only vocabulary."}
+      ]
+    },
+    {
+      "refinery_id": "ref_marathon_canton",
+      "grades": [
+        {"commodity": "wti_cushing", "is_primary": true, "source": "company_disclosure", "notes": "Marathon's fact sheet identifies sweet and sour crude including local Utica shale; mid-continent WTI is the dominant sweet barrel."},
+        {"commodity": "bakken_light", "is_primary": false, "source": "inferred_operator_region", "notes": "Bakken via Patoka and rail."},
+        {"commodity": "crude", "is_primary": false, "source": "inferred_operator_region", "notes": "Local Utica shale crude (not separately catalogued in the 23-grade vocabulary) plus modest Canadian sour."}
+      ]
+    },
+    {
+      "refinery_id": "ref_marathon_galveston_bay",
+      "grades": [
+        {"commodity": "wti_houston", "is_primary": true, "source": "inferred_operator_region", "notes": "Houston Ship Channel location; direct pipeline access to Houston-priced WTI."},
+        {"commodity": "mars", "is_primary": true, "source": "inferred_operator_region", "notes": "Mars Blend via SPM/onshore connection — standard medium-sour barrel for Texas City."},
+        {"commodity": "poseidon", "is_primary": true, "source": "inferred_operator_region", "notes": "Poseidon medium-sour from offshore Gulf via pipeline."},
+        {"commodity": "thunder_horse", "is_primary": false, "source": "inferred_operator_region", "notes": "BP-operated Thunder Horse production via offshore pipeline to Texas Gulf."},
+        {"commodity": "southern_green_canyon", "is_primary": false, "source": "inferred_operator_region", "notes": "SGC medium-sour as part of Gulf offshore slate."},
+        {"commodity": "eagle_ford_light", "is_primary": false, "source": "inferred_operator_region", "notes": "Eagle Ford light via Texas Gulf gathering."},
+        {"commodity": "wti_midland", "is_primary": false, "source": "inferred_operator_region", "notes": "Permian crude via Longhorn/Cactus."}
+      ]
+    },
+    {
+      "refinery_id": "ref_valero_norco",
+      "grades": [
+        {"commodity": "lls", "is_primary": true, "source": "inferred_operator_region", "notes": "Norco sits on LOOP/Capline; Louisiana Light Sweet is the anchor sweet barrel."},
+        {"commodity": "mars", "is_primary": true, "source": "inferred_operator_region", "notes": "Mars Blend via LOOP — standard Gulf Coast medium-sour for Valero."},
+        {"commodity": "poseidon", "is_primary": true, "source": "inferred_operator_region", "notes": "Poseidon medium-sour via offshore Gulf pipeline."},
+        {"commodity": "thunder_horse", "is_primary": false, "source": "inferred_operator_region", "notes": "BP Thunder Horse via offshore Gulf pipeline."},
+        {"commodity": "southern_green_canyon", "is_primary": false, "source": "inferred_operator_region", "notes": "SGC medium-sour from Gulf."},
+        {"commodity": "wti_houston", "is_primary": false, "source": "inferred_operator_region", "notes": "WTI via Cactus II/Bayou Bridge into St. James/LOCAP."}
+      ]
+    },
+    {
+      "refinery_id": "ref_vertex_saraland",
+      "grades": [
+        {"commodity": "lls", "is_primary": true, "source": "inferred_operator_region", "notes": "Ex-Shell Mobile/Saraland refinery; Alabama-Mississippi sweet is the historic anchor and LLS is the natural US-vocabulary analog."},
+        {"commodity": "wti_houston", "is_primary": false, "source": "inferred_operator_region", "notes": "Gulf Coast access via Mobile-area marine terminals."},
+        {"commodity": "eagle_ford_light", "is_primary": false, "source": "inferred_plant_type", "notes": "Light-sweet-distillate focused plant (high VGO/distillate output); Eagle Ford lights fit the slate envelope."}
+      ]
+    },
+    {
+      "refinery_id": "ref_lunday_south_gate",
+      "grades": [
+        {"commodity": "california_heavy", "is_primary": true, "source": "inferred_plant_type", "notes": "Asphalt-focused refinery (World Oil / Lunday-Thagard) in South Gate; the slate is California heavy for roofing/paving asphalt."},
+        {"commodity": "kern_heavy", "is_primary": true, "source": "inferred_plant_type", "notes": "Trucked Kern County heavy is the standard SoCal asphalt feedstock."},
+        {"commodity": "midway_sunset", "is_primary": false, "source": "inferred_plant_type", "notes": "Midway-Sunset San Joaquin heavy as an alternative asphalt feed."}
+      ]
+    },
+    {
+      "refinery_id": "ref_hunt_sandersville",
+      "grades": [
+        {"commodity": "lls", "is_primary": true, "source": "company_disclosure", "notes": "10 kbd asphalt plant runs local Mississippi crude (closest US-vocabulary analog is LLS) plus international cargoes via Vicksburg/Gulf."},
+        {"commodity": "crude", "is_primary": false, "source": "company_disclosure", "notes": "International crudes (heavy sour for asphalt) sourced via the Gulf; not in US-only vocabulary."}
+      ]
+    },
+    {
+      "refinery_id": "ref_tesoro_kenai",
+      "grades": [
+        {"commodity": "ans", "is_primary": true, "source": "company_disclosure", "notes": "Marathon disclosure: ~75% of throughput is Alaska North Slope; balance is Cook Inlet sweet."},
+        {"commodity": "bakken_light", "is_primary": false, "source": "company_disclosure", "notes": "Marathon disclosure references domestic crude from North Dakota — Bakken via tanker to Nikiski."}
+      ]
+    },
+    {
+      "refinery_id": "ref_tesoro_mandan",
+      "grades": [
+        {"commodity": "bakken_light", "is_primary": true, "source": "inferred_operator_region", "notes": "Mandan is the closest refinery to the Bakken play and runs almost exclusively Bakken light sweet."}
+      ]
+    },
+    {
+      "refinery_id": "ref_tesoro_anacortes",
+      "grades": [
+        {"commodity": "ans", "is_primary": true, "source": "inferred_operator_region", "notes": "Marathon (ex-Tesoro/Andeavor) Anacortes is a long-standing ANS processor via Valdez tankers."},
+        {"commodity": "bakken_light", "is_primary": true, "source": "inferred_operator_region", "notes": "Anacortes has a rail terminal that brought Bakken into the slate as a major component."},
+        {"commodity": "wti_midland", "is_primary": false, "source": "inferred_operator_region", "notes": "Occasional Permian light-sweet via tanker."},
+        {"commodity": "crude", "is_primary": false, "source": "industry_report", "notes": "WCS from Trans Mountain pipeline (Burnaby BC) reaches Anacortes; not in US-only vocabulary."}
+      ]
+    },
+    {
+      "refinery_id": "ref_western_el_paso",
+      "grades": [
+        {"commodity": "wti_midland", "is_primary": true, "source": "company_disclosure", "notes": "Marathon El Paso fact sheet: ~133 kbd, dedicated Permian pipelines, light-sweet anchored."},
+        {"commodity": "permian_condensate", "is_primary": false, "source": "inferred_operator_region", "notes": "Permian condensate moves on the same gathering."},
+        {"commodity": "wtl", "is_primary": false, "source": "inferred_operator_region", "notes": "West Texas Light reachable from Permian Basin pipelines."},
+        {"commodity": "wti_cushing", "is_primary": false, "source": "inferred_operator_region", "notes": "Mid-continent WTI reachable via Centurion/Basin reversals."}
+      ]
+    },
+    {
+      "refinery_id": "ref_cross_smackover",
+      "grades": [
+        {"commodity": "lls", "is_primary": true, "source": "inferred_plant_type", "notes": "5 kbd naphthenic base-oil unit; runs local Arkansas/N. Louisiana naphthenic-rich sweet crude. LLS is the closest US-vocabulary analog."}
+      ]
+    },
+    {
+      "refinery_id": "ref_magellan_corpus_christi",
+      "grades": [
+        {"commodity": "eagle_ford_condensate", "is_primary": true, "source": "company_disclosure", "notes": "50 kbd condensate splitter at Magellan's Corpus terminal, fed by Double Eagle (50/50 with KMI) — Eagle Ford condensate is the dedicated feedstock."}
+      ]
+    },
+    {
+      "refinery_id": "ref_par_kapolei",
+      "grades": [
+        {"commodity": "ans", "is_primary": false, "source": "company_disclosure", "notes": "Par discloses all domestic supply comes from Alaska; ANS via tanker is a recurring but not dominant share."},
+        {"commodity": "crude", "is_primary": true, "source": "company_disclosure", "notes": "Most barrels are imports (Russia, Indonesia, Saudi Arabia ~70% of total imports historically; Russian cargoes suspended in 2022). The dominant feedstock is not in the US-only vocabulary."}
+      ]
+    },
+    {
+      "refinery_id": "ref_par_billings",
+      "grades": [
+        {"commodity": "wyoming_sweet", "is_primary": true, "source": "company_disclosure", "notes": "Par Pacific disclosure: refinery purchases crude primarily from Wyoming suppliers; Powder River sweet/Wyoming sweet is the natural Rocky Mountain anchor."},
+        {"commodity": "niobrara_sweet", "is_primary": true, "source": "inferred_operator_region", "notes": "Niobrara Sweet from the DJ/Powder River basin reachable via regional pipelines."},
+        {"commodity": "wyoming_asphaltic", "is_primary": false, "source": "inferred_operator_region", "notes": "Wyoming asphaltic crude for the asphalt portion of the slate."},
+        {"commodity": "bakken_light", "is_primary": false, "source": "inferred_operator_region", "notes": "Bakken via regional pipelines (e.g. Belle Fourche)."},
+        {"commodity": "crude", "is_primary": false, "source": "company_disclosure", "notes": "WCS via Express pipeline from Hardisty/Edmonton; not in US-only vocabulary."}
+      ]
+    },
+    {
+      "refinery_id": "ref_us_tacoma",
+      "grades": [
+        {"commodity": "bakken_light", "is_primary": true, "source": "company_disclosure", "notes": "Par Pacific disclosure: Bakken + Cold Lake represent >95% of slate. Bakken is the US-vocabulary half."},
+        {"commodity": "ans", "is_primary": false, "source": "inferred_operator_region", "notes": "Marine access at Tacoma allows opportunistic ANS via tanker."},
+        {"commodity": "crude", "is_primary": true, "source": "company_disclosure", "notes": "Cold Lake heavy (Canadian) is the second pillar of the Tacoma slate per Par disclosure; not in US-only vocabulary."}
+      ]
+    },
+    {
+      "refinery_id": "ref_wyoming_newcastle",
+      "grades": [
+        {"commodity": "wyoming_sweet", "is_primary": true, "source": "company_disclosure", "notes": "Par Pacific disclosure: Powder River Basin sweet, gathered via the Thunder Creek 140-mile system."},
+        {"commodity": "niobrara_sweet", "is_primary": false, "source": "inferred_operator_region", "notes": "Niobrara Sweet adjacent in the DJ/Powder River geology."}
+      ]
+    },
+    {
+      "refinery_id": "ref_chalmette_chalmette",
+      "grades": [
+        {"commodity": "mars", "is_primary": true, "source": "industry_report", "notes": "PBF disclosure: medium-to-heavy sour crude slate; Mars Blend via LOOP/St James is the medium-sour anchor."},
+        {"commodity": "poseidon", "is_primary": true, "source": "industry_report", "notes": "Poseidon medium-sour from Gulf offshore via pipeline."},
+        {"commodity": "lls", "is_primary": false, "source": "inferred_operator_region", "notes": "LLS available at St James as an opportunity barrel."},
+        {"commodity": "thunder_horse", "is_primary": false, "source": "inferred_operator_region", "notes": "Thunder Horse medium-sour."},
+        {"commodity": "southern_green_canyon", "is_primary": false, "source": "inferred_operator_region", "notes": "SGC via Gulf offshore pipeline."},
+        {"commodity": "crude", "is_primary": true, "source": "industry_report", "notes": "Plant was a PDVSA JV until 2015 and is configured for heavy sour (Merey/Maya-class imports via Gulf); not in US-only vocabulary."}
+      ]
+    },
+    {
+      "refinery_id": "ref_cpi_paulsboro",
+      "grades": [
+        {"commodity": "crude", "is_primary": true, "source": "company_disclosure", "notes": "PBF Logistics CPI Operations — the refining units have been idled since June 2017; current operation is a terminal/asphalt facility. Any restart slate would be East-Coast imports (Bonny Light, North Sea grades) not in the US-only vocabulary."}
+      ]
+    },
+    {
+      "refinery_id": "ref_martinez_martinez",
+      "grades": [
+        {"commodity": "ans", "is_primary": true, "source": "inferred_operator_region", "notes": "PBF Martinez (ex-Shell/Equilon) is a Bay Area full-conversion plant; ANS via long-haul tanker is the anchor sour."},
+        {"commodity": "california_heavy", "is_primary": true, "source": "inferred_operator_region", "notes": "San Joaquin Valley heavy via SJV-to-Bay pipelines."},
+        {"commodity": "kern_heavy", "is_primary": true, "source": "inferred_operator_region", "notes": "Kern County heavy via pipeline north."},
+        {"commodity": "midway_sunset", "is_primary": false, "source": "inferred_operator_region", "notes": "Midway-Sunset feedstock for the heavy end of the slate."},
+        {"commodity": "wti_midland", "is_primary": false, "source": "inferred_operator_region", "notes": "Permian light-sweet via tanker (water-borne)."},
+        {"commodity": "crude", "is_primary": false, "source": "inferred_operator_region", "notes": "Latin American imports (Ecuador Napo / Colombia Vasconia) historically; not in US-only vocabulary."}
+      ]
+    },
+    {
+      "refinery_id": "ref_paulsboro_paulsboro",
+      "grades": [
+        {"commodity": "bakken_light", "is_primary": false, "source": "inferred_operator_region", "notes": "PBF Paulsboro has rail access; Bakken-by-rail is the cheapest domestic light barrel."},
+        {"commodity": "eagle_ford_light", "is_primary": false, "source": "inferred_operator_region", "notes": "Eagle Ford via tanker from Corpus/Houston."},
+        {"commodity": "mars", "is_primary": false, "source": "inferred_operator_region", "notes": "Mars via Gulf-to-East-Coast tanker (medium-sour)."},
+        {"commodity": "crude", "is_primary": true, "source": "industry_report", "notes": "East Coast medium-sour complex (160 kbd); historically anchored on Bonny Light / Nigerian sweet and Saudi Arabian Light. Dominant feedstock not in US-only vocabulary."}
+      ]
+    },
+    {
+      "refinery_id": "ref_torrance_torrance",
+      "grades": [
+        {"commodity": "kern_heavy", "is_primary": true, "source": "inferred_operator_region", "notes": "California refinery; pipeline access to Kern County heavy is the standard SoCal feedstock."},
+        {"commodity": "midway_sunset", "is_primary": true, "source": "inferred_operator_region", "notes": "Midway-Sunset San Joaquin heavy."},
+        {"commodity": "california_heavy", "is_primary": true, "source": "inferred_operator_region", "notes": "Generic California heavy blend via SJV pipelines."},
+        {"commodity": "ans", "is_primary": false, "source": "inferred_operator_region", "notes": "ANS via Long Beach tanker terminal."}
+      ]
+    },
+    {
+      "refinery_id": "ref_citgo_corpus_christi",
+      "grades": [
+        {"commodity": "mars", "is_primary": true, "source": "industry_report", "notes": "Citgo (PDVSA) Corpus designed for heavy/sour; Mars Blend via Gulf onshore pipelines is the medium-sour anchor."},
+        {"commodity": "poseidon", "is_primary": true, "source": "industry_report", "notes": "Poseidon medium-sour via offshore Gulf pipeline."},
+        {"commodity": "eagle_ford_light", "is_primary": false, "source": "industry_report", "notes": "Citgo Corpus has modified units to process lighter Eagle Ford as a balance barrel."},
+        {"commodity": "thunder_horse", "is_primary": false, "source": "inferred_operator_region", "notes": "Thunder Horse medium-sour."},
+        {"commodity": "southern_green_canyon", "is_primary": false, "source": "inferred_operator_region", "notes": "SGC medium-sour from Gulf."},
+        {"commodity": "crude", "is_primary": true, "source": "industry_report", "notes": "PDVSA-affiliated plant; historically and structurally configured for Venezuelan Merey heavy sour; not in US-only vocabulary."}
+      ]
+    },
+    {
+      "refinery_id": "ref_pdv_lemont",
+      "grades": [
+        {"commodity": "bakken_light", "is_primary": false, "source": "company_disclosure", "notes": "CITGO Lemont takes Bakken via Enbridge mainline as the light-sweet portion of the slate."},
+        {"commodity": "wti_cushing", "is_primary": false, "source": "inferred_operator_region", "notes": "Mid-continent WTI via Patoka pipeline connections."},
+        {"commodity": "crude", "is_primary": true, "source": "company_disclosure", "notes": "Citgo disclosure: ~90 kbd of heavy sour Canadian (WCS) crude; sophisticated facility designed for 25-30 API, 2-3% sulfur. Dominant feedstock not in US-only vocabulary; historically also processes Venezuelan Merey when available."}
+      ]
+    },
+    {
+      "refinery_id": "ref_deer_deer_park",
+      "grades": [
+        {"commodity": "mars", "is_primary": true, "source": "industry_report", "notes": "Deer Park has long pulled Mars Blend via Houston-area pipelines as the medium-sour Gulf anchor."},
+        {"commodity": "poseidon", "is_primary": false, "source": "inferred_operator_region", "notes": "Poseidon medium-sour available via offshore Gulf pipeline."},
+        {"commodity": "wti_houston", "is_primary": false, "source": "inferred_operator_region", "notes": "WTI Houston as the light-sweet balance barrel post-2022."},
+        {"commodity": "thunder_horse", "is_primary": false, "source": "inferred_operator_region", "notes": "Thunder Horse medium-sour."},
+        {"commodity": "crude", "is_primary": true, "source": "company_disclosure", "notes": "Pemex-owned since 2022; the JV historically committed up to 200 kbd of Mexican Maya heavy sour to the plant. Maya remains the dominant feedstock; not in US-only vocabulary. Plant also blends Canadian and US lights for optimisation."}
+      ]
+    }
+  ]
+}

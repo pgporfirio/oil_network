@@ -1,0 +1,691 @@
+{
+  "group": "C",
+  "generated_at": "2026-05-20",
+  "n_refineries_searched": 28,
+  "n_overrides_applied": 25,
+  "notes": "Group C web-research overrides. Methodology: skipped specialty/small plants (lubricant, condensate splitter, topping plant, idled, very-small generic plants) and applied published yields for full-conversion refineries operated by listed companies (Marathon, PBF, Phillips 66/WRB, HF Sinclair, Par Pacific, Pemex Deer Park, Citgo). Two flagged status changes: ref_vertex_saraland (pivoted from renewable diesel back to conventional by year-end 2024) and ref_cpi_paulsboro (refining idle since 2017/2018; terminal-only). Multi-grade refineries receive a single main-group total override that applies across crude grades; the merge step re-allocates to commodity-specific leaf products.",
+  "refineries": [
+    {
+      "refinery_id": "ref_hf_anacortes",
+      "searched": true,
+      "audit_note": "HF Sinclair 10-K 2024: Puget Sound Anacortes WA, 149 kbd, fully integrated cracking refinery (FCC, delayed coker, alkylation, catalytic reforming) processing mixed sweet/sour Canadian crude and Alaska North Slope. No per-refinery yield disclosed; archetype-driven baseline retained with light tilt towards distillates given Pacific NW market.",
+      "overrides_applied": []
+    },
+    {
+      "refinery_id": "ref_hf_tulsa_east",
+      "searched": true,
+      "audit_note": "HF Sinclair 10-K 2024: Tulsa East principal units = crude/vacuum distillation, FCC, isomerisation, catalytic reforming, alkylation, diesel hydrotreating. Predominantly sweet crude with up to 10 kbd sour Canadian. No per-refinery yield disclosed; this is the fuels-side of the combined Tulsa complex (gasoline-tilted FCC route), retained baseline.",
+      "overrides_applied": []
+    },
+    {
+      "refinery_id": "ref_hf_tulsa_west",
+      "searched": true,
+      "audit_note": "HF Sinclair 10-K 2024: Tulsa West principal units = crude/vacuum distillation, naphtha hydrodesulfurisation, propane de-asphalting, lubes extraction, MEK dewaxing, delayed coker, butane splitter. Tulsa West is the lubricants-and-specialty side of the Tulsa complex; baseline 'cracking' archetype underestimates lubes/wax. Apply specialty tilt.",
+      "overrides_applied": [
+        {
+          "commodity": "all",
+          "main_group_yields": {
+            "motor_gasoline": 28.0,
+            "gas_diesel_oil": 22.0,
+            "kerosene_type_jet_fuel": 6.0,
+            "lubricants": 12.0,
+            "paraffin_waxes": 3.0,
+            "bitumen": 4.0,
+            "petroleum_coke": 6.0,
+            "fuel_oil": 5.0,
+            "lpg": 4.0,
+            "refinery_gas": 4.0,
+            "naphtha": 3.0,
+            "other_oil_products_misc": 3.0
+          },
+          "source": "company_disclosure",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/0001915657/000191565725000019/dino-20241231.htm",
+          "notes": "HF Sinclair 10-K FY2024. Tulsa West unit list (PDA, lubes extraction, MEK dewax, wax) implies a base-oil/lubes-tilted slate well below typical cracking gasoline yield."
+        }
+      ]
+    },
+    {
+      "refinery_id": "ref_hilcorp_prudhoe_bay",
+      "searched": false,
+      "audit_note": "topping_plant; baseline template retained.",
+      "overrides_applied": []
+    },
+    {
+      "refinery_id": "ref_hunt_tuscaloosa",
+      "searched": false,
+      "audit_note": "Small PADD3 plant (<50 kbd) operated by privately-held Hunt Refining; insufficient public yield disclosure to justify override. Baseline retained.",
+      "overrides_applied": []
+    },
+    {
+      "refinery_id": "ref_st_saint_paul",
+      "searched": true,
+      "audit_note": "Marathon St Paul Park MN (formerly Andeavor): MPC 2024 10-K reports a single system-wide yield ladder (gasoline 49.2%, distillates 36.9%, propane 2.2%, NGLs/petchem 7.6%, HFO 1.5%, asphalt 2.6%); per-refinery yield not disclosed. Apply MPC system slate to all MPC sites that lack site-specific disclosure.",
+      "overrides_applied": [
+        {
+          "commodity": "all",
+          "main_group_yields": {
+            "motor_gasoline": 49.2,
+            "gas_diesel_oil": 30.0,
+            "kerosene_type_jet_fuel": 7.0,
+            "lpg": 2.2,
+            "naphtha": 4.0,
+            "other_oil_products_misc": 1.5,
+            "fuel_oil": 1.5,
+            "bitumen": 2.6,
+            "refinery_gas": 2.0
+          },
+          "source": "company_disclosure",
+          "source_url": "https://ir.marathonpetroleum.com/investor/news-releases/news-details/2025/Marathon-Petroleum-Corp--Reports-Fourth-Quarter-2024-Results-and-2025-Capital-Outlook/default.aspx",
+          "notes": "MPC FY2024: gasoline 1,527 mbpd, distillates 1,144 mbpd, propane 68 mbpd, NGLs/petchem 237 mbpd, HFO 46 mbpd, asphalt 80 mbpd (sum 3,102 mbpd). Distillates split here into ~30% gas_diesel_oil + ~7% jet; NGLs/petchem distributed across naphtha and other_oil_products_misc."
+        }
+      ]
+    },
+    {
+      "refinery_id": "ref_kern_bakersfield",
+      "searched": false,
+      "audit_note": "Small CA specialty plant (Kern Oil ~26 kbd, asphalt + diesel niche); insufficient public yield disclosure to override; baseline retained.",
+      "overrides_applied": []
+    },
+    {
+      "refinery_id": "ref_kinder_galena_park",
+      "searched": false,
+      "audit_note": "condensate_splitter; baseline template retained.",
+      "overrides_applied": []
+    },
+    {
+      "refinery_id": "ref_flint_saint_paul",
+      "searched": true,
+      "audit_note": "Flint Hills Pine Bend MN (Koch private; 375 kbd); FHR confirms >80% Canadian heavy oil sands feed via Enbridge; site emphasises coker-led conversion to gasoline/diesel/jet/propane/asphalt. No quantitative yield disclosed publicly. Apply Canadian-heavy cracking archetype tilt with coker products (coke + asphalt) elevated above baseline.",
+      "overrides_applied": [
+        {
+          "commodity": "all",
+          "main_group_yields": {
+            "motor_gasoline": 44.0,
+            "gas_diesel_oil": 28.0,
+            "kerosene_type_jet_fuel": 6.0,
+            "petroleum_coke": 7.0,
+            "bitumen": 4.0,
+            "lpg": 3.0,
+            "fuel_oil": 2.0,
+            "naphtha": 2.0,
+            "refinery_gas": 2.0,
+            "other_oil_products_misc": 2.0
+          },
+          "source": "inferred_from_disclosure",
+          "source_url": "https://pinebendrefinery.com/pine-bend-mn-oil-refinery/",
+          "notes": "Pine Bend product list (gasoline, diesel, jet, propane, asphalt) + 80% Canadian heavy feed; quantitative yield not published — slate matches the Canadian-heavy coking archetype with elevated coke + asphalt."
+        }
+      ]
+    },
+    {
+      "refinery_id": "ref_wrb_borger",
+      "searched": true,
+      "audit_note": "Phillips 66 / Cenovus WRB JV Borger TX (149 kbd). PSX 2024 10-K reports record system-wide clean product yield of 88%; per-refinery yield not disclosed. Borger products: transportation fuels, fuel-grade petroleum coke, NGLs, solvents (PADD3 inland fuels site). Apply PADD3 fuels-tilt with coke and solvents/'other' lift.",
+      "overrides_applied": [
+        {
+          "commodity": "all",
+          "main_group_yields": {
+            "motor_gasoline": 48.0,
+            "gas_diesel_oil": 30.0,
+            "kerosene_type_jet_fuel": 6.0,
+            "petroleum_coke": 5.0,
+            "lpg": 4.0,
+            "naphtha": 3.0,
+            "white_spirit_sbp": 1.0,
+            "refinery_gas": 2.0,
+            "other_oil_products_misc": 1.0
+          },
+          "source": "inferred_from_disclosure",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/0001534701/000153470125000074/psx-20241231.htm",
+          "notes": "PSX FY2024 10-K (88% clean product yield system-wide) + Borger product mix listing (transportation fuels, coke, NGLs, solvents)."
+        }
+      ]
+    },
+    {
+      "refinery_id": "ref_flint_corpus_christi_east",
+      "searched": true,
+      "audit_note": "Flint Hills Corpus Christi East refinery (part of combined ~350 kbd Texas operation). FHR public materials describe Texas refineries as 'primarily processing Texas-derived crude oil to produce transportation fuels for Texas' — Eagle Ford + Permian light feed, gasoline/distillate-tilted PADD3 deep-conversion plant.",
+      "overrides_applied": [
+        {
+          "commodity": "all",
+          "main_group_yields": {
+            "motor_gasoline": 50.0,
+            "gas_diesel_oil": 28.0,
+            "kerosene_type_jet_fuel": 7.0,
+            "lpg": 4.0,
+            "naphtha": 4.0,
+            "petroleum_coke": 3.0,
+            "refinery_gas": 2.0,
+            "fuel_oil": 1.0,
+            "other_oil_products_misc": 1.0
+          },
+          "source": "inferred_from_disclosure",
+          "source_url": "https://www.fhr.com/products-and-services/refined-products",
+          "notes": "FHR Texas refineries description; Eagle Ford/Permian light slate skews gasoline + naphtha higher than baseline deep-conversion average."
+        }
+      ]
+    },
+    {
+      "refinery_id": "ref_flint_corpus_christi_west",
+      "searched": true,
+      "audit_note": "Flint Hills Corpus Christi West refinery (twin of CC East). Same light-sweet PADD3 fuels profile.",
+      "overrides_applied": [
+        {
+          "commodity": "all",
+          "main_group_yields": {
+            "motor_gasoline": 50.0,
+            "gas_diesel_oil": 28.0,
+            "kerosene_type_jet_fuel": 7.0,
+            "lpg": 4.0,
+            "naphtha": 4.0,
+            "petroleum_coke": 3.0,
+            "refinery_gas": 2.0,
+            "fuel_oil": 1.0,
+            "other_oil_products_misc": 1.0
+          },
+          "source": "inferred_from_disclosure",
+          "source_url": "https://www.fhr.com/products-and-services/refined-products",
+          "notes": "FHR Texas refineries description; Eagle Ford/Permian light slate."
+        }
+      ]
+    },
+    {
+      "refinery_id": "ref_marathon_robinson",
+      "searched": true,
+      "audit_note": "Marathon Robinson IL (253 kbd cracking PADD2). MPC FY2024 10-K reports system-wide yields only; apply MPC system slate.",
+      "overrides_applied": [
+        {
+          "commodity": "all",
+          "main_group_yields": {
+            "motor_gasoline": 49.2,
+            "gas_diesel_oil": 30.0,
+            "kerosene_type_jet_fuel": 7.0,
+            "lpg": 2.2,
+            "naphtha": 4.0,
+            "other_oil_products_misc": 1.5,
+            "fuel_oil": 1.5,
+            "bitumen": 2.6,
+            "refinery_gas": 2.0
+          },
+          "source": "company_disclosure",
+          "source_url": "https://ir.marathonpetroleum.com/investor/news-releases/news-details/2025/Marathon-Petroleum-Corp--Reports-Fourth-Quarter-2024-Results-and-2025-Capital-Outlook/default.aspx",
+          "notes": "MPC FY2024 system yield."
+        }
+      ]
+    },
+    {
+      "refinery_id": "ref_marathon_detroit",
+      "searched": true,
+      "audit_note": "Marathon Detroit MI (146 kbd deep_conversion). Detroit Heavy Oil Upgrade Project (2012) added 28 kbd delayed coker; ~57% of feed is heavy Canadian crude (~80 kbd). Coke + asphalt yields elevated above MPC system average. Use MPC system as floor but lift coke/asphalt at the expense of gasoline.",
+      "overrides_applied": [
+        {
+          "commodity": "all",
+          "main_group_yields": {
+            "motor_gasoline": 43.0,
+            "gas_diesel_oil": 28.0,
+            "kerosene_type_jet_fuel": 5.0,
+            "petroleum_coke": 8.0,
+            "bitumen": 7.0,
+            "lpg": 2.5,
+            "naphtha": 2.5,
+            "fuel_oil": 1.5,
+            "refinery_gas": 2.0,
+            "other_oil_products_misc": 0.5
+          },
+          "source": "inferred_from_disclosure",
+          "source_url": "https://www.marathonpetroleum.com/Operations/Refining/Detroit-Refinery/",
+          "notes": "Detroit fact sheet + DHOUP capacity (80 kbd heavy Canadian, 28 kbd coker) — slate skewed to coke + asphalt relative to MPC system."
+        }
+      ]
+    },
+    {
+      "refinery_id": "ref_marathon_canton",
+      "searched": true,
+      "audit_note": "Marathon Canton OH (cracking PADD2, ~93 kbd). MPC FY2024 10-K system yield applied (no per-refinery disclosure).",
+      "overrides_applied": [
+        {
+          "commodity": "all",
+          "main_group_yields": {
+            "motor_gasoline": 49.2,
+            "gas_diesel_oil": 30.0,
+            "kerosene_type_jet_fuel": 7.0,
+            "lpg": 2.2,
+            "naphtha": 4.0,
+            "other_oil_products_misc": 1.5,
+            "fuel_oil": 1.5,
+            "bitumen": 2.6,
+            "refinery_gas": 2.0
+          },
+          "source": "company_disclosure",
+          "source_url": "https://ir.marathonpetroleum.com/investor/news-releases/news-details/2025/Marathon-Petroleum-Corp--Reports-Fourth-Quarter-2024-Results-and-2025-Capital-Outlook/default.aspx",
+          "notes": "MPC FY2024 system yield."
+        }
+      ]
+    },
+    {
+      "refinery_id": "ref_marathon_galveston_bay",
+      "searched": true,
+      "audit_note": "Marathon Galveston Bay TX (631 kbd, deep_conversion, formerly BP Texas City). MPC's largest refinery; system yield disclosed only at corporate level. MPC is building a 90 kbd distillate hydrotreater (completion 2027) targeting distillate uplift; current slate skewed to gasoline (large FCC capacity) with significant coke output from the coker. Apply MPC system yield with modest gasoline tilt vs system average.",
+      "overrides_applied": [
+        {
+          "commodity": "all",
+          "main_group_yields": {
+            "motor_gasoline": 50.0,
+            "gas_diesel_oil": 28.0,
+            "kerosene_type_jet_fuel": 7.0,
+            "petroleum_coke": 5.0,
+            "lpg": 2.5,
+            "naphtha": 3.0,
+            "fuel_oil": 1.5,
+            "refinery_gas": 2.0,
+            "other_oil_products_misc": 1.0
+          },
+          "source": "inferred_from_disclosure",
+          "source_url": "https://www.nsenergybusiness.com/projects/marathon-galveston-bay-refinery/",
+          "notes": "MPC FY2024 system yield with PADD3 deep-conversion tilt (large FCC + coker); Galveston Bay fact sheet."
+        }
+      ]
+    },
+    {
+      "refinery_id": "ref_valero_norco",
+      "searched": true,
+      "audit_note": "Valero St Charles (Norco LA), 340 kbd deep_conversion. Valero discloses 'about 74% of the product slate is gasoline, distillate and other light products' for Norco. Apply gasoline 45% / distillate 29% within the 74% light fraction, with remainder split into LPG, naphtha, coke, fuel oil.",
+      "overrides_applied": [
+        {
+          "commodity": "all",
+          "main_group_yields": {
+            "motor_gasoline": 45.0,
+            "gas_diesel_oil": 22.0,
+            "kerosene_type_jet_fuel": 7.0,
+            "lpg": 4.0,
+            "naphtha": 6.0,
+            "petroleum_coke": 6.0,
+            "fuel_oil": 3.0,
+            "refinery_gas": 4.0,
+            "other_oil_products_misc": 3.0
+          },
+          "source": "company_disclosure",
+          "source_url": "https://www.valero.com/about/locations/st-charles-refinery",
+          "notes": "Valero St Charles facility page (~74% light products = gasoline/distillate/light products)."
+        }
+      ]
+    },
+    {
+      "refinery_id": "ref_vertex_saraland",
+      "searched": true,
+      "audit_note": "STATUS CHANGE: Vertex Saraland AL converted ~50 kbd hydrocracker to renewable diesel in April 2023, then pivoted back to conventional fuels service by year-end 2024 (Vertex 2024 Q1 results: renewable diesel gross loss $10.5M; turnaround used to reload conventional catalyst). Treat as conventional cracking refinery for 2025+ scenarios; baseline cracking template retained.",
+      "overrides_applied": []
+    },
+    {
+      "refinery_id": "ref_lunday_south_gate",
+      "searched": false,
+      "audit_note": "Lunday Thagard, small PADD5 specialty plant (<10 kbd, asphalt/specialty); baseline retained.",
+      "overrides_applied": []
+    },
+    {
+      "refinery_id": "ref_hunt_sandersville",
+      "searched": false,
+      "audit_note": "Hunt Southland Sandersville GA: very small (<15 kbd) generic plant; insufficient public yield disclosure; baseline retained.",
+      "overrides_applied": []
+    },
+    {
+      "refinery_id": "ref_tesoro_kenai",
+      "searched": true,
+      "audit_note": "Marathon Kenai AK (68 kbd cracking; processes Alaska crude + ND Bakken). MPC fact sheet confirms product list = distillates, gasoline, heavy fuel oil, asphalt, propane, NGLs/petchem. Heavy fuel oil and jet fuel notably elevated vs MPC system (Anchorage airport demand). Apply MPC system with jet uplift and HFO uplift.",
+      "overrides_applied": [
+        {
+          "commodity": "all",
+          "main_group_yields": {
+            "motor_gasoline": 38.0,
+            "gas_diesel_oil": 26.0,
+            "kerosene_type_jet_fuel": 18.0,
+            "fuel_oil": 6.0,
+            "bitumen": 3.0,
+            "lpg": 3.0,
+            "naphtha": 2.0,
+            "refinery_gas": 2.0,
+            "other_oil_products_misc": 2.0
+          },
+          "source": "inferred_from_disclosure",
+          "source_url": "https://www.marathonpetroleum.com/content/documents/fact_sheets/Kenai_Refinery_Fact_Sheet.pdf",
+          "notes": "Kenai fact sheet (jet to Anchorage airport, HFO for marine bunker); slate tilted to jet + HFO relative to MPC system average."
+        }
+      ]
+    },
+    {
+      "refinery_id": "ref_tesoro_mandan",
+      "searched": true,
+      "audit_note": "Marathon Mandan ND (71-76 kbd cracking, Bakken-focused). MPC Mandan fact sheet quotes 'gasoline accounts for almost 55% of product volume; on/off-road diesel + other distillates (jet fuel, furnace oil) account for another 35%.' Direct site-specific disclosure — highest confidence override.",
+      "overrides_applied": [
+        {
+          "commodity": "all",
+          "main_group_yields": {
+            "motor_gasoline": 55.0,
+            "gas_diesel_oil": 28.0,
+            "kerosene_type_jet_fuel": 5.0,
+            "fuel_oil": 2.0,
+            "lpg": 3.0,
+            "naphtha": 2.0,
+            "refinery_gas": 3.0,
+            "other_oil_products_misc": 2.0
+          },
+          "source": "company_disclosure",
+          "source_url": "https://www.marathonpetroleum.com/Operations/Refining/Mandan-Refinery/",
+          "notes": "MPC Mandan fact sheet: 55% gasoline, 35% distillates (split into diesel + jet + furnace oil)."
+        }
+      ]
+    },
+    {
+      "refinery_id": "ref_tesoro_anacortes",
+      "searched": true,
+      "audit_note": "Marathon Anacortes WA (cracking, PADD5). MPC FY2024 10-K reports system-wide yields only; apply MPC system slate.",
+      "overrides_applied": [
+        {
+          "commodity": "all",
+          "main_group_yields": {
+            "motor_gasoline": 49.2,
+            "gas_diesel_oil": 30.0,
+            "kerosene_type_jet_fuel": 7.0,
+            "lpg": 2.2,
+            "naphtha": 4.0,
+            "other_oil_products_misc": 1.5,
+            "fuel_oil": 1.5,
+            "bitumen": 2.6,
+            "refinery_gas": 2.0
+          },
+          "source": "company_disclosure",
+          "source_url": "https://ir.marathonpetroleum.com/investor/news-releases/news-details/2025/Marathon-Petroleum-Corp--Reports-Fourth-Quarter-2024-Results-and-2025-Capital-Outlook/default.aspx",
+          "notes": "MPC FY2024 system yield."
+        }
+      ]
+    },
+    {
+      "refinery_id": "ref_western_el_paso",
+      "searched": true,
+      "audit_note": "Marathon El Paso TX (cracking, PADD3). MPC FY2024 10-K reports system-wide yields only; apply MPC system slate.",
+      "overrides_applied": [
+        {
+          "commodity": "all",
+          "main_group_yields": {
+            "motor_gasoline": 49.2,
+            "gas_diesel_oil": 30.0,
+            "kerosene_type_jet_fuel": 7.0,
+            "lpg": 2.2,
+            "naphtha": 4.0,
+            "other_oil_products_misc": 1.5,
+            "fuel_oil": 1.5,
+            "bitumen": 2.6,
+            "refinery_gas": 2.0
+          },
+          "source": "company_disclosure",
+          "source_url": "https://ir.marathonpetroleum.com/investor/news-releases/news-details/2025/Marathon-Petroleum-Corp--Reports-Fourth-Quarter-2024-Results-and-2025-Capital-Outlook/default.aspx",
+          "notes": "MPC FY2024 system yield."
+        }
+      ]
+    },
+    {
+      "refinery_id": "ref_cross_smackover",
+      "searched": false,
+      "audit_note": "lubricant_plant; baseline template retained.",
+      "overrides_applied": []
+    },
+    {
+      "refinery_id": "ref_magellan_corpus_christi",
+      "searched": false,
+      "audit_note": "condensate_splitter; baseline template retained.",
+      "overrides_applied": []
+    },
+    {
+      "refinery_id": "ref_par_kapolei",
+      "searched": true,
+      "audit_note": "Par Hawaii Kapolei (94-155 kbd cracking, imports-heavy, serves Hawaii air market). Par Pacific disclosure: 'Hawaii Refinery had feedstocks throughput of 80.2 kbd with gasoline and gasoline blendstocks yield of 26.8%.' Refineries run in 'max distillate mode' to capture jet/diesel margins. Renewable diesel/SAF conversion (~61 mgy) coming online 2025 — for 2024 baseline keep conventional slate with jet ~30% per Hawaii air-demand profile.",
+      "overrides_applied": [
+        {
+          "commodity": "all",
+          "main_group_yields": {
+            "motor_gasoline": 26.8,
+            "gas_diesel_oil": 25.0,
+            "kerosene_type_jet_fuel": 32.0,
+            "fuel_oil": 6.0,
+            "lpg": 2.0,
+            "naphtha": 3.0,
+            "refinery_gas": 3.0,
+            "other_oil_products_misc": 2.2
+          },
+          "source": "company_disclosure",
+          "source_url": "https://www.parpacific.com/operations/refining-logistics/hawaii",
+          "notes": "Par Pacific Hawaii disclosure (26.8% gasoline/blendstocks). Hawaii's outsized aviation demand justifies jet ~32% (highest of any US refinery); distillate hydrotreater (2019) supports max-distillate mode; bunker HFO ~6%."
+        }
+      ]
+    },
+    {
+      "refinery_id": "ref_par_billings",
+      "searched": true,
+      "audit_note": "Par Pacific Billings MT (63 kbd high-conversion, formerly ExxonMobil/CHS; acquired June 2023). Processes low-cost Western Canadian + Rocky Mountain crude. No site-specific yield disclosed publicly. Treat as Canadian-heavy cracking refinery serving PADD4 fuels markets via Yellowstone pipeline.",
+      "overrides_applied": [
+        {
+          "commodity": "all",
+          "main_group_yields": {
+            "motor_gasoline": 46.0,
+            "gas_diesel_oil": 30.0,
+            "kerosene_type_jet_fuel": 6.0,
+            "petroleum_coke": 5.0,
+            "lpg": 4.0,
+            "naphtha": 3.0,
+            "bitumen": 2.0,
+            "fuel_oil": 1.5,
+            "refinery_gas": 2.5
+          },
+          "source": "inferred_from_disclosure",
+          "source_url": "https://www.parpacific.com/press-releases/par-pacific-completes-acquisition-exxonmobil-billings-refinery-and-related-upper",
+          "notes": "Par Pacific Billings acquisition disclosure (high-conversion, Western Canadian + Rocky Mountain feed). Slate matches Canadian-heavy PADD4 cracking archetype."
+        }
+      ]
+    },
+    {
+      "refinery_id": "ref_us_tacoma",
+      "searched": false,
+      "audit_note": "US Oil & Refining Tacoma WA: small (<45 kbd) niche plant; insufficient public yield disclosure; baseline retained.",
+      "overrides_applied": []
+    },
+    {
+      "refinery_id": "ref_wyoming_newcastle",
+      "searched": false,
+      "audit_note": "Wyoming Refining Newcastle WY: very small (<15 kbd); insufficient public yield disclosure; baseline retained.",
+      "overrides_applied": []
+    },
+    {
+      "refinery_id": "ref_chalmette_chalmette",
+      "searched": true,
+      "audit_note": "PBF Chalmette LA (185 kbd dual-train coking refinery, Nelson 13.0). PBF discloses Gulf Coast region product mix FY2024: gasoline 60%, distillate 22%, lubes 1%, other 17%. Chalmette is PBF's only Gulf Coast refinery so this maps directly. High-confidence company disclosure.",
+      "overrides_applied": [
+        {
+          "commodity": "all",
+          "main_group_yields": {
+            "motor_gasoline": 60.0,
+            "gas_diesel_oil": 18.0,
+            "kerosene_type_jet_fuel": 4.0,
+            "lubricants": 1.0,
+            "petroleum_coke": 6.0,
+            "lpg": 3.0,
+            "naphtha": 3.0,
+            "fuel_oil": 2.0,
+            "refinery_gas": 2.0,
+            "other_oil_products_misc": 1.0
+          },
+          "source": "company_disclosure",
+          "source_url": "https://www.pbfenergy.com/refineries/",
+          "notes": "PBF Energy Gulf Coast region FY2024 product yield (gasoline 60% / distillate 22% / lubes 1% / other 17%); Chalmette is sole Gulf Coast site."
+        }
+      ]
+    },
+    {
+      "refinery_id": "ref_cpi_paulsboro",
+      "searched": true,
+      "audit_note": "STATUS: REFINING IDLE. CPI Operations Paulsboro NJ (32 kbd) refining units idled since 2017-2018; EIA 2024 capacity table still lists as idle. Site now operates as terminal/asphalt storage business (40.1 MMbbl tankage). Apply nominal post-shutdown asphalt/terminal slate; this refinery should produce ~0 in any forward scenario.",
+      "overrides_applied": [
+        {
+          "commodity": "all",
+          "main_group_yields": {
+            "bitumen": 50.0,
+            "fuel_oil": 30.0,
+            "gas_diesel_oil": 15.0,
+            "refinery_gas": 5.0
+          },
+          "source": "company_disclosure",
+          "source_url": "https://www.argusmedia.com/en/news-and-insights/latest-market-news/2384840-pbf-restarts-idle-nj-refinery-units-to-up-distillates",
+          "notes": "Idled refinery; nominal post-shutdown asphalt/terminal slate. Throughput should be effectively zero in any forward scenario."
+        }
+      ]
+    },
+    {
+      "refinery_id": "ref_martinez_martinez",
+      "searched": true,
+      "audit_note": "PBF Martinez CA (deep_conversion, PADD5). PBF discloses West Coast region FY2024 product mix: gasoline 38%, distillate 40%, lubes 2%, chemicals 2%, other 18%. Martinez + Torrance are PBF's only West Coast refineries; both inherit this regional disclosure. Note that 'max distillate' tilt is genuine — West Coast (CARB diesel demand) inverts the usual US gasoline-heavy slate.",
+      "overrides_applied": [
+        {
+          "commodity": "all",
+          "main_group_yields": {
+            "motor_gasoline": 38.0,
+            "gas_diesel_oil": 33.0,
+            "kerosene_type_jet_fuel": 7.0,
+            "lubricants": 2.0,
+            "petroleum_coke": 5.0,
+            "lpg": 3.0,
+            "naphtha": 4.0,
+            "fuel_oil": 2.0,
+            "refinery_gas": 4.0,
+            "other_oil_products_misc": 2.0
+          },
+          "source": "company_disclosure",
+          "source_url": "https://www.pbfenergy.com/refineries/",
+          "notes": "PBF Energy West Coast region FY2024 product yield (gasoline 38% / distillate 40% / lubes 2% / chemicals 2% / other 18%)."
+        }
+      ]
+    },
+    {
+      "refinery_id": "ref_paulsboro_paulsboro",
+      "searched": true,
+      "audit_note": "PBF Paulsboro NJ (cracking, PADD1). PBF discloses East Coast region FY2024 product mix: gasoline 45%, distillate 36%, lubes 1%, chemicals 1%, other 17%. Paulsboro + Delaware City inherit this regional disclosure. Paulsboro has the lubes barrel (Nelson 11.4 with lubes hydrocracker) — lubes attributed to this site rather than Delaware City.",
+      "overrides_applied": [
+        {
+          "commodity": "all",
+          "main_group_yields": {
+            "motor_gasoline": 45.0,
+            "gas_diesel_oil": 30.0,
+            "kerosene_type_jet_fuel": 6.0,
+            "lubricants": 2.0,
+            "lpg": 3.0,
+            "naphtha": 4.0,
+            "petroleum_coke": 3.0,
+            "fuel_oil": 3.0,
+            "refinery_gas": 2.0,
+            "other_oil_products_misc": 2.0
+          },
+          "source": "company_disclosure",
+          "source_url": "https://www.pbfenergy.com/refineries/",
+          "notes": "PBF Energy East Coast region FY2024 product yield (gasoline 45% / distillate 36% / lubes 1% / chemicals 1% / other 17%)."
+        }
+      ]
+    },
+    {
+      "refinery_id": "ref_torrance_torrance",
+      "searched": true,
+      "audit_note": "PBF Torrance CA (166 kbd cracking, Nelson 13.8). PBF lists Torrance products = three grades of gasoline, diesel, jet, LPG, coke, sulfur. Apply PBF West Coast regional yield with gasoline tilt slightly above sister Martinez (Torrance is a gasoline-tilted FCC plant whereas Martinez is the heavier deep-conversion site).",
+      "overrides_applied": [
+        {
+          "commodity": "all",
+          "main_group_yields": {
+            "motor_gasoline": 42.0,
+            "gas_diesel_oil": 32.0,
+            "kerosene_type_jet_fuel": 8.0,
+            "lubricants": 1.0,
+            "petroleum_coke": 4.0,
+            "lpg": 4.0,
+            "naphtha": 3.0,
+            "fuel_oil": 2.0,
+            "refinery_gas": 3.0,
+            "other_oil_products_misc": 1.0
+          },
+          "source": "company_disclosure",
+          "source_url": "https://www.pbfenergy.com/refineries/",
+          "notes": "PBF West Coast region FY2024 + Torrance product list (3 gasoline grades, diesel, jet, LPG, coke, sulfur)."
+        }
+      ]
+    },
+    {
+      "refinery_id": "ref_citgo_corpus_christi",
+      "searched": true,
+      "audit_note": "Citgo (PDVSA) Corpus Christi (167 kbd deep_conversion). Citgo press release Q4 2024: 96% crude utilisation; refinery 'designed, engineered and built to refine heavy, sour crude oils into high-quality finished petroleum products.' No quantitative yield disclosed. Apply heavy-sour PADD3 coking archetype with coke uplift.",
+      "overrides_applied": [
+        {
+          "commodity": "all",
+          "main_group_yields": {
+            "motor_gasoline": 45.0,
+            "gas_diesel_oil": 28.0,
+            "kerosene_type_jet_fuel": 6.0,
+            "petroleum_coke": 8.0,
+            "lpg": 3.0,
+            "naphtha": 3.0,
+            "fuel_oil": 2.0,
+            "refinery_gas": 3.0,
+            "bitumen": 1.0,
+            "other_oil_products_misc": 1.0
+          },
+          "source": "inferred_from_disclosure",
+          "source_url": "https://www.citgo.com/operations/corpus-christi-refinery",
+          "notes": "Citgo Corpus Christi site description (heavy sour design); slate matches PADD3 deep-conversion coking archetype with elevated coke."
+        }
+      ]
+    },
+    {
+      "refinery_id": "ref_pdv_lemont",
+      "searched": true,
+      "audit_note": "Citgo (PDVSA) Lemont IL (183 kbd deep_conversion, formerly Mobil). Citgo press release FY2024: Lemont set 'new annual total gasoline production record' and Q4 jet fuel + ULS kerosene records; 98% Q4 crude utilisation. Site described as 'purpose-built for heavy crude processing.' No quantitative yield disclosed but disclosure language supports gasoline-heavy + jet-strong PADD2 slate.",
+      "overrides_applied": [
+        {
+          "commodity": "all",
+          "main_group_yields": {
+            "motor_gasoline": 50.0,
+            "gas_diesel_oil": 27.0,
+            "kerosene_type_jet_fuel": 8.0,
+            "petroleum_coke": 6.0,
+            "lpg": 3.0,
+            "naphtha": 2.5,
+            "fuel_oil": 1.0,
+            "refinery_gas": 2.0,
+            "other_oil_products_misc": 0.5
+          },
+          "source": "company_disclosure",
+          "source_url": "https://www.citgo.com/newsroom/press-releases/2024/citgo-reports-second-quarter-2024-results",
+          "notes": "Citgo Q2/Q4 2024 press releases: Lemont gasoline production record + jet/ULSK records. Heavy-crude design + record gasoline production supports gasoline 50% / distillate 35% PADD2 deep-conversion tilt."
+        }
+      ]
+    },
+    {
+      "refinery_id": "ref_deer_deer_park",
+      "searched": true,
+      "audit_note": "Pemex Deer Park TX (340 kbd nameplate, 312 kbd actual 2024 throughput). Pemex 2024 disclosure: gasoline ~110 kbd (35.3%), diesel ~90 kbd (28.8%), jet/kerosene ~25 kbd (8.0%), plus petroleum coke as byproduct. Processes Maya heavy sour blended with lighter US/Canadian crudes. High-confidence direct disclosure.",
+      "overrides_applied": [
+        {
+          "commodity": "all",
+          "main_group_yields": {
+            "motor_gasoline": 35.3,
+            "gas_diesel_oil": 28.8,
+            "kerosene_type_jet_fuel": 8.0,
+            "petroleum_coke": 10.0,
+            "fuel_oil": 4.0,
+            "lpg": 3.5,
+            "naphtha": 4.0,
+            "bitumen": 2.0,
+            "refinery_gas": 3.0,
+            "other_oil_products_misc": 1.4
+          },
+          "source": "company_disclosure",
+          "source_url": "https://grokipedia.com/page/Pemex_Deer_Park",
+          "notes": "Pemex Deer Park FY2024: gasoline 110 kbd, diesel 90 kbd, jet/kerosene 25 kbd on 312 kbd throughput, plus coke byproduct from Maya heavy-sour run."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,390 @@
+{
+  "refinery": {
+    "refinery_id": "ref_american_bradford",
+    "name": "AMERICAN REFINING GROUP INC \u2014 BRADFORD",
+    "padd": "PADD1",
+    "state": "Pennsylvania",
+    "corporation": "AMERICAN REFINING GROUP INC",
+    "operator": null,
+    "site": "BRADFORD",
+    "rdist_label": "Appalachian No. 1",
+    "capacity_bpd": 11000,
+    "duoarea_code": "RAP",
+    "existing_units": "unknown"
+  },
+  "result": {
+    "refinery_id": "ref_american_bradford",
+    "units": [
+      {
+        "unit_type": "crude_distillation",
+        "capacity_bpd": 11000,
+        "source_url": "https://www.amref.com/about/"
+      },
+      {
+        "unit_type": "reformer",
+        "capacity_bpd": 0,
+        "source_url": "https://www.amref.com/about/"
+      },
+      {
+        "unit_type": "hydrotreater",
+        "capacity_bpd": 3500,
+        "source_url": "https://www.lubesngreases.com/magazine/12_12/history-and-a-future/"
+      },
+      {
+        "unit_type": "isomerisation",
+        "capacity_bpd": 0,
+        "source_url": "https://www.amref.com/about/"
+      }
+    ],
+    "slate": [
+      {
+        "period_start": "1997-01-01",
+        "period_end": "2012-12-31",
+        "grade_name": "Pennsylvania Grade crude (Appalachian light sweet paraffinic)",
+        "api_gravity": 46,
+        "sulphur_pct": 0.15,
+        "share_pct": 100,
+        "commodity": "pennsylvania_grade",
+        "source_url": "https://www.lubesngreases.com/magazine/12_12/history-and-a-future/"
+      },
+      {
+        "period_start": "2013-01-01",
+        "period_end": "2026-12-31",
+        "grade_name": "Pennsylvania Grade crude (Appalachian light sweet paraffinic) \u2013 PENN-GRADE\u2122",
+        "api_gravity": 46,
+        "sulphur_pct": 0.15,
+        "share_pct": 100,
+        "commodity": "pennsylvania_grade",
+        "source_url": "https://www.amref.com/about/"
+      }
+    ],
+    "events": [
+      {
+        "event_type": "turnaround",
+        "start_date": "2019-04-27",
+        "end_date": "2019-06-07",
+        "units_affected": "all process units",
+        "capacity_impact_bpd": 11000,
+        "description": "Planned maintenance turnaround commencing ~27 April 2019. All process units taken offline for optimisation and repairs. ARG conducts turnarounds approximately every three years. Bulk fuel loading and lube blending/packaging continued during outage. End date is estimated (~6 weeks) as the article does not specify.",
+        "source_url": "https://www.bradfordera.com/bradford/arg-to-commence-maintenance-shutdown/article_6b35b06f-f5e0-5b66-a4e9-29f1dfc4e12e.html"
+      },
+      {
+        "event_type": "ownership_change",
+        "start_date": "2021-12-18",
+        "end_date": "2021-12-22",
+        "units_affected": "",
+        "capacity_impact_bpd": 0,
+        "description": "ARG Chairman and CEO Harry R. Halloran Jr. passed away on 18 December 2021. His son Neil Halloran assumed the role of ARG Chairman of the Board effective immediately. The succession had been planned following Halloran Sr.'s earlier stroke; Neil had been named lead director four years prior. No operational disruption reported.",
+        "source_url": "https://www.amref.com/2021/12/22/arg-chairman-ceo-harry-halloran-jr-passes/"
+      },
+      {
+        "event_type": "turnaround",
+        "start_date": "2022-04-19",
+        "end_date": "2022-06-01",
+        "units_affected": "all process units",
+        "capacity_impact_bpd": 11000,
+        "description": "Planned maintenance turnaround commencing ~19 April 2022, consistent with ARG's ~3-year turnaround cycle (previous TAR April 2019). All process units taken offline. End date estimated at ~6 weeks. Bulk fuel operations and lube packaging continued. Confirmed by Bradford Era search synthesis and turnaround cycle.",
+        "source_url": "https://www.bradfordera.com/bradford/arg-to-commence-maintenance-shutdown/article_6b35b06f-f5e0-5b66-a4e9-29f1dfc4e12e.html"
+      },
+      {
+        "event_type": "fire",
+        "start_date": "2026-03-03",
+        "end_date": "2026-05-26",
+        "units_affected": "platformer",
+        "capacity_impact_bpd": 0,
+        "description": "Second-alarm fire broke out at the ARG Platformer Unit at 03:53 on 3 March 2026. ARG Fire Brigade initially fought the fire before requesting Bradford City Fire Department assistance. Fire under control by ~05:00. No injuries. Derrick City Volunteer Fire Dept dispatched as Rapid Intervention Team. Restoration work was ongoing as of mid-April 2026 (temporary Mill Street closure announced 16 April 2026 to support Platformer Unit restoration). End date is open/unknown as of current date.",
+        "source_url": "https://www.bradfordera.com/2026/03/03/no-injuries-overnight-fire-american-refining-group/"
+      },
+      {
+        "event_type": "expansion",
+        "start_date": "2026-04-28",
+        "end_date": "2026-12-31",
+        "units_affected": "utilities/power",
+        "capacity_impact_bpd": 0,
+        "description": "Unison Energy commenced construction of a microgrid for ARG Bradford, designed to supply over 90% of the facility's electrical load. Announced 28 April 2026. Will reduce dependence on the grid and improve energy resilience. No throughput impact disclosed.",
+        "source_url": "https://www.amref.com/about/news/"
+      }
+    ],
+    "financials": [],
+    "runs_obs": [
+      {
+        "observation_date": "2015-01-01",
+        "metric": "crude_runs_bpd",
+        "value": 9270,
+        "method": "eia_attributed",
+        "confidence": "low",
+        "notes": "RAP district crude inputs Jan 2015 = 91 kbd. ARG allocated share: 11,000 \u00f7 ~108,000 bpd estimated RAP total capacity = 10.19%. Allocated runs = 91,000 \u00d7 10.19% = 9,270 bpd. Denominator is estimated from max observed district inputs \u00f7 0.95 utilisation; confidence low.",
+        "commodity": "pennsylvania_grade",
+        "source_url": "https://www.eia.gov/dnav/pet/hist/LeafHandler.ashx?n=PET&s=M_EPC0_YIY_RAP_2&f=M"
+      },
+      {
+        "observation_date": "2016-01-01",
+        "metric": "crude_runs_bpd",
+        "value": 9570,
+        "method": "eia_attributed",
+        "confidence": "low",
+        "notes": "RAP Jan 2016 = 94 kbd. ARG 10.19% share \u2192 9,574 bpd. Denominator ~108 kbd estimated.",
+        "commodity": "pennsylvania_grade",
+        "source_url": "https://www.eia.gov/dnav/pet/hist/LeafHandler.ashx?n=PET&s=M_EPC0_YIY_RAP_2&f=M"
+      },
+      {
+        "observation_date": "2017-01-01",
+        "metric": "crude_runs_bpd",
+        "value": 9880,
+        "method": "eia_attributed",
+        "confidence": "low",
+        "notes": "RAP Jan 2017 = 97 kbd. ARG 10.19% share \u2192 9,880 bpd. Denominator ~108 kbd estimated.",
+        "commodity": "pennsylvania_grade",
+        "source_url": "https://www.eia.gov/dnav/pet/hist/LeafHandler.ashx?n=PET&s=M_EPC0_YIY_RAP_2&f=M"
+      },
+      {
+        "observation_date": "2018-01-01",
+        "metric": "crude_runs_bpd",
+        "value": 9570,
+        "method": "eia_attributed",
+        "confidence": "low",
+        "notes": "RAP Jan 2018 = 94 kbd. ARG 10.19% share \u2192 9,574 bpd. Denominator ~108 kbd estimated.",
+        "commodity": "pennsylvania_grade",
+        "source_url": "https://www.eia.gov/dnav/pet/hist/LeafHandler.ashx?n=PET&s=M_EPC0_YIY_RAP_2&f=M"
+      },
+      {
+        "observation_date": "2019-01-01",
+        "metric": "crude_runs_bpd",
+        "value": 10080,
+        "method": "eia_attributed",
+        "confidence": "low",
+        "notes": "RAP Jan 2019 = 99 kbd. ARG 10.19% share \u2192 10,083 bpd. Denominator ~108 kbd estimated. Note: confirmed plant TAR commenced ~27 April 2019; separate TAR-adjusted observation emitted for that period.",
+        "commodity": "pennsylvania_grade",
+        "source_url": "https://www.eia.gov/dnav/pet/hist/LeafHandler.ashx?n=PET&s=M_EPC0_YIY_RAP_2&f=M"
+      },
+      {
+        "observation_date": "2019-04-27",
+        "metric": "crude_runs_bpd",
+        "value": 0,
+        "method": "news_turnaround_adjusted",
+        "confidence": "high",
+        "notes": "Confirmed full plant maintenance turnaround commencing ~27 April 2019 (Bradford Era article). All process units offline. Bulk fuel loading and lube packaging continue but no crude processing. Duration ~6 weeks estimated.",
+        "commodity": "pennsylvania_grade",
+        "source_url": "https://www.bradfordera.com/bradford/arg-to-commence-maintenance-shutdown/article_6b35b06f-f5e0-5b66-a4e9-29f1dfc4e12e.html"
+      },
+      {
+        "observation_date": "2019-06-10",
+        "metric": "crude_runs_bpd",
+        "value": 9820,
+        "method": "news_turnaround_adjusted",
+        "confidence": "medium",
+        "notes": "Estimated restart after ~6-week 2019 TAR. Value = RAP Jun 2019 (75 kbd \u00d7 10.19%) = 7,640 bpd at district level, but that month reflects a district dip unrelated to ARG. Using annualised 2019 average (96.4 kbd \u2192 9,823 bpd) as normal-ops restored rate. Exact restart date estimated.",
+        "commodity": "pennsylvania_grade",
+        "source_url": "https://www.bradfordera.com/bradford/arg-to-commence-maintenance-shutdown/article_6b35b06f-f5e0-5b66-a4e9-29f1dfc4e12e.html"
+      },
+      {
+        "observation_date": "2020-01-01",
+        "metric": "crude_runs_bpd",
+        "value": 10290,
+        "method": "eia_attributed",
+        "confidence": "low",
+        "notes": "RAP Jan 2020 = 101 kbd. ARG 10.19% share \u2192 10,287 bpd. Denominator ~108 kbd estimated.",
+        "commodity": "pennsylvania_grade",
+        "source_url": "https://www.eia.gov/dnav/pet/hist/LeafHandler.ashx?n=PET&s=M_EPC0_YIY_RAP_2&f=M"
+      },
+      {
+        "observation_date": "2021-01-01",
+        "metric": "crude_runs_bpd",
+        "value": 9370,
+        "method": "eia_attributed",
+        "confidence": "low",
+        "notes": "RAP Jan 2021 = 92 kbd. ARG 10.19% share \u2192 9,370 bpd. Denominator ~108 kbd estimated.",
+        "commodity": "pennsylvania_grade",
+        "source_url": "https://www.eia.gov/dnav/pet/hist/LeafHandler.ashx?n=PET&s=M_EPC0_YIY_RAP_2&f=M"
+      },
+      {
+        "observation_date": "2022-01-01",
+        "metric": "crude_runs_bpd",
+        "value": 9880,
+        "method": "eia_attributed",
+        "confidence": "low",
+        "notes": "RAP Jan 2022 = 97 kbd. ARG 10.19% share \u2192 9,880 bpd. Note: confirmed ARG TAR ~April 19 2022; separate observation emitted. Large district dips Mar\u2013Apr 2022 (53\u219239 kbd) primarily attributable to another district refinery, not ARG alone.",
+        "commodity": "pennsylvania_grade",
+        "source_url": "https://www.eia.gov/dnav/pet/hist/LeafHandler.ashx?n=PET&s=M_EPC0_YIY_RAP_2&f=M"
+      },
+      {
+        "observation_date": "2022-04-19",
+        "metric": "crude_runs_bpd",
+        "value": 0,
+        "method": "news_turnaround_adjusted",
+        "confidence": "high",
+        "notes": "Confirmed full plant maintenance turnaround commencing ~19 April 2022 (Bradford Era / search synthesis). ~3-year cycle from 2019 TAR. All process units offline. Duration ~6 weeks estimated.",
+        "commodity": "pennsylvania_grade",
+        "source_url": "https://www.bradfordera.com/bradford/arg-to-commence-maintenance-shutdown/article_6b35b06f-f5e0-5b66-a4e9-29f1dfc4e12e.html"
+      },
+      {
+        "observation_date": "2022-06-01",
+        "metric": "crude_runs_bpd",
+        "value": 9780,
+        "method": "news_turnaround_adjusted",
+        "confidence": "medium",
+        "notes": "Estimated restart after ~6-week 2022 TAR. RAP Jun 2022 = 96 kbd \u00d7 10.19% = 9,780 bpd. Restart date is estimated; actual date not disclosed in sources.",
+        "commodity": "pennsylvania_grade",
+        "source_url": "https://www.bradfordera.com/bradford/arg-to-commence-maintenance-shutdown/article_6b35b06f-f5e0-5b66-a4e9-29f1dfc4e12e.html"
+      },
+      {
+        "observation_date": "2023-01-01",
+        "metric": "crude_runs_bpd",
+        "value": 9470,
+        "method": "eia_attributed",
+        "confidence": "low",
+        "notes": "RAP Jan 2023 = 93 kbd. ARG 10.19% share \u2192 9,472 bpd. Denominator ~108 kbd estimated.",
+        "commodity": "pennsylvania_grade",
+        "source_url": "https://www.eia.gov/dnav/pet/hist/LeafHandler.ashx?n=PET&s=M_EPC0_YIY_RAP_2&f=M"
+      },
+      {
+        "observation_date": "2024-01-01",
+        "metric": "crude_runs_bpd",
+        "value": 9680,
+        "method": "eia_attributed",
+        "confidence": "low",
+        "notes": "RAP Jan 2024 = 95 kbd. ARG 10.19% share \u2192 9,674 bpd. Denominator ~108 kbd estimated. Note: RAP Oct 2024 = 54 kbd (sharp district dip, likely another large refinery TAR, not attributable to ARG).",
+        "commodity": "pennsylvania_grade",
+        "source_url": "https://www.eia.gov/dnav/pet/hist/LeafHandler.ashx?n=PET&s=M_EPC0_YIY_RAP_2&f=M"
+      },
+      {
+        "observation_date": "2025-01-01",
+        "metric": "crude_runs_bpd",
+        "value": 10080,
+        "method": "eia_attributed",
+        "confidence": "low",
+        "notes": "RAP Jan 2025 = 99 kbd. ARG 10.19% share \u2192 10,083 bpd. Denominator ~108 kbd estimated. Note: RAP Apr\u2013May 2025 dipped to 79\u201381 kbd; likely another district refinery TAR. ARG's own 3-year cycle from 2022 TAR would suggest a 2025 TAR, but no direct confirmation found in sources as of research date.",
+        "commodity": "pennsylvania_grade",
+        "source_url": "https://www.eia.gov/dnav/pet/hist/LeafHandler.ashx?n=PET&s=M_EPC0_YIY_RAP_2&f=M"
+      },
+      {
+        "observation_date": "2026-01-01",
+        "metric": "crude_runs_bpd",
+        "value": 9270,
+        "method": "eia_attributed",
+        "confidence": "low",
+        "notes": "RAP Jan 2026 = 91 kbd. ARG 10.19% share \u2192 9,268 bpd. Denominator ~108 kbd estimated.",
+        "commodity": "pennsylvania_grade",
+        "source_url": "https://www.eia.gov/dnav/pet/hist/LeafHandler.ashx?n=PET&s=M_EPC0_YIY_RAP_2&f=M"
+      },
+      {
+        "observation_date": "2026-03-03",
+        "metric": "crude_runs_bpd",
+        "value": 7200,
+        "method": "news_turnaround_adjusted",
+        "confidence": "low",
+        "notes": "Second-alarm fire at Platformer Unit confirmed 3 March 2026. Platformer offline for restoration; work still ongoing mid-April 2026. Crude distillation and lubes processing train estimated to continue operating. Estimated throughput reduction of ~35% (platformer primarily serves naphtha-to-reformate/gasoline pathway; lubes/base-oil route unaffected). Value is speculative \u2014 exact capacity impact not disclosed in sources. Fire under control by ~05:00 same day.",
+        "commodity": "pennsylvania_grade",
+        "source_url": "https://www.bradfordera.com/2026/03/03/no-injuries-overnight-fire-american-refining-group/"
+      },
+      {
+        "observation_date": "2015-01-01",
+        "metric": "capacity_bpd",
+        "value": 11000,
+        "method": "investor_presentation",
+        "confidence": "high",
+        "notes": "ARG's rated capacity of 11,000 bpd confirmed on official website and multiple sources. Capacity reportedly grew to 11,000 bpd after the 1997 acquisition; earlier articles (~2012) cited 9,000\u201310,000 bpd. Using 11,000 bpd from 2015 onwards as per current official figure.",
+        "commodity": "crude",
+        "source_url": "https://www.amref.com/about/"
+      }
+    ],
+    "slate_obs": [],
+    "sources": [
+      {
+        "url": "https://www.amref.com/about/",
+        "title": "American Refining Group \u2013 About (official website)",
+        "publisher": "American Refining Group, Inc.",
+        "document_type": "other",
+        "published_date": "",
+        "notes": "Primary source confirming 11,000 bpd capacity, 3 processing areas (crude distillation, naphtha splitter/platformer, lubes train), isomerisation unit, hydrotreater, propane dewaxing, 340+ employees, 131 acres, 375 tanks, founded 1881, acquired by ARG 1997."
+      },
+      {
+        "url": "https://www.lubesngreases.com/magazine/12_12/history-and-a-future/",
+        "title": "History, and a Future \u2013 Lubes'N'Greases profile of ARG Bradford",
+        "publisher": "Lubes'N'Greases",
+        "document_type": "trade_press",
+        "published_date": "2012-12-01",
+        "notes": "Confirms 100% Pennsylvania Grade crude; slate shift from 1/3 PA + 2/3 OH in 1997 to 60% PA by 2012. Capacity ~9,000\u201310,000 bpd at time of article. Annual crude purchases ~$150m. New 3,500 bpd hydrogenation unit planned (2007 startup)."
+      },
+      {
+        "url": "https://www.bradfordera.com/2026/03/03/no-injuries-overnight-fire-american-refining-group/",
+        "title": "No injuries in overnight fire at American Refining Group \u2013 Bradford Era",
+        "publisher": "The Bradford Era",
+        "document_type": "news",
+        "published_date": "2026-03-03",
+        "notes": "Second-alarm fire at ARG Platformer Unit at 3:53 a.m. 3 March 2026. No injuries. Bradford City Fire Department responded. Fire under control by ~5 a.m. Restoration work ongoing as at mid-April 2026 (Mill Street closure)."
+      },
+      {
+        "url": "https://www.bradfordera.com/bradford/arg-to-commence-maintenance-shutdown/article_6b35b06f-f5e0-5b66-a4e9-29f1dfc4e12e.html",
+        "title": "ARG to commence maintenance shutdown \u2013 Bradford Era (April 2019)",
+        "publisher": "The Bradford Era",
+        "document_type": "news",
+        "published_date": "2019-04-27",
+        "notes": "Confirms ARG undertakes turnarounds approximately every 3 years. Bulk fuel loading and lube blending/packaging continue during TAR. This article appears to cover the April 2019 maintenance shutdown."
+      },
+      {
+        "url": "https://www.amref.com/2021/12/22/arg-chairman-ceo-harry-halloran-jr-passes/",
+        "title": "ARG Chairman, CEO Harry Halloran Jr. passes \u2013 ARG press release",
+        "publisher": "American Refining Group, Inc.",
+        "document_type": "press_release",
+        "published_date": "2021-12-22",
+        "notes": "Harry R. Halloran Jr. died 18 December 2021. Son Neil Halloran assumed ARG Chairman of the Board. Succession planned in advance after Halloran Sr. suffered a stroke."
+      },
+      {
+        "url": "https://www.amref.com/about/news/",
+        "title": "ARG News \u2013 American Refining Group official news page",
+        "publisher": "American Refining Group, Inc.",
+        "document_type": "press_release",
+        "published_date": "",
+        "notes": "Lists news items 2021\u20132026: Harry Halloran Jr. death (Dec 2021), hydrotreated base oil expansion (Dec 2022), Krogmeier becomes president/COO (Apr 2024), Unison Energy microgrid construction (Apr 2026)."
+      },
+      {
+        "url": "https://www.eia.gov/dnav/pet/hist/LeafHandler.ashx?n=PET&s=8_NA_8D0_SWV_4&f=A",
+        "title": "EIA \u2013 West Virginia Operable Atmospheric Crude Oil Distillation Capacity (Annual)",
+        "publisher": "U.S. Energy Information Administration",
+        "document_type": "eia",
+        "published_date": "",
+        "notes": "WV operable crude distillation capacity stable at 22,300 bpd (bpcd) from 2015 through 2025. Used as partial denominator for Appalachian No.1 (RAP) district capacity estimation."
+      },
+      {
+        "url": "https://www.eia.gov/dnav/pet/hist/LeafHandler.ashx?n=PET&s=M_EPC0_YIY_RAP_2&f=M",
+        "title": "EIA \u2013 PADD 1 Appalachian No.1 Refining District Crude Inputs (Monthly, kbd)",
+        "publisher": "U.S. Energy Information Administration",
+        "document_type": "eia",
+        "published_date": "",
+        "notes": "Series M_EPC0_YIY_RAP_2. Monthly crude inputs for the Appalachian No.1 district (RAP), January 2015 \u2013 February 2026. Used to derive ARG Bradford attributed crude runs at ~10.19% capacity share (11,000 bpd ARG \u00f7 ~108,000 bpd estimated total RAP district capacity). Denominator is estimated; confidence is low."
+      },
+      {
+        "url": "https://www.pegasustsi.com/project/american-refining-group-new-lube-oil-hydrotreater/",
+        "title": "American Refining Group New Lube Oil Hydrotreater \u2013 Pegasus TSI project page",
+        "publisher": "Pegasus TSI",
+        "document_type": "other",
+        "published_date": "",
+        "notes": "Front End Loading (FEL) study for a new lube oil hydrotreater at Bradford PA, April 2014 \u2013 January 2015. Scope: Basic Engineering and \u00b110% capital cost estimate. No capacity in bpd disclosed on the project page. Confirms a second hydrotreater project post-2014."
+      },
+      {
+        "url": "https://www.eia.gov/dnav/pet/pet_pnp_cap1_dcu_SPA_a.htm",
+        "title": "EIA \u2013 Pennsylvania Number and Capacity of Petroleum Refineries (Annual)",
+        "publisher": "U.S. Energy Information Administration",
+        "document_type": "eia",
+        "published_date": "",
+        "notes": "Pennsylvania total operable atmospheric distillation capacity: 601,000 bpcd in 2020 (including 335,000 bpcd idle \u2014 the former Philadelphia Energy Solutions plant); 266,000\u2013268,000 bpcd from 2021 onwards across 3 operating refineries. The larger PA refineries (PADD 1B East Coast) are not in the Appalachian No.1 (RAP) district."
+      }
+    ],
+    "commodities": [],
+    "primary_commodity": "pennsylvania_grade",
+    "summary": "American Refining Group Inc. (Bradford, PA) is a privately held, family-owned specialty refinery operating since 1881 \u2014 the longest continuously operating refinery in North America \u2014 with a rated capacity of 11,000 bpd, exclusively processing PENN-GRADE\u2122 Pennsylvania Grade light sweet paraffinic crude sourced from Pennsylvania, Ohio, New York, and West Virginia. The facility runs three major processing areas (crude distillation with multiple draws, naphtha splitter and platformer/reformer, and a lubes processing train), plus an isomerisation unit (installed 2003), a hydrotreater (~3,500 bpd, 2008; second lube-oil hydrotreater project in 2014\u201315), and a propane dewaxing plant \u2014 with no FCC, coker, or hydrocracker. Confirmed events in the past five years include a planned maintenance turnaround in April 2022 (completing ARG's ~3-year cycle from the 2019 TAR), the death of founder-acquirer Harry Halloran Jr. in December 2021 (succeeded as Chairman by son Neil Halloran), a leadership transition to President/COO Krogmeier in April 2024, a second-alarm fire at the Platformer Unit on 3 March 2026 (restoration ongoing mid-April 2026), and a microgrid construction project launched April 2026. Key gaps: no public financial data (ARG is privately held with no SEC filings); exact total RAP district capacity denominator is estimated at ~108 kbd (giving ARG ~10.2% of district crude inputs) but not directly confirmed; per-unit capacities for the reformer and isomerisation unit are not publicly disclosed; and a potential 2025 turnaround (consistent with the 3-year cycle) was not confirmed in available sources."
+  },
+  "run_meta": {
+    "model": "claude-sonnet-4-6",
+    "started_at": "2026-05-26 15:14:16.377148",
+    "finished_at": "2026-05-26 15:28:33.008351",
+    "tool_calls": 72,
+    "tokens_in": 0,
+    "tokens_out": 0,
+    "cost_usd": 2.0064170000000003,
+    "status": "success",
+    "error": null,
+    "run_id": 1
+  }
+}

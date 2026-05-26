@@ -1,0 +1,466 @@
+{
+  "refinery": {
+    "refinery_id": "ref_p66_bayway",
+    "name": "PHILLIPS 66 COMPANY \u2014 LINDEN",
+    "padd": "PADD1",
+    "state": "New Jersey",
+    "corporation": "PHILLIPS 66 COMPANY",
+    "operator": "Phillips 66",
+    "site": "LINDEN",
+    "rdist_label": "East Coast",
+    "capacity_bpd": 258500,
+    "duoarea_code": "REC",
+    "existing_units": "has_fcc, has_coker"
+  },
+  "result": {
+    "refinery_id": "ref_p66_bayway",
+    "units": [
+      {
+        "unit_type": "fcc",
+        "capacity_bpd": 145000,
+        "source_url": "https://en.wikipedia.org/wiki/Bayway_Refinery"
+      },
+      {
+        "unit_type": "reformer",
+        "capacity_bpd": 37000,
+        "source_url": "https://en.wikipedia.org/wiki/Bayway_Refinery"
+      },
+      {
+        "unit_type": "hydrotreater",
+        "capacity_bpd": 65500,
+        "source_url": "https://en.wikipedia.org/wiki/Bayway_Refinery"
+      },
+      {
+        "unit_type": "diesel_hydrotreater",
+        "capacity_bpd": 108000,
+        "source_url": "https://en.wikipedia.org/wiki/Bayway_Refinery"
+      },
+      {
+        "unit_type": "alkylation",
+        "capacity_bpd": 18800,
+        "source_url": "https://en.wikipedia.org/wiki/Bayway_Refinery"
+      },
+      {
+        "unit_type": "isomerisation",
+        "capacity_bpd": 4000,
+        "source_url": "https://en.wikipedia.org/wiki/Bayway_Refinery"
+      },
+      {
+        "unit_type": "vacuum_distillation",
+        "capacity_bpd": 75000,
+        "source_url": "https://en.wikipedia.org/wiki/Bayway_Refinery"
+      },
+      {
+        "unit_type": "solvent_deasphalting",
+        "capacity_bpd": 22000,
+        "source_url": "https://en.wikipedia.org/wiki/Bayway_Refinery"
+      }
+    ],
+    "slate": [
+      {
+        "period_start": "2019-01-01",
+        "period_end": "2025-12-31",
+        "grade_name": "North Sea Dated (Brent/Forties/Oseberg complex)",
+        "api_gravity": 38,
+        "sulphur_pct": 0.35,
+        "share_pct": 30,
+        "commodity": "north_sea_dated",
+        "source_url": "https://en.wikipedia.org/wiki/Bayway_Refinery"
+      },
+      {
+        "period_start": "2019-01-01",
+        "period_end": "2025-12-31",
+        "grade_name": "West African Light Sweet (Bonny Light / Qua Iboe / Angolan grades)",
+        "api_gravity": 36,
+        "sulphur_pct": 0.3,
+        "share_pct": 30,
+        "commodity": "west_africa_light",
+        "source_url": "https://en.wikipedia.org/wiki/Bayway_Refinery"
+      },
+      {
+        "period_start": "2019-01-01",
+        "period_end": "2025-12-31",
+        "grade_name": "Canadian Light Sweet (Edmonton Par / MSW)",
+        "api_gravity": 41,
+        "sulphur_pct": 0.25,
+        "share_pct": 25,
+        "commodity": "canadian_light_sweet",
+        "source_url": "https://en.wikipedia.org/wiki/Bayway_Refinery"
+      },
+      {
+        "period_start": "2019-01-01",
+        "period_end": "2025-12-31",
+        "grade_name": "Bakken Light Sweet (via rail from North Dakota)",
+        "api_gravity": 42,
+        "sulphur_pct": 0.2,
+        "share_pct": 15,
+        "commodity": "bakken_light",
+        "source_url": "https://en.wikipedia.org/wiki/Bayway_Refinery"
+      }
+    ],
+    "events": [
+      {
+        "event_type": "turnaround",
+        "start_date": "2024-09-01",
+        "end_date": "2024-10-15",
+        "units_affected": "crude distillation, vacuum distillation",
+        "capacity_impact_bpd": 130000,
+        "description": "Planned autumn 2024 turnaround on crude and vacuum distillation units. Reported by Industrial Info Resources (IIR) and cited in a June 2024 BusinessWire Industrial Info alert as scheduled to begin September and end mid-October 2024. Capacity impact estimated at ~130,000 bpd (one distillation train offline). Q3 2024 company-wide turnaround expense rose to $137M.",
+        "source_url": "https://www.businesswire.com/news/home/20240605005911/en/Even-in-Summer-U.S.-Refiners-Keep-Tabs-on-Maintenance-an-Industrial-Info-News-Alert"
+      },
+      {
+        "event_type": "turnaround",
+        "start_date": "2025-02-15",
+        "end_date": "2025-04-05",
+        "units_affected": "crude distillation (129,500 bpd train), vacuum distillation (75,000 bpd), distillate hydrotreater (29,000 bpd), heavy gas oil hydrotreater (54,000 bpd), reformer (26,000 bpd)",
+        "capacity_impact_bpd": 220000,
+        "description": "Major planned spring 2025 turnaround confirmed by IIR via Reuters (March 2025). Described by Phillips 66 as one of the company's largest-ever spring turnaround programmes. ~50-day duration. Units affected: 129,500-bpd distillation train, 75,000-bpd vacuum distillation, 29,000-bpd distillate hydrotreater, 54,000-bpd heavy gas oils hydrotreater, 26,000-bpd reformer. Consistent with EIA East Coast crude inputs falling to 418 kbd in March 2025 \u2014 the lowest level since April 2020. Phillips 66 confirmed managed safely, on-time and under budget.",
+        "source_url": "https://www.tradingview.com/news/reuters.com,2025:newsml_L2N3PO0VD:0-planned-turnaround-ongoing-at-phillips-66-s-bayway-refinery-iir-says/"
+      },
+      {
+        "event_type": "shutdown",
+        "start_date": "2025-07-16",
+        "end_date": "2025-07-20",
+        "units_affected": "multiple units (storm-induced)",
+        "capacity_impact_bpd": 150000,
+        "description": "Rainstorm triggered power outage causing partial shutdown on 16 July 2025. Flooding damaged emissions-monitoring computer at flare stack. Oil leak into Morses Mill Creek reported to NJ DEP. Phillips 66 purchased refined products from New York Harbor spot market. US East Coast refinery utilisation dropped to 54.8% in the reported week (lowest since July 2020). Capacity impact estimated; refinery described as partially shut, not fully offline.",
+        "source_url": "https://inspectioneering.com/news/2025-07-16/11673/storms-trigger-power-outage-at-phillips-66-bayway-refinery"
+      },
+      {
+        "event_type": "fire",
+        "start_date": "2025-08-14",
+        "end_date": "2025-08-17",
+        "units_affected": "FCC (ancillary unit)",
+        "capacity_impact_bpd": 40000,
+        "description": "Fire in an ancillary component of the 145,000-bpd FCC unit on 14 August 2025. No injuries reported. Gasoline production reduced; refinery typically produces ~155,000 bpd of gasoline. Cause undetermined. Resolution expected within a few days. Follows the July 2025 power outage at the same facility. Phillips 66 purchasing gasoline from New York Harbor spot market.",
+        "source_url": "https://energynews.oedigital.com/oil-refineries/2025/08/14/after-fire-phillips-66-bayway-refinery-gasoline-unit-offers-reduced-prices"
+      }
+    ],
+    "financials": [
+      {
+        "period_start": "2023-04-01",
+        "period_end": "2023-06-30",
+        "period_type": "Q2",
+        "throughput_bpd": 1689000,
+        "utilisation_pct": 94,
+        "revenue_usd_m": 0,
+        "ebitda_usd_m": 1148,
+        "source_url": "https://investor.phillips66.com/financial-information/news-releases/news-release-details/2023/Phillips-66-Reports-Third-Quarter-2023-Financial-Results-and-Update-to-Strategic-Priorities/default.aspx"
+      },
+      {
+        "period_start": "2023-07-01",
+        "period_end": "2023-09-30",
+        "period_type": "Q3",
+        "throughput_bpd": 1699000,
+        "utilisation_pct": 95,
+        "revenue_usd_m": 0,
+        "ebitda_usd_m": 1740,
+        "source_url": "https://investor.phillips66.com/financial-information/news-releases/news-release-details/2023/Phillips-66-Reports-Third-Quarter-2023-Financial-Results-and-Update-to-Strategic-Priorities/default.aspx"
+      },
+      {
+        "period_start": "2023-10-01",
+        "period_end": "2023-12-31",
+        "period_type": "Q4",
+        "throughput_bpd": 1703000,
+        "utilisation_pct": 92,
+        "revenue_usd_m": 0,
+        "ebitda_usd_m": 797,
+        "source_url": "https://investor.phillips66.com/financial-information/news-releases/news-release-details/2024/Phillips-66-Delivers-Strong-4Q-2023-Results-Advances-Strategic-Priorities/default.aspx"
+      },
+      {
+        "period_start": "2024-01-01",
+        "period_end": "2024-03-31",
+        "period_type": "Q1",
+        "throughput_bpd": 1590000,
+        "utilisation_pct": 92,
+        "revenue_usd_m": 0,
+        "ebitda_usd_m": 228,
+        "source_url": "https://investor.phillips66.com/financial-information/news-releases/news-release-details/2024/Phillips-66-Reports-1Q-2024-Financial-Results-Highlights-Strategic-Priorities-Progress/default.aspx"
+      },
+      {
+        "period_start": "2024-04-01",
+        "period_end": "2024-06-30",
+        "period_type": "Q2",
+        "throughput_bpd": 1663000,
+        "utilisation_pct": 98,
+        "revenue_usd_m": 0,
+        "ebitda_usd_m": 531,
+        "source_url": "https://investor.phillips66.com/financial-information/news-releases/news-release-details/2024/Strategy-Execution-and-Strong-Operations-Drive-Phillips-66-Second-Quarter-Results/default.aspx"
+      },
+      {
+        "period_start": "2024-07-01",
+        "period_end": "2024-09-30",
+        "period_type": "Q3",
+        "throughput_bpd": 1581000,
+        "utilisation_pct": 94,
+        "revenue_usd_m": 0,
+        "ebitda_usd_m": 188,
+        "source_url": "https://investor.phillips66.com/financial-information/news-releases/news-release-details/2024/Strong-Portfolio-and-Strategic-Priorities-Support-Phillips-66-Third-Quarter-Results/default.aspx"
+      },
+      {
+        "period_start": "2024-10-01",
+        "period_end": "2024-12-31",
+        "period_type": "Q4",
+        "throughput_bpd": 1608000,
+        "utilisation_pct": 94,
+        "revenue_usd_m": 0,
+        "ebitda_usd_m": -298,
+        "source_url": "https://investor.phillips66.com/financial-information/news-releases/news-release-details/2025/Phillips-66-Reports-Fourth-Quarter-Results-and-Announces-Next-Phase-of-Strategic-Initiatives/default.aspx"
+      }
+    ],
+    "runs_obs": [
+      {
+        "observation_date": "2018-01-01",
+        "metric": "crude_runs_bpd",
+        "value": 224020,
+        "method": "eia_attributed",
+        "confidence": "low",
+        "notes": "EIA REC Jan-2018 crude inputs = 974 kbd. Bayway share ~23% of district (pre-PES Philadelphia closure; estimated total REC capacity ~1,100 kbd including PES's 335 kbd). 974 \u00d7 0.23 = 224 kbd. Capped at nameplate 258,500 bpd.",
+        "commodity": "crude",
+        "source_url": "https://www.eia.gov/dnav/pet/hist/LeafHandler.ashx?n=PET&s=M_EPC0_YIY_REC_2&f=M"
+      },
+      {
+        "observation_date": "2019-07-01",
+        "metric": "crude_runs_bpd",
+        "value": 258500,
+        "method": "eia_attributed",
+        "confidence": "low",
+        "notes": "EIA REC Jul-2019 crude inputs = 786 kbd. Share switches to 34% post-PES Philadelphia closure (June 2019; PES 335 kbd exited district). 786 \u00d7 0.34 = 267 kbd \u2014 exceeds nameplate 258,500, capped at 100% utilisation. Bayway likely running near-full in summer 2019.",
+        "commodity": "crude",
+        "source_url": "https://www.eia.gov/dnav/pet/hist/LeafHandler.ashx?n=PET&s=M_EPC0_YIY_REC_2&f=M"
+      },
+      {
+        "observation_date": "2020-01-01",
+        "metric": "crude_runs_bpd",
+        "value": 226440,
+        "method": "eia_attributed",
+        "confidence": "low",
+        "notes": "EIA REC Jan-2020 = 666 kbd. Bayway share 34% (post-PES). 666 \u00d7 0.34 = 226,440 bpd (~87.6% utilisation). Pre-COVID baseline.",
+        "commodity": "crude",
+        "source_url": "https://www.eia.gov/dnav/pet/hist/LeafHandler.ashx?n=PET&s=M_EPC0_YIY_REC_2&f=M"
+      },
+      {
+        "observation_date": "2020-04-01",
+        "metric": "crude_runs_bpd",
+        "value": 151300,
+        "method": "eia_attributed",
+        "confidence": "low",
+        "notes": "EIA REC Apr-2020 = 445 kbd (COVID demand collapse). 445 \u00d7 0.34 = 151,300 bpd (~58.5% utilisation). Consistent with S&P Global reporting Bayway running at ~50% in April 2020 on demand hit.",
+        "commodity": "crude",
+        "source_url": "https://www.eia.gov/dnav/pet/hist/LeafHandler.ashx?n=PET&s=M_EPC0_YIY_REC_2&f=M"
+      },
+      {
+        "observation_date": "2021-01-01",
+        "metric": "crude_runs_bpd",
+        "value": 171700,
+        "method": "eia_attributed",
+        "confidence": "low",
+        "notes": "EIA REC Jan-2021 = 505 kbd. Bayway share 34%. 505 \u00d7 0.34 = 171,700 bpd (~66.4% utilisation). Post-COVID partial recovery, demand still suppressed.",
+        "commodity": "crude",
+        "source_url": "https://www.eia.gov/dnav/pet/hist/LeafHandler.ashx?n=PET&s=M_EPC0_YIY_REC_2&f=M"
+      },
+      {
+        "observation_date": "2022-01-01",
+        "metric": "crude_runs_bpd",
+        "value": 203320,
+        "method": "eia_attributed",
+        "confidence": "low",
+        "notes": "EIA REC Jan-2022 = 598 kbd. Bayway share 34%. 598 \u00d7 0.34 = 203,320 bpd (~78.7% utilisation). Post-COVID demand recovery underway.",
+        "commodity": "crude",
+        "source_url": "https://www.eia.gov/dnav/pet/hist/LeafHandler.ashx?n=PET&s=M_EPC0_YIY_REC_2&f=M"
+      },
+      {
+        "observation_date": "2023-01-01",
+        "metric": "crude_runs_bpd",
+        "value": 229160,
+        "method": "eia_attributed",
+        "confidence": "low",
+        "notes": "EIA REC Jan-2023 = 674 kbd. Bayway share 34%. 674 \u00d7 0.34 = 229,160 bpd (~88.6% utilisation). Back near normal operating rates.",
+        "commodity": "crude",
+        "source_url": "https://www.eia.gov/dnav/pet/hist/LeafHandler.ashx?n=PET&s=M_EPC0_YIY_REC_2&f=M"
+      },
+      {
+        "observation_date": "2024-01-01",
+        "metric": "crude_runs_bpd",
+        "value": 204000,
+        "method": "eia_attributed",
+        "confidence": "low",
+        "notes": "EIA REC Jan-2024 = 600 kbd. Bayway share 34%. 600 \u00d7 0.34 = 204,000 bpd (~78.9% utilisation). Slight dip in January, consistent with winter demand profile.",
+        "commodity": "crude",
+        "source_url": "https://www.eia.gov/dnav/pet/hist/LeafHandler.ashx?n=PET&s=M_EPC0_YIY_REC_2&f=M"
+      },
+      {
+        "observation_date": "2024-05-01",
+        "metric": "crude_runs_bpd",
+        "value": 249220,
+        "method": "eia_attributed",
+        "confidence": "low",
+        "notes": "EIA REC May-2024 = 733 kbd (highest month in 2024). Bayway share 34%. 733 \u00d7 0.34 = 249,220 bpd (~96.4% utilisation). Consistent with company-wide 98% utilisation reported for Q2 2024.",
+        "commodity": "crude",
+        "source_url": "https://www.eia.gov/dnav/pet/hist/LeafHandler.ashx?n=PET&s=M_EPC0_YIY_REC_2&f=M"
+      },
+      {
+        "observation_date": "2024-09-01",
+        "metric": "crude_runs_bpd",
+        "value": 231880,
+        "method": "eia_attributed",
+        "confidence": "low",
+        "notes": "EIA REC Sep-2024 = 682 kbd. Bayway share 34%. 682 \u00d7 0.34 = 231,880 bpd. Confirmed fall 2024 turnaround on crude and vacuum distillation units began September 2024 (IIR/BusinessWire); district-level EIA data does not isolate Bayway's individual impact, so this figure reflects the aggregate attribution.",
+        "commodity": "crude",
+        "source_url": "https://www.eia.gov/dnav/pet/hist/LeafHandler.ashx?n=PET&s=M_EPC0_YIY_REC_2&f=M"
+      },
+      {
+        "observation_date": "2025-01-01",
+        "metric": "crude_runs_bpd",
+        "value": 216240,
+        "method": "eia_attributed",
+        "confidence": "low",
+        "notes": "EIA REC Jan-2025 = 636 kbd. Bayway share 34%. 636 \u00d7 0.34 = 216,240 bpd (~83.7% utilisation). Pre-spring turnaround baseline for 2025.",
+        "commodity": "crude",
+        "source_url": "https://www.eia.gov/dnav/pet/hist/LeafHandler.ashx?n=PET&s=M_EPC0_YIY_REC_2&f=M"
+      },
+      {
+        "observation_date": "2025-02-15",
+        "metric": "crude_runs_bpd",
+        "value": 55000,
+        "method": "news_turnaround_adjusted",
+        "confidence": "medium",
+        "notes": "Spring 2025 major turnaround confirmed by Reuters/IIR: started mid-February 2025, ~50 days, one of Phillips 66's largest-ever spring programmes. EIA REC Feb-2025 dropped to 479 kbd and Mar-2025 to 418 kbd (lowest since Apr 2020). Backing out other-district refineries at ~442 kbd normal rate, Bayway contributed only ~37 kbd in Feb and ~0 in Mar \u2014 consistent with essentially-full shutdown. Used 55,000 bpd as conservative turnaround floor (minimal essential operations).",
+        "commodity": "crude",
+        "source_url": "https://www.tradingview.com/news/reuters.com,2025:newsml_L2N3PO0VD:0-planned-turnaround-ongoing-at-phillips-66-s-bayway-refinery-iir-says/"
+      },
+      {
+        "observation_date": "2025-04-06",
+        "metric": "crude_runs_bpd",
+        "value": 216580,
+        "method": "news_turnaround_adjusted",
+        "confidence": "medium",
+        "notes": "Post-spring 2025 turnaround recovery. Phillips 66 confirmed TAR completed on-time and under budget. EIA REC Apr-2025 = 637 kbd; 637 \u00d7 0.34 = 216,580 bpd. Return to normal operating rate (~83.8% utilisation). LOCF carries this rate forward until next observation.",
+        "commodity": "crude",
+        "source_url": "https://www.tradingview.com/news/reuters.com,2025:newsml_L2N3PO0VD:0-planned-turnaround-ongoing-at-phillips-66-s-bayway-refinery-iir-says/"
+      }
+    ],
+    "slate_obs": [],
+    "sources": [
+      {
+        "url": "https://en.wikipedia.org/wiki/Bayway_Refinery",
+        "title": "Bayway Refinery \u2014 Wikipedia",
+        "publisher": "Wikipedia",
+        "document_type": "other",
+        "published_date": "2024-01-01",
+        "notes": "Comprehensive summary of process units (2023 AFPM/EIA Survey capacities), ownership history, crude feedstock origins, and polypropylene plant details."
+      },
+      {
+        "url": "https://www.phillips66.com/refining/bayway-refinery/",
+        "title": "Bayway Refinery \u2014 Phillips 66 Official Site",
+        "publisher": "Phillips 66",
+        "document_type": "other",
+        "published_date": "2024-01-01",
+        "notes": "Official refinery page: 275 MBD crude throughput, 285 MBD total throughput, Nelson complexity factor 8.1, 92% clean product yield, 695 employees, 1,235 acres site. Product list includes gasoline, ULSD, jet fuel, bunker fuel, propane, polypropylene, iso-butylene."
+      },
+      {
+        "url": "https://www.tradingview.com/news/reuters.com,2025:newsml_L2N3PO0VD:0-planned-turnaround-ongoing-at-phillips-66-s-bayway-refinery-iir-says/",
+        "title": "Planned turnaround ongoing at Phillips 66's Bayway refinery, IIR says \u2014 Reuters/TradingView",
+        "publisher": "Reuters via TradingView",
+        "document_type": "news",
+        "published_date": "2025-03-05",
+        "notes": "IIR confirms spring 2025 Bayway turnaround underway. Units affected: 129,500-bpd distillation, 75,000-bpd vacuum distillation, 29,000-bpd distillate hydrotreater, 54,000-bpd heavy gas oils hydrotreater, 26,000-bpd reformer. Started mid-February, expected ~50 days until early April."
+      },
+      {
+        "url": "https://energynews.oedigital.com/oil-refineries/2025/08/14/after-fire-phillips-66-bayway-refinery-gasoline-unit-offers-reduced-prices",
+        "title": "After fire, Phillips 66 Bayway refinery gasoline unit offers reduced prices \u2014 Energy News OE Digital",
+        "publisher": "OE Digital / Energy News",
+        "document_type": "news",
+        "published_date": "2025-08-14",
+        "notes": "August 2025 fire at ancillary unit of FCC. No injuries. Refinery produces ~155,000 bpd gasoline normally. Company sourcing products from New York Harbor spot market. Resolution expected within days."
+      },
+      {
+        "url": "https://inspectioneering.com/news/2025-07-16/11673/storms-trigger-power-outage-at-phillips-66-bayway-refinery",
+        "title": "Storms Trigger Power Outage at Phillips 66 Bayway Refinery \u2014 Inspectioneering",
+        "publisher": "Inspectioneering",
+        "document_type": "news",
+        "published_date": "2025-07-16",
+        "notes": "Rainstorms caused power outage, partial shutdown. Emission monitor at flare stack damaged by flooding; oil leak into Morses Mill Creek reported. Phillips 66 buying refined products from New York Harbor market."
+      },
+      {
+        "url": "https://investor.phillips66.com/financial-information/news-releases/news-release-details/2024/Phillips-66-Delivers-Strong-4Q-2023-Results-Advances-Strategic-Priorities/default.aspx",
+        "title": "Phillips 66 Q4 2023 Earnings Release",
+        "publisher": "Phillips 66",
+        "document_type": "press_release",
+        "published_date": "2024-01-31",
+        "notes": "Q4 2023: 92% crude utilisation, 156,720 thousand barrels total inputs, adjusted pre-tax income $797M, turnaround expense $100M. FY2023 adjusted pre-tax income $5,293M."
+      },
+      {
+        "url": "https://investor.phillips66.com/financial-information/news-releases/news-release-details/2023/Phillips-66-Reports-Third-Quarter-2023-Financial-Results-and-Update-to-Strategic-Priorities/default.aspx",
+        "title": "Phillips 66 Q3 2023 Earnings Release",
+        "publisher": "Phillips 66",
+        "document_type": "press_release",
+        "published_date": "2023-10-27",
+        "notes": "Q3 2023: 95% crude utilisation (highest since 2019), 156,300 thousand barrels inputs, adj pre-tax income $1,740M. Q2 2023: 153,663 thousand barrels inputs, adj pre-tax income $1,148M."
+      },
+      {
+        "url": "https://investor.phillips66.com/financial-information/news-releases/news-release-details/2024/Phillips-66-Reports-1Q-2024-Financial-Results-Highlights-Strategic-Priorities-Progress/default.aspx",
+        "title": "Phillips 66 Q1 2024 Earnings Release",
+        "publisher": "Phillips 66",
+        "document_type": "press_release",
+        "published_date": "2024-05-03",
+        "notes": "Q1 2024: 92% crude utilisation, 144,730 thousand barrels total inputs, adj pre-tax income $228M, turnaround expense $160M (incl $36M Rodeo)."
+      },
+      {
+        "url": "https://investor.phillips66.com/financial-information/news-releases/news-release-details/2024/Strategy-Execution-and-Strong-Operations-Drive-Phillips-66-Second-Quarter-Results/default.aspx",
+        "title": "Phillips 66 Q2 2024 Earnings Release",
+        "publisher": "Phillips 66",
+        "document_type": "press_release",
+        "published_date": "2024-08-02",
+        "notes": "Q2 2024: 98% crude utilisation, 151.3 million barrels total inputs, adj pre-tax income $302M, adj EBITDA $531M, turnaround expense $100M."
+      },
+      {
+        "url": "https://investor.phillips66.com/financial-information/news-releases/news-release-details/2024/Strong-Portfolio-and-Strategic-Priorities-Support-Phillips-66-Third-Quarter-Results/default.aspx",
+        "title": "Phillips 66 Q3 2024 Earnings Release",
+        "publisher": "Phillips 66",
+        "document_type": "press_release",
+        "published_date": "2024-10-25",
+        "notes": "Q3 2024: 94% crude utilisation, 145,440 thousand barrels total inputs, adj pre-tax loss $(67)M, adj EBITDA $188M, turnaround expense $137M. LA Refinery shutdown costs $41M."
+      },
+      {
+        "url": "https://investor.phillips66.com/financial-information/news-releases/news-release-details/2025/Phillips-66-Reports-Fourth-Quarter-Results-and-Announces-Next-Phase-of-Strategic-Initiatives/default.aspx",
+        "title": "Phillips 66 Q4 2024 Earnings Release",
+        "publisher": "Phillips 66",
+        "document_type": "press_release",
+        "published_date": "2025-01-31",
+        "notes": "Q4 2024: 94% crude utilisation, 147.9 million barrels total inputs, adj pre-tax loss $(759)M, adj EBITDA $(298)M, turnaround expense $123M. LA refinery accelerated depreciation $230M."
+      },
+      {
+        "url": "https://www.eia.gov/dnav/pet/hist/LeafHandler.ashx?n=PET&s=M_EPC0_YIY_REC_2&f=M",
+        "title": "EIA PADD 1 East Coast Refining District Crude Inputs \u2014 Monthly (Series M_EPC0_YIY_REC_2)",
+        "publisher": "US Energy Information Administration",
+        "document_type": "eia",
+        "published_date": "2025-05-01",
+        "notes": "Monthly crude inputs to atmospheric distillation for the PADD 1 East Coast refining district (REC), kbd, January 2018 to February 2026. Used for capacity-share attribution to Bayway (share approx. 23% pre-July 2019; approx. 34% post-July 2019 following PES Philadelphia closure)."
+      },
+      {
+        "url": "https://catcracking.com/phillips-66-bayway-refinery-reactor-replacement/",
+        "title": "Phillips 66 Bayway Refinery Reactor Replacement \u2014 CatCracking.com",
+        "publisher": "CatCracking.com",
+        "document_type": "trade_press",
+        "published_date": "2018-03-30",
+        "notes": "2018 FCC reactor replacement at Bayway's 145,000 bpd FCCU. New reactor technology projected to increase gasoline and diesel yields by about 4,000 bpd. Describes Bayway as the largest CatCracker on the US East Coast."
+      }
+    ],
+    "commodities": [],
+    "primary_commodity": "crude",
+    "summary": "The Phillips 66 Bayway refinery (Linden, NJ; 258,500 bpd nameplate) is a highly complex FCC-centred gasoline machine, anchored by the largest fluid catalytic cracker on the US East Coast (145,000 bpd) and supported by a full complement of hydrotreating, reforming, alkylation, isomerisation, and solvent deasphalting units \u2014 no coker is present, contradicting the existing DB flag has_coker, which should be reviewed. The crude slate is composed exclusively of light, low-sulphur grades (North Sea, West African, Canadian light sweet, and Bakken via rail), consistent with the absence of residue-upgrade capacity. Four confirmed operational events were recorded for 2024\u20132025: a fall 2024 crude/vacuum turnaround, a major spring 2025 multi-unit turnaround (one of the company's largest-ever, causing EIA East Coast crude inputs to fall to their lowest level since April 2020), a July 2025 storm-induced power outage, and an August 2025 FCC ancillary fire. Gaps: Phillips 66 does not disclose per-refinery financial throughput or margins, so all financials are recorded at company-wide refining-segment level; crude slate percentages are estimated (no public breakdown found); Q1 and Q2 2023 per-period utilisation rates were not explicitly stated; and the EIA-attributed crude-runs series carries low confidence due to the approximate district-capacity share used (34% post-2019)."
+  },
+  "run_meta": {
+    "model": "claude-sonnet-4-6",
+    "started_at": "2026-05-26 15:28:33.129943",
+    "finished_at": "2026-05-26 15:44:50.367485",
+    "tool_calls": 88,
+    "tokens_in": 0,
+    "tokens_out": 0,
+    "cost_usd": 2.2407217499999996,
+    "status": "success",
+    "error": null,
+    "run_id": 2
+  }
+}

@@ -1,0 +1,1669 @@
+{
+  "generated_at": "2026-05-20",
+  "kind": "per_grade_main_group_aggregates",
+  "notes": "Aggregated across all refineries processing each grade, rolling leaf product yields up to their products.oil_products parent. main_group is the parent_code of the leaf product in products.oil_products.",
+  "n_grades": 22,
+  "grades": {
+    "ans": {
+      "motor_gasoline": {
+        "n_refineries": 17,
+        "avg_yield_pct": 39.07,
+        "min_yield_pct": 26.8,
+        "max_yield_pct": 49.2,
+        "stddev_yield_pct": 5.47
+      },
+      "gas_diesel_oil": {
+        "n_refineries": 17,
+        "avg_yield_pct": 29.08,
+        "min_yield_pct": 19.01,
+        "max_yield_pct": 33.0,
+        "stddev_yield_pct": 3.56
+      },
+      "kerosene_type_jet_fuel": {
+        "n_refineries": 17,
+        "avg_yield_pct": 13.21,
+        "min_yield_pct": 6.79,
+        "max_yield_pct": 31.04,
+        "stddev_yield_pct": 6.27
+      },
+      "fuel_oil": {
+        "n_refineries": 17,
+        "avg_yield_pct": 5.9,
+        "min_yield_pct": 1.0,
+        "max_yield_pct": 10.61,
+        "stddev_yield_pct": 4.3
+      },
+      "secondary_oil": {
+        "n_refineries": 17,
+        "avg_yield_pct": 5.08,
+        "min_yield_pct": 2.0,
+        "max_yield_pct": 8.0,
+        "stddev_yield_pct": 1.46
+      },
+      "lpg": {
+        "n_refineries": 17,
+        "avg_yield_pct": 4.05,
+        "min_yield_pct": 2.0,
+        "max_yield_pct": 6.16,
+        "stddev_yield_pct": 1.88
+      },
+      "petroleum_coke": {
+        "n_refineries": 7,
+        "avg_yield_pct": 3.76,
+        "min_yield_pct": 1.98,
+        "max_yield_pct": 5.0,
+        "stddev_yield_pct": 1.08
+      },
+      "lubricants": {
+        "n_refineries": 3,
+        "avg_yield_pct": 3.0,
+        "min_yield_pct": 1.0,
+        "max_yield_pct": 6.0,
+        "stddev_yield_pct": 2.65
+      },
+      "bitumen": {
+        "n_refineries": 4,
+        "avg_yield_pct": 2.52,
+        "min_yield_pct": 1.96,
+        "max_yield_pct": 3.0,
+        "stddev_yield_pct": 0.43
+      },
+      "other_products": {
+        "n_refineries": 6,
+        "avg_yield_pct": 1.53,
+        "min_yield_pct": 0.5,
+        "max_yield_pct": 2.2,
+        "stddev_yield_pct": 0.67
+      },
+      "jet_kerosene": {
+        "n_refineries": 17,
+        "avg_yield_pct": 0.41,
+        "min_yield_pct": 0.21,
+        "max_yield_pct": 0.96,
+        "stddev_yield_pct": 0.19
+      }
+    },
+    "bakken_light": {
+      "motor_gasoline": {
+        "n_refineries": 45,
+        "avg_yield_pct": 43.29,
+        "min_yield_pct": 28.0,
+        "max_yield_pct": 55.01,
+        "stddev_yield_pct": 6.18
+      },
+      "gas_diesel_oil": {
+        "n_refineries": 45,
+        "avg_yield_pct": 29.07,
+        "min_yield_pct": 22.0,
+        "max_yield_pct": 38.0,
+        "stddev_yield_pct": 3.27
+      },
+      "kerosene_type_jet_fuel": {
+        "n_refineries": 45,
+        "avg_yield_pct": 9.72,
+        "min_yield_pct": 1.94,
+        "max_yield_pct": 31.04,
+        "stddev_yield_pct": 4.55
+      },
+      "lubricants": {
+        "n_refineries": 2,
+        "avg_yield_pct": 7.0,
+        "min_yield_pct": 2.0,
+        "max_yield_pct": 12.0,
+        "stddev_yield_pct": 7.07
+      },
+      "secondary_oil": {
+        "n_refineries": 45,
+        "avg_yield_pct": 5.77,
+        "min_yield_pct": 3.0,
+        "max_yield_pct": 8.0,
+        "stddev_yield_pct": 1.0
+      },
+      "lpg": {
+        "n_refineries": 45,
+        "avg_yield_pct": 5.29,
+        "min_yield_pct": 2.0,
+        "max_yield_pct": 7.64,
+        "stddev_yield_pct": 2.32
+      },
+      "fuel_oil": {
+        "n_refineries": 45,
+        "avg_yield_pct": 3.68,
+        "min_yield_pct": 0.5,
+        "max_yield_pct": 6.1,
+        "stddev_yield_pct": 2.22
+      },
+      "petroleum_coke": {
+        "n_refineries": 18,
+        "avg_yield_pct": 3.46,
+        "min_yield_pct": 0.99,
+        "max_yield_pct": 8.0,
+        "stddev_yield_pct": 2.18
+      },
+      "bitumen": {
+        "n_refineries": 9,
+        "avg_yield_pct": 3.37,
+        "min_yield_pct": 1.96,
+        "max_yield_pct": 7.0,
+        "stddev_yield_pct": 1.52
+      },
+      "other_products": {
+        "n_refineries": 13,
+        "avg_yield_pct": 1.77,
+        "min_yield_pct": 0.5,
+        "max_yield_pct": 6.0,
+        "stddev_yield_pct": 1.38
+      },
+      "jet_kerosene": {
+        "n_refineries": 45,
+        "avg_yield_pct": 0.3,
+        "min_yield_pct": 0.06,
+        "max_yield_pct": 0.96,
+        "stddev_yield_pct": 0.14
+      }
+    },
+    "california_heavy": {
+      "bitumen": {
+        "n_refineries": 3,
+        "avg_yield_pct": 40.65,
+        "min_yield_pct": 1.96,
+        "max_yield_pct": 60.0,
+        "stddev_yield_pct": 33.51
+      },
+      "motor_gasoline": {
+        "n_refineries": 15,
+        "avg_yield_pct": 31.87,
+        "min_yield_pct": 3.0,
+        "max_yield_pct": 47.02,
+        "stddev_yield_pct": 12.72
+      },
+      "gas_diesel_oil": {
+        "n_refineries": 15,
+        "avg_yield_pct": 25.4,
+        "min_yield_pct": 10.0,
+        "max_yield_pct": 33.0,
+        "stddev_yield_pct": 7.04
+      },
+      "fuel_oil": {
+        "n_refineries": 15,
+        "avg_yield_pct": 12.85,
+        "min_yield_pct": 1.0,
+        "max_yield_pct": 22.26,
+        "stddev_yield_pct": 9.49
+      },
+      "kerosene_type_jet_fuel": {
+        "n_refineries": 13,
+        "avg_yield_pct": 8.44,
+        "min_yield_pct": 5.7,
+        "max_yield_pct": 21.35,
+        "stddev_yield_pct": 5.03
+      },
+      "secondary_oil": {
+        "n_refineries": 15,
+        "avg_yield_pct": 6.83,
+        "min_yield_pct": 1.5,
+        "max_yield_pct": 17.0,
+        "stddev_yield_pct": 4.34
+      },
+      "petroleum_coke": {
+        "n_refineries": 6,
+        "avg_yield_pct": 5.28,
+        "min_yield_pct": 3.47,
+        "max_yield_pct": 8.25,
+        "stddev_yield_pct": 1.71
+      },
+      "lpg": {
+        "n_refineries": 13,
+        "avg_yield_pct": 5.1,
+        "min_yield_pct": 2.0,
+        "max_yield_pct": 7.7,
+        "stddev_yield_pct": 1.98
+      },
+      "lubricants": {
+        "n_refineries": 3,
+        "avg_yield_pct": 3.0,
+        "min_yield_pct": 1.0,
+        "max_yield_pct": 6.0,
+        "stddev_yield_pct": 2.65
+      },
+      "other_products": {
+        "n_refineries": 3,
+        "avg_yield_pct": 1.17,
+        "min_yield_pct": 0.5,
+        "max_yield_pct": 2.0,
+        "stddev_yield_pct": 0.76
+      },
+      "jet_kerosene": {
+        "n_refineries": 13,
+        "avg_yield_pct": 0.26,
+        "min_yield_pct": 0.18,
+        "max_yield_pct": 0.66,
+        "stddev_yield_pct": 0.16
+      }
+    },
+    "crude": {
+      "motor_gasoline": {
+        "n_refineries": 56,
+        "avg_yield_pct": 40.42,
+        "min_yield_pct": 26.8,
+        "max_yield_pct": 60.0,
+        "stddev_yield_pct": 5.98
+      },
+      "gas_diesel_oil": {
+        "n_refineries": 57,
+        "avg_yield_pct": 29.17,
+        "min_yield_pct": 15.0,
+        "max_yield_pct": 38.41,
+        "stddev_yield_pct": 3.67
+      },
+      "kerosene_type_jet_fuel": {
+        "n_refineries": 56,
+        "avg_yield_pct": 9.88,
+        "min_yield_pct": 1.94,
+        "max_yield_pct": 31.04,
+        "stddev_yield_pct": 4.64
+      },
+      "bitumen": {
+        "n_refineries": 10,
+        "avg_yield_pct": 7.63,
+        "min_yield_pct": 0.94,
+        "max_yield_pct": 50.0,
+        "stddev_yield_pct": 14.98
+      },
+      "fuel_oil": {
+        "n_refineries": 56,
+        "avg_yield_pct": 6.41,
+        "min_yield_pct": 1.0,
+        "max_yield_pct": 30.0,
+        "stddev_yield_pct": 4.56
+      },
+      "secondary_oil": {
+        "n_refineries": 57,
+        "avg_yield_pct": 5.91,
+        "min_yield_pct": 4.0,
+        "max_yield_pct": 8.0,
+        "stddev_yield_pct": 0.73
+      },
+      "lpg": {
+        "n_refineries": 56,
+        "avg_yield_pct": 5.34,
+        "min_yield_pct": 2.0,
+        "max_yield_pct": 7.08,
+        "stddev_yield_pct": 1.87
+      },
+      "petroleum_coke": {
+        "n_refineries": 21,
+        "avg_yield_pct": 4.96,
+        "min_yield_pct": 0.99,
+        "max_yield_pct": 10.0,
+        "stddev_yield_pct": 2.68
+      },
+      "lubricants": {
+        "n_refineries": 3,
+        "avg_yield_pct": 1.67,
+        "min_yield_pct": 1.0,
+        "max_yield_pct": 2.0,
+        "stddev_yield_pct": 0.58
+      },
+      "other_products": {
+        "n_refineries": 16,
+        "avg_yield_pct": 1.41,
+        "min_yield_pct": 0.5,
+        "max_yield_pct": 2.2,
+        "stddev_yield_pct": 0.54
+      },
+      "jet_kerosene": {
+        "n_refineries": 56,
+        "avg_yield_pct": 0.31,
+        "min_yield_pct": 0.06,
+        "max_yield_pct": 0.96,
+        "stddev_yield_pct": 0.14
+      }
+    },
+    "eagle_ford_condensate": {
+      "motor_gasoline": {
+        "n_refineries": 12,
+        "avg_yield_pct": 43.75,
+        "min_yield_pct": 25.0,
+        "max_yield_pct": 50.33,
+        "stddev_yield_pct": 11.33
+      },
+      "gas_diesel_oil": {
+        "n_refineries": 12,
+        "avg_yield_pct": 20.37,
+        "min_yield_pct": 15.0,
+        "max_yield_pct": 32.0,
+        "stddev_yield_pct": 5.71
+      },
+      "secondary_oil": {
+        "n_refineries": 12,
+        "avg_yield_pct": 15.14,
+        "min_yield_pct": 5.5,
+        "max_yield_pct": 40.0,
+        "stddev_yield_pct": 15.0
+      },
+      "kerosene_type_jet_fuel": {
+        "n_refineries": 12,
+        "avg_yield_pct": 11.91,
+        "min_yield_pct": 5.82,
+        "max_yield_pct": 14.55,
+        "stddev_yield_pct": 3.33
+      },
+      "lpg": {
+        "n_refineries": 12,
+        "avg_yield_pct": 6.66,
+        "min_yield_pct": 3.0,
+        "max_yield_pct": 8.98,
+        "stddev_yield_pct": 2.49
+      },
+      "petroleum_coke": {
+        "n_refineries": 3,
+        "avg_yield_pct": 2.48,
+        "min_yield_pct": 1.49,
+        "max_yield_pct": 2.97,
+        "stddev_yield_pct": 0.86
+      },
+      "fuel_oil": {
+        "n_refineries": 9,
+        "avg_yield_pct": 1.3,
+        "min_yield_pct": 1.0,
+        "max_yield_pct": 3.5,
+        "stddev_yield_pct": 0.82
+      },
+      "other_products": {
+        "n_refineries": 3,
+        "avg_yield_pct": 0.83,
+        "min_yield_pct": 0.5,
+        "max_yield_pct": 1.0,
+        "stddev_yield_pct": 0.29
+      },
+      "jet_kerosene": {
+        "n_refineries": 12,
+        "avg_yield_pct": 0.37,
+        "min_yield_pct": 0.18,
+        "max_yield_pct": 0.45,
+        "stddev_yield_pct": 0.1
+      }
+    },
+    "eagle_ford_light": {
+      "motor_gasoline": {
+        "n_refineries": 26,
+        "avg_yield_pct": 41.6,
+        "min_yield_pct": 25.0,
+        "max_yield_pct": 50.03,
+        "stddev_yield_pct": 6.82
+      },
+      "gas_diesel_oil": {
+        "n_refineries": 26,
+        "avg_yield_pct": 26.68,
+        "min_yield_pct": 15.0,
+        "max_yield_pct": 32.02,
+        "stddev_yield_pct": 4.33
+      },
+      "kerosene_type_jet_fuel": {
+        "n_refineries": 26,
+        "avg_yield_pct": 11.35,
+        "min_yield_pct": 4.85,
+        "max_yield_pct": 31.04,
+        "stddev_yield_pct": 5.11
+      },
+      "secondary_oil": {
+        "n_refineries": 26,
+        "avg_yield_pct": 8.7,
+        "min_yield_pct": 4.5,
+        "max_yield_pct": 40.0,
+        "stddev_yield_pct": 9.23
+      },
+      "lpg": {
+        "n_refineries": 26,
+        "avg_yield_pct": 5.73,
+        "min_yield_pct": 2.5,
+        "max_yield_pct": 7.63,
+        "stddev_yield_pct": 2.07
+      },
+      "fuel_oil": {
+        "n_refineries": 24,
+        "avg_yield_pct": 4.11,
+        "min_yield_pct": 1.0,
+        "max_yield_pct": 6.04,
+        "stddev_yield_pct": 2.01
+      },
+      "petroleum_coke": {
+        "n_refineries": 12,
+        "avg_yield_pct": 2.84,
+        "min_yield_pct": 0.99,
+        "max_yield_pct": 8.0,
+        "stddev_yield_pct": 1.93
+      },
+      "lubricants": {
+        "n_refineries": 2,
+        "avg_yield_pct": 1.24,
+        "min_yield_pct": 0.48,
+        "max_yield_pct": 2.0,
+        "stddev_yield_pct": 1.08
+      },
+      "bitumen": {
+        "n_refineries": 2,
+        "avg_yield_pct": 1.21,
+        "min_yield_pct": 0.94,
+        "max_yield_pct": 1.47,
+        "stddev_yield_pct": 0.37
+      },
+      "other_products": {
+        "n_refineries": 7,
+        "avg_yield_pct": 1.07,
+        "min_yield_pct": 0.5,
+        "max_yield_pct": 2.0,
+        "stddev_yield_pct": 0.45
+      },
+      "jet_kerosene": {
+        "n_refineries": 26,
+        "avg_yield_pct": 0.35,
+        "min_yield_pct": 0.15,
+        "max_yield_pct": 0.96,
+        "stddev_yield_pct": 0.16
+      }
+    },
+    "kern_heavy": {
+      "bitumen": {
+        "n_refineries": 3,
+        "avg_yield_pct": 41.33,
+        "min_yield_pct": 4.0,
+        "max_yield_pct": 60.0,
+        "stddev_yield_pct": 32.33
+      },
+      "motor_gasoline": {
+        "n_refineries": 13,
+        "avg_yield_pct": 30.4,
+        "min_yield_pct": 3.0,
+        "max_yield_pct": 45.02,
+        "stddev_yield_pct": 13.23
+      },
+      "gas_diesel_oil": {
+        "n_refineries": 13,
+        "avg_yield_pct": 24.7,
+        "min_yield_pct": 10.0,
+        "max_yield_pct": 33.0,
+        "stddev_yield_pct": 7.27
+      },
+      "fuel_oil": {
+        "n_refineries": 13,
+        "avg_yield_pct": 15.68,
+        "min_yield_pct": 1.5,
+        "max_yield_pct": 25.05,
+        "stddev_yield_pct": 10.86
+      },
+      "kerosene_type_jet_fuel": {
+        "n_refineries": 11,
+        "avg_yield_pct": 7.26,
+        "min_yield_pct": 4.75,
+        "max_yield_pct": 21.35,
+        "stddev_yield_pct": 5.05
+      },
+      "secondary_oil": {
+        "n_refineries": 13,
+        "avg_yield_pct": 7.19,
+        "min_yield_pct": 3.0,
+        "max_yield_pct": 17.0,
+        "stddev_yield_pct": 4.48
+      },
+      "lpg": {
+        "n_refineries": 11,
+        "avg_yield_pct": 4.92,
+        "min_yield_pct": 2.5,
+        "max_yield_pct": 6.02,
+        "stddev_yield_pct": 1.57
+      },
+      "petroleum_coke": {
+        "n_refineries": 4,
+        "avg_yield_pct": 4.86,
+        "min_yield_pct": 3.47,
+        "max_yield_pct": 7.0,
+        "stddev_yield_pct": 1.57
+      },
+      "lubricants": {
+        "n_refineries": 2,
+        "avg_yield_pct": 1.5,
+        "min_yield_pct": 1.0,
+        "max_yield_pct": 2.0,
+        "stddev_yield_pct": 0.71
+      },
+      "other_products": {
+        "n_refineries": 3,
+        "avg_yield_pct": 1.17,
+        "min_yield_pct": 0.5,
+        "max_yield_pct": 2.0,
+        "stddev_yield_pct": 0.76
+      },
+      "jet_kerosene": {
+        "n_refineries": 11,
+        "avg_yield_pct": 0.22,
+        "min_yield_pct": 0.15,
+        "max_yield_pct": 0.66,
+        "stddev_yield_pct": 0.16
+      }
+    },
+    "lls": {
+      "motor_gasoline": {
+        "n_refineries": 24,
+        "avg_yield_pct": 38.91,
+        "min_yield_pct": 31.96,
+        "max_yield_pct": 60.0,
+        "stddev_yield_pct": 5.39
+      },
+      "gas_diesel_oil": {
+        "n_refineries": 24,
+        "avg_yield_pct": 30.69,
+        "min_yield_pct": 18.0,
+        "max_yield_pct": 39.49,
+        "stddev_yield_pct": 4.14
+      },
+      "kerosene_type_jet_fuel": {
+        "n_refineries": 24,
+        "avg_yield_pct": 9.87,
+        "min_yield_pct": 3.88,
+        "max_yield_pct": 10.67,
+        "stddev_yield_pct": 1.75
+      },
+      "fuel_oil": {
+        "n_refineries": 24,
+        "avg_yield_pct": 6.78,
+        "min_yield_pct": 2.0,
+        "max_yield_pct": 8.26,
+        "stddev_yield_pct": 2.41
+      },
+      "lpg": {
+        "n_refineries": 24,
+        "avg_yield_pct": 6.18,
+        "min_yield_pct": 3.0,
+        "max_yield_pct": 6.94,
+        "stddev_yield_pct": 1.12
+      },
+      "secondary_oil": {
+        "n_refineries": 24,
+        "avg_yield_pct": 6.02,
+        "min_yield_pct": 5.0,
+        "max_yield_pct": 10.0,
+        "stddev_yield_pct": 0.88
+      },
+      "petroleum_coke": {
+        "n_refineries": 7,
+        "avg_yield_pct": 3.32,
+        "min_yield_pct": 0.99,
+        "max_yield_pct": 6.0,
+        "stddev_yield_pct": 1.92
+      },
+      "other_products": {
+        "n_refineries": 2,
+        "avg_yield_pct": 2.0,
+        "min_yield_pct": 1.0,
+        "max_yield_pct": 3.0,
+        "stddev_yield_pct": 1.41
+      },
+      "bitumen": {
+        "n_refineries": 1,
+        "avg_yield_pct": 1.47,
+        "min_yield_pct": 1.47,
+        "max_yield_pct": 1.47,
+        "stddev_yield_pct": null
+      },
+      "lubricants": {
+        "n_refineries": 1,
+        "avg_yield_pct": 1.0,
+        "min_yield_pct": 1.0,
+        "max_yield_pct": 1.0,
+        "stddev_yield_pct": null
+      },
+      "jet_kerosene": {
+        "n_refineries": 24,
+        "avg_yield_pct": 0.31,
+        "min_yield_pct": 0.12,
+        "max_yield_pct": 0.33,
+        "stddev_yield_pct": 0.05
+      }
+    },
+    "mars": {
+      "motor_gasoline": {
+        "n_refineries": 28,
+        "avg_yield_pct": 42.33,
+        "min_yield_pct": 30.07,
+        "max_yield_pct": 60.0,
+        "stddev_yield_pct": 7.01
+      },
+      "gas_diesel_oil": {
+        "n_refineries": 28,
+        "avg_yield_pct": 30.82,
+        "min_yield_pct": 18.0,
+        "max_yield_pct": 40.97,
+        "stddev_yield_pct": 5.11
+      },
+      "kerosene_type_jet_fuel": {
+        "n_refineries": 28,
+        "avg_yield_pct": 7.85,
+        "min_yield_pct": 3.88,
+        "max_yield_pct": 11.65,
+        "stddev_yield_pct": 2.07
+      },
+      "secondary_oil": {
+        "n_refineries": 28,
+        "avg_yield_pct": 5.33,
+        "min_yield_pct": 2.0,
+        "max_yield_pct": 10.0,
+        "stddev_yield_pct": 1.76
+      },
+      "fuel_oil": {
+        "n_refineries": 28,
+        "avg_yield_pct": 4.74,
+        "min_yield_pct": 1.5,
+        "max_yield_pct": 11.29,
+        "stddev_yield_pct": 3.96
+      },
+      "petroleum_coke": {
+        "n_refineries": 21,
+        "avg_yield_pct": 4.56,
+        "min_yield_pct": 0.99,
+        "max_yield_pct": 10.0,
+        "stddev_yield_pct": 2.07
+      },
+      "lpg": {
+        "n_refineries": 28,
+        "avg_yield_pct": 4.38,
+        "min_yield_pct": 2.5,
+        "max_yield_pct": 6.9,
+        "stddev_yield_pct": 1.66
+      },
+      "lubricants": {
+        "n_refineries": 5,
+        "avg_yield_pct": 2.1,
+        "min_yield_pct": 0.48,
+        "max_yield_pct": 5.0,
+        "stddev_yield_pct": 1.75
+      },
+      "bitumen": {
+        "n_refineries": 3,
+        "avg_yield_pct": 1.46,
+        "min_yield_pct": 0.94,
+        "max_yield_pct": 1.96,
+        "stddev_yield_pct": 0.51
+      },
+      "other_products": {
+        "n_refineries": 7,
+        "avg_yield_pct": 1.41,
+        "min_yield_pct": 0.5,
+        "max_yield_pct": 3.0,
+        "stddev_yield_pct": 0.84
+      },
+      "jet_kerosene": {
+        "n_refineries": 28,
+        "avg_yield_pct": 0.24,
+        "min_yield_pct": 0.12,
+        "max_yield_pct": 0.36,
+        "stddev_yield_pct": 0.06
+      }
+    },
+    "midway_sunset": {
+      "bitumen": {
+        "n_refineries": 2,
+        "avg_yield_pct": 60.0,
+        "min_yield_pct": 60.0,
+        "max_yield_pct": 60.0,
+        "stddev_yield_pct": 0.0
+      },
+      "motor_gasoline": {
+        "n_refineries": 13,
+        "avg_yield_pct": 28.71,
+        "min_yield_pct": 3.0,
+        "max_yield_pct": 45.02,
+        "stddev_yield_pct": 12.54
+      },
+      "gas_diesel_oil": {
+        "n_refineries": 13,
+        "avg_yield_pct": 25.51,
+        "min_yield_pct": 10.0,
+        "max_yield_pct": 42.08,
+        "stddev_yield_pct": 8.68
+      },
+      "fuel_oil": {
+        "n_refineries": 13,
+        "avg_yield_pct": 16.57,
+        "min_yield_pct": 2.0,
+        "max_yield_pct": 26.29,
+        "stddev_yield_pct": 11.2
+      },
+      "secondary_oil": {
+        "n_refineries": 13,
+        "avg_yield_pct": 7.39,
+        "min_yield_pct": 4.5,
+        "max_yield_pct": 17.0,
+        "stddev_yield_pct": 4.34
+      },
+      "kerosene_type_jet_fuel": {
+        "n_refineries": 11,
+        "avg_yield_pct": 6.73,
+        "min_yield_pct": 4.75,
+        "max_yield_pct": 21.35,
+        "stddev_yield_pct": 4.96
+      },
+      "lpg": {
+        "n_refineries": 11,
+        "avg_yield_pct": 5.42,
+        "min_yield_pct": 2.5,
+        "max_yield_pct": 7.65,
+        "stddev_yield_pct": 1.56
+      },
+      "petroleum_coke": {
+        "n_refineries": 4,
+        "avg_yield_pct": 5.28,
+        "min_yield_pct": 3.47,
+        "max_yield_pct": 8.69,
+        "stddev_yield_pct": 2.36
+      },
+      "lubricants": {
+        "n_refineries": 2,
+        "avg_yield_pct": 1.5,
+        "min_yield_pct": 1.0,
+        "max_yield_pct": 2.0,
+        "stddev_yield_pct": 0.71
+      },
+      "other_products": {
+        "n_refineries": 3,
+        "avg_yield_pct": 1.17,
+        "min_yield_pct": 0.5,
+        "max_yield_pct": 2.0,
+        "stddev_yield_pct": 0.76
+      },
+      "jet_kerosene": {
+        "n_refineries": 11,
+        "avg_yield_pct": 0.21,
+        "min_yield_pct": 0.15,
+        "max_yield_pct": 0.66,
+        "stddev_yield_pct": 0.15
+      }
+    },
+    "niobrara_sweet": {
+      "motor_gasoline": {
+        "n_refineries": 11,
+        "avg_yield_pct": 39.7,
+        "min_yield_pct": 34.05,
+        "max_yield_pct": 46.02,
+        "stddev_yield_pct": 2.68
+      },
+      "gas_diesel_oil": {
+        "n_refineries": 11,
+        "avg_yield_pct": 29.87,
+        "min_yield_pct": 29.08,
+        "max_yield_pct": 36.79,
+        "stddev_yield_pct": 2.31
+      },
+      "kerosene_type_jet_fuel": {
+        "n_refineries": 11,
+        "avg_yield_pct": 10.92,
+        "min_yield_pct": 5.82,
+        "max_yield_pct": 11.64,
+        "stddev_yield_pct": 1.69
+      },
+      "lpg": {
+        "n_refineries": 11,
+        "avg_yield_pct": 6.66,
+        "min_yield_pct": 4.0,
+        "max_yield_pct": 7.23,
+        "stddev_yield_pct": 0.89
+      },
+      "secondary_oil": {
+        "n_refineries": 11,
+        "avg_yield_pct": 5.99,
+        "min_yield_pct": 5.5,
+        "max_yield_pct": 6.06,
+        "stddev_yield_pct": 0.17
+      },
+      "fuel_oil": {
+        "n_refineries": 11,
+        "avg_yield_pct": 5.73,
+        "min_yield_pct": 1.5,
+        "max_yield_pct": 6.59,
+        "stddev_yield_pct": 1.93
+      },
+      "petroleum_coke": {
+        "n_refineries": 2,
+        "avg_yield_pct": 3.43,
+        "min_yield_pct": 1.85,
+        "max_yield_pct": 5.0,
+        "stddev_yield_pct": 2.23
+      },
+      "bitumen": {
+        "n_refineries": 1,
+        "avg_yield_pct": 1.96,
+        "min_yield_pct": 1.96,
+        "max_yield_pct": 1.96,
+        "stddev_yield_pct": null
+      },
+      "jet_kerosene": {
+        "n_refineries": 11,
+        "avg_yield_pct": 0.34,
+        "min_yield_pct": 0.18,
+        "max_yield_pct": 0.36,
+        "stddev_yield_pct": 0.05
+      }
+    },
+    "oklahoma_sweet": {
+      "motor_gasoline": {
+        "n_refineries": 11,
+        "avg_yield_pct": 40.11,
+        "min_yield_pct": 28.0,
+        "max_yield_pct": 55.01,
+        "stddev_yield_pct": 8.12
+      },
+      "gas_diesel_oil": {
+        "n_refineries": 11,
+        "avg_yield_pct": 31.12,
+        "min_yield_pct": 22.0,
+        "max_yield_pct": 38.37,
+        "stddev_yield_pct": 4.13
+      },
+      "lubricants": {
+        "n_refineries": 1,
+        "avg_yield_pct": 12.0,
+        "min_yield_pct": 12.0,
+        "max_yield_pct": 12.0,
+        "stddev_yield_pct": null
+      },
+      "kerosene_type_jet_fuel": {
+        "n_refineries": 11,
+        "avg_yield_pct": 9.2,
+        "min_yield_pct": 1.94,
+        "max_yield_pct": 11.64,
+        "stddev_yield_pct": 3.96
+      },
+      "other_products": {
+        "n_refineries": 1,
+        "avg_yield_pct": 6.0,
+        "min_yield_pct": 6.0,
+        "max_yield_pct": 6.0,
+        "stddev_yield_pct": null
+      },
+      "secondary_oil": {
+        "n_refineries": 11,
+        "avg_yield_pct": 5.68,
+        "min_yield_pct": 4.0,
+        "max_yield_pct": 7.0,
+        "stddev_yield_pct": 0.89
+      },
+      "lpg": {
+        "n_refineries": 11,
+        "avg_yield_pct": 5.42,
+        "min_yield_pct": 2.0,
+        "max_yield_pct": 6.77,
+        "stddev_yield_pct": 1.85
+      },
+      "fuel_oil": {
+        "n_refineries": 11,
+        "avg_yield_pct": 5.27,
+        "min_yield_pct": 1.0,
+        "max_yield_pct": 6.96,
+        "stddev_yield_pct": 2.56
+      },
+      "bitumen": {
+        "n_refineries": 1,
+        "avg_yield_pct": 4.0,
+        "min_yield_pct": 4.0,
+        "max_yield_pct": 4.0,
+        "stddev_yield_pct": null
+      },
+      "petroleum_coke": {
+        "n_refineries": 4,
+        "avg_yield_pct": 2.49,
+        "min_yield_pct": 0.99,
+        "max_yield_pct": 6.0,
+        "stddev_yield_pct": 2.39
+      },
+      "jet_kerosene": {
+        "n_refineries": 11,
+        "avg_yield_pct": 0.28,
+        "min_yield_pct": 0.06,
+        "max_yield_pct": 0.36,
+        "stddev_yield_pct": 0.12
+      }
+    },
+    "permian_condensate": {
+      "motor_gasoline": {
+        "n_refineries": 14,
+        "avg_yield_pct": 49.87,
+        "min_yield_pct": 48.0,
+        "max_yield_pct": 50.33,
+        "stddev_yield_pct": 0.85
+      },
+      "gas_diesel_oil": {
+        "n_refineries": 14,
+        "avg_yield_pct": 22.5,
+        "min_yield_pct": 18.56,
+        "max_yield_pct": 32.0,
+        "stddev_yield_pct": 5.57
+      },
+      "kerosene_type_jet_fuel": {
+        "n_refineries": 14,
+        "avg_yield_pct": 10.84,
+        "min_yield_pct": 5.82,
+        "max_yield_pct": 13.31,
+        "stddev_yield_pct": 3.45
+      },
+      "lpg": {
+        "n_refineries": 14,
+        "avg_yield_pct": 7.0,
+        "min_yield_pct": 2.2,
+        "max_yield_pct": 8.98,
+        "stddev_yield_pct": 2.79
+      },
+      "secondary_oil": {
+        "n_refineries": 14,
+        "avg_yield_pct": 6.77,
+        "min_yield_pct": 5.0,
+        "max_yield_pct": 7.37,
+        "stddev_yield_pct": 0.87
+      },
+      "petroleum_coke": {
+        "n_refineries": 4,
+        "avg_yield_pct": 3.11,
+        "min_yield_pct": 1.49,
+        "max_yield_pct": 5.0,
+        "stddev_yield_pct": 1.44
+      },
+      "bitumen": {
+        "n_refineries": 1,
+        "avg_yield_pct": 2.6,
+        "min_yield_pct": 2.6,
+        "max_yield_pct": 2.6,
+        "stddev_yield_pct": null
+      },
+      "fuel_oil": {
+        "n_refineries": 13,
+        "avg_yield_pct": 1.26,
+        "min_yield_pct": 1.0,
+        "max_yield_pct": 3.5,
+        "stddev_yield_pct": 0.69
+      },
+      "other_products": {
+        "n_refineries": 5,
+        "avg_yield_pct": 1.2,
+        "min_yield_pct": 0.5,
+        "max_yield_pct": 2.0,
+        "stddev_yield_pct": 0.57
+      },
+      "jet_kerosene": {
+        "n_refineries": 14,
+        "avg_yield_pct": 0.34,
+        "min_yield_pct": 0.18,
+        "max_yield_pct": 0.41,
+        "stddev_yield_pct": 0.11
+      }
+    },
+    "poseidon": {
+      "motor_gasoline": {
+        "n_refineries": 20,
+        "avg_yield_pct": 41.98,
+        "min_yield_pct": 35.31,
+        "max_yield_pct": 60.0,
+        "stddev_yield_pct": 6.97
+      },
+      "gas_diesel_oil": {
+        "n_refineries": 20,
+        "avg_yield_pct": 29.62,
+        "min_yield_pct": 18.0,
+        "max_yield_pct": 35.01,
+        "stddev_yield_pct": 3.69
+      },
+      "kerosene_type_jet_fuel": {
+        "n_refineries": 20,
+        "avg_yield_pct": 8.22,
+        "min_yield_pct": 3.88,
+        "max_yield_pct": 11.65,
+        "stddev_yield_pct": 2.0
+      },
+      "fuel_oil": {
+        "n_refineries": 20,
+        "avg_yield_pct": 6.07,
+        "min_yield_pct": 1.5,
+        "max_yield_pct": 11.29,
+        "stddev_yield_pct": 4.48
+      },
+      "secondary_oil": {
+        "n_refineries": 20,
+        "avg_yield_pct": 5.31,
+        "min_yield_pct": 2.0,
+        "max_yield_pct": 10.0,
+        "stddev_yield_pct": 1.71
+      },
+      "petroleum_coke": {
+        "n_refineries": 12,
+        "avg_yield_pct": 4.97,
+        "min_yield_pct": 0.99,
+        "max_yield_pct": 10.0,
+        "stddev_yield_pct": 2.37
+      },
+      "lpg": {
+        "n_refineries": 20,
+        "avg_yield_pct": 4.56,
+        "min_yield_pct": 2.5,
+        "max_yield_pct": 6.9,
+        "stddev_yield_pct": 1.7
+      },
+      "lubricants": {
+        "n_refineries": 4,
+        "avg_yield_pct": 2.12,
+        "min_yield_pct": 0.48,
+        "max_yield_pct": 5.0,
+        "stddev_yield_pct": 2.02
+      },
+      "other_products": {
+        "n_refineries": 5,
+        "avg_yield_pct": 1.48,
+        "min_yield_pct": 1.0,
+        "max_yield_pct": 3.0,
+        "stddev_yield_pct": 0.87
+      },
+      "bitumen": {
+        "n_refineries": 3,
+        "avg_yield_pct": 1.46,
+        "min_yield_pct": 0.94,
+        "max_yield_pct": 1.96,
+        "stddev_yield_pct": 0.51
+      },
+      "jet_kerosene": {
+        "n_refineries": 20,
+        "avg_yield_pct": 0.25,
+        "min_yield_pct": 0.12,
+        "max_yield_pct": 0.36,
+        "stddev_yield_pct": 0.06
+      }
+    },
+    "southern_green_canyon": {
+      "motor_gasoline": {
+        "n_refineries": 17,
+        "avg_yield_pct": 40.69,
+        "min_yield_pct": 29.03,
+        "max_yield_pct": 60.0,
+        "stddev_yield_pct": 8.32
+      },
+      "gas_diesel_oil": {
+        "n_refineries": 17,
+        "avg_yield_pct": 30.44,
+        "min_yield_pct": 18.0,
+        "max_yield_pct": 41.78,
+        "stddev_yield_pct": 5.73
+      },
+      "kerosene_type_jet_fuel": {
+        "n_refineries": 17,
+        "avg_yield_pct": 8.15,
+        "min_yield_pct": 3.88,
+        "max_yield_pct": 10.67,
+        "stddev_yield_pct": 2.07
+      },
+      "fuel_oil": {
+        "n_refineries": 17,
+        "avg_yield_pct": 6.28,
+        "min_yield_pct": 1.5,
+        "max_yield_pct": 12.84,
+        "stddev_yield_pct": 5.02
+      },
+      "secondary_oil": {
+        "n_refineries": 17,
+        "avg_yield_pct": 5.56,
+        "min_yield_pct": 3.5,
+        "max_yield_pct": 10.0,
+        "stddev_yield_pct": 1.34
+      },
+      "petroleum_coke": {
+        "n_refineries": 11,
+        "avg_yield_pct": 5.44,
+        "min_yield_pct": 1.49,
+        "max_yield_pct": 9.0,
+        "stddev_yield_pct": 2.32
+      },
+      "lpg": {
+        "n_refineries": 17,
+        "avg_yield_pct": 4.47,
+        "min_yield_pct": 2.5,
+        "max_yield_pct": 6.54,
+        "stddev_yield_pct": 1.55
+      },
+      "other_products": {
+        "n_refineries": 5,
+        "avg_yield_pct": 1.3,
+        "min_yield_pct": 0.5,
+        "max_yield_pct": 3.0,
+        "stddev_yield_pct": 0.97
+      },
+      "lubricants": {
+        "n_refineries": 3,
+        "avg_yield_pct": 1.16,
+        "min_yield_pct": 0.48,
+        "max_yield_pct": 2.0,
+        "stddev_yield_pct": 0.77
+      },
+      "bitumen": {
+        "n_refineries": 1,
+        "avg_yield_pct": 0.94,
+        "min_yield_pct": 0.94,
+        "max_yield_pct": 0.94,
+        "stddev_yield_pct": null
+      },
+      "jet_kerosene": {
+        "n_refineries": 17,
+        "avg_yield_pct": 0.25,
+        "min_yield_pct": 0.12,
+        "max_yield_pct": 0.33,
+        "stddev_yield_pct": 0.06
+      }
+    },
+    "thunder_horse": {
+      "motor_gasoline": {
+        "n_refineries": 19,
+        "avg_yield_pct": 40.43,
+        "min_yield_pct": 30.67,
+        "max_yield_pct": 60.0,
+        "stddev_yield_pct": 7.32
+      },
+      "gas_diesel_oil": {
+        "n_refineries": 19,
+        "avg_yield_pct": 30.59,
+        "min_yield_pct": 18.0,
+        "max_yield_pct": 40.47,
+        "stddev_yield_pct": 5.07
+      },
+      "kerosene_type_jet_fuel": {
+        "n_refineries": 19,
+        "avg_yield_pct": 8.86,
+        "min_yield_pct": 3.88,
+        "max_yield_pct": 10.67,
+        "stddev_yield_pct": 2.4
+      },
+      "secondary_oil": {
+        "n_refineries": 19,
+        "avg_yield_pct": 5.82,
+        "min_yield_pct": 3.0,
+        "max_yield_pct": 10.0,
+        "stddev_yield_pct": 1.3
+      },
+      "fuel_oil": {
+        "n_refineries": 19,
+        "avg_yield_pct": 5.35,
+        "min_yield_pct": 1.5,
+        "max_yield_pct": 9.37,
+        "stddev_yield_pct": 3.28
+      },
+      "lpg": {
+        "n_refineries": 19,
+        "avg_yield_pct": 4.98,
+        "min_yield_pct": 2.5,
+        "max_yield_pct": 6.65,
+        "stddev_yield_pct": 1.67
+      },
+      "petroleum_coke": {
+        "n_refineries": 12,
+        "avg_yield_pct": 4.42,
+        "min_yield_pct": 0.99,
+        "max_yield_pct": 10.0,
+        "stddev_yield_pct": 2.63
+      },
+      "lubricants": {
+        "n_refineries": 3,
+        "avg_yield_pct": 1.83,
+        "min_yield_pct": 0.48,
+        "max_yield_pct": 4.0,
+        "stddev_yield_pct": 1.9
+      },
+      "other_products": {
+        "n_refineries": 5,
+        "avg_yield_pct": 1.48,
+        "min_yield_pct": 1.0,
+        "max_yield_pct": 3.0,
+        "stddev_yield_pct": 0.87
+      },
+      "bitumen": {
+        "n_refineries": 3,
+        "avg_yield_pct": 1.46,
+        "min_yield_pct": 0.94,
+        "max_yield_pct": 1.96,
+        "stddev_yield_pct": 0.51
+      },
+      "jet_kerosene": {
+        "n_refineries": 19,
+        "avg_yield_pct": 0.27,
+        "min_yield_pct": 0.12,
+        "max_yield_pct": 0.33,
+        "stddev_yield_pct": 0.07
+      }
+    },
+    "wti_cushing": {
+      "motor_gasoline": {
+        "n_refineries": 24,
+        "avg_yield_pct": 44.4,
+        "min_yield_pct": 28.0,
+        "max_yield_pct": 55.01,
+        "stddev_yield_pct": 6.84
+      },
+      "gas_diesel_oil": {
+        "n_refineries": 24,
+        "avg_yield_pct": 30.18,
+        "min_yield_pct": 22.0,
+        "max_yield_pct": 38.0,
+        "stddev_yield_pct": 3.76
+      },
+      "lubricants": {
+        "n_refineries": 1,
+        "avg_yield_pct": 12.0,
+        "min_yield_pct": 12.0,
+        "max_yield_pct": 12.0,
+        "stddev_yield_pct": null
+      },
+      "kerosene_type_jet_fuel": {
+        "n_refineries": 24,
+        "avg_yield_pct": 8.25,
+        "min_yield_pct": 1.94,
+        "max_yield_pct": 11.64,
+        "stddev_yield_pct": 3.11
+      },
+      "secondary_oil": {
+        "n_refineries": 24,
+        "avg_yield_pct": 5.46,
+        "min_yield_pct": 2.0,
+        "max_yield_pct": 8.0,
+        "stddev_yield_pct": 1.3
+      },
+      "lpg": {
+        "n_refineries": 24,
+        "avg_yield_pct": 4.36,
+        "min_yield_pct": 2.0,
+        "max_yield_pct": 6.78,
+        "stddev_yield_pct": 1.92
+      },
+      "petroleum_coke": {
+        "n_refineries": 11,
+        "avg_yield_pct": 3.73,
+        "min_yield_pct": 0.99,
+        "max_yield_pct": 8.0,
+        "stddev_yield_pct": 2.31
+      },
+      "fuel_oil": {
+        "n_refineries": 23,
+        "avg_yield_pct": 3.57,
+        "min_yield_pct": 0.5,
+        "max_yield_pct": 6.9,
+        "stddev_yield_pct": 2.65
+      },
+      "bitumen": {
+        "n_refineries": 6,
+        "avg_yield_pct": 3.46,
+        "min_yield_pct": 1.96,
+        "max_yield_pct": 7.0,
+        "stddev_yield_pct": 1.86
+      },
+      "other_products": {
+        "n_refineries": 8,
+        "avg_yield_pct": 1.81,
+        "min_yield_pct": 0.5,
+        "max_yield_pct": 6.0,
+        "stddev_yield_pct": 1.77
+      },
+      "jet_kerosene": {
+        "n_refineries": 24,
+        "avg_yield_pct": 0.26,
+        "min_yield_pct": 0.06,
+        "max_yield_pct": 0.36,
+        "stddev_yield_pct": 0.1
+      }
+    },
+    "wti_houston": {
+      "motor_gasoline": {
+        "n_refineries": 28,
+        "avg_yield_pct": 40.34,
+        "min_yield_pct": 28.0,
+        "max_yield_pct": 55.0,
+        "stddev_yield_pct": 5.66
+      },
+      "gas_diesel_oil": {
+        "n_refineries": 28,
+        "avg_yield_pct": 30.07,
+        "min_yield_pct": 22.0,
+        "max_yield_pct": 36.95,
+        "stddev_yield_pct": 3.4
+      },
+      "kerosene_type_jet_fuel": {
+        "n_refineries": 28,
+        "avg_yield_pct": 10.93,
+        "min_yield_pct": 4.85,
+        "max_yield_pct": 31.04,
+        "stddev_yield_pct": 4.53
+      },
+      "secondary_oil": {
+        "n_refineries": 28,
+        "avg_yield_pct": 6.06,
+        "min_yield_pct": 4.0,
+        "max_yield_pct": 10.0,
+        "stddev_yield_pct": 0.98
+      },
+      "lpg": {
+        "n_refineries": 28,
+        "avg_yield_pct": 5.54,
+        "min_yield_pct": 2.5,
+        "max_yield_pct": 6.78,
+        "stddev_yield_pct": 1.59
+      },
+      "fuel_oil": {
+        "n_refineries": 28,
+        "avg_yield_pct": 5.04,
+        "min_yield_pct": 1.5,
+        "max_yield_pct": 6.9,
+        "stddev_yield_pct": 2.15
+      },
+      "petroleum_coke": {
+        "n_refineries": 11,
+        "avg_yield_pct": 3.28,
+        "min_yield_pct": 0.99,
+        "max_yield_pct": 10.0,
+        "stddev_yield_pct": 2.7
+      },
+      "bitumen": {
+        "n_refineries": 2,
+        "avg_yield_pct": 1.72,
+        "min_yield_pct": 1.47,
+        "max_yield_pct": 1.96,
+        "stddev_yield_pct": 0.35
+      },
+      "other_products": {
+        "n_refineries": 5,
+        "avg_yield_pct": 1.38,
+        "min_yield_pct": 0.5,
+        "max_yield_pct": 3.0,
+        "stddev_yield_pct": 0.96
+      },
+      "lubricants": {
+        "n_refineries": 1,
+        "avg_yield_pct": 0.48,
+        "min_yield_pct": 0.48,
+        "max_yield_pct": 0.48,
+        "stddev_yield_pct": null
+      },
+      "jet_kerosene": {
+        "n_refineries": 28,
+        "avg_yield_pct": 0.34,
+        "min_yield_pct": 0.15,
+        "max_yield_pct": 0.96,
+        "stddev_yield_pct": 0.14
+      }
+    },
+    "wti_midland": {
+      "motor_gasoline": {
+        "n_refineries": 40,
+        "avg_yield_pct": 42.68,
+        "min_yield_pct": 28.0,
+        "max_yield_pct": 55.01,
+        "stddev_yield_pct": 5.79
+      },
+      "gas_diesel_oil": {
+        "n_refineries": 40,
+        "avg_yield_pct": 29.12,
+        "min_yield_pct": 22.0,
+        "max_yield_pct": 35.0,
+        "stddev_yield_pct": 2.98
+      },
+      "kerosene_type_jet_fuel": {
+        "n_refineries": 40,
+        "avg_yield_pct": 10.03,
+        "min_yield_pct": 1.94,
+        "max_yield_pct": 31.04,
+        "stddev_yield_pct": 4.49
+      },
+      "secondary_oil": {
+        "n_refineries": 40,
+        "avg_yield_pct": 6.06,
+        "min_yield_pct": 4.0,
+        "max_yield_pct": 8.0,
+        "stddev_yield_pct": 0.73
+      },
+      "lpg": {
+        "n_refineries": 40,
+        "avg_yield_pct": 5.53,
+        "min_yield_pct": 2.0,
+        "max_yield_pct": 7.17,
+        "stddev_yield_pct": 1.97
+      },
+      "lubricants": {
+        "n_refineries": 3,
+        "avg_yield_pct": 4.83,
+        "min_yield_pct": 0.48,
+        "max_yield_pct": 12.0,
+        "stddev_yield_pct": 6.26
+      },
+      "fuel_oil": {
+        "n_refineries": 39,
+        "avg_yield_pct": 4.3,
+        "min_yield_pct": 1.0,
+        "max_yield_pct": 5.85,
+        "stddev_yield_pct": 1.99
+      },
+      "petroleum_coke": {
+        "n_refineries": 15,
+        "avg_yield_pct": 2.69,
+        "min_yield_pct": 0.99,
+        "max_yield_pct": 6.0,
+        "stddev_yield_pct": 1.73
+      },
+      "bitumen": {
+        "n_refineries": 4,
+        "avg_yield_pct": 2.67,
+        "min_yield_pct": 1.47,
+        "max_yield_pct": 4.0,
+        "stddev_yield_pct": 1.04
+      },
+      "other_products": {
+        "n_refineries": 10,
+        "avg_yield_pct": 1.75,
+        "min_yield_pct": 0.5,
+        "max_yield_pct": 6.0,
+        "stddev_yield_pct": 1.57
+      },
+      "jet_kerosene": {
+        "n_refineries": 40,
+        "avg_yield_pct": 0.31,
+        "min_yield_pct": 0.06,
+        "max_yield_pct": 0.96,
+        "stddev_yield_pct": 0.14
+      }
+    },
+    "wtl": {
+      "motor_gasoline": {
+        "n_refineries": 9,
+        "avg_yield_pct": 47.99,
+        "min_yield_pct": 47.84,
+        "max_yield_pct": 49.2,
+        "stddev_yield_pct": 0.45
+      },
+      "gas_diesel_oil": {
+        "n_refineries": 9,
+        "avg_yield_pct": 21.9,
+        "min_yield_pct": 20.89,
+        "max_yield_pct": 30.0,
+        "stddev_yield_pct": 3.04
+      },
+      "kerosene_type_jet_fuel": {
+        "n_refineries": 9,
+        "avg_yield_pct": 11.74,
+        "min_yield_pct": 6.79,
+        "max_yield_pct": 12.36,
+        "stddev_yield_pct": 1.86
+      },
+      "lpg": {
+        "n_refineries": 9,
+        "avg_yield_pct": 7.53,
+        "min_yield_pct": 2.2,
+        "max_yield_pct": 8.2,
+        "stddev_yield_pct": 2.0
+      },
+      "secondary_oil": {
+        "n_refineries": 9,
+        "avg_yield_pct": 7.0,
+        "min_yield_pct": 6.0,
+        "max_yield_pct": 7.13,
+        "stddev_yield_pct": 0.38
+      },
+      "fuel_oil": {
+        "n_refineries": 9,
+        "avg_yield_pct": 3.01,
+        "min_yield_pct": 1.5,
+        "max_yield_pct": 3.2,
+        "stddev_yield_pct": 0.57
+      },
+      "bitumen": {
+        "n_refineries": 1,
+        "avg_yield_pct": 2.6,
+        "min_yield_pct": 2.6,
+        "max_yield_pct": 2.6,
+        "stddev_yield_pct": null
+      },
+      "other_products": {
+        "n_refineries": 1,
+        "avg_yield_pct": 1.5,
+        "min_yield_pct": 1.5,
+        "max_yield_pct": 1.5,
+        "stddev_yield_pct": null
+      },
+      "jet_kerosene": {
+        "n_refineries": 9,
+        "avg_yield_pct": 0.36,
+        "min_yield_pct": 0.21,
+        "max_yield_pct": 0.38,
+        "stddev_yield_pct": 0.06
+      }
+    },
+    "wyoming_asphaltic": {
+      "motor_gasoline": {
+        "n_refineries": 12,
+        "avg_yield_pct": 33.64,
+        "min_yield_pct": 31.66,
+        "max_yield_pct": 46.02,
+        "stddev_yield_pct": 4.57
+      },
+      "gas_diesel_oil": {
+        "n_refineries": 12,
+        "avg_yield_pct": 28.23,
+        "min_yield_pct": 27.43,
+        "max_yield_pct": 31.93,
+        "stddev_yield_pct": 1.53
+      },
+      "fuel_oil": {
+        "n_refineries": 12,
+        "avg_yield_pct": 18.77,
+        "min_yield_pct": 1.5,
+        "max_yield_pct": 23.69,
+        "stddev_yield_pct": 8.98
+      },
+      "petroleum_coke": {
+        "n_refineries": 3,
+        "avg_yield_pct": 7.63,
+        "min_yield_pct": 5.0,
+        "max_yield_pct": 9.0,
+        "stddev_yield_pct": 2.27
+      },
+      "kerosene_type_jet_fuel": {
+        "n_refineries": 12,
+        "avg_yield_pct": 5.89,
+        "min_yield_pct": 5.7,
+        "max_yield_pct": 7.76,
+        "stddev_yield_pct": 0.59
+      },
+      "secondary_oil": {
+        "n_refineries": 12,
+        "avg_yield_pct": 5.62,
+        "min_yield_pct": 5.48,
+        "max_yield_pct": 6.5,
+        "stddev_yield_pct": 0.33
+      },
+      "lpg": {
+        "n_refineries": 12,
+        "avg_yield_pct": 5.59,
+        "min_yield_pct": 3.0,
+        "max_yield_pct": 7.29,
+        "stddev_yield_pct": 1.08
+      },
+      "bitumen": {
+        "n_refineries": 1,
+        "avg_yield_pct": 1.96,
+        "min_yield_pct": 1.96,
+        "max_yield_pct": 1.96,
+        "stddev_yield_pct": null
+      },
+      "jet_kerosene": {
+        "n_refineries": 12,
+        "avg_yield_pct": 0.18,
+        "min_yield_pct": 0.18,
+        "max_yield_pct": 0.24,
+        "stddev_yield_pct": 0.02
+      }
+    },
+    "wyoming_sweet": {
+      "motor_gasoline": {
+        "n_refineries": 18,
+        "avg_yield_pct": 36.81,
+        "min_yield_pct": 12.0,
+        "max_yield_pct": 46.02,
+        "stddev_yield_pct": 6.76
+      },
+      "gas_diesel_oil": {
+        "n_refineries": 18,
+        "avg_yield_pct": 32.18,
+        "min_yield_pct": 29.69,
+        "max_yield_pct": 55.0,
+        "stddev_yield_pct": 6.31
+      },
+      "kerosene_type_jet_fuel": {
+        "n_refineries": 18,
+        "avg_yield_pct": 11.0,
+        "min_yield_pct": 5.82,
+        "max_yield_pct": 11.64,
+        "stddev_yield_pct": 1.45
+      },
+      "lpg": {
+        "n_refineries": 18,
+        "avg_yield_pct": 6.23,
+        "min_yield_pct": 3.0,
+        "max_yield_pct": 6.87,
+        "stddev_yield_pct": 1.02
+      },
+      "fuel_oil": {
+        "n_refineries": 18,
+        "avg_yield_pct": 6.07,
+        "min_yield_pct": 1.5,
+        "max_yield_pct": 7.64,
+        "stddev_yield_pct": 2.35
+      },
+      "secondary_oil": {
+        "n_refineries": 18,
+        "avg_yield_pct": 6.02,
+        "min_yield_pct": 5.5,
+        "max_yield_pct": 9.0,
+        "stddev_yield_pct": 0.76
+      },
+      "petroleum_coke": {
+        "n_refineries": 6,
+        "avg_yield_pct": 3.72,
+        "min_yield_pct": 2.18,
+        "max_yield_pct": 8.0,
+        "stddev_yield_pct": 2.36
+      },
+      "bitumen": {
+        "n_refineries": 1,
+        "avg_yield_pct": 1.96,
+        "min_yield_pct": 1.96,
+        "max_yield_pct": 1.96,
+        "stddev_yield_pct": null
+      },
+      "jet_kerosene": {
+        "n_refineries": 18,
+        "avg_yield_pct": 0.34,
+        "min_yield_pct": 0.18,
+        "max_yield_pct": 0.36,
+        "stddev_yield_pct": 0.04
+      }
+    }
+  }
+}

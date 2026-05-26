@@ -2,7 +2,265 @@
 
 ---
 
-## Resume here (2026-05-20 — `refineries` schema added with web-researched grade assignments; renderer + HTML map landed in Stage2)
+## Resume here (2026-05-25 — US Refinery Explorer smoke test passed on `ref_american_bradford`; agent loop + persistence verified end-to-end; one tool bug to fix before continuing calibration)
+
+**Where to pick up:** Stage2, branch `main`. A new **US_refinery_explorer agent** loops over the 115 US refineries in `oil_network.nodes` (subtype='refinery', country='US'), web-researches each (10-Ks, investor decks, EIA, trade press, news), and persists structured findings to a new `refineries.*` schema + `Stage2/outputs/refineries/<refinery_id>/profile.json`. Powered by the **Claude Agent SDK** (`claude-agent-sdk` package, `0.2.87` in the venv) running against Pedro's Claude Code Max subscription via the bundled `claude.exe` — no API key, $0 incremental against the $100/month Agent SDK credit.
+
+**Why this exists:** the EIA refcap25 sheet has universal coverage of capacity / corporation / district for 112/115 refineries, but only **19/115** carry the richer process-unit fields (`has_fcc`, `has_coker`, `has_hydrocracker`, `operator`, `preferred_slate`, `nelson_complexity_index`). The agent's job is to fill the other 96 plus build a per-refinery monthly `crude_runs_bpd` series — neither exists anywhere else in the DB.
+
+**Files produced this round:**
+
+- `code/us_refinery_explorer.py` — agent module. `list_us_refineries()`, `explore_refinery_async()`, `persist_to_db()`, `already_explored()`. Custom MCP server registers 8 tools (`record_unit`, `record_slate`, `record_event`, `record_financial`, `record_monthly`, `record_source`, `finalise`, `query_eia_timeseries`) on top of built-in `WebSearch` / `WebFetch`. Sonnet 4.6 default; `permission_mode='bypassPermissions'` for headless sweep.
+- `code/migrations/create_refineries_schema.py` — idempotent DDL for 8 tables in schema `refineries`, all FK-tied to `oil_network.nodes`: `refinery`, `sources`, `process_units`, `slate`, `events`, `financials`, `runs_monthly`, `exploration_runs`. **Already applied** — verified by notebook cell 2.
+- `code/explore_us_refineries.ipynb` — 6-cell orchestrator. Cell 2 applies the migration, cell 4 has `MODE = 'calibration' | 'full' | 'custom'` + `FORCE` toggle, cell 5 runs + persists, cell 6 row-counts one refinery for QA. Resume-aware via `already_explored()`.
+- `claude/US_REFINERY_EXPLORER_CONTEXT.md` — portable handover doc for spinning up another conversation on this task.
+- `requirements.txt` — `claude-agent-sdk>=0.1` added.
+
+**Schema summary** (DB `eia_crude`, schema `refineries`):
+
+| Table | PK | Notes |
+|---|---|---|
+| `refinery` | `refinery_id` | FK → `oil_network.nodes(node_id)`. Mirrors key facts (corp, operator, capacity, duoarea, PADD) for joins. |
+| `sources` | serial | Citation log — url, title, publisher, document_type, fetched_at. |
+| `process_units` | `(refinery_id, unit_type)` | FCC / coker / hydrocracker / etc. with `capacity_bpd`. |
+| `slate` | `(refinery_id, period_start, grade_name)` | API gravity, sulphur, share_pct. |
+| `events` | serial | Turnarounds, fires, expansions, ownership changes. |
+| `financials` | `(refinery_id, period_start, period_type)` | Quarterly/annual throughput, utilisation, revenue, EBITDA from 10-K/10-Q. |
+| `runs_monthly` | `(refinery_id, month, metric)` | **The synthesised monthly series.** `method` ∈ {`eia_attributed`, `financials_quarterly_split`, `news_turnaround_adjusted`, `capacity_utilisation_baseline`}; `confidence` ∈ {high, medium, low}. |
+| `exploration_runs` | serial | One row per agent invocation: model, tool_calls, tokens, cost, status, summary. Drives resume logic. |
+
+**Bug fix verified:** the first nbconvert run failed for all 3 refineries with `psycopg2.errors.ProgrammingError: the connection cannot be re-entered recursively`. Cause: `persist_to_db` had `with _conn() as conn:` wrapping `with conn, conn.cursor() as cur:` — re-entrant context manager use. Fixed by collapsing to `with _conn() as conn: with conn.cursor() as cur:`. **Confirmed working** by the smoke test below.
+
+**Smoke test result (`ref_american_bradford`):**
+
+| | |
+|---|---:|
+| Duration | 21 min 32 s |
+| Tool calls | 185 |
+| API-rate cost | $4.41 (drawn from $100/mo Agent SDK credit) |
+| Status | success |
+| Process units recorded | 5 |
+| Slate observations | 3 |
+| Events (turnarounds, ownership changes) | 11 |
+| Financial periods | 1 |
+| Monthly throughput points | 86 (Jan 2019 → Feb 2026) |
+| Sources cited | 11 |
+| `profile.json` on disk | 51 KB |
+
+Agent's own summary nailed the refinery's character: "privately held, Halloran-family-owned specialty refinery operating since 1881 — North America's longest continuously running refinery — with 11,000 bpd crude distillation capacity, processing exclusively domestic light sweet paraffinic crude from Pennsylvania, Ohio, New York, and West Virginia to produce Group I/II base oils, waxes, solvents, and specialty fuels. Six confirmed process units include crude distillation, naphtha splitter, catalytic reformer (platformer, subject of a March 2026 fire), MEK dewaxing unit, R.O.S.E./Extract solvent deasphalting unit, and a ~3,500 bpd hydrotreater commissioned circa 2007-2009."
+
+**Known bug to fix before more calibration runs:** the custom MCP tool `query_eia_timeseries` returned a persistent DB column error throughout the smoke test. The agent worked around it via direct EIA WebFetch but burned tool calls doing so (185 vs. the ~50 the prompt asks for). Fix needed: inspect the actual `oil_network.timeseries` / `oil_network.timeseries_data` schema and rewrite the SQL in `us_refinery_explorer.py` (the `query_eia_timeseries` tool body).
+
+**Cost projection:** $4.41/refinery × 115 refineries ≈ **$507** at API rates, well over the $100/mo Agent SDK credit. After fixing the EIA tool and tightening the prompt (cap at ~50 tool calls), per-refinery cost should drop to $1–2 → ~$115–230 for the full sweep. Calibration on the remaining 2 refineries (P66 Bayway, PBF Delaware City) will firm this up.
+
+**Where things stand:**
+
+- `refineries.*` schema: created. Row counts: refinery=1, process_units=5, slate=3, events=11, financials=1, runs_monthly=86, sources=11, exploration_runs=1 (all for `ref_american_bradford` only).
+- `Stage2/outputs/refineries/ref_american_bradford/profile.json`: 51 KB on disk.
+- Other 114 refineries: untouched.
+
+**Re-running on a fresh machine (from `Stage2/`):**
+
+```powershell
+# 1. Make sure the SDK is installed (already done on Pedro's laptop):
+..\..\.venv\Scripts\pip.exe install claude-agent-sdk
+
+# 2. Open the notebook, run cells in order:
+#    Cell 1 imports, cell 2 applies the schema (idempotent), cell 3 lists 115 refineries,
+#    cell 4 sets MODE = 'calibration' (default) | 'full' | 'custom',
+#    cell 5 runs the agent + persists, cell 6 QAs one refinery.
+..\..\.venv\Scripts\jupyter.exe lab code\explore_us_refineries.ipynb
+```
+
+Auth: the SDK ships a bundled `claude.exe` at `.venv/Lib/site-packages/claude_agent_sdk/_bundled/claude.exe`. Subscription auth confirmed working ("What is the capital of France?" → "Paris." round-trip in 1.8 s). No `ANTHROPIC_API_KEY` needed and none should be set.
+
+**Next steps (in order):**
+
+1. **Fix the `query_eia_timeseries` MCP tool** in `code/us_refinery_explorer.py`. The agent reported a persistent DB column error during the Bradford run. Diagnose: `\d+ oil_network.timeseries` + `\d+ oil_network.timeseries_data` in psql, and inspect what JSONB keys actually exist in `t.attributes` (the current SQL probes `attributes->>'duoarea'` which may not match the real key name).
+2. **Tighten `SYSTEM_PROMPT`** — cap tool calls at ~50, narrow turnaround date inference to "confirmed only" instead of inferring from EIA district dips. Goal: $1–2/refinery.
+3. Run the remaining 2 calibration refineries: `ref_p66_bayway` (major), `ref_pbf_delaware_city` (mid-size). Use `MODE = 'calibration'` + `FORCE = False` — Bradford will be skipped automatically.
+4. Review the 3 calibration `profile.json` files side-by-side. Decide whether agent output quality is good enough for the thesis.
+5. Full sweep — `MODE = 'full'`, 115 refineries. Per-refinery cost from tuned calibration × 115 = firmer budget.
+6. Decide whether the synthesised `refineries.runs_monthly` series should also be promoted into `oil_network.timeseries_data` (the resolver's source of truth) — not done yet, by design.
+
+Full task context lives in `claude/US_REFINERY_EXPLORER_CONTEXT.md` (portable, intended for handing off to another conversation).
+
+---
+
+## Earlier — slate algorithm tuned through 2 calibration passes against published benchmarks; 100/125 covered (commodity, main_group) rows now sit inside the benchmark range (2026-05-20 night)
+
+**Where to pick up:** Stage2, branch `main`. `refineries.refinery_grade_slate` reloaded after a second tuning pass. The data is now validated against an **independent published-benchmark JSON** in `config/per_grade_yield_benchmarks.json` (IEA Refining Margin Methodology Aug-2024, EIA PADD yields, ExxonMobil EMTEC assays, Platts via EPRINC).
+
+**Calibration progression** across two algorithm tuning rounds:
+
+| Comparison flag | Pass 0 (original) | Pass 1 (archetype default) | Pass 2 (LPG + petcoke) |
+|---|---:|---:|---:|
+| `ok` (inside benchmark range) | 64 | 89 | **100** |
+| `borderline` (within 3pp tolerance) | 38 | 35 | **24** |
+| `out_of_range` (outside tolerance) | **23** | 1 | 1 |
+| `no_benchmark` (main_group not benchmarked) | 106 | 106 | 106 |
+
+**100/125 covered (commodity, main_group) rows (80%) now inside benchmark range; 124/125 within tolerance.**
+
+**Pass 1 fix** — `code/build_refinery_slates.py`:
+- `determine_archetype()`: default-when-unknown changed from `hydroskimming` to `cracking`. Before this fix, 211 of 298 baseline-only pairs were classified as hydroskimming because most non-major refineries have null NCI / coker / hydrocracker. Hydroskimming sends ~95% of resid to fuel_oil → biased fuel_oil +17pp, gasoline −15pp across most grades.
+- `ARCHETYPE_TRANSFORMS["cracking"]`: vacuum_resid recalibrated 97% fuel_oil → 58/18/15/4/5 (fuel_oil/diesel/gasoline/LPG/refgas) reflecting visbreaker + cutter-blending + inter-plant resid sales.
+
+**Pass 2 fix** — `code/build_refinery_slates.py`:
+- LPG slip bumped across light_naphtha (0.04→0.06), heavy_naphtha (0.02→0.05), VGO (0.06→0.08) and vacuum_resid (cracking 0.04→0.06, coking/deep_conv 0.06→0.10) for cracking/coking/deep_conversion archetypes. Captures FCC + reformer C3/C4 slip that the original cut-based model didn't account for. Hydroskimming left untouched (no FCC).
+- Cracking vacuum_resid diesel fraction 0.18→0.14, balanced by fuel_oil 0.58→0.62 — US cracking refineries blend more resid down to HSFO than the IEA Aug-2024 typical implies.
+- Coking petcoke fraction 0.28→0.25, deep-conversion 0.25→0.22 — brings medium-sour petcoke from 4–5% into IEA ≤4% band for coking refineries.
+
+**Files produced or refreshed this round:**
+
+- `config/per_grade_yield_benchmarks.json` — blank-slate research agent output, 22 grades × 8 main groups × cracking+coking configurations. Anchored by IEA Aug 2024 Refining Margin Methodology, ExxonMobil EMTEC assays, Platts/EPRINC.
+- `per_grade_db_aggregates.json` — DB aggregates per (commodity, main_group): n_refineries, avg/min/max/stddev. Refreshed by `dump_per_grade_aggregates.py`.
+- `per_grade_comparison.json` — diff report tagging each row `ok` / `borderline` / `out_of_range` / `no_benchmark`. Refreshed by `compare_slates_vs_benchmarks.py`.
+- `dump_per_grade_aggregates.py`, `compare_slates_vs_benchmarks.py` — Stage2-root one-shot helpers, kept for future revalidation runs.
+
+**Residual issues — documented but accepted:**
+
+| Pattern | Reason | Severity |
+|---|---|---|
+| `ans × gas_diesel_oil` 29.08% (bench 19–26%, tol +3.08pp) | West Coast refineries that run ANS produce diesel-tilted slates (CARB ULSD demand). Benchmark is IEA "typical US cracking" which under-represents California demand. | Out-of-range but explainable. |
+| 6 grades 0.5pp below LPG benchmark min (5%) | Light_naphtha LPG slip is approaching realistic ceiling; further bumps would distort the gasoline pool. | Marginal — small absolute impact. |
+| 7 grades slightly above diesel upper bound | US product mix is more distillate-heavy than IEA "typical" benchmark. | Real-world drift in benchmark vintage. |
+| 3 condensate/very-light grades show petcoke 2.5–3.5% (bench 0–1.5%) | Web overrides apply refinery-wide slates uniformly across all grades a refinery processes. A coking refinery that also runs Eagle Ford condensate inherits its full-refinery petcoke yield for condensate too. | Inherent data-source limitation. |
+
+**Re-running on a fresh machine (from `Stage2/`):**
+
+```powershell
+..\..\.venv\Scripts\python.exe code\build_refinery_slates.py
+..\..\.venv\Scripts\python.exe merge_slate_overrides.py
+..\..\.venv\Scripts\python.exe code\load_refinery_slates.py
+..\..\.venv\Scripts\python.exe dump_per_grade_aggregates.py
+..\..\.venv\Scripts\python.exe compare_slates_vs_benchmarks.py
+```
+
+The benchmark JSON in `config/per_grade_yield_benchmarks.json` is stable reference data; only the comparison output needs refreshing after each baseline rebuild.
+
+---
+
+## Earlier — verification round caught a systematic bias; algorithm recalibrated, re-run produces benchmark-aligned slates (2026-05-20 evening)
+
+**Where to pick up:** Stage2, branch `main`. `refineries.refinery_grade_slate` re-loaded (11,645 rows, 473 pairs, 0 audit flags). The data is now validated against an **independent published-benchmark JSON** produced by a blank-slate research agent.
+
+**What this verification round caught.** The initial baseline algorithm classified 211 of 298 baseline-only (refinery, grade) pairs as `hydroskimming` because most non-major refineries have null `nelson_complexity_index` / `has_coker` / `has_hydrocracker` attributes in `oil_network.assets`. `determine_archetype()` defaulted to `hydroskimming` whenever those fields were null — but **<10% of US refineries are truly hydroskimming**; the rest are at least cracking-complexity. The default biased the baseline to over-produce fuel_oil (avg 17–25% vs benchmark 1–13%) and under-produce gasoline (avg 25–37% vs benchmark 38–52%) across most grades.
+
+**Files added this round:**
+
+- **`config/per_grade_yield_benchmarks.json`** — output of a fresh research agent run with no exposure to the existing DB. 22 grades × 8 main groups × two refinery configurations (typical_cracking + typical_coking) with `range_min` / `range_max` / `confidence` / `source` / `source_url`. Anchored by IEA Aug-2024 Refining Margin Methodology, ExxonMobil EMTEC assays, and Platts assay tables via EPRINC. 9 grades high-confidence, 6 medium, 7 low (derived by analogy for grades without published marker assays).
+- **`per_grade_db_aggregates.json`** — DB aggregates per (commodity, main_group): n_refineries, avg/min/max/stddev yield_pct, rolled from leaf to main-group via `products.oil_products.parent_code`. Re-computed by `dump_per_grade_aggregates.py`.
+- **`per_grade_comparison.json`** — diff report: 231 (commodity, main_group) rows tagged `ok` / `borderline` / `out_of_range` / `no_benchmark`, with each DB row's avg and the benchmark's range. Re-computed by `compare_slates_vs_benchmarks.py`.
+
+**Algorithm fix in `code/build_refinery_slates.py`:**
+
+1. **`determine_archetype()`** — default-when-unknown changed from `hydroskimming` to `cracking`. Hydroskimming is now only returned when `nci` is explicitly set and `< 5`. Comment in the code explains why.
+2. **`ARCHETYPE_TRANSFORMS["cracking"]`** — recalibrated against IEA/EIA benchmarks:
+   - vacuum_resid: 97% fuel_oil → realistic 58% fuel_oil + 18% diesel + 15% gasoline + 4% LPG + 5% refgas (models visbreaker / cutter-blending / inter-plant sale to coker — the actual fate of resid at US cracking refineries).
+   - vacuum_gasoil: tilted further toward gasoline (62% vs 55%) and diesel (20% vs 22%); fuel_oil cut from 12% to 6%.
+   - Light-ends: now produce a small LPG fraction off light_naphtha (0.04) and heavy_naphtha (0.02) reflecting FCC and reformer slip.
+
+**Verification results:**
+
+| Comparison flag | Before fix | After fix |
+|---|---:|---:|
+| `ok` (DB avg inside benchmark range) | 64 | **89** |
+| `borderline` (within 3-pct tolerance) | 38 | 35 |
+| `out_of_range` (outside benchmark + tolerance) | **23** | **1** |
+| `no_benchmark` (no benchmark for this main_group) | 106 | 106 |
+
+The single remaining `out_of_range` row is `ans` × `gas_diesel_oil` at 29.4% (benchmark 19–26%, tolerance 16–29%). That's 0.4 pct above tolerance — acceptable given ANS is over-represented in West-Coast distillate-heavy refineries.
+
+**Spot-check after fix** — algorithmic-baseline-only rows now sit inside benchmark range:
+
+| Grade × main_group (baseline) | Before fix | After fix | Benchmark |
+|---|---:|---:|---|
+| LLS gasoline | 25.6% | **38.6%** | 38–50% |
+| LLS fuel_oil | 27.2% | **7.0%**  | 1.5–12% |
+| WTI Midland gasoline | 31.8% | **42.3%** | 41–52% |
+| WTI Midland fuel_oil | 21.4% | **5.0%**  | 2–9% |
+| Mars fuel_oil | 29.7% | **8.6%**  | 1–12% |
+| ANS fuel_oil | 38.9% | **10.0%** | 1.5–13% |
+
+**Remaining minor discrepancies** (35 borderline rows): LPG yield ~3–5% across most grades vs benchmark 5–12% — our algorithm only counts straight-run LPG from the cut profile, not FCC + reformer LPG slip. Could be patched by adding a +1–2% LPG kicker for cracking/coking archetypes; left as-is for now since absolute impact is small.
+
+**Files used to re-run after a `determine_archetype` / archetype-transform change:**
+
+```powershell
+..\..\.venv\Scripts\python.exe code\build_refinery_slates.py
+..\..\.venv\Scripts\python.exe merge_slate_overrides.py
+..\..\.venv\Scripts\python.exe code\load_refinery_slates.py
+..\..\.venv\Scripts\python.exe dump_per_grade_aggregates.py
+..\..\.venv\Scripts\python.exe compare_slates_vs_benchmarks.py
+```
+
+The benchmark JSON is stable reference data — only the comparison output needs refreshing.
+
+---
+
+## Earlier — `refineries.refinery_grade_slate` populated: per-(refinery, grade) leaf-product yields, algorithmic baseline + web overrides for 175 of 473 pairs (2026-05-20 evening)
+
+**Where to pick up:** Stage2, branch `main`. The `refineries` schema now has a second table holding **crude-to-products yield slates** keyed by (refinery_id, commodity, product_code), composite-FK'd to `refinery_grade_assignments` so a slate cannot drift away from the grade-capability table. **11,620 product rows** across 473 (refinery, grade) pairs; sums hit 100% inside [95, 105] tolerance for every pair (zero audit flags).
+
+**What this session added:**
+
+- **`code/migrations/build_refinery_slate_schema.py`** — creates `refineries.refinery_grade_slate` (PK `(refinery_id, commodity, product_code)`, composite FK to `refinery_grade_assignments`, single-FK to `products.oil_products`, CHECK `yield_pct ∈ [0, 100]`). Also creates `refineries.v_refinery_grade_slate` (canonical join: refinery + grade + product metadata) and `refineries.v_refinery_slate_audit` (per-(refinery, grade) sum check, flags rows outside [95, 105] with `dominant_source` tag).
+- **`code/build_refinery_slates.py`** — algorithmic baseline generator. Inputs: refinery configuration (NCI + has_coker + has_hydrocracker → archetype ∈ {hydroskimming, cracking, coking, deep_conversion}) and grade properties (API + density class → cut profile across LPG/light-naphtha/heavy-naphtha/kerosene/atmos-gasoil/VGO/vacuum-resid). Plant-type detection short-circuits the archetype for asphalt plants / condensate splitters / topping plants / lubricant plants with hardcoded templates. Then per-PADD leaf allocation splits main-group totals (motor_gasoline, gas_diesel_oil, kerosene_type_jet_fuel, fuel_oil, lpg, petroleum_coke, bitumen, lubricants, naphtha, refinery_gas) into ~25 leaf products each (mogas_regular/midgrade/premium/RBOB/CBOB; ULSD/heating-oil/marine-gasoil/rail-diesel; jet_a/jet_a1/jp_8; VLSFO/HSFO/LSFO/ULSFO/bunker_c; propane/n-butane/isobutane; green/calcined/needle coke; paving/industrial/PMB bitumen; etc.).
+- **`config/refinery_grade_slates_baseline.json`** — algorithmic output, 473 pairs × ~23 products = 10,836 rows; preserved as audit trail of the algorithm step.
+- **`config/refinery_grade_slates_groupA_overrides.json` / `_groupB_overrides.json` / `_groupC_overrides.json`** — raw output of the three parallel web-research agents. Group A reviewed 39 refineries (22 searched, 43 override pairs); Group B reviewed 38 (22 searched, 8 specific + wildcard expansions); Group C reviewed 38 (28 searched, 25 mostly-wildcard overrides expanding to 95 pairs after merge wildcard handling).
+- **`merge_slate_overrides.py`** — combines baseline + 3 group overrides into the loadable seed. Handles wildcards (`"*"`, `"all"`) by applying one override across all of a refinery's assigned grades. Drops foreign-grade placeholders (WCS / Maya / Merey — 5 dropped, all noted in agent JSON as falling outside the 23-grade vocabulary). Re-applies the same per-PADD leaf allocation to overridden main-group totals, normalises to 100%.
+- **`config/refinery_grade_slates.json`** — final loadable seed: 11,620 product rows. **175 pairs (37%) have web-research-derived slates** (`source = refined_by_web_override`); 298 pairs (63%) use the algorithmic baseline.
+- **`code/load_refinery_slates.py`** — validates against `refinery_grade_assignments` + `products.oil_products`, delete-then-insert for any (refinery, commodity) pair the JSON mentions, idempotent.
+
+**High-quality web finds anchoring the overrides:**
+- Marathon Petroleum 2024 10-K system yield (50.3% gasoline / 36.2% distillates / 6.5% NGL+petchem / 2.7% asphalt) — applied to Garyville, Galveston Bay, LA, Catlettsburg, Mandan, Kenai, St Paul, Robinson, Canton, Anacortes, El Paso.
+- Valero 2024 10-K (45.2% gasoline / 44.9% distillates / 9.9% other).
+- Phillips 66 site-level kbd-per-product disclosures for Sweeny, Wood River, Lake Charles, Bayway, Ponca City, Billings (Billings distillate-tilted at 51%).
+- PBF Energy regional disclosures — Gulf 60/22, East 45/36, West 38/40 (Chalmette, Paulsboro, Martinez, Torrance, Delaware City, Toledo).
+- Monroe Trainer (Delta's strategic refinery) — 28% jet_a leaf yield captured (vs 8% baseline) per Delta SEC disclosure.
+- Pemex Deer Park 2024 direct: 110 kbd gasoline / 90 kbd diesel / 25 kbd jet on 312 kbd throughput.
+- Chevron Richmond California profile (jet-heavy: 60% of Bay Area airport jet supply).
+- CVR Coffeyville + Wynnewood 2026 IR materials — 90% gasoline+distillate combined.
+
+**Audit results.** `refineries.v_refinery_slate_audit` returns **zero flagged rows** — every (refinery, grade) slate sums between 95 and 105. The web-research agents also reported their findings sum to 100% per slate; the merge step's normalization stage preserves this.
+
+**Vocabulary gaps surfaced this session:**
+- 5 attempts to override grades with foreign-heavy placeholders (WCS for Canadian-heavy-running refineries: Wood River, Delaware City, Catlettsburg, Joliet, Billings) were dropped at merge. Adding `wcs` / `maya` / `merey` to `oil_network.commodities` would let these overrides apply to a meaningful grade.
+- 2 refineries with disputed operational status: `ref_cpi_paulsboro` (idled 2017, now terminal/asphalt only) and `ref_vertex_saraland` (renewable→conventional pivot 2024) were given minimal slates per the agents' notes.
+
+**Quick query: see the full slate for a refinery + grade joined to every other schema:**
+
+```sql
+SELECT product_code, product_name, ROUND(yield_pct, 2) AS pct, source
+FROM refineries.v_refinery_grade_slate
+WHERE refinery_id = 'ref_marathon_garyville' AND commodity = 'mars'
+ORDER BY yield_pct DESC;
+```
+
+**Re-running on a fresh machine (from `Stage2/`):**
+
+```powershell
+..\..\.venv\Scripts\python.exe code\migrations\build_refinery_slate_schema.py
+..\..\.venv\Scripts\python.exe code\build_refinery_slates.py        # writes baseline JSON
+..\..\.venv\Scripts\python.exe ..\Stage2\merge_slate_overrides.py   # merges with overrides
+..\..\.venv\Scripts\python.exe code\load_refinery_slates.py
+```
+
+The 3 group-override JSON files in `Stage2/config/` are committed audit trail — re-running the merge consumes them.
+
+**Files added this session, all under Stage2:**
+- `code/migrations/build_refinery_slate_schema.py`
+- `code/build_refinery_slates.py`
+- `code/load_refinery_slates.py`
+- `merge_slate_overrides.py` (Stage2 root, one-shot helper)
+- `config/refinery_grade_slates_baseline.json` (audit, 10,836 rows)
+- `config/refinery_grade_slates_groupA_overrides.json` / `_groupB_overrides.json` / `_groupC_overrides.json` (raw agent output)
+- `config/refinery_grade_slates.json` (the merged loadable seed)
+
+---
+
+## Earlier — `refineries` schema added with web-researched grade assignments; renderer + HTML map landed in Stage2 (2026-05-20)
 
 **Where to pick up:** Stage2, branch `main`. New schema `refineries` sits alongside `oil_network` in the same `eia_crude` database, untouched by the propagator work. All scripts now live under `Stage2/code/` and `Stage2/config/` (initial development happened in `Thesis/clean/`; moved into Stage2 in the same session).
 

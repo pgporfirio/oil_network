@@ -29,3 +29,6 @@ openpyxl>=3.1
 # DOCX read/write (thesis documents)
 python-docx>=1.1
 docx2pdf>=0.1.8  # docx -> PDF via MS Word COM (Windows); paired output for Remarkable
+
+# Claude Agent SDK (us_refinery_explorer.py — uses Claude Code CLI subscription auth)
+claude-agent-sdk>=0.1
